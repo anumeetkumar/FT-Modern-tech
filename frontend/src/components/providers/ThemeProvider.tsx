@@ -40,7 +40,7 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
     const lightTheme = {
       mode: 'light',
       colors: {
-        '--primary': '#26bbed',
+        '--primary': '#008000',
         '--secondary': '#ffffff',
         '--accent': '#333333',
         '--background': '#ffffff',
