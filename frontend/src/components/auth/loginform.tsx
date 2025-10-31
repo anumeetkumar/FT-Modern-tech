@@ -174,7 +174,7 @@ function LoginForm() {
               <Button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                className="w-full hover:bg-primary/90"
               >
                 {isLoading ? (
                   <>
