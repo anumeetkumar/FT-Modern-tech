@@ -30,7 +30,7 @@ const KpiStats = () => {
       <motion.div
         whileHover={{ y: -2 }}
         whileTap={{ scale: 0.98 }}
-        className="group rounded-2xl border border-border bg-background p-4 shadow-sm hover:shadow-md"
+        className="group rounded-2xl border border-border bg-background dark:bg-foreground/5 p-4 shadow-sm hover:shadow-md"
       >
         <div className="flex items-center justify-between">
           <span className="text-xs uppercase tracking-wider text-muted">

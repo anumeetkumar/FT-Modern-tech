@@ -1,7 +1,9 @@
-  @import "tailwindcss";
-  @import "tw-animate-css";
-  /* Country Flags Library */
-  @import "flag-icons/css/flag-icons.min.css";
+@import "tailwindcss";
+@import "tw-animate-css";
+/* Country Flags Library - Install: npm install flag-icons */
+@import "flag-icons/css/flag-icons.min.css";
+
+@custom-variant dark (&:is(.dark *));
 
   /* Define core theme variables — dynamically updated by your theme logic */
   :root {
