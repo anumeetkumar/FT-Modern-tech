@@ -11,6 +11,30 @@ const AdoptionAndVehicleSection = () => {
   const [showUsers, setShowUsers] = useState(true);
   const [showLicenses, setShowLicenses] = useState(true);
   type ChartComp = React.ComponentType<any> | null;
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  const vehiclesRaw = [
+    120, 160, 240, 355, 540, 840, 1120, 1500, 2050, 2600, 3100, 3577,
+  ];
+  const usersRaw = [
+    80, 130, 210, 340, 500, 760, 980, 1400, 2000, 2600, 3200, 3847,
+  ];
+  const licensesRaw = [
+    1000, 2500, 5000, 8500, 12000, 18000, 25000, 32000, 38000, 45000, 52000,
+    57067,
+  ];
   const [ApexChart, setApexChart] = useState<ChartComp>(null);
   const [chartError, setChartError] = useState<null | string>(null);
   const [isClient, setIsClient] = useState(false);
@@ -123,31 +147,6 @@ const AdoptionAndVehicleSection = () => {
   // Clipboard utility with fallbacks
   const [copyModalOpen, setCopyModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState("");
-
-  const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-  const vehiclesRaw = [
-    120, 160, 240, 355, 540, 840, 1120, 1500, 2050, 2600, 3100, 3577,
-  ];
-  const usersRaw = [
-    80, 130, 210, 340, 500, 760, 980, 1400, 2000, 2600, 3200, 3847,
-  ];
-  const licensesRaw = [
-    1000, 2500, 5000, 8500, 12000, 18000, 25000, 32000, 38000, 45000, 52000,
-    57067,
-  ];
 
   // Build series based on toggles
   const adoptionSeries = useMemo(() => {
