@@ -30,8 +30,6 @@ import AdminRightDrawerInfo from "@/components/superadmin/adminrightdrawerinfo";
 import { AdminRow } from "@/lib/types/superadmin";
 import { ADMIN_DATA } from "@/lib/data/superadmin";
 
-
-
 export default function Page() {
   const router = useRouter();
 
@@ -83,10 +81,10 @@ export default function Page() {
   const displayOptions: DisplayMap<AdminRow> = {
     0: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-foreground/70">
           <PersonIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-foreground/60"
           />
           Administrator
         </div>
@@ -94,13 +92,13 @@ export default function Page() {
       content: (row) => (
         <div className="group">
           <div
-            className="flex gap-2 cursor-pointer py-1 rounded-md hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors"
+            className="flex gap-2 cursor-pointer py-1 rounded-md transition-colors"
             onClick={(e) => {
               e.stopPropagation();
               router.push(`administrators/${row.id}`);
             }}
           >
-            <Avatar className="h-8 w-8 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 flex items-center justify-center flex-shrink-0">
+            <Avatar className="h-8 w-8 rounded-lg border border-border bg-foreground/10 text-foreground flex items-center justify-center flex-shrink-0">
               <AvatarImage
                 src={row?.profileUrl}
                 alt={row?.name}
@@ -117,17 +115,17 @@ export default function Page() {
 
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-1.5">
-                <h3 className="text-[13px] font-medium text-neutral-900 dark:text-neutral-100 group-hover:text-neutral-700 dark:group-hover:text-neutral-200 transition-colors truncate">
+                <h3 className="text-[13px] font-medium text-foreground group-hover:text-primary transition-colors truncate">
                   {row.name}
                 </h3>
                 {row.isEmailVerified && (
                   <VerifiedIcon
                     style={{ fontSize: "13px" }}
-                    className="text-blue-500 dark:text-blue-400 flex-shrink-0"
+                    className="text-success flex-shrink-0"
                   />
                 )}
               </div>
-              <div className="text-[11px] text-neutral-500 dark:text-neutral-400 font-mono mt-0.5">
+              <div className="text-[11px] text-muted font-mono mt-0.5">
                 {row.mobilePrefix} {row.mobileNumber}
               </div>
             </div>
@@ -137,7 +135,7 @@ export default function Page() {
       tooltip: (row) => (
         <div className="p-2 max-w-xs">
           <div className="flex items-center gap-2 mb-2">
-            <div className="w-7 h-7 rounded-md bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 flex items-center justify-center text-neutral-700 dark:text-neutral-300 font-medium text-[10px]">
+            <div className="w-7 h-7 rounded-md bg-foreground/10 border border-border flex items-center justify-center text-foreground font-medium text-[10px]">
               {row.name
                 .split(" ")
                 .map((n) => n[0])
@@ -145,72 +143,56 @@ export default function Page() {
                 .slice(0, 2)}
             </div>
             <div>
-              <div className="font-semibold text-[12px] text-neutral-900 dark:text-neutral-100">
+              <div className="font-semibold text-[12px] text-foreground">
                 {row.name}
               </div>
-              <div className="text-[9px] text-neutral-500 dark:text-neutral-400">
-                Administrator
-              </div>
+              <div className="text-[9px] text-muted">Administrator</div>
             </div>
           </div>
 
           <div className="space-y-1 text-[11px]">
             <div className="flex items-center gap-1.5">
-              <EmailIcon
-                style={{ fontSize: "11px" }}
-                className="text-neutral-400 dark:text-neutral-500"
-              />
-              <span className="text-neutral-700 dark:text-neutral-300 truncate">
-                {row.email}
-              </span>
+              <EmailIcon style={{ fontSize: "11px" }} className="text-muted" />
+              <span className="text-foreground truncate">{row.email}</span>
               {row.isEmailVerified && (
                 <VerifiedIcon
                   style={{ fontSize: "10px" }}
-                  className="text-blue-500 dark:text-blue-400 flex-shrink-0"
+                  className="text-success flex-shrink-0"
                 />
               )}
             </div>
             <div className="flex items-center gap-1.5">
-              <CallIcon
-                style={{ fontSize: "11px" }}
-                className="text-neutral-400 dark:text-neutral-500"
-              />
-              <span className="text-neutral-700 dark:text-neutral-300 font-mono">
+              <CallIcon style={{ fontSize: "11px" }} className="text-muted" />
+              <span className="text-foreground font-mono">
                 {row.mobilePrefix} {row.mobileNumber}
               </span>
             </div>
             <div className="flex items-center gap-1.5">
               <LocationOnIcon
                 style={{ fontSize: "11px" }}
-                className="text-neutral-400 dark:text-neutral-500"
+                className="text-muted"
               />
-              <span className="text-neutral-700 dark:text-neutral-300">
+              <span className="text-foreground">
                 {row.city}, {row.country}
               </span>
             </div>
           </div>
 
-          <div className="mt-2 pt-2 border-t border-neutral-200 dark:border-neutral-700">
+          <div className="mt-2 pt-2 border-t border-border">
             <div className="flex justify-between text-[10px]">
-              <span className="text-neutral-500 dark:text-neutral-400">
-                Fleet:
-              </span>
-              <span className="font-medium text-neutral-900 dark:text-neutral-100">
+              <span className="text-muted">Fleet:</span>
+              <span className="font-medium text-foreground">
                 {row.vehicles} vehicles
               </span>
             </div>
             <div className="flex justify-between text-[10px] mt-1">
-              <span className="text-neutral-500 dark:text-neutral-400">
-                Credits:
-              </span>
-              <span className="font-medium text-neutral-900 dark:text-neutral-100">
-                {row.credits}
-              </span>
+              <span className="text-muted">Credits:</span>
+              <span className="font-medium text-foreground">{row.credits}</span>
             </div>
           </div>
 
-          <div className="mt-2 pt-2 border-t border-neutral-200 dark:border-neutral-700">
-            <div className="flex items-center gap-1 text-[10px] text-neutral-500 dark:text-neutral-400">
+          <div className="mt-2 pt-2 border-t border-border">
+            <div className="flex items-center gap-1 text-[10px] text-muted">
               <AccessTimeIcon style={{ fontSize: "9px" }} />
               <span>Last: {row.lastLogin || "Never"}</span>
             </div>
@@ -218,12 +200,13 @@ export default function Page() {
         </div>
       ),
     },
+
     1: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-foreground/70">
           <AccountCircleIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-foreground/60"
           />
           Account
         </div>
@@ -231,34 +214,31 @@ export default function Page() {
       content: (row) => (
         <div className="space-y-1 py-0.5">
           <div className="flex items-center gap-1.5">
-            <BadgeIcon
-              style={{ fontSize: "12px" }}
-              className="text-neutral-400 dark:text-neutral-500"
-            />
-            <span className="text-[12px] font-medium text-neutral-700 dark:text-neutral-300">
+            <BadgeIcon style={{ fontSize: "12px" }} className="text-muted" />
+            <span className="text-[12px] font-medium text-foreground">
               @{row.username}
             </span>
           </div>
           <div className="flex items-start gap-1.5">
             <EmailIcon
               style={{ fontSize: "12px" }}
-              className="text-neutral-400 dark:text-neutral-500 mt-0.5 flex-shrink-0"
+              className="text-muted mt-0.5 flex-shrink-0"
             />
             <div className="flex-1 min-w-0">
               <a
                 href={`mailto:${row.email}`}
-                className="text-[11px] text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 hover:underline transition-colors truncate block"
+                className="text-[11px] text-muted hover:text-primary hover:underline transition-colors truncate block"
                 onClick={(e) => e.stopPropagation()}
               >
                 {row.email}
               </a>
               {row.isEmailVerified ? (
-                <span className="inline-flex items-center gap-0.5 mt-0.5 px-1.5 py-0.5 rounded text-[9px] font-medium bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400">
+                <span className="inline-flex items-center gap-0.5 mt-0.5 px-1.5 py-0.5 rounded text-[9px] font-medium bg-success/10 text-success">
                   <VerifiedIcon style={{ fontSize: "9px" }} />
                   Verified
                 </span>
               ) : (
-                <span className="inline-flex items-center mt-0.5 px-1.5 py-0.5 rounded text-[9px] font-medium bg-red-50 dark:bg-red-950 text-red-700 dark:text-red-400">
+                <span className="inline-flex items-center mt-0.5 px-1.5 py-0.5 rounded text-[9px] font-medium bg-error/10 text-error">
                   Pending
                 </span>
               )}
@@ -267,49 +247,51 @@ export default function Page() {
         </div>
       ),
     },
+
     2: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-foreground/70">
           <DirectionsCarIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-foreground/60"
           />
           Fleet
         </div>
       ),
       content: (row) => (
         <div className="text-center py-0.5">
-          <div className="text-[21px] font-semibold text-neutral-900 dark:text-neutral-100 leading-none">
+          <div className="text-[21px] font-semibold text-foreground leading-none">
             {row.vehicles?.toLocaleString() || 0}
           </div>
-          <div className="text-[8px] text-neutral-500 dark:text-neutral-400 mt-1 uppercase tracking-wide">
+          <div className="text-[8px] text-muted mt-1 uppercase tracking-wide">
             {row.vehicles === 1 ? "Vehicle" : "Vehicles"}
           </div>
         </div>
       ),
     },
+
     3: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-foreground/70">
           <CreditCardIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-foreground/60"
           />
           Credits
         </div>
       ),
       content: (row) => (
         <div className="text-center py-0.5">
-          <div className="text-[21px] font-semibold text-neutral-900 dark:text-neutral-100 leading-none">
+          <div className="text-[21px] font-semibold text-foreground leading-none">
             {row.credits.toLocaleString()}
           </div>
           <div
             className={`text-[8px] mt-1 font-medium uppercase tracking-wide ${
               row.credits > 50
-                ? "text-emerald-600 dark:text-emerald-400"
+                ? "text-success"
                 : row.credits > 20
-                ? "text-amber-600 dark:text-amber-400"
-                : "text-red-600 dark:text-red-400"
+                ? "text-warning"
+                : "text-error"
             }`}
           >
             {row.credits > 50 ? "High" : row.credits > 20 ? "Medium" : "Low"}
@@ -317,12 +299,13 @@ export default function Page() {
         </div>
       ),
     },
+
     4: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-foreground/70">
           <LoginIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-foreground/60"
           />
           Action
         </div>
@@ -332,7 +315,7 @@ export default function Page() {
           <Button
             variant="outline"
             size="sm"
-            className="h-7 px-3 text-[11px] font-medium border-neutral-300 dark:border-neutral-600 hover:bg-neutral-900 dark:hover:bg-white hover:text-white dark:hover:text-black transition-colors"
+            className="h-7 px-3 text-[11px] font-medium border-border hover:bg-primary hover:text-background transition-colors"
           >
             <LoginIcon style={{ fontSize: "13px" }} className="mr-1" />
             Login
@@ -340,12 +323,13 @@ export default function Page() {
         </div>
       ),
     },
+
     5: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-foreground/70">
           <AccessTimeIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-foreground/60"
           />
           Recent Login
         </div>
@@ -356,16 +340,16 @@ export default function Page() {
             <div className="flex items-center gap-1.5">
               <AccessTimeIcon
                 style={{ fontSize: "13px" }}
-                className="text-neutral-400 dark:text-neutral-500"
+                className="text-muted"
               />
               <div>
-                <div className="text-[12px] font-medium text-neutral-900 dark:text-neutral-100">
+                <div className="text-[12px] font-medium text-foreground">
                   {new Date(row.lastLogin).toLocaleDateString("en-US", {
                     month: "short",
                     day: "numeric",
                   })}
                 </div>
-                <div className="text-[10px] text-neutral-500 dark:text-neutral-400">
+                <div className="text-[10px] text-muted">
                   {new Date(row.lastLogin).toLocaleTimeString([], {
                     hour: "2-digit",
                     minute: "2-digit",
@@ -377,22 +361,21 @@ export default function Page() {
             <div className="flex items-center gap-1.5">
               <AccessTimeIcon
                 style={{ fontSize: "13px" }}
-                className="text-neutral-300 dark:text-neutral-600"
+                className="text-muted/50"
               />
-              <span className="text-[11px] text-neutral-400 dark:text-neutral-500 italic">
-                Never
-              </span>
+              <span className="text-[11px] text-muted italic">Never</span>
             </div>
           )}
         </div>
       ),
     },
+
     6: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-foreground/70">
           <PersonIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-foreground/60"
           />
           Status
         </div>
@@ -409,18 +392,19 @@ export default function Page() {
               onClick={(e) => e.stopPropagation()}
             />
             {isLoading && (
-              <div className="w-3 h-3 border-2 border-neutral-900 dark:border-neutral-100 border-t-transparent rounded-full animate-spin" />
+              <div className="w-3 h-3 border-2 border-foreground border-t-transparent rounded-full animate-spin" />
             )}
           </div>
         );
       },
     },
+
     7: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-foreground/70">
           <LocationOnIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-foreground/60"
           />
           Location
         </div>
@@ -433,23 +417,24 @@ export default function Page() {
           />
           <div className="flex-1 min-w-0">
             {row.address && (
-              <div className="text-[11px] text-neutral-700 dark:text-neutral-300 truncate">
+              <div className="text-[11px] text-foreground truncate">
                 {row.address}
               </div>
             )}
-            <div className="text-[10px] text-neutral-500 dark:text-neutral-400 capitalize mt-0.5">
+            <div className="text-[10px] text-muted capitalize mt-0.5">
               {row.city}, {row.country}
             </div>
           </div>
         </div>
       ),
     },
+
     8: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-foreground/70">
           <CalendarTodayIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-foreground/60"
           />
           Joined
         </div>
@@ -458,17 +443,17 @@ export default function Page() {
         <div className="flex items-center gap-1.5 py-0.5">
           <CalendarTodayIcon
             style={{ fontSize: "13px" }}
-            className="text-neutral-400 dark:text-neutral-500"
+            className="text-muted"
           />
           <div>
-            <div className="text-[12px] font-medium text-neutral-900 dark:text-neutral-100">
+            <div className="text-[12px] font-medium text-foreground">
               {new Date(row.createdAt).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "short",
                 day: "numeric",
               })}
             </div>
-            <div className="text-[10px] text-neutral-500 dark:text-neutral-400">
+            <div className="text-[10px] text-muted">
               {(() => {
                 const days = Math.floor(
                   (Date.now() - new Date(row.createdAt).getTime()) /
@@ -481,32 +466,30 @@ export default function Page() {
         </div>
       ),
     },
+
     9: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-foreground/70">
           <BusinessIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-foreground/60"
           />
           Organization
         </div>
       ),
       content: (row) => (
         <div className="flex items-center gap-1.5 py-0.5">
-          <BusinessIcon
-            style={{ fontSize: "13px" }}
-            className="text-neutral-400 dark:text-neutral-500"
-          />
+          <BusinessIcon style={{ fontSize: "13px" }} className="text-muted" />
           <div className="flex-1 min-w-0">
-            <div className="text-[12px] font-medium text-neutral-900 dark:text-neutral-100 truncate">
+            <div className="text-[12px] font-medium text-foreground truncate">
               {row.companies?.[0]?.name || "No Company"}
             </div>
             {row.companies?.length ? (
-              <span className="inline-block text-[9px] text-neutral-500 dark:text-neutral-400 mt-0.5">
+              <span className="inline-block text-[9px] text-muted mt-0.5">
                 Primary
               </span>
             ) : (
-              <span className="inline-block text-[9px] text-neutral-400 dark:text-neutral-500 italic mt-0.5">
+              <span className="inline-block text-[9px] text-muted/70 italic mt-0.5">
                 Independent
               </span>
             )}
@@ -521,6 +504,7 @@ export default function Page() {
     name: { kind: "text", label: "🔍 Search Name", field: "name" },
     email: { kind: "text", label: "📧 Search Email", field: "email" },
     username: { kind: "text", label: "👤 Search Username", field: "username" },
+
     country: {
       kind: "custom",
       label: "🌍 Country",
@@ -542,7 +526,6 @@ export default function Page() {
           ([country]) => country === value
         );
 
-        // Filter countries based on search query
         const filteredCountries = countries.filter(([country]) =>
           country.toLowerCase().includes(searchQuery.toLowerCase())
         );
@@ -553,9 +536,9 @@ export default function Page() {
               type="button"
               onClick={() => {
                 setIsOpen(!isOpen);
-                setSearchQuery(""); // Reset search when opening
+                setSearchQuery("");
               }}
-              className="w-full h-8 rounded-md border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 px-2.5 text-[11px] outline-none flex items-center justify-between text-left hover:border-neutral-400 dark:hover:border-neutral-500 transition-colors"
+              className="w-full h-8 rounded-md border border-border bg-background px-2.5 text-[11px] outline-none flex items-center justify-between text-left hover:bg-muted/50 transition-colors"
             >
               <div className="flex items-center gap-1.5">
                 {selectedCountry ? (
@@ -564,18 +547,16 @@ export default function Page() {
                       className={`fi fi-${selectedCountry[1].toLowerCase()}`}
                       style={{ fontSize: "11px" }}
                     />
-                    <span className="text-neutral-900 dark:text-neutral-100">
+                    <span className="text-foreground">
                       {selectedCountry[0]}
                     </span>
                   </>
                 ) : (
-                  <span className="text-neutral-500 dark:text-neutral-400">
-                    (Any Country)
-                  </span>
+                  <span className="text-muted-foreground">(Any Country)</span>
                 )}
               </div>
               <svg
-                className="w-3 h-3 text-neutral-400 dark:text-neutral-500"
+                className="w-3 h-3 text-muted-foreground"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -590,21 +571,20 @@ export default function Page() {
             </button>
 
             {isOpen && (
-              <div className="absolute z-50 w-full mt-1 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-md shadow-lg max-h-80 overflow-hidden">
-                {/* Search Input */}
-                <div className="p-1.5 border-b border-neutral-200 dark:border-neutral-700">
+              <div className="absolute z-50 w-full mt-1 bg-background border border-border rounded-md shadow-lg max-h-80 overflow-hidden">
+                <div className="p-1.5 border-b border-border">
                   <div className="relative">
                     <input
                       type="text"
                       placeholder="Search countries..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-full h-7 pl-7 pr-2 rounded border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-[11px] outline-none focus:ring-1 focus:ring-neutral-400 dark:focus:ring-neutral-500 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-500"
+                      className="w-full h-7 pl-7 pr-2 rounded border border-border bg-background text-[11px] outline-none focus:ring-1 focus:ring-primary text-foreground placeholder:text-muted-foreground"
                       autoFocus
                       onClick={(e) => e.stopPropagation()}
                     />
                     <svg
-                      className="absolute left-2.5 top-2 w-3.5 h-3.5 text-slate-400"
+                      className="absolute left-2.5 top-2 w-3.5 h-3.5 text-muted-foreground"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -619,26 +599,23 @@ export default function Page() {
                   </div>
                 </div>
 
-                {/* Options List */}
                 <div className="max-h-52 overflow-y-auto">
                   <div
-                    className="px-2.5 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-800 cursor-pointer text-[11px] border-b border-neutral-100 dark:border-neutral-800 text-neutral-900 dark:text-neutral-100"
+                    className="px-2.5 py-1.5 hover:bg-muted/60 cursor-pointer text-[11px] border-b border-border text-foreground/80"
                     onClick={() => {
                       setValue(undefined);
                       setIsOpen(false);
                       setSearchQuery("");
                     }}
                   >
-                    <span className="text-neutral-500 dark:text-neutral-400">
-                      (Any Country)
-                    </span>
+                    <span className="text-muted-foreground">(Any Country)</span>
                   </div>
 
                   {filteredCountries.length > 0 ? (
                     filteredCountries.map(([country, countryCode]) => (
                       <div
                         key={country}
-                        className="px-2.5 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-800 cursor-pointer flex items-center gap-1.5 text-[11px] text-neutral-900 dark:text-neutral-100"
+                        className="px-2.5 py-1.5 hover:bg-muted/60 cursor-pointer flex items-center gap-1.5 text-[11px] text-foreground"
                         onClick={() => {
                           setValue(country);
                           setIsOpen(false);
@@ -653,7 +630,7 @@ export default function Page() {
                       </div>
                     ))
                   ) : (
-                    <div className="px-2.5 py-3 text-[10px] text-neutral-500 dark:text-neutral-400 text-center">
+                    <div className="px-2.5 py-3 text-[10px] text-muted-foreground text-center">
                       No countries found matching "{searchQuery}"
                     </div>
                   )}
@@ -678,6 +655,7 @@ export default function Page() {
         return row.country === value;
       },
     },
+
     city: {
       kind: "custom",
       label: "🏙️ City",
@@ -690,7 +668,6 @@ export default function Page() {
           )
         ).sort((a, b) => a.localeCompare(b));
 
-        // Filter cities based on search query
         const filteredCities = cities.filter((city) =>
           city.toLowerCase().includes(searchQuery.toLowerCase())
         );
@@ -701,23 +678,19 @@ export default function Page() {
               type="button"
               onClick={() => {
                 setIsOpen(!isOpen);
-                setSearchQuery(""); // Reset search when opening
+                setSearchQuery("");
               }}
-              className="w-full h-8 rounded-md border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 px-2.5 text-[11px] outline-none flex items-center justify-between text-left hover:border-neutral-400 dark:hover:border-neutral-500 transition-colors"
+              className="w-full h-8 rounded-md border border-border bg-background px-2.5 text-[11px] outline-none flex items-center justify-between text-left hover:bg-muted/50 transition-colors"
             >
               <div className="flex items-center gap-1.5">
                 {value ? (
-                  <span className="capitalize text-neutral-900 dark:text-neutral-100">
-                    {value}
-                  </span>
+                  <span className="capitalize text-foreground">{value}</span>
                 ) : (
-                  <span className="text-neutral-500 dark:text-neutral-400">
-                    (Any City)
-                  </span>
+                  <span className="text-muted-foreground">(Any City)</span>
                 )}
               </div>
               <svg
-                className="w-3 h-3 text-neutral-400 dark:text-neutral-500"
+                className="w-3 h-3 text-muted-foreground"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -732,21 +705,20 @@ export default function Page() {
             </button>
 
             {isOpen && (
-              <div className="absolute z-50 w-full mt-1 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-md shadow-lg max-h-80 overflow-hidden">
-                {/* Search Input */}
-                <div className="p-1.5 border-b border-neutral-200 dark:border-neutral-700">
+              <div className="absolute z-50 w-full mt-1 bg-background border border-border rounded-md shadow-lg max-h-80 overflow-hidden">
+                <div className="p-1.5 border-b border-border">
                   <div className="relative">
                     <input
                       type="text"
                       placeholder="Search cities..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-full h-7 pl-7 pr-2 rounded border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-[11px] outline-none focus:ring-1 focus:ring-neutral-400 dark:focus:ring-neutral-500 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-500"
+                      className="w-full h-7 pl-7 pr-2 rounded border border-border bg-background text-[11px] outline-none focus:ring-1 focus:ring-primary text-foreground placeholder:text-muted-foreground"
                       autoFocus
                       onClick={(e) => e.stopPropagation()}
                     />
                     <svg
-                      className="absolute left-2 top-2 w-3 h-3 text-neutral-400 dark:text-neutral-500"
+                      className="absolute left-2 top-2 w-3 h-3 text-muted-foreground"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -761,26 +733,23 @@ export default function Page() {
                   </div>
                 </div>
 
-                {/* Options List */}
                 <div className="max-h-52 overflow-y-auto">
                   <div
-                    className="px-2.5 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-800 cursor-pointer text-[11px] border-b border-neutral-100 dark:border-neutral-800 text-neutral-900 dark:text-neutral-100"
+                    className="px-2.5 py-1.5 hover:bg-muted/60 cursor-pointer text-[11px] border-b border-border text-foreground/80"
                     onClick={() => {
                       setValue(undefined);
                       setIsOpen(false);
                       setSearchQuery("");
                     }}
                   >
-                    <span className="text-neutral-500 dark:text-neutral-400">
-                      (Any City)
-                    </span>
+                    <span className="text-muted-foreground">(Any City)</span>
                   </div>
 
                   {filteredCities.length > 0 ? (
                     filteredCities.map((city) => (
                       <div
                         key={city}
-                        className="px-2.5 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-800 cursor-pointer flex items-center gap-1.5 text-[11px] text-neutral-900 dark:text-neutral-100"
+                        className="px-2.5 py-1.5 hover:bg-muted/60 cursor-pointer flex items-center gap-1.5 text-[11px] text-foreground"
                         onClick={() => {
                           setValue(city);
                           setIsOpen(false);
@@ -791,7 +760,7 @@ export default function Page() {
                       </div>
                     ))
                   ) : (
-                    <div className="px-3 py-4 text-sm text-slate-500 text-center">
+                    <div className="px-3 py-4 text-[10px] text-muted-foreground text-center">
                       No cities found matching "{searchQuery}"
                     </div>
                   )}
@@ -816,6 +785,7 @@ export default function Page() {
         return row.city === value;
       },
     },
+
     company: {
       kind: "custom",
       label: "🏢 Company",
@@ -830,7 +800,6 @@ export default function Page() {
           )
         ).sort();
 
-        // Filter companies based on search query
         const filteredCompanies = companies.filter((company) =>
           company.toLowerCase().includes(searchQuery.toLowerCase())
         );
@@ -841,23 +810,19 @@ export default function Page() {
               type="button"
               onClick={() => {
                 setIsOpen(!isOpen);
-                setSearchQuery(""); // Reset search when opening
+                setSearchQuery("");
               }}
-              className="w-full h-8 rounded-md border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 px-2.5 text-[11px] outline-none flex items-center justify-between text-left hover:border-neutral-400 dark:hover:border-neutral-500 transition-colors"
+              className="w-full h-8 rounded-md border border-border bg-background px-2.5 text-[11px] outline-none flex items-center justify-between text-left hover:bg-muted/50 transition-colors"
             >
               <div className="flex items-center gap-1.5">
                 {value ? (
-                  <span className="truncate text-neutral-900 dark:text-neutral-100">
-                    {value}
-                  </span>
+                  <span className="truncate text-foreground">{value}</span>
                 ) : (
-                  <span className="text-neutral-500 dark:text-neutral-400">
-                    (Any Company)
-                  </span>
+                  <span className="text-muted-foreground">(Any Company)</span>
                 )}
               </div>
               <svg
-                className="w-3 h-3 text-neutral-400 dark:text-neutral-500"
+                className="w-3 h-3 text-muted-foreground"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -872,21 +837,20 @@ export default function Page() {
             </button>
 
             {isOpen && (
-              <div className="absolute z-50 w-full mt-1 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-md shadow-lg max-h-80 overflow-hidden">
-                {/* Search Input */}
-                <div className="p-1.5 border-b border-neutral-200 dark:border-neutral-700">
+              <div className="absolute z-50 w-full mt-1 bg-background border border-border rounded-md shadow-lg max-h-80 overflow-hidden">
+                <div className="p-1.5 border-b border-border">
                   <div className="relative">
                     <input
                       type="text"
                       placeholder="Search companies..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-full h-7 pl-7 pr-2 rounded border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-[11px] outline-none focus:ring-1 focus:ring-neutral-400 dark:focus:ring-neutral-500 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-500"
+                      className="w-full h-7 pl-7 pr-2 rounded border border-border bg-background text-[11px] outline-none focus:ring-1 focus:ring-primary text-foreground placeholder:text-muted-foreground"
                       autoFocus
                       onClick={(e) => e.stopPropagation()}
                     />
                     <svg
-                      className="absolute left-2 top-2 w-3 h-3 text-neutral-400 dark:text-neutral-500"
+                      className="absolute left-2 top-2 w-3 h-3 text-muted-foreground"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -901,26 +865,23 @@ export default function Page() {
                   </div>
                 </div>
 
-                {/* Options List */}
                 <div className="max-h-52 overflow-y-auto">
                   <div
-                    className="px-2.5 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-800 cursor-pointer text-[11px] border-b border-neutral-100 dark:border-neutral-800 text-neutral-900 dark:text-neutral-100"
+                    className="px-2.5 py-1.5 hover:bg-muted/60 cursor-pointer text-[11px] border-b border-border text-foreground/80"
                     onClick={() => {
                       setValue(undefined);
                       setIsOpen(false);
                       setSearchQuery("");
                     }}
                   >
-                    <span className="text-neutral-500 dark:text-neutral-400">
-                      (Any Company)
-                    </span>
+                    <span className="text-muted-foreground">(Any Company)</span>
                   </div>
 
                   {filteredCompanies.length > 0 ? (
                     filteredCompanies.map((company) => (
                       <div
                         key={company}
-                        className="px-2.5 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-800 cursor-pointer flex items-center gap-1.5 text-[11px] text-neutral-900 dark:text-neutral-100"
+                        className="px-2.5 py-1.5 hover:bg-muted/60 cursor-pointer flex items-center gap-1.5 text-[11px] text-foreground"
                         onClick={() => {
                           setValue(company);
                           setIsOpen(false);
@@ -931,7 +892,7 @@ export default function Page() {
                       </div>
                     ))
                   ) : (
-                    <div className="px-2.5 py-3 text-[10px] text-neutral-500 dark:text-neutral-400 text-center">
+                    <div className="px-2.5 py-3 text-[10px] text-muted-foreground text-center">
                       No companies found matching "{searchQuery}"
                     </div>
                   )}
@@ -956,6 +917,7 @@ export default function Page() {
         return row.companies?.some((c) => c.name === value) || false;
       },
     },
+
     _status: {
       kind: "boolean",
       label: "✅ Account Status",

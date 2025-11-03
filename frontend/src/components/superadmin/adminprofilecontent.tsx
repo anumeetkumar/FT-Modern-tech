@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -6,7 +6,6 @@ import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
 
 // Material Design Icons (MUI) — default component exports
 
@@ -27,7 +26,6 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
-
 
 export type User = {
   id: string;
@@ -60,8 +58,6 @@ export type User = {
     socials?: Record<string, string>;
   };
 };
-
-
 
 const user: User = {
   id: "234",
@@ -102,197 +98,345 @@ const user: User = {
   },
 };
 
-
-
 function AdminProfileContent({ adminId }: { adminId: string }) {
   const [loading, setLoading] = React.useState(false);
   const [adminData, setAdminData] = React.useState<User | null>(user);
   const [inactive, setInactive] = React.useState(user.status !== "active");
 
-  if(loading) {
+  if (loading) {
     return (
       <div className="p-8">
-        <h2 className="text-2xl font-bold tracking-tight mb-2 dark:text-neutral-100">Loading...</h2>
+        <h2 className="text-2xl font-bold tracking-tight mb-2 dark:text-neutral-100">
+          Loading...
+        </h2>
       </div>
     );
   }
 
   return (
     <>
-    <CardHeader className="pb-2">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <div className="text-[11px] uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">Profile</div>
-                      <CardTitle className="text-2xl tracking-tight dark:text-neutral-100">User Overview</CardTitle>
-                    </div>
-                    <div className="flex flex-wrap items-center gap-2">
+      <CardHeader className="pb-2">
+        <div className="flex items-start justify-between gap-4">
+          {/* Left section */}
+          <div>
+            <div className="text-[11px] uppercase tracking-[0.2em] text-muted">
+              Profile
+            </div>
+            <CardTitle className="text-2xl tracking-tight text-foreground">
+              User Overview
+            </CardTitle>
+          </div>
 
-                      <Button variant="outline" className="rounded-xl border-neutral-300 dark:border-neutral-600 dark:text-neutral-100 dark:hover:bg-neutral-700" onClick={() => setInactive((v) => !v)}>
-                        {inactive ? <ToggleOffIcon className="mr-2" fontSize="small" /> : <ToggleOnIcon className="mr-2" fontSize="small" />}
-                        {inactive ? "Set Active" : "Set Inactive"}
-                      </Button>
-                      <Button variant="outline" className="rounded-xl border-neutral-300 dark:border-neutral-600 dark:text-neutral-100 dark:hover:bg-neutral-700"><LockResetRoundedIcon className="mr-2" fontSize="small" /> Update Password</Button>
-                      <Button className="rounded-xl bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-neutral-100"><EditRoundedIcon className="mr-2" fontSize="small" /> Edit</Button>
+          {/* Right action buttons */}
+          <div className="flex flex-wrap items-center gap-2">
+            <Button
+              variant="outline"
+              className="rounded-xl border-border text-foreground dark:bg-foreground/5 hover:bg-foreground/10"
+              onClick={() => setInactive((v) => !v)}
+            >
+              {inactive ? (
+                <ToggleOffIcon className="mr-2" fontSize="small" />
+              ) : (
+                <ToggleOnIcon className="mr-2" fontSize="small" />
+              )}
+              {inactive ? "Set Active" : "Set Inactive"}
+            </Button>
+
+            <Button
+              variant="outline"
+              className="rounded-xl border-border text-foreground dark:bg-foreground/5 hover:bg-foreground/10"
+            >
+              <LockResetRoundedIcon className="mr-2" fontSize="small" />
+              Update Password
+            </Button>
+
+            <Button className="rounded-xl bg-primary text-primary-foreground text-white hover:bg-primary/90">
+              <EditRoundedIcon className="mr-2" fontSize="small" />
+              Edit
+            </Button>
+          </div>
+        </div>
+      </CardHeader>
+
+      <CardContent className="pt-2">
+        {/* Identity */}
+        <div className="flex flex-wrap items-center gap-4">
+          <Avatar className="h-16 w-16 border border-border">
+            <AvatarImage src={user.profileUrl} alt={user.name} />
+            <AvatarFallback className="bg-foreground/5 text-foreground">
+              {user.name
+                .split(" ")
+                .map((n) => n[0])
+                .join("")}
+            </AvatarFallback>
+          </Avatar>
+
+          <div className="min-w-[220px]">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-xl font-semibold tracking-tight text-foreground">
+                {user.name}
+              </span>
+              <Badge
+                className={`rounded-full ${
+                  inactive
+                    ? "bg-background text-foreground border border-border"
+                    : "bg-primary text-white"
+                }`}
+              >
+                {inactive ? "Inactive" : "Active"}
+              </Badge>
+
+              {user.isEmailVerified && (
+                <Badge
+                  variant="outline"
+                  className="rounded-full border-border text-muted-foreground"
+                >
+                  Email Verified
+                </Badge>
+              )}
+            </div>
+
+            <div className="text-sm text-muted-foreground">
+              @{user.username}
+            </div>
+          </div>
+        </div>
+
+        {/* Stats strip */}
+        <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-3 items-stretch ">
+          <KPITile label="Vehicles" value={user.vehiclesCount} />
+          <KPITile label="Credits" value={user.credits} />
+
+          <KPITile
+            label="Last Login"
+            value={
+              <span className="text-sm font-medium text-foreground">
+                15 Oct 2025, 8:35 pm
+              </span>
+            }
+            sub={
+              <span className="inline-block rounded-full border border-border px-1.5 py-[1px] text-muted-foreground">
+                in 17 hours
+              </span>
+            }
+          />
+          <KPITile
+            label="Created"
+            value={
+              <span className="text-sm font-medium text-foreground">
+                12 Sept 2025, 2:00 pm
+              </span>
+            }
+          />
+        </div>
+
+        <Separator className="my-6 bg-border" />
+
+        {/* Company + Address */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Company block */}
+          <div className="rounded-2xl border border-border p-5 bg-card dark:bg-foreground/5">
+            <div className="text-xs uppercase tracking-widest text-muted-foreground mb-2">
+              Company
+            </div>
+
+            <div className="flex flex-col items-center gap-3">
+              {user.company.logolight || user.company.logodark ? (
+                <img
+                  src={user.company.logolight || user.company.logodark}
+                  alt={user.company.name}
+                  className="w-32 h-16 object-contain p-1"
+                />
+              ) : (
+                <div className="w-32 h-16 bg-muted rounded-lg flex items-center justify-center text-muted-foreground text-sm">
+                  No Logo
+                </div>
+              )}
+
+              <div>
+                <div className="font-semibold tracking-tight text-foreground">
+                  {user.company.name}
+                </div>
+                {user.company.website && (
+                  <a
+                    className="text-sm text-muted-foreground underline-offset-4 hover:underline"
+                    href={user.company.website}
+                    target="_blank"
+                  >
+                    {(user.company.website || "").replace("https://", "")}
+                  </a>
+                )}
+              </div>
+            </div>
+
+            {user.company.socials && (
+              <div className="mt-4">
+                <div className="text-xs uppercase tracking-widest text-muted-foreground mb-2">
+                  Socials
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {Object.entries(user.company.socials).map(([k, v]) => {
+                    const map: Record<string, React.ElementType> = {
+                      linkedin: LinkedInIcon,
+                      twitter: TwitterIcon,
+                      facebook: FacebookIcon,
+                      youtube: YouTubeIcon,
+                      github: GitHubIcon,
+                      instagram: InstagramIcon,
+                    };
+                    const Icon = map[k.toLowerCase()] ?? LanguageRoundedIcon;
+                    return (
+                      <a
+                        key={k}
+                        href={v}
+                        target="_blank"
+                        className="inline-flex items-center gap-1 text-sm rounded-lg border border-border px-3 py-1 hover:bg-muted text-muted-foreground hover:text-foreground transition-colors dark:bg-foreground/5"
+                      >
+                        <Icon fontSize="small" />
+                        <span className="capitalize">{k}</span>
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Address block */}
+          <div className="rounded-2xl border border-border p-5 bg-card dark:bg-foreground/5">
+            <div className="text-xs uppercase tracking-widest text-muted-foreground mb-2">
+              Address
+            </div>
+            <div className="space-y-2 text-sm">
+              <div>
+                <span className="text-muted-foreground">Line</span>{" "}
+                <span className="ml-2 font-medium text-foreground">
+                  {user.address.line1}
+                </span>
+              </div>
+              <div>
+                <span className="text-muted-foreground">City</span>{" "}
+                <span className="ml-2 font-medium text-foreground">
+                  {user.address.city}
+                </span>
+              </div>
+              <div>
+                <span className="text-muted-foreground">State</span>{" "}
+                <span className="ml-2 font-medium text-foreground">
+                  {user.address.state || "—"}
+                </span>
+              </div>
+              <div>
+                <span className="text-muted-foreground">Postal</span>{" "}
+                <span className="ml-2 font-medium text-foreground">
+                  {user.address.postalCode || "—"}
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-muted-foreground">Country</span>
+                <span className="ml-2 inline-flex items-center gap-2 font-medium text-foreground">
+                  <span
+                    className={`fi fi-${user.address.countryCode.toLowerCase()} h-4 w-6 border border-border`}
+                  ></span>
+                  {user.address.country} ({user.address.countryCode})
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Contact */}
+        <div className="mt-6 rounded-2xl border border-border p-5 dark:bg-foreground/5">
+          <div className="text-xs uppercase tracking-widest text-muted-foreground mb-2">
+            Contact
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-3">
+                <EmailRoundedIcon fontSize="small" />
+                <a
+                  href={`mailto:${user.email}`}
+                  className="underline-offset-4 hover:underline text-foreground"
+                >
+                  {user.email}
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
+                <LocalPhoneRoundedIcon fontSize="small" />
+                <span className="text-foreground">
+                  {user.mobilePrefix} {user.mobileNumber}
+                </span>
+              </div>
+              {user.company.website && (
+                <div className="flex items-center gap-3">
+                  <LanguageRoundedIcon fontSize="small" />
+                  <a
+                    href={user.company.website}
+                    target="_blank"
+                    className="underline-offset-4 hover:underline text-foreground"
+                  >
+                    {(user.company.website || "").replace("https://", "")}
+                  </a>
+                </div>
+              )}
+            </div>
+            <div />
+          </div>
+        </div>
+
+        {/* Activity */}
+        <div className="mt-6 rounded-2xl border border-border bg-card overflow-hidden">
+          <div className="px-5 py-4 border-b border-border text-sm font-medium tracking-tight text-foreground bg-foreground/5">
+            Recent Activity
+          </div>
+          <ScrollArea className="h-56">
+            <div className="p-5 space-y-4">
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <div className="h-8 w-8 rounded-lg border border-border grid place-items-center text-xs text-muted-foreground">
+                    {i}
+                  </div>
+                  <div>
+                    <div className="text-sm font-medium text-foreground">
+                      Updated vehicle status
+                    </div>
+                    <div className="text-xs text-muted-foreground">
+                      2 hours ago · VIN 9BG116GW04C400001
                     </div>
                   </div>
-                </CardHeader>
-                 <CardContent className="pt-2">
-                  {/* Identity */}
-                  <div className="flex flex-wrap items-center gap-4">
-                    <Avatar className="h-16 w-16 border border-neutral-200 dark:border-neutral-700">
-                      <AvatarImage src={user.profileUrl} alt={user.name} />
-                      <AvatarFallback className="dark:bg-neutral-200 dark:text-neutral-800">{user.name.split(" ").map((n) => n[0]).join("")}</AvatarFallback>
-                    </Avatar>
-                    <div className="min-w-[220px]">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="text-xl font-semibold tracking-tight dark:text-neutral-100">{user.name}</span>
-                        <Badge className={`rounded-full ${inactive ? "bg-white text-black border border-neutral-300 dark:bg-neutral-800 dark:text-neutral-100 dark:border-neutral-600" : "bg-black text-white dark:bg-white dark:text-black"}`}>{inactive ? "Inactive" : "Active"}</Badge>
-                        {user.isEmailVerified && (<Badge variant="outline" className="rounded-full border-neutral-300 dark:border-neutral-600 dark:text-neutral-300">Email Verified</Badge>)}
-                      </div>
-                      <div className="text-sm text-neutral-500 dark:text-neutral-400">@{user.username}</div>
-                    </div>
-                  </div>
-
-
-                  {/* Stats strip */}
-                  <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-3 items-stretch">
-                    <KPITile label="Vehicles" value={user.vehiclesCount} />
-                    <KPITile label="Credits" value={user.credits} />
-
-                    <KPITile
-                      label="Last Login"
-                      value={<span className="text-sm font-medium dark:text-neutral-100"> 15 Oct 2025, 8:35 pm </span>}
-                      sub={<span className="inline-block rounded-full border border-neutral-200 px-1.5 py-[1px] dark:border-neutral-700 dark:text-neutral-300"> in 17 hours </span>}
-                    />
-                    <KPITile
-                      label="Created"
-                      value={<span className="text-sm font-medium dark:text-neutral-100">12 Sept 2025, 2:00 pm</span>}
-                    />
-                  </div>
-
-                  <Separator className="my-6 dark:bg-neutral-700" />
-
-                  {/* Company + Address */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    {/* Company block */}
-                    <div className="rounded-2xl border border-neutral-200 p-5 dark:border-neutral-700 dark:bg-neutral-800">
-                      <div className="text-xs uppercase tracking-widest text-neutral-500 mb-2 dark:text-neutral-400">Company</div>
-                      <div className="flex flex-col items-center gap-3">
-                        {(user.company.logolight || user.company.logodark) ? (
-                          <img 
-                            src={user.company.logolight || user.company.logodark} 
-                            alt={user.company.name} 
-                            className="w-32 h-16 object-contain p-1" 
-                          />
-                        ) : (
-                          <div className="w-32 h-16 bg-neutral-100 rounded-lg flex items-center justify-center text-neutral-500 text-sm dark:bg-neutral-700 dark:text-neutral-400">
-                            No Logo
-                          </div>
-                        )}
-                        <div>
-                          <div className="font-semibold tracking-tight dark:text-neutral-100">{user.company.name}</div>
-                          {user.company.website && (
-                            <a className="text-sm text-neutral-500 underline-offset-4 hover:underline dark:text-neutral-400" href={user.company.website} target="_blank">{(user.company.website || "").replace("https://", "")}</a>
-                          )}
-                        </div>
-                      </div>
-
-                      {user.company.socials && (
-                        <div className="mt-4">
-                          <div className="text-xs uppercase tracking-widest text-neutral-500 mb-2 dark:text-neutral-400">Socials</div>
-                          <div className="flex flex-wrap gap-2">
-                            {Object.entries(user.company.socials).map(([k, v]) => {
-                              const map: Record<string, React.ElementType> = {
-                                linkedin: LinkedInIcon,
-                                twitter: TwitterIcon,
-                                facebook: FacebookIcon,
-                                youtube: YouTubeIcon,
-                                github: GitHubIcon,
-                                instagram: InstagramIcon,
-                              };
-                              const Icon = map[k.toLowerCase()] ?? LanguageRoundedIcon;
-                              return (
-                                <a key={k} href={v} target="_blank" className="inline-flex items-center gap-1 text-sm rounded-lg border border-neutral-200 px-3 py-1 hover:bg-neutral-100 dark:border-neutral-600 dark:text-neutral-300 dark:hover:bg-neutral-700">
-                                  <Icon fontSize="small" />
-                                  <span className="capitalize">{k}</span>
-                                </a>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Address block */}
-                    <div className="rounded-2xl border border-neutral-200 p-5 dark:border-neutral-700 dark:bg-neutral-800">
-                      <div className="text-xs uppercase tracking-widest text-neutral-500 mb-2 dark:text-neutral-400">Address</div>
-                      <div className="space-y-2 text-sm">
-                        <div><span className="text-neutral-500 dark:text-neutral-400">Line</span> <span className="ml-2 font-medium dark:text-neutral-100">{user.address.line1}</span></div>
-                        <div><span className="text-neutral-500 dark:text-neutral-400">City</span> <span className="ml-2 font-medium dark:text-neutral-100">{user.address.city}</span></div>
-                        <div><span className="text-neutral-500 dark:text-neutral-400">State</span> <span className="ml-2 font-medium dark:text-neutral-100">{user.address.state || "—"}</span></div>
-                        <div><span className="text-neutral-500 dark:text-neutral-400">Postal</span> <span className="ml-2 font-medium dark:text-neutral-100">{user.address.postalCode || "—"}</span></div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-neutral-500 dark:text-neutral-400">Country</span> 
-                          <span className="ml-2 inline-flex items-center gap-2 font-medium dark:text-neutral-100">
-                            <span className={`fi fi-${user.address.countryCode.toLowerCase()} h-4 w-6 border border-neutral-200 dark:border-neutral-600`}></span>
-                            {user.address.country} ({user.address.countryCode})
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Contact (email/phone/website only; address shown once above) */}
-                  <div className="mt-6 rounded-2xl border border-neutral-200 p-5 dark:border-neutral-700 dark:bg-neutral-800">
-                    <div className="text-xs uppercase tracking-widest text-neutral-500 mb-2 dark:text-neutral-400">Contact</div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-2 text-sm dark:text-neutral-300">
-                        <div className="flex items-center gap-3"><EmailRoundedIcon fontSize="small" className="dark:text-neutral-400" /><a href={`mailto:${user.email}`} className="underline-offset-4 hover:underline">{user.email}</a></div>
-                        <div className="flex items-center gap-3"><LocalPhoneRoundedIcon fontSize="small" className="dark:text-neutral-400" /><span>{user.mobilePrefix} {user.mobileNumber}</span></div>
-                        {user.company.website && (
-                          <div className="flex items-center gap-3"><LanguageRoundedIcon fontSize="small" className="dark:text-neutral-400" /><a href={user.company.website} target="_blank" className="underline-offset-4 hover:underline">{(user.company.website || "").replace("https://", "")}</a></div>
-                        )}
-                      </div>
-                      {/* Intentionally leaving the second column empty to avoid repeating address. */}
-                      <div />
-                    </div>
-                  </div>
-
-                  {/* Activity */}
-                  <div className="mt-6 rounded-2xl border border-neutral-200 dark:border-neutral-700 dark:bg-neutral-800">
-                    <div className="px-5 py-4 border-b border-neutral-200 text-sm font-medium tracking-tight dark:border-neutral-700 dark:text-neutral-100">Recent Activity</div>
-                    <ScrollArea className="h-56">
-                      <div className="p-5 space-y-4">
-                        {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                          <div key={i} className="flex items-start gap-3">
-                            <div className="h-8 w-8 rounded-lg border border-neutral-200 grid place-items-center text-xs dark:border-neutral-700 dark:text-neutral-300">{i}</div>
-                            <div>
-                              <div className="text-sm font-medium dark:text-neutral-100">Updated vehicle status</div>
-                              <div className="text-xs text-neutral-500 dark:text-neutral-400">2 hours ago · VIN 9BG116GW04C400001</div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </ScrollArea>
-                  </div>
-                </CardContent>
-    
-    
+                </div>
+              ))}
+            </div>
+          </ScrollArea>
+        </div>
+      </CardContent>
     </>
-    
-    )
-    }
+  );
+}
 
-
-    // Reusable KPI tile
-function KPITile({ label, value, sub }: { label: string; value: React.ReactNode; sub?: React.ReactNode }) {
+// Reusable KPI tile
+function KPITile({
+  label,
+  value,
+  sub,
+}: {
+  label: string;
+  value: React.ReactNode;
+  sub?: React.ReactNode;
+}) {
   return (
-    <div className="rounded-xl border border-neutral-200 p-3 h-full dark:border-neutral-700 dark:bg-neutral-800">
-      <div className="text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-400">{label}</div>
-      <div className="mt-0.5 text-lg font-semibold leading-tight dark:text-neutral-100">{value}</div>
-      {sub ? <div className="mt-0.5 text-[11px] text-neutral-500 dark:text-neutral-400">{sub}</div> : null}
+    <div className="rounded-xl border border-border p-3 h-full bg-card dark:bg-foreground/5">
+      <div className="text-xs uppercase tracking-widest text-muted-foreground">
+        {label}
+      </div>
+      <div className="mt-0.5 text-lg font-semibold leading-tight text-foreground">
+        {value}
+      </div>
+      {sub ? (
+        <div className="mt-0.5 text-[11px] text-muted-foreground">{sub}</div>
+      ) : null}
     </div>
   );
 }
 
-export default AdminProfileContent
+export default AdminProfileContent;

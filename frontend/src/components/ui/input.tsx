@@ -8,7 +8,7 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
       data-slot="input"
       className={cn(
         // Base styles
-        "h-9 w-full min-w-0 rounded-md  border px-3 py-1 text-base md:text-sm outline-none shadow-xs transition-[color,box-shadow]",
+        "h-9 w-full min-w-0 rounded-md  border px-3 py-1 mt-2 text-base md:text-sm outline-none shadow-xs transition-[color,box-shadow]",
 
         // Colors (using Tailwind theme variables)
         "bg-background text-foreground placeholder:text-muted-foreground border-border",

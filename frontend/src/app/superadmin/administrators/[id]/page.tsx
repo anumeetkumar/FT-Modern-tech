@@ -1,9 +1,9 @@
 "use client";
+
 import React from "react";
 import { motion } from "framer-motion";
-import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import {
   UserIdentityCard,
@@ -12,16 +12,16 @@ import {
   type UserIdentity,
 } from "@/components/common/sidenav";
 
-// Material Design Icons (MUI) - only used icons
+// Material Design Icons
 import PersonOutlineRoundedIcon from "@mui/icons-material/PersonOutlineRounded";
 import DescriptionRoundedIcon from "@mui/icons-material/DescriptionRounded";
 import DirectionsCarFilledRoundedIcon from "@mui/icons-material/DirectionsCarFilledRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import SecurityRoundedIcon from "@mui/icons-material/SecurityRounded";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
+
 import AdminProfileContent from "@/components/superadmin/adminprofilecontent";
 import CreditHistoryPage from "@/components/superadmin/credithistorypage";
-import AdminDocuments from "@/components/superadmin/admindocuments";
 import AdminDocumentsPage from "@/components/superadmin/admindocuments";
 import AdminSettingPage from "@/components/superadmin/adminsettings";
 import AdminVehiclesList from "@/components/superadmin/adminvehicleslist";
@@ -46,9 +46,9 @@ export type User = {
     country: string;
     countryCode: string;
   };
-  createdAt: string; // ISO format
-  updatedAt: string; // ISO format
-  lastLogin: string; // ISO format
+  createdAt: string;
+  updatedAt: string;
+  lastLogin: string;
   status: "active" | "inactive";
   vehiclesCount: number;
   credits: number;
@@ -62,7 +62,7 @@ export type User = {
 };
 
 // ——————————————————————————————————————————
-// Single User Data
+// Mock Single User Data
 // ——————————————————————————————————————————
 const user: User = {
   id: "234",
@@ -104,15 +104,11 @@ const user: User = {
 };
 
 // ——————————————————————————————————————————
-// Navigation Configuration & Content Components
+// Navigation Configuration
 // ——————————————————————————————————————————
 const navItems: NavItem[] = [
   { key: "profile", label: "Profile", icon: PersonOutlineRoundedIcon },
-  {
-    key: "credithistory",
-    label: "Credit History",
-    icon: PersonOutlineRoundedIcon,
-  },
+  { key: "credithistory", label: "Credit History", icon: PersonOutlineRoundedIcon },
   { key: "documents", label: "Documents", icon: DescriptionRoundedIcon },
   { key: "vehicles", label: "Vehicles", icon: DirectionsCarFilledRoundedIcon },
   { key: "settings", label: "Settings", icon: SettingsRoundedIcon },
@@ -125,16 +121,17 @@ const navItems: NavItem[] = [
   },
 ];
 
+// ——————————————————————————————————————————
+// Content Components
+// ——————————————————————————————————————————
 function RoleContent() {
   return (
-    <div className="p-8 space-y-6">
+    <div className="p-8 space-y-6 bg-background text-foreground">
       <div>
-        <h2 className="text-2xl font-bold tracking-tight mb-2">
-          Role Management
-        </h2>
-        <p className="text-neutral-600">Manage user roles and permissions.</p>
+        <h2 className="text-2xl font-semibold mb-2">Role Management</h2>
+        <p className="text-muted-foreground">Manage user roles and permissions.</p>
       </div>
-      <div className="text-center py-12 text-neutral-500">
+      <div className="flex flex-col items-center justify-center py-12 text-muted-foreground">
         <SecurityRoundedIcon fontSize="large" />
         <p className="mt-2">Role management coming soon...</p>
       </div>
@@ -144,23 +141,22 @@ function RoleContent() {
 
 function DeleteAccountContent() {
   return (
-    <div className="p-8 space-y-6">
+    <div className="p-8 space-y-6 bg-background text-foreground">
       <div>
-        <h2 className="text-2xl font-bold tracking-tight mb-2 text-red-600">
-          Delete Account
-        </h2>
-        <p className="text-neutral-600">
+        <h2 className="text-2xl font-semibold mb-2 text-destructive">Delete Account</h2>
+        <p className="text-muted-foreground">
           Permanently delete this user account and all associated data.
         </p>
       </div>
-      <div className="bg-red-50 border border-red-200 rounded-xl p-6">
-        <div className="flex items-start gap-3">
-          <DeleteRoundedIcon className="text-red-600 mt-0.5" />
+
+      <div className="bg-destructive/10 border border-destructive/20 rounded-xl p-6">
+        <div className="flex items-start gap-4">
+          <DeleteRoundedIcon className="text-destructive mt-0.5" />
           <div>
-            <h3 className="font-semibold text-red-800 mb-2">Danger Zone</h3>
-            <p className="text-red-700 text-sm mb-4">
-              This action cannot be undone. This will permanently delete the
-              user account and remove all associated data.
+            <h3 className="font-medium text-destructive mb-2">Danger Zone</h3>
+            <p className="text-sm text-destructive/90 mb-4">
+              This action cannot be undone. It will permanently delete the user account and remove
+              all associated data.
             </p>
             <Button variant="destructive" size="sm">
               Delete Account
@@ -172,7 +168,9 @@ function DeleteAccountContent() {
   );
 }
 
-// Content renderer based on active navigation
+// ——————————————————————————————————————————
+// Content Renderer
+// ——————————————————————————————————————————
 function renderContent(activeKey: string, userId: string) {
   switch (activeKey) {
     case "profile":
@@ -190,22 +188,22 @@ function renderContent(activeKey: string, userId: string) {
     case "delete":
       return <DeleteAccountContent />;
     default:
-      return <> </>;
+      return null;
   }
 }
 
+// ——————————————————————————————————————————
+// Main Component
+// ——————————————————————————————————————————
 export default function SingleUser({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
   const [activeNavKey, setActiveNavKey] = React.useState("profile");
-
-  // Unwrap params Promise using React.use()
   const resolvedParams = React.use(params);
   const userId = resolvedParams.id;
 
-  // Prepare user identity for SideNav
   const userIdentity: UserIdentity = {
     name: user.name,
     username: user.username,
@@ -213,40 +211,31 @@ export default function SingleUser({
     isEmailVerified: user.isEmailVerified,
   };
 
-  // Handle navigation change
-  const handleNavChange = (key: string) => {
-    setActiveNavKey(key);
-  };
-
   return (
     <TooltipProvider>
-      <div className="min-h-[100vh] w-full">
-        {/* Main 3/7 layout */}
-        <div className="mx-auto max-w-[1400px] px-4 md:px-8 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-10 gap-6 items-start">
-            {/* LEFT: 3 — Separate User Identity and Navigation */}
+      <div className="min-h-screen bg-background text-foreground">
+        <div className="mx-auto max-w-[1400px] px-4 md:px-8 py-10">
+          <div className="grid grid-cols-1 md:grid-cols-10 gap-8 items-start">
+            {/* LEFT SIDEBAR */}
             <aside className="md:col-span-3">
-              <div className="sticky top-[68px] space-y-6">
+              <div className="sticky top-[72px] space-y-6">
                 <UserIdentityCard user={userIdentity} />
                 <NavigationMenu
                   navItems={navItems}
                   activeKey={activeNavKey}
-                  onNavChange={handleNavChange}
+                  onNavChange={setActiveNavKey}
                 />
               </div>
             </aside>
 
-            {/* RIGHT: 7 — Dynamic content based on navigation */}
+            {/* MAIN CONTENT */}
             <section className="md:col-span-7">
-              <Card className="rounded-3xl border-neutral-200 shadow-sm min-h-[600px]">
+              <Card className="rounded-3xl border border-border bg-card shadow-sm min-h-[600px] overflow-hidden">
                 {renderContent(activeNavKey, userId)}
               </Card>
             </section>
           </div>
         </div>
-
-        {/* Bottom spacer */}
-        <div className="h-8" />
       </div>
     </TooltipProvider>
   );

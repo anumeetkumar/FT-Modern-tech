@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
@@ -6,7 +7,9 @@ import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import VerifiedRoundedIcon from "@mui/icons-material/VerifiedRounded";
 
-// Navigation item type
+// ——————————————————————————————————————————
+// Types
+// ——————————————————————————————————————————
 export interface NavItem {
   key: string;
   label: string;
@@ -14,7 +17,6 @@ export interface NavItem {
   danger?: boolean;
 }
 
-// User type for identity display
 export interface UserIdentity {
   name: string;
   username: string;
@@ -22,19 +24,16 @@ export interface UserIdentity {
   isEmailVerified: boolean;
 }
 
-// Props for UserIdentityCard component
 interface UserIdentityCardProps {
   user: UserIdentity;
 }
 
-// Props for NavigationMenu component
 interface NavigationMenuProps {
   navItems: NavItem[];
   activeKey: string;
   onNavChange: (key: string) => void;
 }
 
-// Props for the combined SideNav component
 interface SideNavProps {
   user: UserIdentity;
   navItems: NavItem[];
@@ -42,7 +41,9 @@ interface SideNavProps {
   onNavChange: (key: string) => void;
 }
 
-// Individual menu item component
+// ——————————————————————————————————————————
+// Menu Item
+// ——————————————————————————————————————————
 function MenuItem({
   active,
   label,
@@ -62,59 +63,55 @@ function MenuItem({
     <button
       onClick={onClick}
       className={[
-        "group w-full flex items-center gap-3 rounded-xl px-4 py-3 transition-all",
+        "group w-full flex items-center gap-3 rounded-xl px-4 py-3 transition-all border text-sm font-medium tracking-tight",
         danger
-          ? "border border-neutral-200 dark:border-neutral-700"
-          : "border border-transparent",
+          ? "border-border/60 text-destructive hover:bg-error/10"
+          : "border-transparent hover:bg-foreground/10",
         active
-          ? "bg-black dark:bg-white text-white dark:text-black"
-          : "bg-white dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-700 text-black dark:text-white",
+          ? "bg-primary text-white"
+          : "bg-card text-foreground",
       ].join(" ")}
     >
       <IconEl
-        className={
-          active ? "text-white dark:text-black" : "text-black dark:text-white"
-        }
+        className={active ? "text-primary-foreground" : "text-muted-foreground"}
         fontSize="small"
       />
-      <span className="font-medium tracking-tight">{label}</span>
-      <span className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-xs text-neutral-500 dark:text-neutral-400">
+      <span className="truncate">{label}</span>
+      <span className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-xs text-muted-foreground">
         ↗
       </span>
     </button>
   );
 }
 
-// User Identity Card component
+// ——————————————————————————————————————————
+// User Identity Card
+// ——————————————————————————————————————————
 export function UserIdentityCard({ user }: UserIdentityCardProps) {
   return (
-    <Card className="rounded-2xl border-neutral-200 dark:border-neutral-700 shadow-sm dark:bg-neutral-800">
+    <Card className="rounded-2xl border border-border dark:bg-foreground/5 shadow-sm">
       <CardContent className="p-5">
         <div className="flex items-center gap-3">
-          <Avatar className="h-12 w-12 border border-neutral-200 dark:border-neutral-700">
+          <Avatar className="h-12 w-12 border border-border">
             <AvatarImage src={user.profileUrl} alt={user.name} />
-            <AvatarFallback className="bg-neutral-100 dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100">
+            <AvatarFallback className="bg-foreground/5 text-foreground font-medium">
               {user.name
                 .split(" ")
                 .map((n) => n[0])
                 .join("")}
             </AvatarFallback>
           </Avatar>
-          <div>
+
+          <div className="min-w-0">
             <div className="flex items-center gap-2">
-              <span className="font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">
+              <span className="font-semibold truncate text-foreground">
                 {user.name}
               </span>
               {user.isEmailVerified && (
-                <span className="inline-flex">
-                  <VerifiedRoundedIcon
-                    className="text-black dark:text-white"
-                    fontSize="small"
-                  />
-                </span>
+                <VerifiedRoundedIcon className="text-primary" fontSize="small" />
               )}
             </div>
-            <div className="text-xs text-neutral-500 dark:text-neutral-400">
+            <div className="text-xs text-muted-foreground truncate">
               @{user.username}
             </div>
           </div>
@@ -124,26 +121,27 @@ export function UserIdentityCard({ user }: UserIdentityCardProps) {
   );
 }
 
-// Navigation Menu component
+// ——————————————————————————————————————————
+// Navigation Menu
+// ——————————————————————————————————————————
 export function NavigationMenu({
   navItems,
   activeKey,
   onNavChange,
 }: NavigationMenuProps) {
-  // Separate regular nav items from danger items
   const regularItems = navItems.filter((item) => !item.danger);
   const dangerItems = navItems.filter((item) => item.danger);
 
   return (
-    <Card className="rounded-2xl border-neutral-200 dark:border-neutral-700 shadow-sm dark:bg-neutral-800">
-      <CardHeader>
-        <CardTitle className="text-base tracking-tight text-neutral-900 dark:text-neutral-100">
-          Navigate
+    <Card className="rounded-2xl border border-border dark:bg-foreground/5 shadow-sm ">
+      <CardHeader className="pb-3">
+        <CardTitle className="text-sm font-semibold text-foreground tracking-tight">
+          Navigation
         </CardTitle>
       </CardHeader>
-      <CardContent>
+
+      <CardContent className="px-4 pt-0">
         <div className="space-y-2">
-          {/* Regular navigation items */}
           {regularItems.map(({ key, label, icon: Icon }) => (
             <motion.div
               key={key}
@@ -160,10 +158,9 @@ export function NavigationMenu({
             </motion.div>
           ))}
 
-          {/* Separator and danger items if they exist */}
           {dangerItems.length > 0 && (
             <>
-              <Separator className="my-3" />
+              <Separator className="my-4 bg-border" />
               {dangerItems.map(({ key, label, icon: Icon }) => (
                 <motion.div
                   key={key}
@@ -188,7 +185,9 @@ export function NavigationMenu({
   );
 }
 
-// Combined SideNav component (for backward compatibility)
+// ——————————————————————————————————————————
+// Combined SideNav
+// ——————————————————————————————————————————
 export default function SideNav({
   user,
   navItems,
@@ -196,8 +195,8 @@ export default function SideNav({
   onNavChange,
 }: SideNavProps) {
   return (
-    <aside className="md:col-span-3">
-      <div className="sticky top-[68px] space-y-6">
+    <aside className="md:col-span-3 ">
+      <div className="sticky top-[72px] space-y-6">
         <UserIdentityCard user={user} />
         <NavigationMenu
           navItems={navItems}
