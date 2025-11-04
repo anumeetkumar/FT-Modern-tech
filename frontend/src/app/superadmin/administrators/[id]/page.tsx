@@ -129,9 +129,9 @@ function RoleContent() {
     <div className="p-8 space-y-6 bg-background text-foreground">
       <div>
         <h2 className="text-2xl font-semibold mb-2">Role Management</h2>
-        <p className="text-muted-foreground">Manage user roles and permissions.</p>
+        <p className="text-muted">Manage user roles and permissions.</p>
       </div>
-      <div className="flex flex-col items-center justify-center py-12 text-muted-foreground">
+      <div className="flex flex-col items-center justify-center py-12 text-muted">
         <SecurityRoundedIcon fontSize="large" />
         <p className="mt-2">Role management coming soon...</p>
       </div>
@@ -144,12 +144,12 @@ function DeleteAccountContent() {
     <div className="p-8 space-y-6 bg-background text-foreground">
       <div>
         <h2 className="text-2xl font-semibold mb-2 text-destructive">Delete Account</h2>
-        <p className="text-muted-foreground">
+        <p className="text-muted">
           Permanently delete this user account and all associated data.
         </p>
       </div>
 
-      <div className="bg-destructive/10 border border-destructive/20 rounded-xl p-6">
+      <div className="border border-destructive/20 rounded-xl p-6 dark:bg-foreground/5">
         <div className="flex items-start gap-4">
           <DeleteRoundedIcon className="text-destructive mt-0.5" />
           <div>
@@ -167,6 +167,8 @@ function DeleteAccountContent() {
     </div>
   );
 }
+
+
 
 // ——————————————————————————————————————————
 // Content Renderer

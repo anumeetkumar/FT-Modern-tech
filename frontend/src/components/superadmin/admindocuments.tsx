@@ -648,15 +648,15 @@ export default function AdminDocumentsPage() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="flex h-11 w-11 items-center justify-center rounded-2xl border border-neutral-200 dark:border-neutral-700"
+            className="flex h-11 w-11 items-center justify-center rounded-2xl border border-border bg-background"
           >
-            <UploadFileIcon className="dark:text-neutral-300" />
+            <UploadFileIcon className="text-foreground" />
           </motion.div>
           <div>
-            <h1 className="text-2xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">
+            <h1 className="text-2xl font-semibold tracking-tight text-foreground">
               Admin Documents
             </h1>
-            <p className="text-sm text-neutral-500 dark:text-neutral-400">
+            <p className="text-sm text-muted">
               Black & white. Pixel-perfect. View, add, track, and export admin
               documents.
             </p>
@@ -665,7 +665,7 @@ export default function AdminDocumentsPage() {
         <div className="flex items-center gap-2">
           <Button
             onClick={openAddDialog}
-            className="rounded-xl bg-neutral-900 px-4 py-2 text-white hover:bg-black dark:bg-white dark:text-black dark:hover:bg-neutral-100"
+            className="rounded-xl bg-primary text-white"
           >
             <UploadFileIcon className="mr-2 h-5 w-5" /> New Document
           </Button>
@@ -674,31 +674,28 @@ export default function AdminDocumentsPage() {
 
       {/* Quick Stats */}
       <div className="mb-6 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-        <div className="rounded-2xl border border-neutral-200 p-4 dark:border-neutral-700 dark:bg-neutral-800">
-          <div className="text-sm text-neutral-500 dark:text-neutral-400">
-            Total documents
-          </div>
+        <div className="rounded-2xl border border-border bg-card p-4 dark:bg-foreground/5">
+          <div className="text-sm text-muted">Total documents</div>
           <div className="mt-1 flex items-baseline gap-2">
-            <span className="text-2xl font-semibold text-neutral-900 dark:text-neutral-100">
+            <span className="text-2xl font-semibold text-foreground">
               {docs.length}
             </span>
             <Badge
               variant="outline"
-              className="rounded-full border-neutral-300 text-xs dark:border-neutral-600 dark:text-neutral-300"
+              className="rounded-full border-border text-xs text-foreground"
             >
               v{docs.reduce((a, b) => a + b.version, 0)}
             </Badge>
           </div>
         </div>
-        <div className="rounded-2xl border border-neutral-200 p-4 dark:border-neutral-700 dark:bg-neutral-800">
-          <div className="text-sm text-neutral-500 dark:text-neutral-400">
-            Health Status
-          </div>
+
+        <div className="rounded-2xl border border-border bg-card p-4 dark:bg-foreground/5">
+          <div className="text-sm text-muted">Health Status</div>
           <div className="mt-2 flex flex-wrap gap-2 text-xs sm:text-sm">
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <span className="inline-flex items-center gap-1 text-green-700 bg-green-50 px-2 py-1 rounded-full cursor-help dark:bg-green-950 dark:text-green-400">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-success/10 px-2 py-1 text-success cursor-help">
                     <CheckCircleIcon fontSize="small" />{" "}
                     {docs.filter((d) => d.status === "valid").length}
                   </span>
@@ -717,7 +714,7 @@ export default function AdminDocumentsPage() {
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <span className="inline-flex items-center gap-1 text-amber-700 bg-amber-50 px-2 py-1 rounded-full cursor-help dark:bg-orange-950 dark:text-orange-400">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-warning/10 px-2 py-1 text-warning cursor-help">
                     <WarningAmberIcon fontSize="small" />{" "}
                     {docs.filter((d) => d.status === "expiring").length}
                   </span>
@@ -737,7 +734,7 @@ export default function AdminDocumentsPage() {
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <span className="inline-flex items-center gap-1 text-red-700 bg-red-50 px-2 py-1 rounded-full cursor-help dark:bg-red-950 dark:text-red-400">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-error/10 px-2 py-1 text-error cursor-help">
                     <WarningAmberIcon fontSize="small" />{" "}
                     {docs.filter((d) => d.status === "expired").length}
                   </span>
@@ -755,23 +752,20 @@ export default function AdminDocumentsPage() {
             </TooltipProvider>
           </div>
         </div>
-        <div className="rounded-2xl border border-neutral-200 p-4 sm:col-span-2 lg:col-span-1 dark:border-neutral-700 dark:bg-neutral-800">
-          <div className="flex items-center justify-between text-sm text-neutral-500 dark:text-neutral-400">
+
+        <div className="rounded-2xl border border-border bg-card p-4 sm:col-span-2 lg:col-span-1 dark:bg-foreground/5">
+          <div className="flex items-center justify-between text-sm text-muted">
             <span>Storage used</span>
-            <span className="text-neutral-900 font-medium dark:text-neutral-100">
+            <span className="font-medium">
               {formatBytes(storageUsed)} / {formatBytes(storageQuota)}
             </span>
           </div>
-          <Progress
-            value={storagePct}
-            className="mt-3 h-2 bg-neutral-100 dark:bg-neutral-700"
-          />
-          <div className="mt-2 text-xs text-neutral-500 dark:text-neutral-400">
+          <Progress value={storagePct} className="mt-3 h-2 bg-foreground/5" />
+          <div className="mt-2 text-xs text-muted">
             {storagePct.toFixed(1)}% used
           </div>
         </div>
       </div>
-
 
       {/* Bulk bar */}
       <AnimatePresence>
