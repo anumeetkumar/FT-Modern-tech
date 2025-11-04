@@ -22,6 +22,9 @@ import LoginRoundedIcon from "@mui/icons-material/LoginRounded";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import SmartToyRoundedIcon from "@mui/icons-material/SmartToyRounded";
 import LinkRoundedIcon from "@mui/icons-material/LinkRounded";
+import FirebaseConfig from './settings/apiConfig/FirebaseConfig';
+import ReverseCoding from './settings/apiConfig/ReverseCoding';
+import SSOConfig from './settings/apiConfig/SSOConfig';
 
 
 // Types
@@ -223,505 +226,43 @@ function SuperAdminAPIConfig() {
 
   return (
     <Card className="border-0 shadow-none">
-      <CardHeader className="pb-2">
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <div className="text-[11px] uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">API Configuration</div>
-            <CardTitle className="text-2xl tracking-tight dark:text-neutral-100">Third-Party Integrations</CardTitle>
-          </div>
-          <div className="flex flex-wrap items-center gap-2">
-            <Button 
-              className="rounded-xl bg-black dark:bg-white text-white dark:text-black hover:bg-black/90 dark:hover:bg-neutral-100"
-              onClick={handleSave}
-              disabled={loading}
-            >
-              <SaveRoundedIcon className="mr-2" fontSize="small" /> Save All Changes
-            </Button>
-          </div>
-        </div>
-      </CardHeader>
+     <CardHeader className="pb-2">
+  <div className="flex items-start justify-between gap-4">
+    <div>
+      <div className="text-[11px] uppercase tracking-[0.2em] text-muted">
+        API Configuration
+      </div>
+      <CardTitle className="text-2xl tracking-tight text-foreground">
+        Third-Party Integrations
+      </CardTitle>
+    </div>
+    <div className="flex flex-wrap items-center gap-2">
+      <Button
+        className="rounded-xl bg-primary text-white "
+        onClick={handleSave}
+        disabled={loading}
+      >
+        <SaveRoundedIcon className="mr-2" fontSize="small" /> Save All Changes
+      </Button>
+    </div>
+  </div>
+</CardHeader>
+
 
       <CardContent className="pt-2 space-y-6">
         
         {/* Firebase Configuration */}
-        <div className="rounded-2xl border border-neutral-200 dark:border-neutral-700 dark:bg-neutral-800 p-5">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-2">
-              <FireplaceRoundedIcon className="text-neutral-500 dark:text-neutral-400" fontSize="small" />
-              <div className="text-sm font-medium tracking-tight dark:text-neutral-100">Firebase Configuration</div>
-              {configs.firebase.enabled && (
-                <Badge className="bg-black dark:bg-white text-white dark:text-black text-xs">Active</Badge>
-              )}
-            </div>
-            <Switch
-              checked={configs.firebase.enabled}
-              onCheckedChange={(checked) => updateFirebase('enabled', checked)}
-            />
-          </div>
+      <FirebaseConfig/>
 
-          {configs.firebase.enabled && (
-            <>
-              <Alert className="mb-4 border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900">
-                <InfoRoundedIcon className="h-4 w-4 dark:text-neutral-100" />
-                <AlertDescription className="text-xs dark:text-neutral-300">
-                  <strong>Setup Instructions:</strong> Go to <a href="https://console.firebase.google.com" target="_blank" rel="noopener noreferrer" className="underline dark:text-neutral-100">Firebase Console</a> → Project Settings → General → Your apps → SDK setup and configuration
-                </AlertDescription>
-              </Alert>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="firebase-apiKey" className="text-sm dark:text-neutral-200">API Key</Label>
-                  <div className="relative mt-1.5">
-                    <Input 
-                      id="firebase-apiKey"
-                      type={showFirebaseKey ? "text" : "password"}
-                      value={configs.firebase.apiKey}
-                      onChange={(e) => updateFirebase('apiKey', e.target.value)}
-                      className="rounded-lg pr-10 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowFirebaseKey(!showFirebaseKey)}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 text-neutral-500 dark:text-neutral-400"
-                    >
-                      {showFirebaseKey ? <VisibilityOffRoundedIcon fontSize="small" /> : <VisibilityRoundedIcon fontSize="small" />}
-                    </button>
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="firebase-authDomain" className="text-sm dark:text-neutral-200">Auth Domain</Label>
-                  <Input 
-                    id="firebase-authDomain"
-                    type="text"
-                    value={configs.firebase.authDomain}
-                    onChange={(e) => updateFirebase('authDomain', e.target.value)}
-                    className="rounded-lg mt-1.5 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100"
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="firebase-projectId" className="text-sm dark:text-neutral-200">Project ID</Label>
-                  <Input 
-                    id="firebase-projectId"
-                    type="text"
-                    value={configs.firebase.projectId}
-                    onChange={(e) => updateFirebase('projectId', e.target.value)}
-                    className="rounded-lg mt-1.5 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100"
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="firebase-storageBucket" className="text-sm dark:text-neutral-200">Storage Bucket</Label>
-                  <Input 
-                    id="firebase-storageBucket"
-                    type="text"
-                    value={configs.firebase.storageBucket}
-                    onChange={(e) => updateFirebase('storageBucket', e.target.value)}
-                    className="rounded-lg mt-1.5 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100"
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="firebase-messagingSenderId" className="text-sm dark:text-neutral-200">Messaging Sender ID</Label>
-                  <Input 
-                    id="firebase-messagingSenderId"
-                    type="text"
-                    value={configs.firebase.messagingSenderId}
-                    onChange={(e) => updateFirebase('messagingSenderId', e.target.value)}
-                    className="rounded-lg mt-1.5 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100"
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="firebase-appId" className="text-sm dark:text-neutral-200">App ID</Label>
-                  <Input 
-                    id="firebase-appId"
-                    type="text"
-                    value={configs.firebase.appId}
-                    onChange={(e) => updateFirebase('appId', e.target.value)}
-                    className="rounded-lg mt-1.5 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100"
-                  />
-                </div>
-
-                <div className="md:col-span-2">
-                  <Label htmlFor="firebase-measurementId" className="text-sm dark:text-neutral-200">Measurement ID (Optional - for Analytics)</Label>
-                  <Input 
-                    id="firebase-measurementId"
-                    type="text"
-                    value={configs.firebase.measurementId || ''}
-                    onChange={(e) => updateFirebase('measurementId', e.target.value)}
-                    className="rounded-lg mt-1.5 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100 dark:placeholder:text-neutral-500"
-                    placeholder="G-XXXXXXXXXX"
-                  />
-                </div>
-              </div>
-
-              <Button 
-                variant="outline" 
-                className="rounded-lg mt-4 dark:border-neutral-600 dark:text-neutral-100 dark:hover:bg-neutral-700"
-                onClick={() => testConnection('Firebase')}
-              >
-                <CheckCircleRoundedIcon fontSize="small" className="mr-2" />
-                Test Connection
-              </Button>
-            </>
-          )}
-        </div>
-
-        <Separator className="dark:bg-neutral-700" />
+        <Separator className="dark:bg-muted" />
 
         {/* Reverse Geocoding Configuration */}
-        <div className="rounded-2xl border border-neutral-200 dark:border-neutral-700 dark:bg-neutral-800 p-5">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-2">
-              <LocationOnRoundedIcon className="text-neutral-500 dark:text-neutral-400" fontSize="small" />
-              <div className="text-sm font-medium tracking-tight dark:text-neutral-100">Reverse Geocoding Service</div>
-              {configs.reverseGeocoding.enabled && (
-                <Badge className="bg-black dark:bg-white text-white dark:text-black text-xs">Active</Badge>
-              )}
-            </div>
-            <Switch
-              checked={configs.reverseGeocoding.enabled}
-              onCheckedChange={(checked) => updateReverseGeocoding('enabled', checked)}
-            />
-          </div>
+       <ReverseCoding/>
 
-          {configs.reverseGeocoding.enabled && (
-            <>
-              <Alert className="mb-4 border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900">
-                <InfoRoundedIcon className="h-4 w-4 dark:text-neutral-100" />
-                <AlertDescription className="text-xs dark:text-neutral-300">
-                  <div className="font-semibold mb-1">Configure Your Geocoding Provider</div>
-                  <div className="text-neutral-600 dark:text-neutral-400">Select a provider, enter credentials, and activate it to start using reverse geocoding services.</div>
-                </AlertDescription>
-              </Alert>
-
-              <div className="space-y-4">
-                {/* Provider Selection Dropdown */}
-                <div>
-                  <Label htmlFor="geocoding-provider" className="text-sm font-medium dark:text-neutral-200">Select Provider</Label>
-                  <Select 
-                    value={configs.reverseGeocoding.provider}
-                    onValueChange={(value: any) => updateReverseGeocoding('provider', value)}
-                  >
-                    <SelectTrigger className="rounded-lg mt-1.5 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent className="dark:bg-neutral-800 dark:border-neutral-700">
-                      <SelectItem value="google">Google Maps (Paid - $5/1000 req)</SelectItem>
-                      <SelectItem value="here">HERE Maps (Free - 250k/month)</SelectItem>
-                      <SelectItem value="tomtom">TomTom (Free - 2500/day)</SelectItem>
-                      <SelectItem value="mapbox">Mapbox (Free - 100k/month)</SelectItem>
-                      <SelectItem value="locationiq">LocationIQ (Free - 5000/day)</SelectItem>
-                      <SelectItem value="osm">OSM Nominatim (Free - No key)</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1.5">
-                    Selected: <strong className="text-neutral-700 dark:text-neutral-300">{
-                      configs.reverseGeocoding.provider === 'google' ? 'Google Maps' :
-                      configs.reverseGeocoding.provider === 'here' ? 'HERE Maps' :
-                      configs.reverseGeocoding.provider === 'tomtom' ? 'TomTom' :
-                      configs.reverseGeocoding.provider === 'mapbox' ? 'Mapbox' :
-                      configs.reverseGeocoding.provider === 'locationiq' ? 'LocationIQ' :
-                      'OSM Nominatim'
-                    }</strong>
-                  </p>
-                </div>
-
-                {/* Activate Provider Toggle */}
-                <div className="p-4 bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-xl">
-                  <div className="flex items-center justify-between">
-                    <div className="flex-1">
-                      <div className="text-sm font-medium dark:text-neutral-100">Activate Provider</div>
-                      <div className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">
-                        {configs.reverseGeocoding.providerActive 
-                          ? `${configs.reverseGeocoding.provider === 'google' ? 'Google Maps' :
-                              configs.reverseGeocoding.provider === 'here' ? 'HERE Maps' :
-                              configs.reverseGeocoding.provider === 'tomtom' ? 'TomTom' :
-                              configs.reverseGeocoding.provider === 'mapbox' ? 'Mapbox' :
-                              configs.reverseGeocoding.provider === 'locationiq' ? 'LocationIQ' :
-                              'OSM Nominatim'} is currently active and in use`
-                          : 'Activate this provider to start using it for reverse geocoding'}
-                      </div>
-                    </div>
-                    <Switch
-                      checked={configs.reverseGeocoding.providerActive}
-                      onCheckedChange={(checked) => updateReverseGeocoding('providerActive', checked)}
-                    />
-                  </div>
-                  {configs.reverseGeocoding.providerActive && (
-                    <div className="mt-3 flex items-center gap-2 text-xs">
-                      <Badge className="bg-black dark:bg-white text-white dark:text-black">ACTIVE</Badge>
-                      <span className="text-neutral-600 dark:text-neutral-300">This provider is now handling all reverse geocoding requests</span>
-                    </div>
-                  )}
-                </div>
-
-                {/* Provider Setup Links */}
-                <div className="p-3 bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-lg">
-                  <div className="text-xs font-medium mb-2 dark:text-neutral-100">Provider Documentation & Setup</div>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-xs">
-                    <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener noreferrer" className="text-neutral-600 dark:text-neutral-300 hover:text-black dark:hover:text-white underline-offset-2 hover:underline">→ Google Console</a>
-                    <a href="https://developer.here.com/sign-up" target="_blank" rel="noopener noreferrer" className="text-neutral-600 dark:text-neutral-300 hover:text-black dark:hover:text-white underline-offset-2 hover:underline">→ HERE Developer</a>
-                    <a href="https://developer.tomtom.com/user/register" target="_blank" rel="noopener noreferrer" className="text-neutral-600 dark:text-neutral-300 hover:text-black dark:hover:text-white underline-offset-2 hover:underline">→ TomTom Register</a>
-                    <a href="https://account.mapbox.com/access-tokens" target="_blank" rel="noopener noreferrer" className="text-neutral-600 dark:text-neutral-300 hover:text-black dark:hover:text-white underline-offset-2 hover:underline">→ Mapbox Tokens</a>
-                    <a href="https://locationiq.com/register" target="_blank" rel="noopener noreferrer" className="text-neutral-600 dark:text-neutral-300 hover:text-black dark:hover:text-white underline-offset-2 hover:underline">→ LocationIQ Register</a>
-                    <a href="https://nominatim.org/release-docs/develop/api/Reverse/" target="_blank" rel="noopener noreferrer" className="text-neutral-600 dark:text-neutral-300 hover:text-black dark:hover:text-white underline-offset-2 hover:underline">→ OSM Docs</a>
-                  </div>
-                </div>
-              </div>
-
-              {/* API Key Input Section - Only for non-OSM providers */}
-              <Separator className="my-4 dark:bg-neutral-700" />
-
-              {/* Google Maps Configuration */}
-              {configs.reverseGeocoding.provider === 'google' && (
-                <div className="space-y-4">
-                  <div>
-                    <Label htmlFor="google-apiKey" className="text-sm font-medium dark:text-neutral-200">Google API Key</Label>
-                    <div className="relative mt-1.5">
-                      <Input 
-                        id="google-apiKey"
-                        type={showGeocodingKey ? "text" : "password"}
-                        value={configs.reverseGeocoding.googleApiKey || ''}
-                        onChange={(e) => updateReverseGeocoding('googleApiKey', e.target.value)}
-                        className="rounded-lg pr-10 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100 dark:placeholder:text-neutral-500"
-                        placeholder="AIzaSy..."
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setShowGeocodingKey(!showGeocodingKey)}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 text-neutral-500 dark:text-neutral-400"
-                      >
-                        {showGeocodingKey ? <VisibilityOffRoundedIcon fontSize="small" /> : <VisibilityRoundedIcon fontSize="small" />}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* HERE Maps Configuration */}
-              {configs.reverseGeocoding.provider === 'here' && (
-                <div className="space-y-4">
-                  <div>
-                    <Label htmlFor="here-apiKey" className="text-sm font-medium dark:text-neutral-200">HERE API Key</Label>
-                    <div className="relative mt-1.5">
-                      <Input 
-                        id="here-apiKey"
-                        type={showGeocodingKey ? "text" : "password"}
-                        value={configs.reverseGeocoding.hereApiKey || ''}
-                        onChange={(e) => updateReverseGeocoding('hereApiKey', e.target.value)}
-                        className="rounded-lg pr-10 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100 dark:placeholder:text-neutral-500"
-                        placeholder="YOUR-HERE-API-KEY"
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setShowGeocodingKey(!showGeocodingKey)}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 text-neutral-500 dark:text-neutral-400"
-                      >
-                        {showGeocodingKey ? <VisibilityOffRoundedIcon fontSize="small" /> : <VisibilityRoundedIcon fontSize="small" />}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* TomTom Configuration */}
-              {configs.reverseGeocoding.provider === 'tomtom' && (
-                <div className="space-y-4">
-                  <div>
-                    <Label htmlFor="tomtom-apiKey" className="text-sm font-medium dark:text-neutral-200">TomTom API Key</Label>
-                    <div className="relative mt-1.5">
-                      <Input 
-                        id="tomtom-apiKey"
-                        type={showGeocodingKey ? "text" : "password"}
-                        value={configs.reverseGeocoding.tomtomApiKey || ''}
-                        onChange={(e) => updateReverseGeocoding('tomtomApiKey', e.target.value)}
-                        className="rounded-lg pr-10 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100 dark:placeholder:text-neutral-500"
-                        placeholder="YOUR-TOMTOM-API-KEY"
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setShowGeocodingKey(!showGeocodingKey)}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 text-neutral-500 dark:text-neutral-400"
-                      >
-                        {showGeocodingKey ? <VisibilityOffRoundedIcon fontSize="small" /> : <VisibilityRoundedIcon fontSize="small" />}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Mapbox Configuration */}
-              {configs.reverseGeocoding.provider === 'mapbox' && (
-                <div className="space-y-4">
-                  <div>
-                    <Label htmlFor="mapbox-accessToken" className="text-sm font-medium dark:text-neutral-200">Mapbox Access Token</Label>
-                    <div className="relative mt-1.5">
-                      <Input 
-                        id="mapbox-accessToken"
-                        type={showGeocodingKey ? "text" : "password"}
-                        value={configs.reverseGeocoding.mapboxAccessToken || ''}
-                        onChange={(e) => updateReverseGeocoding('mapboxAccessToken', e.target.value)}
-                        className="rounded-lg pr-10 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100 dark:placeholder:text-neutral-500"
-                        placeholder="pk.eyJ1..."
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setShowGeocodingKey(!showGeocodingKey)}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 text-neutral-500 dark:text-neutral-400"
-                      >
-                        {showGeocodingKey ? <VisibilityOffRoundedIcon fontSize="small" /> : <VisibilityRoundedIcon fontSize="small" />}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* LocationIQ Configuration */}
-              {configs.reverseGeocoding.provider === 'locationiq' && (
-                <div className="space-y-4">
-                  <div>
-                    <Label htmlFor="locationiq-apiKey" className="text-sm font-medium dark:text-neutral-200">LocationIQ API Key</Label>
-                    <div className="relative mt-1.5">
-                      <Input 
-                        id="locationiq-apiKey"
-                        type={showGeocodingKey ? "text" : "password"}
-                        value={configs.reverseGeocoding.locationiqApiKey || ''}
-                        onChange={(e) => updateReverseGeocoding('locationiqApiKey', e.target.value)}
-                        className="rounded-lg pr-10 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100 dark:placeholder:text-neutral-500"
-                        placeholder="pk.abc123..."
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setShowGeocodingKey(!showGeocodingKey)}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 text-neutral-500 dark:text-neutral-400"
-                      >
-                        {showGeocodingKey ? <VisibilityOffRoundedIcon fontSize="small" /> : <VisibilityRoundedIcon fontSize="small" />}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* OSM Nominatim Configuration */}
-              {configs.reverseGeocoding.provider === 'osm' && (
-                <div className="space-y-4">
-                  <Alert className="border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900">
-                    <InfoRoundedIcon className="h-4 w-4 dark:text-neutral-100" />
-                    <AlertDescription className="text-xs dark:text-neutral-300">
-                      <div className="font-semibold mb-1">OpenStreetMap Nominatim - Free Service</div>
-                      <div>No API key required. Only User-Agent string needed.</div>
-                    </AlertDescription>
-                  </Alert>
-                  <div>
-                    <Label htmlFor="osm-userAgent" className="text-sm font-medium dark:text-neutral-200">User Agent String</Label>
-                    <Input 
-                      id="osm-userAgent"
-                      type="text"
-                      value={configs.reverseGeocoding.osmUserAgent || ''}
-                      onChange={(e) => updateReverseGeocoding('osmUserAgent', e.target.value)}
-                      className="rounded-lg mt-1.5 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100 dark:placeholder:text-neutral-500"
-                      placeholder="YourApp/1.0"
-                    />
-                    <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">Required by OSM usage policy</p>
-                  </div>
-                </div>
-              )}
-
-              {/* Provider-Specific API Endpoint Information */}
-              <Separator className="my-4 dark:bg-neutral-700" />
-              
-              {configs.reverseGeocoding.provider === 'google' && (
-                <Alert className="border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900">
-                  <InfoRoundedIcon className="h-4 w-4 dark:text-neutral-100" />
-                  <AlertDescription className="text-xs dark:text-neutral-300">
-                    <div className="font-semibold mb-1">Google Maps Geocoding API Endpoint</div>
-                    <code className="bg-white dark:bg-neutral-800 dark:text-neutral-100 px-2 py-1 rounded text-[10px] block">
-                      https://maps.googleapis.com/maps/api/geocode/json?latlng=LAT,LNG&key=API_KEY
-                    </code>
-                  </AlertDescription>
-                </Alert>
-              )}
-
-              {configs.reverseGeocoding.provider === 'here' && (
-                <Alert className="border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900">
-                  <InfoRoundedIcon className="h-4 w-4 dark:text-neutral-100" />
-                  <AlertDescription className="text-xs dark:text-neutral-300">
-                    <div className="font-semibold mb-1">HERE Reverse Geocode API Endpoint</div>
-                    <code className="bg-white dark:bg-neutral-800 dark:text-neutral-100 px-2 py-1 rounded text-[10px] block">
-                      https://revgeocode.search.hereapi.com/v1/revgeocode?at=LAT,LNG&apiKey=API_KEY
-                    </code>
-                  </AlertDescription>
-                </Alert>
-              )}
-
-              {configs.reverseGeocoding.provider === 'tomtom' && (
-                <Alert className="border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900">
-                  <InfoRoundedIcon className="h-4 w-4 dark:text-neutral-100" />
-                  <AlertDescription className="text-xs dark:text-neutral-300">
-                    <div className="font-semibold mb-1">TomTom Reverse Geocoding API Endpoint</div>
-                    <code className="bg-white dark:bg-neutral-800 dark:text-neutral-100 px-2 py-1 rounded text-[10px] block">
-                      https://api.tomtom.com/search/2/reverseGeocode/LAT,LNG.json?key=API_KEY
-                    </code>
-                  </AlertDescription>
-                </Alert>
-              )}
-
-              {configs.reverseGeocoding.provider === 'mapbox' && (
-                <Alert className="border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900">
-                  <InfoRoundedIcon className="h-4 w-4 dark:text-neutral-100" />
-                  <AlertDescription className="text-xs dark:text-neutral-300">
-                    <div className="font-semibold mb-1">Mapbox Geocoding API Endpoint</div>
-                    <code className="bg-white dark:bg-neutral-800 dark:text-neutral-100 px-2 py-1 rounded text-[10px] block">
-                      https://api.mapbox.com/geocoding/v5/mapbox.places/LNG,LAT.json?access_token=TOKEN
-                    </code>
-                    <div className="mt-2 text-xs dark:text-neutral-300"><strong>Note:</strong> Mapbox uses LNG,LAT order (reversed)</div>
-                  </AlertDescription>
-                </Alert>
-              )}
-
-              {configs.reverseGeocoding.provider === 'locationiq' && (
-                <Alert className="border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900">
-                  <InfoRoundedIcon className="h-4 w-4 dark:text-neutral-100" />
-                  <AlertDescription className="text-xs dark:text-neutral-300">
-                    <div className="font-semibold mb-1">LocationIQ Reverse Geocoding API Endpoint</div>
-                    <code className="bg-white dark:bg-neutral-800 dark:text-neutral-100 px-2 py-1 rounded text-[10px] block">
-                      https://us1.locationiq.com/v1/reverse.php?key=API_KEY&lat=LAT&lon=LNG&format=json
-                    </code>
-                  </AlertDescription>
-                </Alert>
-              )}
-
-              {configs.reverseGeocoding.provider === 'osm' && (
-                <Alert className="border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900">
-                  <InfoRoundedIcon className="h-4 w-4 dark:text-neutral-100" />
-                  <AlertDescription className="text-xs dark:text-neutral-300">
-                    <div className="font-semibold mb-1">OSM Nominatim API Endpoint</div>
-                    <code className="bg-white dark:bg-neutral-800 dark:text-neutral-100 px-2 py-1 rounded text-[10px] block">
-                      https://nominatim.openstreetmap.org/reverse?lat=LAT&lon=LON&format=json
-                    </code>
-                  </AlertDescription>
-                </Alert>
-              )}
-
-              <Button 
-                variant="outline" 
-                className="rounded-lg mt-4 dark:border-neutral-600 dark:text-neutral-100 dark:hover:bg-neutral-700"
-                onClick={() => testConnection('Reverse Geocoding')}
-              >
-                <CheckCircleRoundedIcon fontSize="small" className="mr-2" />
-                Test Geocoding
-              </Button>
-            </>
-          )}
-        </div>
-
-        <Separator className="dark:bg-neutral-700" />
+        <Separator className="dark:bg-muted" />
 
         {/* SSO (Google) Configuration */}
-        <div className="rounded-2xl border border-neutral-200 dark:border-neutral-700 dark:bg-neutral-800 p-5">
+        {/* <div className="rounded-2xl border border-neutral-200 dark:border-neutral-700 dark:bg-neutral-800 p-5">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <LoginRoundedIcon className="text-neutral-500 dark:text-neutral-400" fontSize="small" />
@@ -819,7 +360,8 @@ function SuperAdminAPIConfig() {
               </Button>
             </>
           )}
-        </div>
+        </div> */}
+        <SSOConfig/>
 
         <Separator className="dark:bg-neutral-700" />
 

@@ -1,9 +1,14 @@
-'use client';
+"use client";
 
-import { DisplayMap, SmartCheckboxAutoTable, FilterConfigMap, MultiSelectOption } from '@/components/common/smartcheckboxautotable';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Switch } from '@/components/ui/switch';
-import React from 'react';
+import {
+  DisplayMap,
+  SmartCheckboxAutoTable,
+  FilterConfigMap,
+  MultiSelectOption,
+} from "@/components/common/smartcheckboxautotable";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Switch } from "@/components/ui/switch";
+import React from "react";
 import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
 import SpeedIcon from "@mui/icons-material/Speed";
 
@@ -14,10 +19,6 @@ import EmailIcon from "@mui/icons-material/Email";
 import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
 import { useRouter } from "next/navigation";
 
-
-
-
-
 // Core unions
 export type VehicleStatus = "running" | "stop" | "idle";
 
@@ -25,15 +26,15 @@ export type VehicleStatus = "running" | "stop" | "idle";
 export interface PersonRef {
   name: string;
   email: string;
-  mobilePrefix: string;  // e.g., "+91"
-  mobile: string;        // digits only
+  mobilePrefix: string; // e.g., "+91"
+  mobile: string; // digits only
   isEmailVerified: boolean;
-  profileUrl: string;    // URL or path
+  profileUrl: string; // URL or path
   username: string;
 }
 
 export interface NamedType {
-  name: string;          // e.g., "Truck", "Car" | "GT06", "FBM920"
+  name: string; // e.g., "Truck", "Car" | "GT06", "FBM920"
 }
 
 /**
@@ -54,28 +55,25 @@ export interface VehicleRow {
   status: VehicleStatus;
   speed: number;
 
-  vehicleType: NamedType;  // { name: "Truck" | "Car" | ... }
-  deviceType: NamedType;   // { name: "GT06" | "FBM920" | ... }
+  vehicleType: NamedType; // { name: "Truck" | "Car" | ... }
+  deviceType: NamedType; // { name: "GT06" | "FBM920" | ... }
 
-  lastUpdate: string;      // ISO datetime
+  lastUpdate: string; // ISO datetime
   primaryUser: PersonRef;
   addedBy: PersonRef;
 
-  primaryExpiry: string;   // ISO date or datetime
+  primaryExpiry: string; // ISO date or datetime
   secondaryExpiry: string; // ISO date or datetime
-  createdAt: string;       // ISO datetime
+  createdAt: string; // ISO datetime
 
   ignition: boolean;
   engineHour: number;
   odometer: number;
 
-  gmt: string;             // e.g., "+05:30"
+  gmt: string; // e.g., "+05:30"
   parking: boolean;
   isActive: boolean;
 }
-
-
-
 
 export const VEHICLE_DATA: VehicleRow[] = [
   {
@@ -95,7 +93,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9810012345",
       isEmailVerified: true,
       profileUrl: "/uploads/users/akash.png",
-      username: "akash.k"
+      username: "akash.k",
     },
     addedBy: {
       name: "Vinod Singh",
@@ -104,7 +102,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9899011122",
       isEmailVerified: true,
       profileUrl: "/uploads/users/vinod.png",
-      username: "vinod.s"
+      username: "vinod.s",
     },
     primaryExpiry: "2026-08-31",
     secondaryExpiry: "2026-12-31",
@@ -114,7 +112,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
     odometer: 148520.7,
     gmt: "+05:30",
     parking: false,
-    isActive: true
+    isActive: true,
   },
   {
     id: "v-0002",
@@ -133,7 +131,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9820098765",
       isEmailVerified: true,
       profileUrl: "/uploads/users/riya.png",
-      username: "riya.s"
+      username: "riya.s",
     },
     addedBy: {
       name: "Vinod Singh",
@@ -142,7 +140,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9899011122",
       isEmailVerified: true,
       profileUrl: "/uploads/users/vinod.png",
-      username: "vinod.s"
+      username: "vinod.s",
     },
     primaryExpiry: "2026-07-15",
     secondaryExpiry: "2026-10-15",
@@ -152,7 +150,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
     odometer: 38540.1,
     gmt: "+05:30",
     parking: true,
-    isActive: true
+    isActive: true,
   },
   {
     id: "v-0003",
@@ -171,7 +169,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9876543201",
       isEmailVerified: false,
       profileUrl: "/uploads/users/mohit.png",
-      username: "mohit.v"
+      username: "mohit.v",
     },
     addedBy: {
       name: "Seema Gupta",
@@ -180,7 +178,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9818899001",
       isEmailVerified: true,
       profileUrl: "/uploads/users/seema.png",
-      username: "seema.g"
+      username: "seema.g",
     },
     primaryExpiry: "2026-05-30",
     secondaryExpiry: "2026-09-30",
@@ -190,7 +188,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
     odometer: 90512.9,
     gmt: "+05:30",
     parking: false,
-    isActive: true
+    isActive: true,
   },
   {
     id: "v-0004",
@@ -209,7 +207,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9845099900",
       isEmailVerified: true,
       profileUrl: "/uploads/users/ananya.png",
-      username: "ananya.i"
+      username: "ananya.i",
     },
     addedBy: {
       name: "Vinod Singh",
@@ -218,7 +216,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9899011122",
       isEmailVerified: true,
       profileUrl: "/uploads/users/vinod.png",
-      username: "vinod.s"
+      username: "vinod.s",
     },
     primaryExpiry: "2027-01-10",
     secondaryExpiry: "2027-04-10",
@@ -228,7 +226,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
     odometer: 189210.4,
     gmt: "+05:30",
     parking: false,
-    isActive: true
+    isActive: true,
   },
   {
     id: "v-0005",
@@ -247,7 +245,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9935012345",
       isEmailVerified: true,
       profileUrl: "/uploads/users/pooja.png",
-      username: "pooja.m"
+      username: "pooja.m",
     },
     addedBy: {
       name: "Seema Gupta",
@@ -256,7 +254,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9818899001",
       isEmailVerified: true,
       profileUrl: "/uploads/users/seema.png",
-      username: "seema.g"
+      username: "seema.g",
     },
     primaryExpiry: "2026-11-01",
     secondaryExpiry: "2027-02-01",
@@ -266,7 +264,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
     odometer: 42110.3,
     gmt: "+05:30",
     parking: true,
-    isActive: false
+    isActive: false,
   },
   {
     id: "v-0006",
@@ -285,7 +283,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9929012345",
       isEmailVerified: true,
       profileUrl: "/uploads/users/sandeep.png",
-      username: "sandeep.j"
+      username: "sandeep.j",
     },
     addedBy: {
       name: "Aarti Mehta",
@@ -294,7 +292,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9811102233",
       isEmailVerified: true,
       profileUrl: "/uploads/users/aarti.png",
-      username: "aarti.m"
+      username: "aarti.m",
     },
     primaryExpiry: "2026-06-20",
     secondaryExpiry: "2026-09-20",
@@ -304,7 +302,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
     odometer: 61500.0,
     gmt: "+05:30",
     parking: false,
-    isActive: true
+    isActive: true,
   },
   {
     id: "v-0007",
@@ -323,7 +321,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9952098765",
       isEmailVerified: false,
       profileUrl: "/uploads/users/harish.png",
-      username: "harish.k"
+      username: "harish.k",
     },
     addedBy: {
       name: "Seema Gupta",
@@ -332,7 +330,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9818899001",
       isEmailVerified: true,
       profileUrl: "/uploads/users/seema.png",
-      username: "seema.g"
+      username: "seema.g",
     },
     primaryExpiry: "2027-03-05",
     secondaryExpiry: "2027-06-05",
@@ -342,7 +340,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
     odometer: 22400.9,
     gmt: "+05:30",
     parking: false,
-    isActive: true
+    isActive: true,
   },
   {
     id: "v-0008",
@@ -361,7 +359,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9804091122",
       isEmailVerified: true,
       profileUrl: "/uploads/users/aditi.png",
-      username: "aditi.s"
+      username: "aditi.s",
     },
     addedBy: {
       name: "Vinod Singh",
@@ -370,7 +368,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9899011122",
       isEmailVerified: true,
       profileUrl: "/uploads/users/vinod.png",
-      username: "vinod.s"
+      username: "vinod.s",
     },
     primaryExpiry: "2026-12-20",
     secondaryExpiry: "2027-03-20",
@@ -380,7 +378,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
     odometer: 33010.5,
     gmt: "+05:30",
     parking: true,
-    isActive: true
+    isActive: true,
   },
   {
     id: "v-0009",
@@ -399,7 +397,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9817012345",
       isEmailVerified: true,
       profileUrl: "/uploads/users/karan.png",
-      username: "karan.b"
+      username: "karan.b",
     },
     addedBy: {
       name: "Aarti Mehta",
@@ -408,7 +406,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9811102233",
       isEmailVerified: true,
       profileUrl: "/uploads/users/aarti.png",
-      username: "aarti.m"
+      username: "aarti.m",
     },
     primaryExpiry: "2026-04-12",
     secondaryExpiry: "2026-08-12",
@@ -418,7 +416,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
     odometer: 120450.4,
     gmt: "+05:30",
     parking: false,
-    isActive: true
+    isActive: true,
   },
   {
     id: "v-0010",
@@ -437,7 +435,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9797012345",
       isEmailVerified: false,
       profileUrl: "/uploads/users/zara.png",
-      username: "zara.k"
+      username: "zara.k",
     },
     addedBy: {
       name: "Seema Gupta",
@@ -446,7 +444,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9818899001",
       isEmailVerified: true,
       profileUrl: "/uploads/users/seema.png",
-      username: "seema.g"
+      username: "seema.g",
     },
     primaryExpiry: "2027-02-28",
     secondaryExpiry: "2027-05-31",
@@ -456,7 +454,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
     odometer: 18410.8,
     gmt: "+05:30",
     parking: false,
-    isActive: true
+    isActive: true,
   },
   {
     id: "v-0011",
@@ -475,7 +473,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9876001122",
       isEmailVerified: true,
       profileUrl: "/uploads/users/gurpreet.png",
-      username: "gurpreet.s"
+      username: "gurpreet.s",
     },
     addedBy: {
       name: "Vinod Singh",
@@ -484,7 +482,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9899011122",
       isEmailVerified: true,
       profileUrl: "/uploads/users/vinod.png",
-      username: "vinod.s"
+      username: "vinod.s",
     },
     primaryExpiry: "2026-03-19",
     secondaryExpiry: "2026-06-19",
@@ -494,7 +492,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
     odometer: 9120.4,
     gmt: "+05:30",
     parking: true,
-    isActive: true
+    isActive: true,
   },
   {
     id: "v-0012",
@@ -513,7 +511,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9810003344",
       isEmailVerified: true,
       profileUrl: "/uploads/users/neha.png",
-      username: "neha.a"
+      username: "neha.a",
     },
     addedBy: {
       name: "Aarti Mehta",
@@ -522,7 +520,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9811102233",
       isEmailVerified: true,
       profileUrl: "/uploads/users/aarti.png",
-      username: "aarti.m"
+      username: "aarti.m",
     },
     primaryExpiry: "2026-10-01",
     secondaryExpiry: "2027-01-01",
@@ -532,7 +530,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
     odometer: 41220.0,
     gmt: "+05:30",
     parking: false,
-    isActive: true
+    isActive: true,
   },
   {
     id: "v-0013",
@@ -551,7 +549,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9304012345",
       isEmailVerified: false,
       profileUrl: "/uploads/users/rahul.png",
-      username: "rahul.r"
+      username: "rahul.r",
     },
     addedBy: {
       name: "Seema Gupta",
@@ -560,7 +558,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9818899001",
       isEmailVerified: true,
       profileUrl: "/uploads/users/seema.png",
-      username: "seema.g"
+      username: "seema.g",
     },
     primaryExpiry: "2027-04-14",
     secondaryExpiry: "2027-07-14",
@@ -570,7 +568,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
     odometer: 74550.2,
     gmt: "+05:30",
     parking: false,
-    isActive: true
+    isActive: true,
   },
   {
     id: "v-0014",
@@ -589,7 +587,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9822102233",
       isEmailVerified: true,
       profileUrl: "/uploads/users/tanvi.png",
-      username: "tanvi.r"
+      username: "tanvi.r",
     },
     addedBy: {
       name: "Vinod Singh",
@@ -598,7 +596,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9899011122",
       isEmailVerified: true,
       profileUrl: "/uploads/users/vinod.png",
-      username: "vinod.s"
+      username: "vinod.s",
     },
     primaryExpiry: "2026-09-09",
     secondaryExpiry: "2026-12-09",
@@ -608,7 +606,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
     odometer: 154330.6,
     gmt: "+05:30",
     parking: true,
-    isActive: true
+    isActive: true,
   },
   {
     id: "v-0015",
@@ -627,7 +625,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9777012345",
       isEmailVerified: true,
       profileUrl: "/uploads/users/arjun.png",
-      username: "arjun.s"
+      username: "arjun.s",
     },
     addedBy: {
       name: "Aarti Mehta",
@@ -636,7 +634,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9811102233",
       isEmailVerified: true,
       profileUrl: "/uploads/users/aarti.png",
-      username: "aarti.m"
+      username: "aarti.m",
     },
     primaryExpiry: "2026-02-18",
     secondaryExpiry: "2026-06-18",
@@ -646,7 +644,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
     odometer: 20540.0,
     gmt: "+05:30",
     parking: false,
-    isActive: false
+    isActive: false,
   },
   {
     id: "v-0016",
@@ -665,7 +663,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9864012345",
       isEmailVerified: true,
       profileUrl: "/uploads/users/imran.png",
-      username: "imran.a"
+      username: "imran.a",
     },
     addedBy: {
       name: "Seema Gupta",
@@ -674,7 +672,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9818899001",
       isEmailVerified: true,
       profileUrl: "/uploads/users/seema.png",
-      username: "seema.g"
+      username: "seema.g",
     },
     primaryExpiry: "2027-06-25",
     secondaryExpiry: "2027-09-25",
@@ -684,7 +682,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
     odometer: 10120.3,
     gmt: "+05:30",
     parking: false,
-    isActive: true
+    isActive: true,
   },
   {
     id: "v-0017",
@@ -703,7 +701,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9847011223",
       isEmailVerified: true,
       profileUrl: "/uploads/users/vivek.png",
-      username: "vivek.m"
+      username: "vivek.m",
     },
     addedBy: {
       name: "Vinod Singh",
@@ -712,7 +710,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9899011122",
       isEmailVerified: true,
       profileUrl: "/uploads/users/vinod.png",
-      username: "vinod.s"
+      username: "vinod.s",
     },
     primaryExpiry: "2026-01-12",
     secondaryExpiry: "2026-04-12",
@@ -722,7 +720,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
     odometer: 6540.2,
     gmt: "+05:30",
     parking: true,
-    isActive: true
+    isActive: true,
   },
   {
     id: "v-0018",
@@ -741,7 +739,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9826098765",
       isEmailVerified: true,
       profileUrl: "/uploads/users/sonal.png",
-      username: "sonal.j"
+      username: "sonal.j",
     },
     addedBy: {
       name: "Aarti Mehta",
@@ -750,7 +748,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9811102233",
       isEmailVerified: true,
       profileUrl: "/uploads/users/aarti.png",
-      username: "aarti.m"
+      username: "aarti.m",
     },
     primaryExpiry: "2026-08-08",
     secondaryExpiry: "2026-11-08",
@@ -760,7 +758,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
     odometer: 3200.0,
     gmt: "+05:30",
     parking: false,
-    isActive: true
+    isActive: true,
   },
   {
     id: "v-0019",
@@ -779,7 +777,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9849012345",
       isEmailVerified: false,
       profileUrl: "/uploads/users/prathik.png",
-      username: "prathik.r"
+      username: "prathik.r",
     },
     addedBy: {
       name: "Seema Gupta",
@@ -788,7 +786,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9818899001",
       isEmailVerified: true,
       profileUrl: "/uploads/users/seema.png",
-      username: "seema.g"
+      username: "seema.g",
     },
     primaryExpiry: "2027-08-01",
     secondaryExpiry: "2027-11-01",
@@ -798,7 +796,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
     odometer: 1500.9,
     gmt: "+05:30",
     parking: false,
-    isActive: true
+    isActive: true,
   },
   {
     id: "v-0020",
@@ -817,7 +815,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9897098765",
       isEmailVerified: true,
       profileUrl: "/uploads/users/divya.png",
-      username: "divya.j"
+      username: "divya.j",
     },
     addedBy: {
       name: "Vinod Singh",
@@ -826,7 +824,7 @@ export const VEHICLE_DATA: VehicleRow[] = [
       mobile: "9899011122",
       isEmailVerified: true,
       profileUrl: "/uploads/users/vinod.png",
-      username: "vinod.s"
+      username: "vinod.s",
     },
     primaryExpiry: "2026-12-31",
     secondaryExpiry: "2027-03-31",
@@ -836,27 +834,21 @@ export const VEHICLE_DATA: VehicleRow[] = [
     odometer: 820.5,
     gmt: "+05:30",
     parking: true,
-    isActive: true
-  }
+    isActive: true,
+  },
 ];
 
-
-
-
-   // Minimal tooltip component for complete vehicle information
-  
-
-
-
+// Minimal tooltip component for complete vehicle information
 
 function page() {
-
-   const router = useRouter();
+  const router = useRouter();
   // Helper function to calculate expiry status
   const calculateExpiry = (expiryStr: string) => {
     const expiryDate = new Date(expiryStr);
     const today = new Date();
-    const daysUntilExpiry = Math.floor((expiryDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+    const daysUntilExpiry = Math.floor(
+      (expiryDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)
+    );
     const isExpiringSoon = daysUntilExpiry <= 30 && daysUntilExpiry >= 0;
     const isExpired = daysUntilExpiry < 0;
     return { daysUntilExpiry, isExpiringSoon, isExpired };
@@ -865,15 +857,23 @@ function page() {
   // Format ISO datetime to readable format
   const formatDateTime = (isoString: string) => {
     const date = new Date(isoString);
-    const dateStr = date.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
-    const timeStr = date.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: false });
+    const dateStr = date.toLocaleDateString("en-IN", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    });
+    const timeStr = date.toLocaleTimeString("en-IN", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    });
     return { date: dateStr, time: timeStr };
   };
 
   // Tooltip component for vehicle details
   const VehicleTooltip = (row: VehicleRow) => {
     const { date, time } = formatDateTime(row.lastUpdate);
-    
+
     return (
       <div className="p-2 max-w-xs">
         {/* Header */}
@@ -882,42 +882,93 @@ function page() {
             {row.vehicleNo.slice(0, 2).toUpperCase()}
           </div>
           <div>
-            <div className="font-semibold text-[12px] text-neutral-900 dark:text-neutral-100">{row.vehicleNo}</div>
-            <div className="text-[9px] text-neutral-500 dark:text-neutral-400">{row.vehicleType.name} • {row.status}</div>
+            <div className="font-semibold text-[12px] text-neutral-900 dark:text-neutral-100">
+              {row.vehicleNo}
+            </div>
+            <div className="text-[9px] text-neutral-500 dark:text-neutral-400">
+              {row.vehicleType.name} • {row.status}
+            </div>
           </div>
         </div>
 
         {/* Device Info */}
         <div className="space-y-1 text-[11px]">
           <div className="flex items-center gap-1.5">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-2.5 w-2.5 text-neutral-400 dark:text-neutral-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-2.5 w-2.5 text-neutral-400 dark:text-neutral-500 flex-shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+              />
             </svg>
-            <span className="text-neutral-700 dark:text-neutral-300 font-mono">{row.imei}</span>
+            <span className="text-neutral-700 dark:text-neutral-300 font-mono">
+              {row.imei}
+            </span>
           </div>
           <div className="flex items-center gap-1.5">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-2.5 w-2.5 text-neutral-400 dark:text-neutral-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-2.5 w-2.5 text-neutral-400 dark:text-neutral-500 flex-shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
+              />
             </svg>
-            <span className="text-neutral-700 dark:text-neutral-300 font-mono">{row.vin}</span>
+            <span className="text-neutral-700 dark:text-neutral-300 font-mono">
+              {row.vin}
+            </span>
           </div>
           <div className="flex items-center gap-1.5">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-2.5 w-2.5 text-neutral-400 dark:text-neutral-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-2.5 w-2.5 text-neutral-400 dark:text-neutral-500 flex-shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
+              />
             </svg>
-            <span className="text-neutral-700 dark:text-neutral-300">{row.deviceType.name}</span>
+            <span className="text-neutral-700 dark:text-neutral-300">
+              {row.deviceType.name}
+            </span>
           </div>
         </div>
 
         {/* Engine & Odometer */}
         <div className="mt-2 pt-2 border-t border-neutral-200 dark:border-neutral-700">
           <div className="flex justify-between text-[10px]">
-            <span className="text-neutral-500 dark:text-neutral-400">Engine Hours:</span>
-            <span className="font-medium text-neutral-900 dark:text-neutral-100">{row.engineHour.toFixed(1)} hrs</span>
+            <span className="text-neutral-500 dark:text-neutral-400">
+              Engine Hours:
+            </span>
+            <span className="font-medium text-neutral-900 dark:text-neutral-100">
+              {row.engineHour.toFixed(1)} hrs
+            </span>
           </div>
           <div className="flex justify-between text-[10px] mt-1">
-            <span className="text-neutral-500 dark:text-neutral-400">Odometer:</span>
-            <span className="font-medium text-neutral-900 dark:text-neutral-100">{row.odometer.toLocaleString()} km</span>
+            <span className="text-neutral-500 dark:text-neutral-400">
+              Odometer:
+            </span>
+            <span className="font-medium text-neutral-900 dark:text-neutral-100">
+              {row.odometer.toLocaleString()} km
+            </span>
           </div>
         </div>
 
@@ -925,7 +976,9 @@ function page() {
         <div className="mt-2 pt-2 border-t border-neutral-200 dark:border-neutral-700">
           <div className="flex items-center gap-1 text-[10px] text-neutral-500 dark:text-neutral-400">
             <AccessTimeIcon style={{ fontSize: "9px" }} />
-            <span>Last: {date} at {time}</span>
+            <span>
+              Last: {date} at {time}
+            </span>
           </div>
         </div>
       </div>
@@ -940,7 +993,11 @@ function page() {
           <Avatar className="w-8 h-8">
             <AvatarImage src={user.profileUrl} alt={user.name} />
             <AvatarFallback className="bw-gradient-primary bw-text-primary-fg text-xs font-semibold">
-              {user.name.split(" ").map(n => n[0]).join("").slice(0, 2)}
+              {user.name
+                .split(" ")
+                .map((n) => n[0])
+                .join("")
+                .slice(0, 2)}
             </AvatarFallback>
           </Avatar>
           <div>
@@ -951,14 +1008,25 @@ function page() {
 
         <div className="space-y-1 text-[11px]">
           <div className="flex items-center gap-1.5">
-            <EmailIcon style={{ fontSize: "11px" }} className="text-neutral-400 dark:text-neutral-500" />
-            <span className="text-neutral-700 dark:text-neutral-300 truncate">{user.email}</span>
+            <EmailIcon
+              style={{ fontSize: "11px" }}
+              className="text-neutral-400 dark:text-neutral-500"
+            />
+            <span className="text-neutral-700 dark:text-neutral-300 truncate">
+              {user.email}
+            </span>
             {user.isEmailVerified && (
-              <VerifiedIcon style={{ fontSize: "10px" }} className="text-blue-500 dark:text-blue-400 flex-shrink-0" />
+              <VerifiedIcon
+                style={{ fontSize: "10px" }}
+                className="text-blue-500 dark:text-blue-400 flex-shrink-0"
+              />
             )}
           </div>
           <div className="flex items-center gap-1.5">
-            <PhoneIcon style={{ fontSize: "11px" }} className="text-neutral-400 dark:text-neutral-500" />
+            <PhoneIcon
+              style={{ fontSize: "11px" }}
+              className="text-neutral-400 dark:text-neutral-500"
+            />
             <span className="text-neutral-700 dark:text-neutral-300 font-mono">
               {user.mobilePrefix} {user.mobile}
             </span>
@@ -970,31 +1038,53 @@ function page() {
 
   // -------- Filters Configuration --------
   const filterConfig: FilterConfigMap<VehicleRow> = {
-
     status: {
       kind: "custom",
       label: "⚡ Status",
       editor: (value, setValue) => {
         const [isOpen, setIsOpen] = React.useState(false);
         const [searchQuery, setSearchQuery] = React.useState("");
-        const statuses = Array.from(new Set(VEHICLE_DATA.map(v => v.status))).sort();
-        const filteredStatuses = statuses.filter(s => s.toLowerCase().includes(searchQuery.toLowerCase()));
-        
+        const statuses = Array.from(
+          new Set(VEHICLE_DATA.map((v) => v.status))
+        ).sort();
+        const filteredStatuses = statuses.filter((s) =>
+          s.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+
         return (
           <div className="relative">
             <button
               type="button"
-              onClick={() => { setIsOpen(!isOpen); setSearchQuery(""); }}
+              onClick={() => {
+                setIsOpen(!isOpen);
+                setSearchQuery("");
+              }}
               className="w-full h-8 rounded-md border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 px-2.5 text-[11px] outline-none flex items-center justify-between text-left hover:border-neutral-400 dark:hover:border-neutral-500 transition-colors"
             >
-              <span className={value ? "capitalize text-neutral-900 dark:text-neutral-100" : "text-neutral-500 dark:text-neutral-400"}>
+              <span
+                className={
+                  value
+                    ? "capitalize text-neutral-900 dark:text-neutral-100"
+                    : "text-neutral-500 dark:text-neutral-400"
+                }
+              >
                 {value ? value : "(Any Status)"}
               </span>
-              <svg className="w-3 h-3 text-neutral-400 dark:text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              <svg
+                className="w-3 h-3 text-neutral-400 dark:text-neutral-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
               </svg>
             </button>
-            
+
             {isOpen && (
               <div className="absolute z-50 w-full mt-1 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-md shadow-lg max-h-80 overflow-hidden">
                 <div className="p-1.5 border-b border-neutral-200 dark:border-neutral-700">
@@ -1006,23 +1096,51 @@ function page() {
                     className="w-full h-8 pl-8 pr-3 rounded-md border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-sm outline-none"
                     autoFocus
                   />
-                  <svg className="absolute left-4 top-4 w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  <svg
+                    className="absolute left-4 top-4 w-3.5 h-3.5 text-slate-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
                   </svg>
                 </div>
                 <div className="max-h-52 overflow-y-auto">
-                  <div className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm" onClick={() => { setValue(undefined); setIsOpen(false); }}>
+                  <div
+                    className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm"
+                    onClick={() => {
+                      setValue(undefined);
+                      setIsOpen(false);
+                    }}
+                  >
                     <span className="text-slate-500">(Any Status)</span>
                   </div>
                   {filteredStatuses.map((s) => (
-                    <div key={s} className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm capitalize" onClick={() => { setValue(s); setIsOpen(false); }}>
+                    <div
+                      key={s}
+                      className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm capitalize"
+                      onClick={() => {
+                        setValue(s);
+                        setIsOpen(false);
+                      }}
+                    >
                       {s}
                     </div>
                   ))}
                 </div>
               </div>
             )}
-            {isOpen && <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />}
+            {isOpen && (
+              <div
+                className="fixed inset-0 z-40"
+                onClick={() => setIsOpen(false)}
+              />
+            )}
           </div>
         );
       },
@@ -1035,24 +1153,41 @@ function page() {
       editor: (value, setValue) => {
         const [isOpen, setIsOpen] = React.useState(false);
         const [searchQuery, setSearchQuery] = React.useState("");
-        const types = Array.from(new Set(VEHICLE_DATA.map(v => v.vehicleType.name))).sort();
-        const filteredTypes = types.filter(t => t.toLowerCase().includes(searchQuery.toLowerCase()));
-        
+        const types = Array.from(
+          new Set(VEHICLE_DATA.map((v) => v.vehicleType.name))
+        ).sort();
+        const filteredTypes = types.filter((t) =>
+          t.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+
         return (
           <div className="relative">
             <button
               type="button"
-              onClick={() => { setIsOpen(!isOpen); setSearchQuery(""); }}
+              onClick={() => {
+                setIsOpen(!isOpen);
+                setSearchQuery("");
+              }}
               className="w-full h-9 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 text-sm outline-none flex items-center justify-between text-left"
             >
               <span className={value ? "" : "text-slate-500"}>
                 {value || "(Any Type)"}
               </span>
-              <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              <svg
+                className="w-4 h-4 text-slate-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
               </svg>
             </button>
-            
+
             {isOpen && (
               <div className="absolute z-50 w-full mt-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-lg shadow-lg max-h-80 overflow-hidden">
                 <div className="p-2 border-b border-slate-200 dark:border-slate-600">
@@ -1064,23 +1199,51 @@ function page() {
                     className="w-full h-8 pl-8 pr-3 rounded-md border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-sm outline-none"
                     autoFocus
                   />
-                  <svg className="absolute left-4 top-4 w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  <svg
+                    className="absolute left-4 top-4 w-3.5 h-3.5 text-slate-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
                   </svg>
                 </div>
                 <div className="max-h-52 overflow-y-auto">
-                  <div className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm" onClick={() => { setValue(undefined); setIsOpen(false); }}>
+                  <div
+                    className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm"
+                    onClick={() => {
+                      setValue(undefined);
+                      setIsOpen(false);
+                    }}
+                  >
                     <span className="text-slate-500">(Any Type)</span>
                   </div>
                   {filteredTypes.map((t) => (
-                    <div key={t} className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm" onClick={() => { setValue(t); setIsOpen(false); }}>
+                    <div
+                      key={t}
+                      className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm"
+                      onClick={() => {
+                        setValue(t);
+                        setIsOpen(false);
+                      }}
+                    >
                       {t}
                     </div>
                   ))}
                 </div>
               </div>
             )}
-            {isOpen && <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />}
+            {isOpen && (
+              <div
+                className="fixed inset-0 z-40"
+                onClick={() => setIsOpen(false)}
+              />
+            )}
           </div>
         );
       },
@@ -1093,24 +1256,41 @@ function page() {
       editor: (value, setValue) => {
         const [isOpen, setIsOpen] = React.useState(false);
         const [searchQuery, setSearchQuery] = React.useState("");
-        const devices = Array.from(new Set(VEHICLE_DATA.map(v => v.deviceType.name))).sort();
-        const filteredDevices = devices.filter(d => d.toLowerCase().includes(searchQuery.toLowerCase()));
-        
+        const devices = Array.from(
+          new Set(VEHICLE_DATA.map((v) => v.deviceType.name))
+        ).sort();
+        const filteredDevices = devices.filter((d) =>
+          d.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+
         return (
           <div className="relative">
             <button
               type="button"
-              onClick={() => { setIsOpen(!isOpen); setSearchQuery(""); }}
+              onClick={() => {
+                setIsOpen(!isOpen);
+                setSearchQuery("");
+              }}
               className="w-full h-9 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 text-sm outline-none flex items-center justify-between text-left"
             >
               <span className={value ? "" : "text-slate-500"}>
                 {value || "(Any Device)"}
               </span>
-              <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              <svg
+                className="w-4 h-4 text-slate-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
               </svg>
             </button>
-            
+
             {isOpen && (
               <div className="absolute z-50 w-full mt-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-lg shadow-lg max-h-80 overflow-hidden">
                 <div className="p-2 border-b border-slate-200 dark:border-slate-600">
@@ -1122,23 +1302,51 @@ function page() {
                     className="w-full h-8 pl-8 pr-3 rounded-md border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-sm outline-none"
                     autoFocus
                   />
-                  <svg className="absolute left-4 top-4 w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  <svg
+                    className="absolute left-4 top-4 w-3.5 h-3.5 text-slate-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
                   </svg>
                 </div>
                 <div className="max-h-52 overflow-y-auto">
-                  <div className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm" onClick={() => { setValue(undefined); setIsOpen(false); }}>
+                  <div
+                    className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm"
+                    onClick={() => {
+                      setValue(undefined);
+                      setIsOpen(false);
+                    }}
+                  >
                     <span className="text-slate-500">(Any Device)</span>
                   </div>
                   {filteredDevices.map((d) => (
-                    <div key={d} className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm" onClick={() => { setValue(d); setIsOpen(false); }}>
+                    <div
+                      key={d}
+                      className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm"
+                      onClick={() => {
+                        setValue(d);
+                        setIsOpen(false);
+                      }}
+                    >
                       {d}
                     </div>
                   ))}
                 </div>
               </div>
             )}
-            {isOpen && <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />}
+            {isOpen && (
+              <div
+                className="fixed inset-0 z-40"
+                onClick={() => setIsOpen(false)}
+              />
+            )}
           </div>
         );
       },
@@ -1151,24 +1359,41 @@ function page() {
       editor: (value, setValue) => {
         const [isOpen, setIsOpen] = React.useState(false);
         const [searchQuery, setSearchQuery] = React.useState("");
-        const users = Array.from(new Set(VEHICLE_DATA.map(v => v.addedBy.name))).sort();
-        const filteredUsers = users.filter(u => u.toLowerCase().includes(searchQuery.toLowerCase()));
-        
+        const users = Array.from(
+          new Set(VEHICLE_DATA.map((v) => v.addedBy.name))
+        ).sort();
+        const filteredUsers = users.filter((u) =>
+          u.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+
         return (
           <div className="relative">
             <button
               type="button"
-              onClick={() => { setIsOpen(!isOpen); setSearchQuery(""); }}
+              onClick={() => {
+                setIsOpen(!isOpen);
+                setSearchQuery("");
+              }}
               className="w-full h-9 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 text-sm outline-none flex items-center justify-between text-left"
             >
               <span className={value ? "truncate" : "text-slate-500"}>
                 {value || "(Any User)"}
               </span>
-              <svg className="w-4 h-4 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              <svg
+                className="w-4 h-4 text-slate-400 flex-shrink-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
               </svg>
             </button>
-            
+
             {isOpen && (
               <div className="absolute z-50 w-full mt-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-lg shadow-lg max-h-80 overflow-hidden">
                 <div className="p-2 border-b border-slate-200 dark:border-slate-600">
@@ -1180,23 +1405,51 @@ function page() {
                     className="w-full h-8 pl-8 pr-3 rounded-md border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-sm outline-none"
                     autoFocus
                   />
-                  <svg className="absolute left-4 top-4 w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  <svg
+                    className="absolute left-4 top-4 w-3.5 h-3.5 text-slate-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
                   </svg>
                 </div>
                 <div className="max-h-52 overflow-y-auto">
-                  <div className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm" onClick={() => { setValue(undefined); setIsOpen(false); }}>
+                  <div
+                    className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm"
+                    onClick={() => {
+                      setValue(undefined);
+                      setIsOpen(false);
+                    }}
+                  >
                     <span className="text-slate-500">(Any User)</span>
                   </div>
                   {filteredUsers.map((u) => (
-                    <div key={u} className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm truncate" onClick={() => { setValue(u); setIsOpen(false); }}>
+                    <div
+                      key={u}
+                      className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm truncate"
+                      onClick={() => {
+                        setValue(u);
+                        setIsOpen(false);
+                      }}
+                    >
                       {u}
                     </div>
                   ))}
                 </div>
               </div>
             )}
-            {isOpen && <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />}
+            {isOpen && (
+              <div
+                className="fixed inset-0 z-40"
+                onClick={() => setIsOpen(false)}
+              />
+            )}
           </div>
         );
       },
@@ -1243,7 +1496,6 @@ function page() {
       label: "🅿️ Parking",
       field: "parking",
     },
-
   };
 
   // -------- Bulk Actions --------
@@ -1283,7 +1535,11 @@ function page() {
       iconName: "delete",
       variant: "destructive",
       callback: async (selectedRows, selectedIds) => {
-        if (confirm(`Are you sure you want to delete ${selectedIds.size} vehicle(s)?`)) {
+        if (
+          confirm(
+            `Are you sure you want to delete ${selectedIds.size} vehicle(s)?`
+          )
+        ) {
           console.log("Deleting vehicles:", selectedIds);
           // API call to delete selected vehicles
         }
@@ -1303,12 +1559,18 @@ function page() {
         </div>
       ),
       content: (row) => (
-        <div className="flex items-center gap-2 min-w-[200px]">
+        <div
+          className="flex items-center gap-2 min-w-[200px] cursor-pointer"
+          onClick={(e) => {
+            e.stopPropagation();
+            router.push(`/superadmin/vehicles/${row.id}`);
+          }}
+        >
           {/* Icon Badge */}
           <div className="flex-shrink-0 h-8 w-8 rounded-lg flex items-center justify-center bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300">
             <DirectionsCarIcon style={{ fontSize: "16px" }} />
           </div>
-          
+
           {/* Vehicle Details */}
           <div className="flex-1 min-w-0">
             <div className="font-medium text-[13px] text-neutral-900 dark:text-neutral-100 truncate">
@@ -1337,28 +1599,41 @@ function page() {
         <div className="space-y-1 min-w-[140px]">
           {/* Status Badge */}
           <div className="inline-flex">
-            <span className={`px-2 py-0.5 rounded text-[10px] font-medium ${
-              row.status === "running" 
-                ? "bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800" 
-                : row.status === "stop"
-                ? "bg-red-50 dark:bg-red-950 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-800"
-                : "bg-amber-50 dark:bg-amber-950 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800"
-            }`}>
+            <span
+              className={`px-2 py-0.5 rounded text-[10px] font-medium ${
+                row.status === "running"
+                  ? "bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800"
+                  : row.status === "stop"
+                  ? "bg-red-50 dark:bg-red-950 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-800"
+                  : "bg-amber-50 dark:bg-amber-950 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800"
+              }`}
+            >
               {row.status.charAt(0).toUpperCase() + row.status.slice(1)}
             </span>
           </div>
-          
+
           {/* Speed & Ignition */}
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-1">
-              <SpeedIcon style={{ fontSize: "12px" }} className="text-neutral-400 dark:text-neutral-500" />
-              <span className="text-[21px] font-semibold text-neutral-900 dark:text-neutral-100 leading-none">{row.speed}</span>
-              <span className="text-[8px] text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">km/h</span>
+              <SpeedIcon
+                style={{ fontSize: "12px" }}
+                className="text-neutral-400 dark:text-neutral-500"
+              />
+              <span className="text-[21px] font-semibold text-neutral-900 dark:text-neutral-100 leading-none">
+                {row.speed}
+              </span>
+              <span className="text-[8px] text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
+                km/h
+              </span>
             </div>
             <div className="flex items-center gap-0.5 ml-1">
-              <PowerSettingsNewIcon 
-                style={{ fontSize: "12px" }} 
-                className={row.ignition ? "text-emerald-600 dark:text-emerald-400" : "text-red-600 dark:text-red-400"} 
+              <PowerSettingsNewIcon
+                style={{ fontSize: "12px" }}
+                className={
+                  row.ignition
+                    ? "text-emerald-600 dark:text-emerald-400"
+                    : "text-red-600 dark:text-red-400"
+                }
               />
               <span className="text-[9px] text-neutral-500 dark:text-neutral-400 font-medium">
                 {row.ignition ? "ON" : "OFF"}
@@ -1379,16 +1654,25 @@ function page() {
       content: (row) => (
         <div className="flex items-center gap-1.5 min-w-[140px]">
           <Avatar className="w-7 h-7 rounded-lg border border-neutral-200 dark:border-neutral-700">
-            <AvatarImage src={row.primaryUser.profileUrl} alt={row.primaryUser.name} />
+            <AvatarImage
+              src={row.primaryUser.profileUrl}
+              alt={row.primaryUser.name}
+            />
             <AvatarFallback className="bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 text-[10px] font-medium">
-              {row.primaryUser.name.split(" ").map(n => n[0]).join("").slice(0, 2)}
+              {row.primaryUser.name
+                .split(" ")
+                .map((n) => n[0])
+                .join("")
+                .slice(0, 2)}
             </AvatarFallback>
           </Avatar>
           <div className="flex-1 min-w-0">
             <div className="font-medium text-[12px] text-neutral-900 dark:text-neutral-100 truncate">
               {row.primaryUser.name}
             </div>
-            <div className="text-[10px] text-neutral-500 dark:text-neutral-400 truncate">@{row.primaryUser.username}</div>
+            <div className="text-[10px] text-neutral-500 dark:text-neutral-400 truncate">
+              @{row.primaryUser.username}
+            </div>
           </div>
         </div>
       ),
@@ -1407,14 +1691,20 @@ function page() {
           <Avatar className="w-7 h-7 rounded-lg border border-neutral-200 dark:border-neutral-700">
             <AvatarImage src={row.addedBy.profileUrl} alt={row.addedBy.name} />
             <AvatarFallback className="bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 text-[10px] font-medium">
-              {row.addedBy.name.split(" ").map(n => n[0]).join("").slice(0, 2)}
+              {row.addedBy.name
+                .split(" ")
+                .map((n) => n[0])
+                .join("")
+                .slice(0, 2)}
             </AvatarFallback>
           </Avatar>
           <div className="flex-1 min-w-0">
             <div className="font-medium text-[12px] text-neutral-900 dark:text-neutral-100 truncate">
               {row.addedBy.name}
             </div>
-            <div className="text-[10px] text-neutral-500 dark:text-neutral-400 truncate">@{row.addedBy.username}</div>
+            <div className="text-[10px] text-neutral-500 dark:text-neutral-400 truncate">
+              @{row.addedBy.username}
+            </div>
           </div>
         </div>
       ),
@@ -1434,10 +1724,17 @@ function page() {
         return (
           <div className="min-w-[110px]">
             <div className="flex items-center gap-1">
-              <AccessTimeIcon style={{ fontSize: "12px" }} className="text-neutral-400 dark:text-neutral-500" />
-              <span className="text-[12px] font-medium text-neutral-900 dark:text-neutral-100">{date}</span>
+              <AccessTimeIcon
+                style={{ fontSize: "12px" }}
+                className="text-neutral-400 dark:text-neutral-500"
+              />
+              <span className="text-[12px] font-medium text-neutral-900 dark:text-neutral-100">
+                {date}
+              </span>
             </div>
-            <div className="text-[10px] text-neutral-500 dark:text-neutral-400 mt-0.5">{time}</div>
+            <div className="text-[10px] text-neutral-500 dark:text-neutral-400 mt-0.5">
+              {time}
+            </div>
           </div>
         );
       },
@@ -1454,7 +1751,10 @@ function page() {
         const primary = calculateExpiry(row.primaryExpiry);
         const secondary = calculateExpiry(row.secondaryExpiry);
 
-        const getStatusIcon = (status: { isExpired: boolean; isExpiringSoon: boolean }) => {
+        const getStatusIcon = (status: {
+          isExpired: boolean;
+          isExpiringSoon: boolean;
+        }) => {
           if (status.isExpired) return "✕";
           if (status.isExpiringSoon) return "!";
           return "✓";
@@ -1465,19 +1765,31 @@ function page() {
             {/* Primary */}
             <div className="flex items-center justify-between px-1.5 py-0.5 rounded bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
               <div className="flex items-center gap-1.5">
-                <span className="text-[9px] text-neutral-500 dark:text-neutral-400">Pri</span>
-                <span className="text-[10px] font-mono text-neutral-900 dark:text-neutral-100">{row.primaryExpiry}</span>
+                <span className="text-[9px] text-neutral-500 dark:text-neutral-400">
+                  Pri
+                </span>
+                <span className="text-[10px] font-mono text-neutral-900 dark:text-neutral-100">
+                  {row.primaryExpiry}
+                </span>
               </div>
-              <span className="text-[10px] text-neutral-700 dark:text-neutral-300">{getStatusIcon(primary)}</span>
+              <span className="text-[10px] text-neutral-700 dark:text-neutral-300">
+                {getStatusIcon(primary)}
+              </span>
             </div>
 
             {/* Secondary */}
             <div className="flex items-center justify-between px-1.5 py-0.5 rounded bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
               <div className="flex items-center gap-1.5">
-                <span className="text-[9px] text-neutral-500 dark:text-neutral-400">Sec</span>
-                <span className="text-[10px] font-mono text-neutral-900 dark:text-neutral-100">{row.secondaryExpiry}</span>
+                <span className="text-[9px] text-neutral-500 dark:text-neutral-400">
+                  Sec
+                </span>
+                <span className="text-[10px] font-mono text-neutral-900 dark:text-neutral-100">
+                  {row.secondaryExpiry}
+                </span>
               </div>
-              <span className="text-[10px] text-neutral-700 dark:text-neutral-300">{getStatusIcon(secondary)}</span>
+              <span className="text-[10px] text-neutral-700 dark:text-neutral-300">
+                {getStatusIcon(secondary)}
+              </span>
             </div>
           </div>
         );
@@ -1495,8 +1807,12 @@ function page() {
         const { date, time } = formatDateTime(row.createdAt);
         return (
           <div className="min-w-[110px]">
-            <div className="text-[12px] font-medium text-neutral-900 dark:text-neutral-100">{date}</div>
-            <div className="text-[10px] text-neutral-500 dark:text-neutral-400 mt-0.5">{time}</div>
+            <div className="text-[12px] font-medium text-neutral-900 dark:text-neutral-100">
+              {date}
+            </div>
+            <div className="text-[10px] text-neutral-500 dark:text-neutral-400 mt-0.5">
+              {time}
+            </div>
           </div>
         );
       },
@@ -1512,10 +1828,14 @@ function page() {
       content: (row) => (
         <div className="min-w-[90px]">
           <div className="flex items-center gap-1.5">
-            <Switch 
+            <Switch
               checked={row.isActive}
               onCheckedChange={(checked) => {
-                console.log(`Toggle vehicle ${row.id} to ${checked ? 'active' : 'inactive'}`);
+                console.log(
+                  `Toggle vehicle ${row.id} to ${
+                    checked ? "active" : "inactive"
+                  }`
+                );
                 // Handle toggle logic here
               }}
             />
@@ -1529,29 +1849,28 @@ function page() {
   };
 
   return (
-   <>
-         <SmartCheckboxAutoTable<VehicleRow>
-           title="Vehicle Management"
-           data={VEHICLE_DATA}
-           getRowId={(r) => r.id}
-           displayOptions={displayOptions}
-           filterConfig={filterConfig}
-           multiSelectOptions={bulkActions}
-           onRowClick={(row) => {
-             console.log("Row Clicked →", row.id);
-             router.push("/superadmin/vehicles/" + row.id);
-           }}
-           exportBrand={{
-             name: "Fleet Stack",
-             logoUrl: "/images/logo-light.png",
-             addressLine1: "Self-Hosted GPS Software",
-             addressLine2: "fleetstackglobal.com",
-             footerNote: "We make it easiest — just deploy.",
-           }}
-         />
-   </>
-  )
+    <>
+      <SmartCheckboxAutoTable<VehicleRow>
+        title="Vehicle Management"
+        data={VEHICLE_DATA}
+        getRowId={(r) => r.id}
+        displayOptions={displayOptions}
+        filterConfig={filterConfig}
+        multiSelectOptions={bulkActions}
+        onRowClick={(row) => {
+          console.log("Row Clicked →", row.id);
+          router.push("/superadmin/vehicles/" + row.id);
+        }}
+        exportBrand={{
+          name: "Fleet Stack",
+          logoUrl: "/images/logo-light.png",
+          addressLine1: "Self-Hosted GPS Software",
+          addressLine2: "fleetstackglobal.com",
+          footerNote: "We make it easiest — just deploy.",
+        }}
+      />
+    </>
+  );
 }
 
-
-export default page
+export default page;
