@@ -26,6 +26,8 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import EditSuperAdminDialog from "./administrators/profile/EditSuperAdminDialog";
+import UpdatePasswordDialog from "../common/UpdatePasswordDialog";
 
 export type User = {
   id: string;
@@ -102,6 +104,10 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
   const [loading, setLoading] = React.useState(false);
   const [adminData, setAdminData] = React.useState<User | null>(user);
   const [inactive, setInactive] = React.useState(user.status !== "active");
+  const [openEdit, setOpenEdit] = React.useState(false);
+  const [openPassword, setOpenPassword] = React.useState(false);
+
+  const handleEdit = () => setOpenEdit(true);
 
   if (loading) {
     return (
@@ -144,13 +150,17 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
 
             <Button
               variant="outline"
+              onClick={() => setOpenPassword(true)}
               className="rounded-xl border-border text-foreground dark:bg-foreground/5 hover:bg-foreground/10"
             >
               <LockResetRoundedIcon className="mr-2" fontSize="small" />
               Update Password
             </Button>
 
-            <Button className="rounded-xl bg-primary text-primary-foreground text-white hover:bg-primary/90">
+            <Button
+              onClick={handleEdit}
+              className="rounded-xl bg-primary text-primary-foreground text-white hover:bg-primary/90"
+            >
               <EditRoundedIcon className="mr-2" fontSize="small" />
               Edit
             </Button>
@@ -410,6 +420,29 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
           </ScrollArea>
         </div>
       </CardContent>
+      <EditSuperAdminDialog
+        open={openEdit}
+        onOpenChange={setOpenEdit}
+        data={{
+          name: user.name,
+          email: user.email,
+          mobilePrefix: user.mobilePrefix,
+          mobileNumber: user.mobileNumber,
+          address: user.address.line1,
+          company: user.company.name,
+        }}
+        onSave={(updated) => {
+          setAdminData((prev) => (prev ? { ...prev, ...updated } : prev));
+          console.log("Updated admin:", updated);
+        }}
+      />
+      <UpdatePasswordDialog
+        open={openPassword}
+        onOpenChange={setOpenPassword}
+        onUpdate={(data) => {
+          console.log("Password updated:", data);
+        }}
+      />
     </>
   );
 }
