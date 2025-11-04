@@ -801,3 +801,90 @@ export const DEMO_ROLES: Role[] = [
     audit: { updatedAt: isoNow(), updatedBy: "system" },
   },
 ];
+
+
+
+
+
+// settings localization
+export const LANGUAGE_OPTIONS = [
+  { code: "en", name: "English" },
+  { code: "es", name: "Spanish (Español)" },
+  { code: "fr", name: "French (Français)" },
+  { code: "de", name: "German (Deutsch)" },
+  { code: "it", name: "Italian (Italiano)" },
+  { code: "pt", name: "Portuguese (Português)" },
+  { code: "ru", name: "Russian (Русский)" },
+  { code: "zh", name: "Chinese (中文)" },
+  { code: "ja", name: "Japanese (日本語)" },
+  { code: "ko", name: "Korean (한국어)" },
+  { code: "ar", name: "Arabic (العربية)" },
+  { code: "hi", name: "Hindi (हिन्दी)" },
+];
+
+// Date formats with examples
+export const DATE_FORMATS = [
+  { id: "DD-MMM-YYYY", label: "24 Oct 2025" },
+  { id: "DD/MM/YYYY", label: "24/10/2025" },
+  { id: "YYYY-MM-DD", label: "2025-10-24" },
+  { id: "MMM DD, YYYY", label: "Oct 24, 2025" },
+  { id: "DD.MM.YYYY", label: "24.10.2025" },
+  { id: "MM/DD/YYYY", label: "10/24/2025" },
+  { id: "D MMM YYYY", label: "24 Oct 2025" },
+  { id: "ddd, DD MMM YYYY", label: "Fri, 24 Oct 2025" },
+  { id: "MMMM DD, YYYY", label: "October 24, 2025" },
+] as const;
+
+// Timezone offsets
+export const TIMEZONE_OFFSETS = [
+  { value: "-12:00", label: "UTC -12:00" },
+  { value: "-11:00", label: "UTC -11:00" },
+  { value: "-10:00", label: "UTC -10:00" },
+  { value: "-09:30", label: "UTC -09:30" },
+  { value: "-09:00", label: "UTC -09:00" },
+  { value: "-08:00", label: "UTC -08:00" },
+  { value: "-07:00", label: "UTC -07:00" },
+  { value: "-06:00", label: "UTC -06:00" },
+  { value: "-05:00", label: "UTC -05:00" },
+  { value: "-04:00", label: "UTC -04:00" },
+  { value: "-03:30", label: "UTC -03:30" },
+  { value: "-03:00", label: "UTC -03:00" },
+  { value: "-02:00", label: "UTC -02:00" },
+  { value: "-01:00", label: "UTC -01:00" },
+  { value: "+00:00", label: "UTC +00:00" },
+  { value: "+01:00", label: "UTC +01:00" },
+  { value: "+02:00", label: "UTC +02:00" },
+  { value: "+03:00", label: "UTC +03:00" },
+  { value: "+03:30", label: "UTC +03:30" },
+  { value: "+04:00", label: "UTC +04:00" },
+  { value: "+04:30", label: "UTC +04:30" },
+  { value: "+05:00", label: "UTC +05:00" },
+  { value: "+05:30", label: "UTC +05:30" },
+  { value: "+05:45", label: "UTC +05:45" },
+  { value: "+06:00", label: "UTC +06:00" },
+  { value: "+06:30", label: "UTC +06:30" },
+  { value: "+07:00", label: "UTC +07:00" },
+  { value: "+08:00", label: "UTC +08:00" },
+  { value: "+08:45", label: "UTC +08:45" },
+  { value: "+09:00", label: "UTC +09:00" },
+  { value: "+09:30", label: "UTC +09:30" },
+  { value: "+10:00", label: "UTC +10:00" },
+  { value: "+10:30", label: "UTC +10:30" },
+  { value: "+11:00", label: "UTC +11:00" },
+  { value: "+12:00", label: "UTC +12:00" },
+  { value: "+12:45", label: "UTC +12:45" },
+  { value: "+13:00", label: "UTC +13:00" },
+  { value: "+14:00", label: "UTC +14:00" },
+];
+
+// Location presets
+export const LOCATION_PRESETS = [
+  { name: "San Francisco", lat: 37.7749, lng: -122.4194, zoom: 10 },
+  { name: "New York", lat: 40.7128, lng: -74.006, zoom: 10 },
+  { name: "London", lat: 51.5074, lng: -0.1278, zoom: 10 },
+  { name: "Paris", lat: 48.8566, lng: 2.3522, zoom: 10 },
+  { name: "Tokyo", lat: 35.6762, lng: 139.6503, zoom: 10 },
+  { name: "Dubai", lat: 25.2048, lng: 55.2708, zoom: 10 },
+  { name: "Singapore", lat: 1.3521, lng: 103.8198, zoom: 11 },
+  { name: "Mumbai", lat: 19.076, lng: 72.8777, zoom: 10 },
+];

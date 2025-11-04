@@ -1,3 +1,5 @@
+import { DATE_FORMATS } from "../data/superadmin";
+
 export type Company = { name: string };
 
 export type AdminRow = {
@@ -96,3 +98,21 @@ export interface Role {
   currency?: string; // e.g., INR, USD
   audit: { updatedAt: string; updatedBy: string };
 }
+
+
+// superadmin localization
+export type Direction = "ltr" | "rtl";
+export type TimeFormat = "12h" | "24h";
+export type Units = "km" | "miles";
+export type Theme = "light" | "dark" | "system";
+export type LocalizationSettings = {
+  language: string;
+  supportedLanguages: string[];
+  direction: Direction;
+  dateFormatId: (typeof DATE_FORMATS)[number]["id"];
+  timeFormat: TimeFormat;
+  timezone: string;
+  mapLat: number;
+  mapLng: number;
+  mapZoom: number;
+};
