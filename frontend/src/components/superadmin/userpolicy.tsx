@@ -1,30 +1,30 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 // shadcn/ui components
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { Label } from '@/components/ui/label';
-import { Switch } from '@/components/ui/switch';
-import { Separator } from '@/components/ui/separator';
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
+import { Separator } from "@/components/ui/separator";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
+} from "@/components/ui/select";
 
 // Material Design Icons
-import DescriptionIcon from '@mui/icons-material/Description';
-import SaveIcon from '@mui/icons-material/Save';
-import RestoreIcon from '@mui/icons-material/Restore';
+import DescriptionIcon from "@mui/icons-material/Description";
+import SaveIcon from "@mui/icons-material/Save";
+import RestoreIcon from "@mui/icons-material/Restore";
 
 // ---------------- Types & Constants ----------------
 
-type PolicyType = 'terms' | 'privacy' | 'cookie' | 'refund';
+type PolicyType = "terms" | "privacy" | "cookie" | "refund";
 
 interface PolicySettings {
   type: PolicyType;
@@ -34,10 +34,10 @@ interface PolicySettings {
 }
 
 const POLICY_OPTIONS = [
-  { value: 'terms' as PolicyType, label: 'Terms of Service' },
-  { value: 'privacy' as PolicyType, label: 'Privacy Policy' },
-  { value: 'cookie' as PolicyType, label: 'Cookie Policy' },
-  { value: 'refund' as PolicyType, label: 'Refund Policy' },
+  { value: "terms" as PolicyType, label: "Terms of Service" },
+  { value: "privacy" as PolicyType, label: "Privacy Policy" },
+  { value: "cookie" as PolicyType, label: "Cookie Policy" },
+  { value: "refund" as PolicyType, label: "Refund Policy" },
 ];
 
 const DEFAULT_TEMPLATES: Record<PolicyType, string> = {
@@ -152,7 +152,7 @@ Questions about refunds? Contact us at billing@example.com`,
 
 // ---------------- Persistence ----------------
 
-const LS_KEY = 'user-policy-settings-v1';
+const LS_KEY = "user-policy-settings-v1";
 
 function loadSettings(): Record<PolicyType, PolicySettings> {
   try {
@@ -166,8 +166,8 @@ function loadSettings(): Record<PolicyType, PolicySettings> {
 
 function initializeDefaults(): Record<PolicyType, PolicySettings> {
   const defaults: Record<PolicyType, PolicySettings> = {} as any;
-  
-  POLICY_OPTIONS.forEach(option => {
+
+  POLICY_OPTIONS.forEach((option) => {
     defaults[option.value] = {
       type: option.value,
       enabled: false,
@@ -175,7 +175,7 @@ function initializeDefaults(): Record<PolicyType, PolicySettings> {
       content: DEFAULT_TEMPLATES[option.value],
     };
   });
-  
+
   return defaults;
 }
 
@@ -186,14 +186,19 @@ function saveSettings(settings: Record<PolicyType, PolicySettings>) {
 // ---------------- Helper Functions ----------------
 
 function getWordCount(text: string): number {
-  return text.trim().split(/\s+/).filter(w => w.length > 0).length;
+  return text
+    .trim()
+    .split(/\s+/)
+    .filter((w) => w.length > 0).length;
 }
 
 // ---------------- Component ----------------
 
 export default function UserPolicyManagement() {
-  const [settings, setSettings] = useState<Record<PolicyType, PolicySettings>>(() => loadSettings());
-  const [selectedPolicy, setSelectedPolicy] = useState<PolicyType>('terms');
+  const [settings, setSettings] = useState<Record<PolicyType, PolicySettings>>(
+    () => loadSettings()
+  );
+  const [selectedPolicy, setSelectedPolicy] = useState<PolicyType>("terms");
 
   // Load settings on mount
   useEffect(() => {
@@ -201,8 +206,11 @@ export default function UserPolicyManagement() {
   }, []);
 
   // Update a specific policy setting
-  const updateSetting = (policyType: PolicyType, updates: Partial<PolicySettings>) => {
-    setSettings(prev => ({
+  const updateSetting = (
+    policyType: PolicyType,
+    updates: Partial<PolicySettings>
+  ) => {
+    setSettings((prev) => ({
       ...prev,
       [policyType]: { ...prev[policyType], ...updates },
     }));
@@ -228,7 +236,9 @@ export default function UserPolicyManagement() {
   };
 
   const currentPolicy = settings[selectedPolicy];
-  const activePolicies = Object.values(settings).filter(p => p.enabled).length;
+  const activePolicies = Object.values(settings).filter(
+    (p) => p.enabled
+  ).length;
   const totalPolicies = POLICY_OPTIONS.length;
 
   return (
@@ -240,46 +250,53 @@ export default function UserPolicyManagement() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="flex h-11 w-11 items-center justify-center rounded-2xl border border-neutral-200 dark:border-neutral-700 dark:bg-neutral-800"
+            className="flex h-11 w-11 items-center justify-center rounded-2xl border border-border bg-forefround/5"
           >
-            <DescriptionIcon className="dark:text-neutral-100" />
+            <DescriptionIcon className="text-foreground" />
           </motion.div>
           <div>
-            <h1 className="text-2xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">User Policy Management</h1>
-            <p className="text-sm text-neutral-500 dark:text-neutral-400">Create and manage legal agreements for your users</p>
+            <h1 className="text-2xl font-semibold tracking-tight text-foreground">
+              User Policy Management
+            </h1>
+            <p className="text-sm text-muted-foreground">
+              Create and manage legal agreements for your users
+            </p>
           </div>
         </div>
+
         <div className="flex items-center gap-2">
-          <Button 
-            variant="outline" 
-            onClick={handleResetAll} 
-            className="rounded-xl border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100 hover:bg-white dark:hover:bg-neutral-700"
+          <Button
+            variant="outline"
+            onClick={handleResetAll}
           >
             <RestoreIcon className="mr-2 h-4 w-4" /> Reset All
           </Button>
-          <Button 
-            onClick={handleSaveAll} 
-            className="rounded-xl bg-neutral-900 dark:bg-white text-white dark:text-black hover:bg-black dark:hover:bg-neutral-100"
+
+          <Button
+            onClick={handleSaveAll}
           >
             <SaveIcon className="mr-2 h-4 w-4" /> Save All
           </Button>
         </div>
       </div>
 
-     
-
       {/* Policy Selector */}
-      <Card className="mb-6 rounded-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 p-5">
-        <Label className="text-sm font-medium text-neutral-900 dark:text-neutral-200 mb-2 block">Select Policy to Edit</Label>
-        <Select value={selectedPolicy} onValueChange={(value) => setSelectedPolicy(value as PolicyType)}>
-          <SelectTrigger className="rounded-xl border-neutral-300 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100">
+      <Card className="mb-6 rounded-2xl border border-border bg-card p-5">
+        <Label className="text-sm font-medium text-foreground mb-2 block">
+          Select Policy to Edit
+        </Label>
+        <Select
+          value={selectedPolicy}
+          onValueChange={(value) => setSelectedPolicy(value as PolicyType)}
+        >
+          <SelectTrigger className="rounded-xl border-border bg-background text-foreground">
             <SelectValue />
           </SelectTrigger>
-          <SelectContent className="dark:bg-neutral-800 dark:border-neutral-700">
-            {POLICY_OPTIONS.map(option => (
+          <SelectContent className="bg-popover border border-border">
+            {POLICY_OPTIONS.map((option) => (
               <SelectItem key={option.value} value={option.value}>
                 {option.label}
-                {settings[option.value].enabled && ' (Active)'}
+                {settings[option.value].enabled && " (Active)"}
               </SelectItem>
             ))}
           </SelectContent>
@@ -293,48 +310,51 @@ export default function UserPolicyManagement() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <Card className="rounded-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 p-6">
+        <Card className="rounded-2xl border border-border bg-card p-6">
           <div className="mb-1">
-            <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-1">
-              {POLICY_OPTIONS.find(p => p.value === selectedPolicy)?.label}
+            <h3 className="text-lg font-semibold text-foreground mb-1">
+              {POLICY_OPTIONS.find((p) => p.value === selectedPolicy)?.label}
             </h3>
-            <p className="text-sm text-neutral-500 dark:text-neutral-400">
+            <p className="text-sm text-muted-foreground">
               Configure the policy content and settings
             </p>
           </div>
 
-          <Separator className="mb-1 bg-neutral-200 dark:bg-neutral-700" />
-
-   
-
-
+          <Separator className="mb-1 bg-border" />
 
           {/* Content Editor */}
           <div className="mb-4">
             <div className="flex items-center justify-between mb-2">
-              <Label className="text-sm font-medium text-neutral-900 dark:text-neutral-200">Policy Content</Label>
+              <Label className="text-sm font-medium text-foreground">
+                Policy Content
+              </Label>
               <div className="flex items-center gap-2">
-                <span className="text-xs text-neutral-500 dark:text-neutral-400">
+                <span className="text-xs text-muted-foreground">
                   {getWordCount(currentPolicy.content)} words
                 </span>
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={() => handleResetToTemplate(selectedPolicy)}
-                  className="rounded-lg dark:border-neutral-600 dark:text-neutral-100 dark:hover:bg-neutral-700"
+                  className="rounded-lg border-border text-foreground hover:bg-accent hover:text-accent-foreground"
                 >
                   <RestoreIcon className="mr-1 h-3 w-3" /> Reset to Template
                 </Button>
               </div>
             </div>
+
             <textarea
               value={currentPolicy.content}
-              onChange={(e) => updateSetting(selectedPolicy, { content: e.target.value })}
-              className="w-full h-[400px] rounded-xl border border-neutral-300 dark:border-neutral-600 p-4 text-sm text-neutral-900 dark:text-neutral-100 dark:bg-neutral-900 focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:focus:ring-neutral-100 focus:border-transparent resize-none dark:placeholder:text-neutral-500"
+              onChange={(e) =>
+                updateSetting(selectedPolicy, { content: e.target.value })
+              }
+              className="w-full h-[400px] rounded-xl border border-border bg-background p-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
               placeholder="Enter your policy content here..."
             />
-            <div className="mt-2 text-xs text-neutral-500 dark:text-neutral-400">
-              Plain text format. Updates will be reflected immediately for users.
+
+            <div className="mt-2 text-xs text-muted-foreground">
+              Plain text format. Updates will be reflected immediately for
+              users.
             </div>
           </div>
         </Card>
