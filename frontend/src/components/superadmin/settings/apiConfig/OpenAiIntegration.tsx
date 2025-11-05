@@ -1,13 +1,14 @@
 import React from 'react'
-import LoginRoundedIcon from "@mui/icons-material/LoginRounded";
+import SmartToyRoundedIcon from "@mui/icons-material/SmartToyRounded";
 import { Badge } from "@/components/ui/badge";
-import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
+import { Switch } from "@/components/ui/switch";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
 import { Label } from "@/components/ui/label";
 import { Input } from '@/components/ui/input';
 import VisibilityOffRoundedIcon from "@mui/icons-material/VisibilityOffRounded";
-import { Switch } from "@/components/ui/switch";
 import VisibilityRoundedIcon from "@mui/icons-material/VisibilityRounded";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from '@/components/ui/button';
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 
@@ -81,6 +82,8 @@ export type APIConfigs = {
   updatedAt: string;
 };
 
+
+// Mock initial data
 const initialConfigs: APIConfigs = {
   firebase: {
     enabled: true,
@@ -128,108 +131,103 @@ const initialConfigs: APIConfigs = {
   updatedAt: "2025-10-18T09:15:00Z",
 };
 
+const OpenAiIntegration = () => {
+    const [configs, setConfigs] = React.useState<APIConfigs>(initialConfigs);
+      const [showOpenAIKey, setShowOpenAIKey] = React.useState(false);
 
-const SSOConfig = () => {
-     const [configs, setConfigs] = React.useState<APIConfigs>(initialConfigs);
-       const [showGoogleSecret, setShowGoogleSecret] = React.useState(false);
+       const updateOpenAI = (field: keyof OpenAIConfig, value: any) => {
+          setConfigs(prev => ({
+            ...prev,
+            openai: { ...prev.openai, [field]: value }
+          }));
+        };
 
-     const updateSSO = (field: keyof SSOConfig, value: any) => {
-         setConfigs(prev => ({
-           ...prev,
-           sso: { ...prev.sso, [field]: value }
-         }));
-       };
-     
-         const testConnection = (service: string) => {
+          const testConnection = (service: string) => {
     console.log(`Testing ${service} connection...`);
     alert(`Testing ${service} connection. Check console for results.`);
   };
-     
 
   return (
-  <div className="rounded-2xl border border-border bg-card p-5 dark:bg-foreground/5">
-  <div className="flex items-center justify-between mb-4">
+    <div className="rounded-2xl border border-border bg-card p-5 dark:bg-foreground/5">
+  <div className="flex items-center justify-between mb-4 ">
     <div className="flex items-center gap-2">
-      <LoginRoundedIcon className="text-muted-foreground" fontSize="small" />
-      <div className="text-sm font-medium tracking-tight text-foreground">
-        SSO - Google OAuth 2.0
-      </div>
-      {configs.sso.enabled && (
+      <SmartToyRoundedIcon className="text-muted" fontSize="small" />
+      <div className="text-sm font-medium tracking-tight text-foreground">OpenAI Integration</div>
+      {configs.openai.enabled && (
         <Badge className="bg-primary text-white text-xs">Active</Badge>
       )}
     </div>
     <Switch
-      checked={configs.sso.enabled}
-      onCheckedChange={(checked) => updateSSO("enabled", checked)}
+      checked={configs.openai.enabled}
+      onCheckedChange={(checked) => updateOpenAI('enabled', checked)}
     />
   </div>
 
-  {configs.sso.enabled && (
+  {configs.openai.enabled && (
     <>
       <Alert className="mb-4 border-border dark:bg-background">
         <InfoRoundedIcon className="h-4 w-4 text-foreground" />
         <AlertDescription className="text-xs space-y-2 text-muted">
-          <div>
-            <strong>Setup Instructions:</strong>
-          </div>
+          <div><strong>Setup Instructions:</strong></div>
           <ol className="list-decimal list-inside ml-2 space-y-1">
             <li>
               Go to{" "}
               <a
-                href="https://console.cloud.google.com/apis/credentials"
+                href="https://platform.openai.com/api-keys"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline text-foreground"
+                className="underline text-foreground hover:text-primary"
               >
-                Google Cloud Console
+                OpenAI API Keys
               </a>
             </li>
-            <li>Create OAuth 2.0 Client ID (Application type: Web application)</li>
+            <li>Create new secret key (starts with sk-proj-...)</li>
             <li>
-              Add authorized redirect URI:{" "}
-              <code className="bg-background text-foreground px-1 py-0.5 rounded text-[10px]">
-                {configs.sso.redirectUri}
-              </code>
+              Optional: Get Organization ID from{" "}
+              <a
+                href="https://platform.openai.com/account/organization"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-foreground hover:text-primary"
+              >
+                Settings
+              </a>
             </li>
-            <li>Copy Client ID and Client Secret</li>
+            <li>
+              Set usage limits in{" "}
+              <a
+                href="https://platform.openai.com/account/billing/limits"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-foreground hover:text-primary"
+              >
+                Billing
+              </a>
+            </li>
           </ol>
         </AlertDescription>
       </Alert>
 
       <div className="space-y-4">
         <div>
-          <Label htmlFor="sso-clientId" className="text-sm text-foreground">
-            Google Client ID
-          </Label>
-          <Input
-            id="sso-clientId"
-            type="text"
-            value={configs.sso.googleClientId}
-            onChange={(e) => updateSSO("googleClientId", e.target.value)}
-            className="rounded-lg mt-1.5 border-border bg-background text-foreground placeholder:text-muted-foreground"
-            placeholder="123456789012-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com"
-          />
-        </div>
-
-        <div>
-          <Label htmlFor="sso-clientSecret" className="text-sm text-foreground">
-            Google Client Secret
+          <Label htmlFor="openai-apiKey" className="text-sm text-foreground">
+            API Key
           </Label>
           <div className="relative mt-1.5">
             <Input
-              id="sso-clientSecret"
-              type={showGoogleSecret ? "text" : "password"}
-              value={configs.sso.googleClientSecret}
-              onChange={(e) => updateSSO("googleClientSecret", e.target.value)}
-              className="rounded-lg pr-10 border-border bg-background text-foreground placeholder:text-muted-foreground"
-              placeholder="GOCSPX-xxxxxxxxxxxxxxxxxxxx"
+              id="openai-apiKey"
+              type={showOpenAIKey ? "text" : "password"}
+              value={configs.openai.apiKey}
+              onChange={(e) => updateOpenAI('apiKey', e.target.value)}
+              className="rounded-lg pr-10 border-border bg-background text-foreground placeholder:text-muted"
+              placeholder="sk-proj-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
             />
             <button
               type="button"
-              onClick={() => setShowGoogleSecret(!showGoogleSecret)}
-              className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground"
+              onClick={() => setShowOpenAIKey(!showOpenAIKey)}
+              className="absolute right-2 top-1/2 -translate-y-1/2 text-muted"
             >
-              {showGoogleSecret ? (
+              {showOpenAIKey ? (
                 <VisibilityOffRoundedIcon fontSize="small" />
               ) : (
                 <VisibilityRoundedIcon fontSize="small" />
@@ -239,40 +237,64 @@ const SSOConfig = () => {
         </div>
 
         <div>
-          <Label htmlFor="sso-redirectUri" className="text-sm text-foreground">
-            Redirect URI
+          <Label htmlFor="openai-organizationId" className="text-sm text-foreground">
+            Organization ID (Optional)
           </Label>
-          <div className="flex gap-2 mt-1.5">
-            <Input
-              id="sso-redirectUri"
-              type="text"
-              value={configs.sso.redirectUri}
-              onChange={(e) => updateSSO("redirectUri", e.target.value)}
-              className="rounded-lg border-border bg-background text-foreground placeholder:text-muted-foreground"
-              placeholder="https://yourdomain.com/auth/google/callback"
-            />
-            <Button
-              variant="outline"
-              size="sm"
-              className="rounded-lg border-border text-foreground hover:bg-muted"
-              onClick={() => navigator.clipboard.writeText(configs.sso.redirectUri)}
+          <Input
+            id="openai-organizationId"
+            type="text"
+            value={configs.openai.organizationId || ''}
+            onChange={(e) => updateOpenAI('organizationId', e.target.value)}
+            className="rounded-lg mt-1.5 border-border bg-background text-foreground placeholder:text-muted"
+            placeholder="org-xxxxxxxxxxxxxxxx"
+          />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <Label htmlFor="openai-model" className="text-sm text-foreground">
+              Model
+            </Label>
+            <Select
+              value={configs.openai.model}
+              onValueChange={(value: any) => updateOpenAI('model', value)}
             >
-              Copy
-            </Button>
+              <SelectTrigger className="rounded-lg mt-1.5 border-border bg-background text-foreground">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent className="bg-popover border-border">
+                <SelectItem value="gpt-4">GPT-4</SelectItem>
+                <SelectItem value="gpt-4-turbo">GPT-4 Turbo (Recommended)</SelectItem>
+                <SelectItem value="gpt-3.5-turbo">GPT-3.5 Turbo (Cost-effective)</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
-          <p className="text-xs text-muted-foreground mt-1">
-            Add this URL to authorized redirect URIs in Google Console
-          </p>
+
+          <div>
+            <Label htmlFor="openai-maxTokens" className="text-sm text-foreground">
+              Max Tokens
+            </Label>
+            <Input
+              id="openai-maxTokens"
+              type="number"
+              value={configs.openai.maxTokens}
+              onChange={(e) => updateOpenAI('maxTokens', parseInt(e.target.value))}
+              className="rounded-lg mt-1.5 border-border bg-background text-foreground"
+              min="1"
+              max="4096"
+            />
+            <p className="text-xs text-muted mt-1">Range: 1–4096 tokens</p>
+          </div>
         </div>
       </div>
 
       <Button
         variant="outline"
         className="rounded-lg mt-4 border-border text-foreground hover:bg-foreground/5"
-        onClick={() => testConnection("Google SSO")}
+        onClick={() => testConnection('OpenAI')}
       >
         <CheckCircleRoundedIcon fontSize="small" className="mr-2" />
-        Test SSO Connection
+        Test OpenAI Connection
       </Button>
     </>
   )}
@@ -281,4 +303,4 @@ const SSOConfig = () => {
   )
 }
 
-export default SSOConfig
+export default OpenAiIntegration
