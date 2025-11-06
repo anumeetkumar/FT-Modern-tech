@@ -2,6 +2,7 @@ import { DATE_FORMATS } from "../data/superadmin";
 
 export type Company = { name: string };
 
+
 export type AdminRow = {
   id: string;
   name: string;

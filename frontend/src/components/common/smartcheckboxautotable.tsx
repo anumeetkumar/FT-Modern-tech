@@ -175,6 +175,14 @@ type SmartAutoTableProps<T> = {
   exportBrand?: BrandConfig; // optional; branding for exports
   onRefresh?: () => Promise<any>; // optional; refresh callback
   isDrawerTypeFilter?: boolean;
+  showtoolbar?: boolean;
+  showtoolbarInput?: boolean;
+  showtoolbarFilter?: boolean;
+  showtoolbarRefreshbtn?: boolean;
+  showtoolbarRecords?: boolean;
+  showtoolbarExport?: boolean;
+  showtoolbarColumn?: boolean;
+  showtoolbarFullScreen?: boolean;
 };
 
 // ------------------------------------
@@ -702,6 +710,14 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
     exportBrand,
     onRefresh,
     isDrawerTypeFilter = false,
+    showtoolbar = false,
+    showtoolbarInput = false,
+    showtoolbarFilter = false,
+    showtoolbarRefreshbtn = false,
+    showtoolbarRecords = false,
+    showtoolbarExport = false,
+    showtoolbarColumn = false,
+    showtoolbarFullScreen = false,
   } = props;
 
   const hasBulk = (multiSelectOptions?.length ?? 0) > 0;
@@ -1179,7 +1195,9 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
           </AnimatePresence>
 
           {/* Toolbar */}
-          <motion.div
+
+          {showtoolbar && (
+            <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -1191,8 +1209,10 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
             className="mb-4 bg-white/90 dark:bg-neutral-800/90 backdrop-blur border border-neutral-200/80 dark:border-neutral-700 rounded-2xl p-4 shadow-[0_6px_24px_rgba(2,6,23,0.06)]"
           >
             <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-              {/* Left: search + filter */}
+            
               <div className="flex flex-1 items-stretch gap-3">
+
+                {showtoolbarInput && (
                 <div className="relative flex-1 lg:max-w-sm">
                   <SearchIcon
                     className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400 dark:text-neutral-500"
@@ -1208,7 +1228,9 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                     className="h-10 w-full rounded-xl border border-neutral-200 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 pl-10 pr-4 text-sm text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-500 dark:placeholder:text-neutral-400 outline-none ring-0 transition focus:border-neutral-400 dark:focus:border-neutral-400 focus:bg-white dark:focus:bg-neutral-600 focus:shadow-sm"
                   />
                 </div>
-                {isDrawerTypeFilter && (
+                )}
+
+              {showtoolbarFilter && isDrawerTypeFilter && (
                   <MotionButton
                     onClick={() => setFilterOpen(true)}
                     whileTap={{ scale: 0.98 }}
@@ -1224,8 +1246,9 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                   </MotionButton>
                 )}
 
-                {/* Filter popover */}
-                {!isDrawerTypeFilter && (
+
+                
+                {showtoolbarFilter && !isDrawerTypeFilter && (
                   <Popover open={filterOpen} onOpenChange={setFilterOpen}>
                     <PopoverTrigger asChild>
                       <MotionButton
@@ -1551,10 +1574,10 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                 )}
               </div>
 
-              {/* Right: refresh + records per page + EXPORT + columns + fullscreen */}
+          
               <div className="flex flex-wrap items-center gap-2">
-                {/* Refresh Button */}
-                {onRefresh && (
+        
+                {showtoolbarRefreshbtn && onRefresh && (
                   <MotionButton
                     whileTap={{ scale: 0.98 }}
                     whileHover={{ y: -1 }}
@@ -1571,7 +1594,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                     {isRefreshing ? "Refreshing..." : "Refresh"}
                   </MotionButton>
                 )}
-
+                {showtoolbarRecords && (
                 <div className="flex items-center gap-2 text-sm">
                   <span className="text-neutral-600 dark:text-neutral-400 font-medium whitespace-nowrap">
                     Records:
@@ -1598,8 +1621,10 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                     </SelectContent>
                   </Select>
                 </div>
+                )}
+                
 
-                {/* EXPORT (hover to open) */}
+                {showtoolbarExport && (
                 <Popover open={exportOpen} onOpenChange={setExportOpen}>
                   <PopoverTrigger asChild>
                     <MotionButton
@@ -1666,8 +1691,9 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                     </ul>
                   </PopoverContent>
                 </Popover>
+                )}
 
-                {/* Column Manager */}
+                {showtoolbarColumn && (
                 <Popover>
                   <PopoverTrigger asChild>
                     <MotionButton
@@ -1740,7 +1766,9 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                     </div>
                   </PopoverContent>
                 </Popover>
+                )}
 
+                {showtoolbarFullScreen && (
                 <MotionButton
                   whileTap={{ scale: 0.98 }}
                   whileHover={{ y: -1 }}
@@ -1756,9 +1784,12 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                   )}{" "}
                   Full Screen
                 </MotionButton>
+                )}
               </div>
             </div>
           </motion.div>
+          )}
+         
 
           {/* Table */}
           <div className="w-full overflow-x-auto overflow-y-hidden rounded-2xl border border-neutral-200 dark:border-neutral-700 bg-gradient-to-b from-white to-neutral-50 dark:from-neutral-800 dark:to-neutral-900 shadow-sm hover:shadow-md transition-shadow duration-300">
