@@ -23,7 +23,7 @@ const navData: {
 }[] = [
   { label: "Dashboard", icon: "layout-dashboard", route: "/superadmin/dashboard" },
   { label: "Administrators", icon: "admin-panel", route: "/superadmin/administrators" },
-  { label: "vehicles", icon: "truck", route: "/superadmin/vehicles" },
+  { label: "Vehicles", icon: "truck", route: "/superadmin/vehicles" },
   { label: "Map", icon: "map", route: "/superadmin/map" },
   { label: "Calendar", icon: "calendar", route: "/superadmin/calendar" },
   { label: "Server", icon: "server", route: "/superadmin/server" },

@@ -97,7 +97,6 @@ const EditSuperAdminDialog: React.FC<EditSuperAdminDialogProps> = ({
         <div className="flex justify-end pt-3">
           <Button
             onClick={handleSave}
-            className="rounded-lg bg-primary text-primary-foreground hover:bg-primary/90"
           >
             Save Changes
           </Button>

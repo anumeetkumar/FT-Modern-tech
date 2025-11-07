@@ -11,6 +11,7 @@ import { STORAGE_KEYS } from '@/services/common/constants';
 import { useTheme } from '@/components/providers/ThemeProvider';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';
+import { useLanguage } from "@/lib/intl/ClientProvider"; // import context
 
 // Define langs locally to avoid import issues
 const langs = [
@@ -31,11 +32,17 @@ interface TopHeaderProps {
 }
 
 function TopHeader({ mobileOpen, setMobileOpen, role }: TopHeaderProps) {
+  const { locale, setLocale } = useLanguage();
   const [lang, setLang] = useState(langs[0]);
   const [user, setUser] = useState<any>(null);
     const { theme, toggleTheme } = useTheme();
 
   const router = useRouter();
+
+  const handleLanguageChange = (l: { code: string; name: string; flag: string }) => {
+  setLang(l);
+  setLocale(l.code); // ✅ this updates React Intl globally
+};
 
   const getStorageKey = (userRole: UserRole) => {
     switch (userRole) {
@@ -108,7 +115,7 @@ function TopHeader({ mobileOpen, setMobileOpen, role }: TopHeaderProps) {
             <DropdownMenuLabel>Language</DropdownMenuLabel>
             <DropdownMenuSeparator />
             {langs.map((l) => (
-              <DropdownMenuItem key={l.code} onClick={() => setLang(l)}>
+              <DropdownMenuItem key={l.code} onClick={() => handleLanguageChange(l)}>
                 <span className="mr-2">{l.flag}</span>
                 {l.name}
               </DropdownMenuItem>
