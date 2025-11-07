@@ -94,26 +94,53 @@ export default function AdminDocumentsPage() {
     0: {
       title: () => <span>Actions</span>,
       content: (row) => (
-        <div className="flex gap-1">
-          <Button size="icon" variant="ghost" onClick={() => openView(row)}>
-            <VisibilityIcon fontSize="small" />
-          </Button>
-          <Button
-            size="icon"
-            variant="ghost"
-            onClick={() => openEditDialog(row)}
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button size="icon" variant="ghost">
+              <MoreVertIcon fontSize="small" />
+            </Button>
+          </PopoverTrigger>
+
+          <PopoverContent
+            className="w-36 p-2 space-y-1"
+            side="bottom"
+            align="end"
           >
-            <EditIcon fontSize="small" />
-          </Button>
-          <Button size="icon" variant="ghost" onClick={() => row}>
-            <DownloadIcon fontSize="small" />
-          </Button>
-          <Button size="icon" variant="ghost" onClick={() => removeDoc(row.id)}>
-            <DeleteOutlineIcon fontSize="small" className="text-red-600" />
-          </Button>
-        </div>
+            <button
+              onClick={() => openView(row)}
+              className="flex items-center gap-2 w-full px-2 py-1.5 rounded-md text-sm hover:bg-accent"
+            >
+              <VisibilityIcon fontSize="small" />
+              <span>View</span>
+            </button>
+
+            <button
+              onClick={() => openEditDialog(row)}
+              className="flex items-center gap-2 w-full px-2 py-1.5 rounded-md text-sm hover:bg-accent"
+            >
+              <EditIcon fontSize="small" />
+              <span>Edit</span>
+            </button>
+
+            <button
+              onClick={() => row}
+              className="flex items-center gap-2 w-full px-2 py-1.5 rounded-md text-sm hover:bg-accent"
+            >
+              <DownloadIcon fontSize="small" />
+              <span>Download</span>
+            </button>
+
+            <button
+              onClick={() => removeDoc(row.id)}
+              className="flex items-center gap-2 w-full px-2 py-1.5 rounded-md text-sm text-red-600 hover:bg-accent/70"
+            >
+              <DeleteOutlineIcon fontSize="small" />
+              <span>Delete</span>
+            </button>
+          </PopoverContent>
+        </Popover>
       ),
-      tooltip: () => "Quick actions",
+      // tooltip: () => "Quick actions",
     },
     1: {
       title: () => <span>File</span>,
@@ -806,7 +833,7 @@ export default function AdminDocumentsPage() {
             getRowId={(row) => row.id}
             displayOptions={displayOptions}
             filterConfig={filterConfig}
-            multiSelectOptions={bulkActions}
+            // multiSelectOptions={bulkActions}
             onRowClick={(row) => openView(row)}
             // onRefresh={() => {
             //   /* Implement refresh logic if using an API */

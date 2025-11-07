@@ -524,14 +524,13 @@ export default function VehicleDocumentsPage() {
         
         {!formFile ? (
           <div className="mt-1 flex items-center justify-center">
-            <button
+            <Button
               type="button"
               onClick={handleButtonClick}
-              className="inline-flex items-center gap-2 rounded-full bg-neutral-900 dark:bg-white px-6 py-2.5 text-sm font-medium text-white dark:text-black transition-colors hover:bg-black dark:hover:bg-neutral-100"
             >
               <UploadFileIcon className="h-4 w-4" />
               Choose file
-            </button>
+            </Button>
           </div>
         ) : (
           <div className="mt-1 flex items-center justify-center">
@@ -582,7 +581,7 @@ export default function VehicleDocumentsPage() {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <Button onClick={openAddDialog} className="rounded-xl bg-neutral-900 dark:bg-white px-4 py-2 text-white dark:text-black hover:bg-black dark:hover:bg-neutral-100">
+          <Button onClick={openAddDialog}>
             <UploadFileIcon className="mr-2 h-5 w-5"/> New Document
           </Button>
 
@@ -844,7 +843,7 @@ export default function VehicleDocumentsPage() {
                     </div>
                     <div className="text-lg font-medium text-neutral-900 dark:text-neutral-100">No documents match your filters</div>
                     <div className="text-sm text-neutral-500 dark:text-neutral-400">Try adjusting search or filters — or add a new document.</div>
-                    <div className="mt-2"><Button onClick={openAddDialog} className="rounded-xl bg-neutral-900 dark:bg-white text-white dark:text-black hover:bg-black dark:hover:bg-neutral-100">Add document</Button></div>
+                    <div className="mt-2"><Button onClick={openAddDialog}>Add document</Button></div>
                   </div>
                 </TableCell>
               </TableRow>
@@ -922,7 +921,7 @@ export default function VehicleDocumentsPage() {
 
           <DialogFooter className="mt-2">
             <Button variant="outline" onClick={()=> { setOpenDialog(false); resetForm(); }} className="rounded-xl border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100 hover:bg-white dark:hover:bg-neutral-700">Cancel</Button>
-            <Button onClick={saveDoc} className="rounded-xl bg-neutral-900 dark:bg-white text-white dark:text-black hover:bg-black dark:hover:bg-neutral-100">{editingDocId ? "Save changes" : "Add document"}</Button>
+            <Button onClick={saveDoc} >{editingDocId ? "Save changes" : "Add document"}</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

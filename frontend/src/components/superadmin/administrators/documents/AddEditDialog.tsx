@@ -45,7 +45,6 @@ import {
 import { cn } from "@/lib/utils"; // optional helper if you have it
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
-
 interface AddEditDialogProps {
   openDialog: boolean;
   setOpenDialog: (open: boolean) => void;
@@ -70,7 +69,6 @@ interface AddEditDialogProps {
   setDocs: React.Dispatch<React.SetStateAction<DocumentItem[]>>;
   resetForm: () => void;
   openView: (doc: DocumentItem) => void;
-
 }
 
 const AddEditDialog = ({
@@ -91,10 +89,8 @@ const AddEditDialog = ({
   setFormDocType,
   openView,
   setDocs,
-  resetForm
+  resetForm,
 }: AddEditDialogProps) => {
-
-
   const DropZone = () => {
     const [hover, setHover] = useState(false);
     const fileInputRef = useRef<HTMLInputElement>(null);
@@ -130,8 +126,6 @@ const AddEditDialog = ({
       return "other";
     }
 
-
-
     return (
       <div
         onDragOver={(e) => {
@@ -161,14 +155,13 @@ const AddEditDialog = ({
 
         {!formFile ? (
           <div className="mt-1 flex items-center justify-center">
-            <button
+            <Button
               type="button"
               onClick={handleButtonClick}
-              className="inline-flex items-center gap-2 rounded-full bg-neutral-900 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-black dark:bg-white dark:text-black dark:hover:bg-neutral-100"
             >
               <UploadFileIcon className="h-4 w-4" />
               Choose file
-            </button>
+            </Button>
           </div>
         ) : (
           <div className="mt-1 flex items-center justify-center">
@@ -208,17 +201,17 @@ const AddEditDialog = ({
     );
   };
 
-      function saveDoc() {
-      if (!formName.trim()) return alert("Please provide a document name.");
-      if (!formDocType) return alert("Please select a Document Type.");
+  function saveDoc() {
+    if (!formName.trim()) return alert("Please provide a document name.");
+    if (!formDocType) return alert("Please select a Document Type.");
 
-      const base: Partial<DocumentItem> = {
-        name: formName.trim(),
-        expiry: formExpiry ?? null,
-        tags: formTags,
-        docType: formDocType,
-      };
-       function inferFileKind(file?: File | null): FileKind {
+    const base: Partial<DocumentItem> = {
+      name: formName.trim(),
+      expiry: formExpiry ?? null,
+      tags: formTags,
+      docType: formDocType,
+    };
+    function inferFileKind(file?: File | null): FileKind {
       if (!file) return "other";
       const mime = file.type;
       if (mime.includes("pdf")) return "pdf";
@@ -227,92 +220,92 @@ const AddEditDialog = ({
       return "other";
     }
 
-      if (editingDocId) {
-        setDocs((prev) =>
-          prev.map((d) => {
-            if (d.id !== editingDocId) return d;
-            let url = d.url;
-            let size = d.size;
-            let fileKind = d.fileKind;
-            let version = d.version;
-            if (formFile) {
-              url = URL.createObjectURL(formFile);
-              size = formFile.size;
-              fileKind = inferFileKind(formFile);
-              version = d.version + 1;
-            }
-            const expiry = base.expiry ?? null;
-            return {
-              ...d,
-              name: base.name!,
-              tags: base.tags!,
-              url,
-              size,
-              fileKind,
-              version,
-              expiry,
-              docType: base.docType!,
-              status: computeStatus(expiry),
-            };
-          })
-        );
-      } else {
-        if (!formFile) return alert("Please upload a file.");
-        const fileKind = inferFileKind(formFile);
-        const url = URL.createObjectURL(formFile);
-        const expiry = base.expiry ?? null;
-        const newDoc: DocumentItem = {
-          id: crypto.randomUUID(),
-          name: base.name!,
-          tags: base.tags!,
-          fileKind,
-          size: formFile.size,
-          uploadedAt: new Date(),
-          expiry,
-          status: computeStatus(expiry),
-          version: 1,
-          url,
-          docType: base.docType!,
-        };
-        setDocs((prev) => [newDoc, ...prev]);
+    if (editingDocId) {
+      setDocs((prev) =>
+        prev.map((d) => {
+          if (d.id !== editingDocId) return d;
+          let url = d.url;
+          let size = d.size;
+          let fileKind = d.fileKind;
+          let version = d.version;
+          if (formFile) {
+            url = URL.createObjectURL(formFile);
+            size = formFile.size;
+            fileKind = inferFileKind(formFile);
+            version = d.version + 1;
+          }
+          const expiry = base.expiry ?? null;
+          return {
+            ...d,
+            name: base.name!,
+            tags: base.tags!,
+            url,
+            size,
+            fileKind,
+            version,
+            expiry,
+            docType: base.docType!,
+            status: computeStatus(expiry),
+          };
+        })
+      );
+    } else {
+      if (!formFile) return alert("Please upload a file.");
+      const fileKind = inferFileKind(formFile);
+      const url = URL.createObjectURL(formFile);
+      const expiry = base.expiry ?? null;
+      const newDoc: DocumentItem = {
+        id: crypto.randomUUID(),
+        name: base.name!,
+        tags: base.tags!,
+        fileKind,
+        size: formFile.size,
+        uploadedAt: new Date(),
+        expiry,
+        status: computeStatus(expiry),
+        version: 1,
+        url,
+        docType: base.docType!,
+      };
+      setDocs((prev) => [newDoc, ...prev]);
 
-        // Show preview after upload
-        setTimeout(() => {
-          openView(newDoc);
-        }, 100);
-      }
-
-      setOpenDialog(false);
-      resetForm();
+      // Show preview after upload
+      setTimeout(() => {
+        openView(newDoc);
+      }, 100);
     }
+
+    setOpenDialog(false);
+    resetForm();
+  }
   return (
     <Dialog open={openDialog} onOpenChange={setOpenDialog}>
-      <DialogContent className="sm:max-w-2xl dark:bg-neutral-900 dark:border-neutral-700">
+      <DialogContent className="sm:max-w-2xl bg-background border border-border">
         <DialogHeader>
-          <DialogTitle className="text-neutral-900 dark:text-neutral-100">
+          <DialogTitle className="text-foreground">
             {editingDocId ? "Edit Document" : "Add Document"}
           </DialogTitle>
-          <DialogDescription className="text-neutral-500 dark:text-neutral-400">
+          <DialogDescription className="text-muted">
             Document Type, name, file, expiry, tags — clean and compliant.
           </DialogDescription>
         </DialogHeader>
 
         <div className="grid gap-5 sm:grid-cols-2">
+          {/* Left Side */}
           <div className="space-y-3">
+            {/* Document Type */}
             <div className="space-y-2">
-              <Label className="text-neutral-800 dark:text-neutral-200">
-                Document Type
-              </Label>
+              <Label className="text-foreground">Document Type</Label>
               <Select
                 value={formDocType}
                 onValueChange={(v) =>
                   setFormDocType(v as DocumentItem["docType"])
                 }
               >
-                <SelectTrigger className="rounded-xl border-neutral-300 text-neutral-900 focus-visible:ring-neutral-900 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100">
+                <SelectTrigger className="rounded-xl border-border text-foreground focus-visible:ring-primary">
                   <SelectValue placeholder="Select type" />
                 </SelectTrigger>
-                <SelectContent className="z-[99999] rounded-2xl border-neutral-200 dark:border-neutral-700 dark:bg-neutral-900">
+                <SelectContent className="z-[99999] rounded-2xl border-border bg-background">
                   {DOC_TYPE_OPTIONS.map((opt) => (
                     <SelectItem key={opt} value={opt}>
                       {opt}
@@ -322,48 +315,43 @@ const AddEditDialog = ({
               </Select>
             </div>
 
+            {/* Name */}
             <div className="space-y-2">
-              <Label
-                htmlFor="doc-name"
-                className="text-neutral-800 dark:text-neutral-200"
-              >
+              <Label htmlFor="doc-name" className="text-foreground">
                 Name
               </Label>
               <div className="flex items-center gap-2">
-                <DriveFileRenameOutlineIcon className="text-neutral-700 dark:text-neutral-400" />
+                <DriveFileRenameOutlineIcon className="text-muted" />
                 <Input
                   id="doc-name"
                   value={formName}
                   onChange={(e) => setFormName(e.target.value)}
                   placeholder="e.g., Insurance Policy 2025.pdf"
-                  className="rounded-xl border-neutral-300 text-neutral-900 placeholder:text-neutral-400 focus-visible:ring-neutral-900 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100 dark:placeholder:text-neutral-500"
+                  className="rounded-xl border-border text-foreground placeholder:text-muted focus-visible:ring-primary"
                 />
               </div>
             </div>
 
+            {/* Expiry */}
             <div className="space-y-2">
-              <Label className="text-neutral-800 dark:text-neutral-200">
-                Expiry (optional)
-              </Label>
+              <Label className="text-foreground">Expiry (optional)</Label>
               <Popover>
                 <PopoverTrigger asChild>
                   <Button
                     variant="outline"
-                    className="w-full justify-start rounded-xl border-neutral-300 text-left font-normal text-neutral-900 hover:bg-neutral-50 dark:border-neutral-600 dark:text-neutral-100 dark:hover:bg-neutral-700"
+                    className="w-full justify-start rounded-xl border-border text-left font-normal text-foreground hover:bg-accent"
                   >
                     <CalendarMonthIcon className="mr-2" />
                     {formExpiry ? (
                       formatDate(formExpiry)
                     ) : (
-                      <span className="text-neutral-400 dark:text-neutral-500">
-                        Select date
-                      </span>
+                      <span className="text-muted">Select date</span>
                     )}
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent
                   align="start"
-                  className="z-[99999] w-auto rounded-2xl border-neutral-200 p-0 dark:border-neutral-700 dark:bg-neutral-900"
+                  className="z-[99999] w-auto rounded-2xl border-border bg-background p-0"
                 >
                   <Calendar
                     mode="single"
@@ -375,31 +363,29 @@ const AddEditDialog = ({
               </Popover>
             </div>
 
+            {/* Tags */}
             <div className="space-y-2">
-              <Label className="text-neutral-800 dark:text-neutral-200">
-                Tags
-              </Label>
+              <Label className="text-foreground">Tags</Label>
               <TagInput value={formTags} onChange={setFormTags} />
             </div>
           </div>
 
+          {/* Right Side */}
           <div className="space-y-3">
+            {/* Upload */}
             <div className="space-y-2">
-              <Label className="text-neutral-800 dark:text-neutral-200">
-                Upload
-              </Label>
+              <Label className="text-foreground">Upload</Label>
               <DropZone />
             </div>
 
+            {/* Notes */}
             <div className="space-y-2">
-              <Label className="text-neutral-800 dark:text-neutral-200">
-                Notes (optional)
-              </Label>
+              <Label className="text-foreground">Notes (optional)</Label>
               <Textarea
                 value={formNotes}
                 onChange={(e) => setFormNotes(e.target.value)}
                 placeholder="Any context for admins…"
-                className="min-h-[88px] rounded-xl border-neutral-300 text-neutral-900 placeholder:text-neutral-400 focus-visible:ring-neutral-900 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100 dark:placeholder:text-neutral-500"
+                className="min-h-[88px] rounded-xl border-border text-foreground placeholder:text-muted focus-visible:ring-primary"
               />
             </div>
           </div>
@@ -412,13 +398,13 @@ const AddEditDialog = ({
               setOpenDialog(false);
               resetForm();
             }}
-            className="rounded-xl border-neutral-300 text-neutral-900 hover:bg-white dark:border-neutral-600 dark:text-neutral-100 dark:hover:bg-neutral-700"
+            className="rounded-xl border-border text-foreground hover:bg-accent"
           >
             Cancel
           </Button>
           <Button
             onClick={saveDoc}
-            className="rounded-xl bg-neutral-900 text-white hover:bg-black dark:bg-white dark:text-black dark:hover:bg-neutral-100"
+            className="rounded-xl bg-primary text-background hover:bg-secondary"
           >
             {editingDocId ? "Save changes" : "Add document"}
           </Button>
