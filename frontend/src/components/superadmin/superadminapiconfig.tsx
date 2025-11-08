@@ -22,25 +22,16 @@ import LoginRoundedIcon from "@mui/icons-material/LoginRounded";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import SmartToyRoundedIcon from "@mui/icons-material/SmartToyRounded";
 import LinkRoundedIcon from "@mui/icons-material/LinkRounded";
-import FirebaseConfig from './settings/apiConfig/FirebaseConfig';
 import ReverseCoding from './settings/apiConfig/ReverseCoding';
-import SSOConfig from './settings/apiConfig/SSOConfig';
-import WhatsAppConfig from './settings/apiConfig/WhatsAppConfig';
+import SSOConfigComponent,  { SSOConfig } from './settings/apiConfig/SSOConfig';
 import OpenAiIntegration from './settings/apiConfig/OpenAiIntegration';
 import DocumentationLink from './settings/apiConfig/DocumentationLink';
+import FirebaseConfigComponent, { FirebaseConfig } from './settings/apiConfig/FirebaseConfig';
+import WhatsAppConfigComponent, { WhatsAppConfig } from './settings/apiConfig/FirebaseConfig';
 
 
 // Types
-export type FirebaseConfig = {
-  enabled: boolean;
-  apiKey: string;
-  authDomain: string;
-  projectId: string;
-  storageBucket: string;
-  messagingSenderId: string;
-  appId: string;
-  measurementId?: string;
-};
+
 
 export type ReverseGeocodingConfig = {
   enabled: boolean;
@@ -66,22 +57,7 @@ export type ReverseGeocodingConfig = {
   osmUserAgent?: string; // Required by OSM policy
 };
 
-export type SSOConfig = {
-  enabled: boolean;
-  googleClientId: string;
-  googleClientSecret: string;
-  redirectUri: string;
-};
 
-export type WhatsAppConfig = {
-  enabled: boolean;
-  provider: 'twilio' | 'whatsapp-business-api';
-  providerActive: boolean; // Activate selected provider
-  accountSid?: string; // Twilio
-  authToken?: string; // Twilio
-  phoneNumberId?: string; // WhatsApp Business API
-  accessToken?: string; // WhatsApp Business API
-};
 
 export type OpenAIConfig = {
   enabled: boolean;
@@ -255,7 +231,7 @@ function SuperAdminAPIConfig() {
       <CardContent className="pt-2 space-y-6">
         
         {/* Firebase Configuration */}
-      <FirebaseConfig/>
+      <FirebaseConfigComponent/>
 
         <Separator className="dark:bg-muted" />
 
@@ -265,12 +241,12 @@ function SuperAdminAPIConfig() {
         <Separator className="dark:bg-muted" />
 
         {/* SSO (Google) Configuration */}
-        <SSOConfig/>
+        <SSOConfigComponent/>
 
         <Separator className="dark:bg-muted" />
 
         {/* WhatsApp Configuration */}
-        <WhatsAppConfig/>
+        <WhatsAppConfigComponent/>
 
         <Separator className="dark:bg-muted" />
 

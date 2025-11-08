@@ -129,7 +129,7 @@ const initialConfigs: APIConfigs = {
 };
 
 
-const SSOConfig = () => {
+const SSOConfigComponent = () => {
      const [configs, setConfigs] = React.useState<APIConfigs>(initialConfigs);
        const [showGoogleSecret, setShowGoogleSecret] = React.useState(false);
 
@@ -281,4 +281,4 @@ const SSOConfig = () => {
   )
 }
 
-export default SSOConfig
+export default SSOConfigComponent

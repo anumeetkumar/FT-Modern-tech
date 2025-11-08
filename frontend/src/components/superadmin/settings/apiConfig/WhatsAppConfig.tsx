@@ -131,7 +131,7 @@ const initialConfigs: APIConfigs = {
   updatedAt: "2025-10-18T09:15:00Z",
 };
 
-const WhatsAppConfig = () => {
+const WhatsAppConfigComponent = () => {
     const [configs, setConfigs] = React.useState<APIConfigs>(initialConfigs);
       const [showWhatsAppToken, setShowWhatsAppToken] = React.useState(false);
 
@@ -401,4 +401,4 @@ const WhatsAppConfig = () => {
   )
 }
 
-export default WhatsAppConfig
+export default WhatsAppConfigComponent

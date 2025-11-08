@@ -129,7 +129,7 @@ export type APIConfigs = {
 
   
 
-const FirebaseConfig = () => {
+const FirebaseConfigComponent = () => {
     const [configs, setConfigs] = React.useState<APIConfigs>(initialConfigs);
      const [showFirebaseKey, setShowFirebaseKey] = React.useState(false);
 
@@ -306,4 +306,4 @@ const FirebaseConfig = () => {
   )
 }
 
-export default FirebaseConfig
+export default FirebaseConfigComponent

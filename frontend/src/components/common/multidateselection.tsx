@@ -375,7 +375,7 @@ export function MultiDateRangePicker({
                   numberOfMonths={numberOfMonths}
                   selected={draft}
                   defaultMonth={draft?.from ?? new Date()}
-                  onSelect={(range) => {
+                  onSelect={(range: DateRange | undefined) => {
                     if (!range) {
                       setDraft({ from: undefined, to: undefined });
                       setSelectedPreset("custom");

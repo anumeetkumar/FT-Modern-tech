@@ -431,7 +431,7 @@ export default function CreditHistoryPage() {
                           <Calendar
                             mode="range"
                             selected={dateRange}
-                            onSelect={setDateRange}
+                            onSelect={(range: DateRange | undefined) => setDateRange(range ?? { from: undefined, to: undefined })}
                             // numberOfMonths={2}
                             initialFocus
                             required

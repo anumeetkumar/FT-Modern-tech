@@ -333,7 +333,7 @@ function DateRangeField({
                       }
                     : undefined
                 }
-                onSelect={(range) =>
+                onSelect={(range: { from?: Date; to?: Date } | undefined) =>
                   onChange({
                     from: range?.from ?? undefined,
                     to: range?.to ?? undefined,

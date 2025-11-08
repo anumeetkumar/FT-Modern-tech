@@ -1,4 +1,5 @@
 import React, { useMemo } from "react";
+
 import { motion } from "framer-motion";
 // Material Icons
 import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
@@ -269,7 +270,7 @@ export default function VehicleDetailsPreview({ data }: VehicleDetailsPreviewPro
             {
               label: "Axle Count",
               value: Number.isFinite(v.vehicleMeta?.axleCount)
-                ? `${v.vehicleMeta.axleCount} ${v.vehicleMeta.axleCount === 1 ? "Axle" : "Axles"}`
+                ? `${v.vehicleMeta?.axleCount} ${v.vehicleMeta?.axleCount === 1 ? "Axle" : "Axles"}`
                 : "—",
             },
             { label: "GPS Module", value: v.vehicleMeta?.gpsModule ? `v${v.vehicleMeta.gpsModule}` : "—" },
