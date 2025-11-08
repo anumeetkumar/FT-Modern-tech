@@ -1,7 +1,25 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Search, Home, Menu, ZoomIn, ZoomOut, Fullscreen, FullscreenExit } from "@mui/icons-material";
-import { IconButton, Paper, InputBase, List, ListItem, ListItemText, Divider } from "@mui/material";
+import {
+  Search,
+  Home,
+  Menu,
+  ZoomIn,
+  ZoomOut,
+  Fullscreen,
+  FullscreenExit,
+} from "@mui/icons-material";
+import {
+  IconButton,
+  Paper,
+  InputBase,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemButton,
+  Divider,
+} from "@mui/material";
+
 import { useTheme } from "@/components/providers/ThemeProvider";
 
 interface SearchHistoryItem {
@@ -32,7 +50,10 @@ export default function FleetStackLeafletMap() {
       query,
       timestamp: new Date(),
     };
-    const updatedHistory = [newItem, ...searchHistory.filter(item => item.query !== query)].slice(0, 5);
+    const updatedHistory = [
+      newItem,
+      ...searchHistory.filter((item) => item.query !== query),
+    ].slice(0, 5);
     setSearchHistory(updatedHistory);
     localStorage.setItem("mapSearchHistory", JSON.stringify(updatedHistory));
   };
@@ -78,8 +99,9 @@ export default function FleetStackLeafletMap() {
     const handleFullscreenChange = () => {
       setIsFullscreen(!!document.fullscreenElement);
     };
-    document.addEventListener('fullscreenchange', handleFullscreenChange);
-    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    return () =>
+      document.removeEventListener("fullscreenchange", handleFullscreenChange);
   }, []);
 
   useEffect(() => {
@@ -100,7 +122,9 @@ export default function FleetStackLeafletMap() {
       new Promise<void>((resolve) => {
         const w: any = window;
         if (w.L?.map) return resolve();
-        const existing = document.getElementById("leaflet-js") as HTMLScriptElement | null;
+        const existing = document.getElementById(
+          "leaflet-js"
+        ) as HTMLScriptElement | null;
         if (existing) {
           existing.addEventListener("load", () => resolve(), { once: true });
           return;
@@ -144,30 +168,32 @@ export default function FleetStackLeafletMap() {
     <div style={{ position: "fixed", inset: 0 }}>
       {/* Map Container */}
       <div ref={mapEl} style={{ position: "absolute", inset: 0 }} />
-      
+
       {/* Top Left Search Bar */}
-      <div style={{ 
-        position: "absolute", 
-        top: 150, 
-        left: 16, 
-        zIndex: 1000,
-        display: "flex",
-        alignItems: "center",
-        gap: 8
-      }}>
+      <div
+        style={{
+          position: "absolute",
+          top: 150,
+          left: 16,
+          zIndex: 1000,
+          display: "flex",
+          alignItems: "center",
+          gap: 8,
+        }}
+      >
         <IconButton
           sx={{
             backgroundColor,
             color: textColor,
             border: `1px solid ${borderColor}`,
             boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-            "&:hover": { backgroundColor: isDark ? "#1a1a1a" : "#f5f5f5" }
+            "&:hover": { backgroundColor: isDark ? "#1a1a1a" : "#f5f5f5" },
           }}
           size="medium"
         >
           <Menu />
         </IconButton>
-        
+
         <Paper
           sx={{
             p: "2px 4px",
@@ -177,7 +203,7 @@ export default function FleetStackLeafletMap() {
             backgroundColor,
             border: `1px solid ${borderColor}`,
             boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-            position: "relative"
+            position: "relative",
           }}
         >
           <IconButton
@@ -191,21 +217,21 @@ export default function FleetStackLeafletMap() {
           >
             <Home />
           </IconButton>
-          
+
           <InputBase
             sx={{ ml: 1, flex: 1, color: textColor }}
             placeholder="Search locations..."
-            inputProps={{ 'aria-label': 'search locations' }}
+            inputProps={{ "aria-label": "search locations" }}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => setShowSearchHistory(true)}
             onKeyPress={(e) => {
-              if (e.key === 'Enter') {
+              if (e.key === "Enter") {
                 handleSearch();
               }
             }}
           />
-          
+
           <IconButton
             sx={{ p: "10px", color: textColor }}
             aria-label="search"
@@ -213,7 +239,7 @@ export default function FleetStackLeafletMap() {
           >
             <Search />
           </IconButton>
-          
+
           {/* Search History Dropdown */}
           {showSearchHistory && searchHistory.length > 0 && (
             <Paper
@@ -228,88 +254,97 @@ export default function FleetStackLeafletMap() {
                 boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
                 zIndex: 1001,
                 maxHeight: 200,
-                overflow: 'auto'
+                overflow: "auto",
               }}
             >
               <List dense>
                 <ListItem>
-                  <ListItemText 
-                    primary="Recent Searches" 
-                    primaryTypographyProps={{ 
-                      fontSize: '12px', 
-                      color: isDark ? '#999999' : '#666666' 
+                  <ListItemText
+                    primary="Recent Searches"
+                    primaryTypographyProps={{
+                      fontSize: "12px",
+                      color: isDark ? "#999999" : "#666666",
                     }}
                   />
                 </ListItem>
                 <Divider />
                 {searchHistory.map((item, index) => (
-                  <ListItem
+                  <ListItemButton
                     key={index}
-                    button
                     onClick={() => handleHistoryClick(item.query)}
                     sx={{
-                      "&:hover": { backgroundColor: isDark ? "#1a1a1a" : "#f5f5f5" }
+                      "&:hover": {
+                        backgroundColor: isDark ? "#1a1a1a" : "#f5f5f5",
+                      },
                     }}
                   >
                     <ListItemText
                       primary={item.query}
-                      primaryTypographyProps={{ fontSize: '14px', color: textColor }}
+                      primaryTypographyProps={{
+                        fontSize: "14px",
+                        color: textColor,
+                      }}
                       secondary={item.timestamp.toLocaleDateString()}
-                      secondaryTypographyProps={{ fontSize: '11px', color: isDark ? '#999999' : '#666666' }}
+                      secondaryTypographyProps={{
+                        fontSize: "11px",
+                        color: isDark ? "#999999" : "#666666",
+                      }}
                     />
-                  </ListItem>
+                  </ListItemButton>
                 ))}
               </List>
             </Paper>
           )}
         </Paper>
       </div>
-      
+
       {/* Bottom Right Controls */}
-      <div style={{ 
-        position: "absolute", 
-        bottom: 16, 
-        right: 16, 
-        zIndex: 1000,
-        display: "flex",
-        flexDirection: "column",
-        gap: 8
-      }}>
+      <div
+        style={{
+          position: "absolute",
+          bottom: 16,
+          right: 16,
+          zIndex: 1000,
+          display: "flex",
+          flexDirection: "column",
+          gap: 8,
+        }}
+      >
         <IconButton
           sx={{
             backgroundColor,
             color: textColor,
             border: `1px solid ${borderColor}`,
             boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-            "&:hover": { backgroundColor: isDark ? "#1a1a1a" : "#f5f5f5" }
+            "&:hover": { backgroundColor: isDark ? "#1a1a1a" : "#f5f5f5" },
           }}
           size="medium"
           onClick={handleZoomIn}
         >
           <ZoomIn />
         </IconButton>
-        
+
         <IconButton
           sx={{
             backgroundColor,
             color: textColor,
             border: `1px solid ${borderColor}`,
             boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-            "&:hover": { backgroundColor: isDark ? "#1a1a1a" : "#f5f5f5" }
+            "&:hover": { backgroundColor: isDark ? "#1a1a1a" : "#f5f5f5" },
           }}
           size="medium"
           onClick={handleZoomOut}
         >
           <ZoomOut />
         </IconButton>
-        
+
         <IconButton
           sx={{
             backgroundColor,
             color: textColor,
             border: `1px solid ${borderColor}`,
             boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-            "&:hover": { backgroundColor: isDark ? "#1a1a1a" : "#f5f5f5" }
+            "&:hover": { backgroundColor: isDark ? "#1a1a1a" : "#f5f5f5" },
           }}
           size="medium"
           onClick={handleFullscreen}
@@ -317,7 +352,7 @@ export default function FleetStackLeafletMap() {
           {isFullscreen ? <FullscreenExit /> : <Fullscreen />}
         </IconButton>
       </div>
-      
+
       {/* Click outside handler for search history */}
       {showSearchHistory && (
         <div
@@ -327,7 +362,7 @@ export default function FleetStackLeafletMap() {
             left: 0,
             right: 0,
             bottom: 0,
-            zIndex: 999
+            zIndex: 999,
           }}
           onClick={() => setShowSearchHistory(false)}
         />
