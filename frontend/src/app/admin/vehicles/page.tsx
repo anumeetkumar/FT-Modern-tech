@@ -718,14 +718,14 @@ export default function FleetStackVehicleTable() {
 
   if (isLoading) {
     return (
-      <div className="mx-auto max-w-[1400px] p-4">
+      <div className="mx-auto max-w-7xl py-4">
         <LoadingSkeleton />
       </div>
     );
   }
 
   return (
-    <div ref={containerRef} className="mx-auto max-w-[1400px] p-4">
+    <div ref={containerRef} className="mx-auto max-w-7xl py-4">
       {/* Bulk Actions Bar */}
       {selected.size > 0 && (
         <div className="mb-5 py-2 px-5 flex flex-wrap items-center justify-between rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800  shadow-sm">

@@ -609,7 +609,7 @@ export function SmartAutoTable<T extends Record<string, any>>(
       transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
       reducedMotion="user"
     >
-      <div ref={containerRef} className="mx-auto max-w-[1400px] p-4">
+      <div ref={containerRef} className="mx-auto max-w-7xl py-4">
         {/* Toolbar */}
         <motion.div
           initial={{ opacity: 0, y: 8 }}

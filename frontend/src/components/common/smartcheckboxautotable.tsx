@@ -1156,7 +1156,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
         transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
         reducedMotion="user"
       >
-        <div ref={containerRef} className="mx-auto max-w-[1400px] p-4">
+        <div ref={containerRef} className="mx-auto max-w-7xl py-4">
           {/* Bulk actions bar (only if hasBulk and selection) */}
           <AnimatePresence initial={false}>
             {hasBulk && selectedIds.size > 0 && (

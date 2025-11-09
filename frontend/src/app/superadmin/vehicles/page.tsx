@@ -18,6 +18,8 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
 import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { AddEditVehicleDialog } from "@/components/common/AddEditVehicleModal";
 
 // Core unions
 export type VehicleStatus = "running" | "stop" | "idle";
@@ -842,6 +844,8 @@ export const VEHICLE_DATA: VehicleRow[] = [
 
 function page() {
   const router = useRouter();
+  const [openAddModal, setOpenAddModal] = React.useState(false);
+
   // Helper function to calculate expiry status
   const calculateExpiry = (expiryStr: string) => {
     const expiryDate = new Date(expiryStr);
@@ -1849,27 +1853,37 @@ function page() {
   };
 
   return (
-    <div className="mx-auto max-w-7xl">
-      <SmartCheckboxAutoTable<VehicleRow>
-        title="Vehicle Management"
-        data={VEHICLE_DATA}
-        getRowId={(r) => r.id}
-        displayOptions={displayOptions}
-        filterConfig={filterConfig}
-        multiSelectOptions={bulkActions}
-        onRowClick={(row) => {
-          console.log("Row Clicked →", row.id);
-          router.push("/superadmin/vehicles/" + row.id);
-        }}
-        exportBrand={{
-          name: "Fleet Stack",
-          logoUrl: "/images/logo-light.png",
-          addressLine1: "Self-Hosted GPS Software",
-          addressLine2: "fleetstackglobal.com",
-          footerNote: "We make it easiest — just deploy.",
-        }}
+    <>
+      <AddEditVehicleDialog
+        open={openAddModal}
+        onOpenChange={setOpenAddModal}
+        onSave={() => {}}
       />
-    </div>
+      <div className="mx-auto max-w-7xl">
+        <div className="flex justify-end">
+          <Button onClick={() => setOpenAddModal(true)}>Add Vehicle</Button>
+        </div>
+        <SmartCheckboxAutoTable<VehicleRow>
+          title="Vehicle Management"
+          data={VEHICLE_DATA}
+          getRowId={(r) => r.id}
+          displayOptions={displayOptions}
+          filterConfig={filterConfig}
+          multiSelectOptions={bulkActions}
+          onRowClick={(row) => {
+            console.log("Row Clicked →", row.id);
+            router.push("/superadmin/vehicles/" + row.id);
+          }}
+          exportBrand={{
+            name: "Fleet Stack",
+            logoUrl: "/images/logo-light.png",
+            addressLine1: "Self-Hosted GPS Software",
+            addressLine2: "fleetstackglobal.com",
+            footerNote: "We make it easiest — just deploy.",
+          }}
+        />
+      </div>
+    </>
   );
 }
 
