@@ -38,10 +38,10 @@ export default function FleetStackLeafletMap() {
 
   // Load search history from localStorage
   useEffect(() => {
-    const stored = localStorage.getItem("mapSearchHistory");
-    if (stored) {
-      setSearchHistory(JSON.parse(stored));
-    }
+    // const stored = localStorage.getItem("mapSearchHistory");
+    // if (stored) {
+    //   setSearchHistory(JSON.parse(stored));
+    // }
   }, []);
 
   // Save search history to localStorage
@@ -284,7 +284,7 @@ export default function FleetStackLeafletMap() {
                         fontSize: "14px",
                         color: textColor,
                       }}
-                      secondary={item.timestamp.toLocaleDateString()}
+                      secondary={item?.timestamp?.toLocaleDateString()}
                       secondaryTypographyProps={{
                         fontSize: "11px",
                         color: isDark ? "#999999" : "#666666",

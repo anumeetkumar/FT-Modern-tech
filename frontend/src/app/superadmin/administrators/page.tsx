@@ -27,12 +27,14 @@ import { Button } from "@/components/ui/button";
 import { Toggle } from "@/components/ui/toggle";
 import { AdminRow } from "@/lib/types/superadmin";
 import { ADMIN_DATA } from "@/lib/data/superadmin";
+import AddAdminDialog from "@/components/superadmin/AddAdminDialog";
 
 export default function Page() {
   const router = useRouter();
 
   // reactive state
   const [adminData, setAdminData] = useState<AdminRow[]>(ADMIN_DATA);
+  const [isAddAdminDialogOpen, setIsAddAdminDialogOpen] = useState(false);
   const [loadingStates, setLoadingStates] = useState<Record<string, boolean>>(
     {}
   );
@@ -1019,37 +1021,43 @@ export default function Page() {
   ];
 
   return (
-    <div className="mx-auto max-w-7xl">
-      <SmartCheckboxAutoTable<AdminRow>
-        title="Administrator Management"
-        data={adminData}
-        getRowId={(r) => r.id}
-        displayOptions={displayOptions}
-        filterConfig={filterConfig}
-        multiSelectOptions={bulkActions}
-        // onRowClick={(row) => {
-        //   console.log("Row Clicked →", row.name);
-        //   setSelectedUserId(row.id);
-        //   setDrawerOpen(true);
-        // }}
-        isDrawerTypeFilter
-        onRefresh={handleRefresh} // ✅ only one function, super simple
-        exportBrand={{
-          name: "Fleet Stack",
-          logoUrl: "/images/logo-light.png",
-          addressLine1: "Self-Hosted GPS Software",
-          addressLine2: "fleetstackglobal.com",
-          footerNote: "We make it easiest — just deploy.",
-        }}
-        showtoolbar = {true}
-        showtoolbarInput = {true}
-        showtoolbarFilter = {true}
-        showtoolbarRefreshbtn = {true}
-        showtoolbarRecords = {true}
-        showtoolbarExport = {true}
-        showtoolbarColumn = {true}
-        showtoolbarFullScreen = {true}
-      />
-    </div>
+    <>
+    <AddAdminDialog open={isAddAdminDialogOpen} onOpenChange={setIsAddAdminDialogOpen} onSave={()=>{}} />
+      <div className="mx-auto max-w-7xl">
+        <div className="flex justify-end">
+          <Button onClick={() => setIsAddAdminDialogOpen(true)}>Add New Administrator</Button>
+        </div>
+        <SmartCheckboxAutoTable<AdminRow>
+          title="Administrator Management"
+          data={adminData}
+          getRowId={(r) => r.id}
+          displayOptions={displayOptions}
+          filterConfig={filterConfig}
+          multiSelectOptions={bulkActions}
+          // onRowClick={(row) => {
+          //   console.log("Row Clicked →", row.name);
+          //   setSelectedUserId(row.id);
+          //   setDrawerOpen(true);
+          // }}
+          isDrawerTypeFilter
+          onRefresh={handleRefresh} // ✅ only one function, super simple
+          exportBrand={{
+            name: "Fleet Stack",
+            logoUrl: "/images/logo-light.png",
+            addressLine1: "Self-Hosted GPS Software",
+            addressLine2: "fleetstackglobal.com",
+            footerNote: "We make it easiest — just deploy.",
+          }}
+          showtoolbar={true}
+          showtoolbarInput={true}
+          showtoolbarFilter={true}
+          showtoolbarRefreshbtn={true}
+          showtoolbarRecords={true}
+          showtoolbarExport={true}
+          showtoolbarColumn={true}
+          showtoolbarFullScreen={true}
+        />
+      </div>
+    </>
   );
 }
