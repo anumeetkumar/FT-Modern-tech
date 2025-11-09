@@ -16,6 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+          <link rel="stylesheet" href="/css/react-phone-number-input/style.css"/>
+      </head>
       <body className={inter.className}>
         <ClientProvider>
           <QueryProvider>

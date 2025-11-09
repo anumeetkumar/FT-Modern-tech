@@ -11,6 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import  { PhoneInput } from "../common/CommonPhoneInput";
 
 interface AddAdminDialogProps {
   open: boolean;
@@ -69,19 +70,14 @@ const AddAdminDialog: React.FC<AddAdminDialogProps> = ({
             value={form.email}
             onChange={(e) => handleChange("email", e.target.value)}
           />
-          <div className="flex gap-2">
-            <Input
-              placeholder="Prefix"
-              value={form.mobilePrefix}
-              onChange={(e) => handleChange("mobilePrefix", e.target.value)}
-              className="w-24"
-            />
-            <Input
-              placeholder="Mobile Number"
-              value={form.mobileNumber}
-              onChange={(e) => handleChange("mobileNumber", e.target.value)}
-            />
-          </div>
+
+          <PhoneInput
+            value={form.mobileNumber}
+            onChange={(val) => {
+              handleChange("mobileNumber", val);
+            }}
+          />
+
           <Input
             placeholder="Username"
             value={form.username}
