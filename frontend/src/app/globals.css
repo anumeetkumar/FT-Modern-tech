@@ -5,307 +5,238 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-}
-
-:root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.141 0.005 285.823);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.141 0.005 285.823);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.141 0.005 285.823);
-  --primary: oklch(0.21 0.006 285.885);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.967 0.001 286.375);
-  --secondary-foreground: oklch(0.21 0.006 285.885);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.21 0.006 285.885);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.705 0.015 286.067);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-primary: oklch(0.21 0.006 285.885);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.705 0.015 286.067);
-}
-
-.dark {
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.92 0.004 286.32);
-  --primary-foreground: oklch(0.21 0.006 285.885);
-  --secondary: oklch(0.274 0.006 286.033);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.552 0.016 285.938);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.552 0.016 285.938);
-}
-
-@layer base {
-  /* Custom CSS Properties for Premium Black/White Theme */
+  /* Define core theme variables — dynamically updated by your theme logic */
   :root {
-    --theme-accent: #000000;
-    --theme-accent-fg: #ffffff;
-    --theme-neutral: hsl(var(--background));
-    --theme-neutral-fg: hsl(var(--foreground));
-    --theme-border: hsl(var(--border));
-    --focus-ring: hsl(var(--primary));
-    --focus-shadow: 0 0 0 2px hsl(var(--ring));
-    
-    /* Premium Black/White Design System */
-    --bw-primary: #000000;
-    --bw-primary-fg: #ffffff;
-    --bw-secondary: #f8f9fa;
-    --bw-secondary-fg: #1a1a1a;
-    --bw-muted: #e5e7eb;
-    --bw-muted-fg: #6b7280;
-    --bw-accent: #374151;
-    --bw-accent-fg: #f9fafb;
-    --bw-success: #000000;
-    --bw-success-fg: #ffffff;
-    --bw-error: #1f2937;
-    --bw-error-fg: #f9fafb;
-    --bw-border: #d1d5db;
-    --bw-ring: #9ca3af;
+    --primary: #ff4d4d;
+    --secondary: #1a1a1a;
+    --accent: #cccccc;
+    --background: #121212;
+    --foreground: #f9f9f9;
+    --muted: #999999;
+    --border: #333333;
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --radius: 0.625rem;
   }
 
-  .dark {
-    --theme-accent: #ffffff;
-    --theme-accent-fg: #000000;
-    
-    /* Premium Black/White Design System - Dark Mode */
-    --bw-primary: #ffffff;
-    --bw-primary-fg: #000000;
-    --bw-secondary: #1f2937;
-    --bw-secondary-fg: #f9fafb;
-    --bw-muted: #374151;
-    --bw-muted-fg: #9ca3af;
-    --bw-accent: #d1d5db;
-    --bw-accent-fg: #1f2937;
-    --bw-success: #ffffff;
-    --bw-success-fg: #000000;
-    --bw-error: #e5e7eb;
-    --bw-error-fg: #1f2937;
-    --bw-border: #4b5563;
-    --bw-ring: #6b7280;
+  /* Tailwind variable mapping */
+  @theme inline {
+    --color-primary: var(--primary);
+    --color-secondary: var(--secondary);
+    --color-accent: var(--accent);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-muted: var(--muted);
+    --color-border: var(--border);
+    --color-success: var(--success);
+    --color-warning: var(--warning);
+    --color-error: var(--error);
+
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
   }
 
-  /* Base Styles */
-  * {
-    @apply border-border outline-ring/50;
-  }
-  
-  body {
-    @apply bg-background text-foreground;
+  /* ============================
+    BASE LAYER
+    ============================ */
+  @layer base {
+    /* Base elements */
+    * {
+      @apply border-border outline-border/50;
+    }
+
+    body {
+      @apply bg-background text-foreground;
+    }
+
+    /* Form element styling */
+    :is(
+        input[type="checkbox"],
+        input[type="radio"],
+        [class*="checkbox" i],
+        [data-slot="checkbox"]
+      ) {
+      accent-color: var(--primary) !important;
+      background-color: var(--background) !important;
+      border: 2px solid var(--border) !important;
+    }
+
+    /* Checked/Active state */
+    :is(
+        input[type="checkbox"]:checked,
+        input[type="radio"]:checked,
+        [class*="checkbox" i]:checked,
+        [data-slot="checkbox"][data-state="checked"]
+      ) {
+      background-color: var(--primary) !important;
+      border-color: var(--primary) !important;
+      color: var(--foreground) !important;
+    }
+
+    /* Dropdowns & menu highlights */
+    :is(
+        select,
+        select > option,
+        [data-slot="select-item"],
+        [data-radix-select-content] [data-highlighted],
+        [data-radix-dropdown-menu-content] [data-highlighted]
+      ) {
+      background-color: var(--background) !important;
+      color: var(--foreground) !important;
+      border-color: var(--border) !important;
+    }
+
+    /* Hover/focus/checked states */
+    :is(
+        select > option:is(:checked, :hover, :focus),
+        [data-slot="select-item"]:is(
+            :focus,
+            [data-highlighted],
+            [data-state="checked"]
+          ),
+        [data-radix-select-content] [data-highlighted],
+        [data-radix-dropdown-menu-content] [data-highlighted]
+      ) {
+      background-color: var(--primary) !important;
+      color: var(--secondary) !important;
+    }
+
+        :is(
+        select > option:is(:checked, :hover, :focus),
+        [data-slot="select-item"]:is(
+            :hover,
+          ),
+        [data-radix-select-content] [data-highlighted],
+        [data-radix-dropdown-menu-content] [data-highlighted]
+      ) {
+      background-color: var(--muted) !important;
+      color: var(--secondary) !important;
+    }
+
+    /* Focus ring for all inputs/buttons */
+    :is(input, select, textarea, button):focus {
+      outline-color: var(--primary) !important;
+      border-color: var(--primary) !important;
+      /* box-shadow: 0px 0px 1px var(--primary) !important; */
+    }
+
+    /* ============================
+      SCROLLBAR STYLING
+      ============================ */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--border);
+      border-radius: 10px;
+      transition: background-color 0.2s ease;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: var(--muted);
+    }
+
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
+    }
+
+    /* ============================
+      TEXT SELECTION
+      ============================ */
+    ::selection {
+      background-color: var(--primary);
+      color: var(--foreground);
+    }
+
+    /* ============================
+      UTILITY CLASSES
+      ============================ */
+    /* .bg-primary {
+      background-color: var(--primary) !important;
+    }
+    .bg-secondary {
+      background-color: var(--secondary) !important;
+    }
+    .bg-accent {
+      background-color: var(--accent) !important;
+    }
+    .bg-success {
+      background-color: var(--success) !important;
+    }
+    .bg-warning {
+      background-color: var(--warning) !important;
+    }
+    .bg-error {
+      background-color: var(--error) !important;
+    } */
+
+    /* .text-primary {
+      color: var(--primary) !important;
+    }
+    .text-secondary {
+      color: var(--secondary) !important;
+    }
+    .text-accent {
+      color: var(--accent) !important;
+    }
+    .text-success {
+      color: var(--success) !important;
+    }
+    .text-warning {
+      color: var(--warning) !important;
+    }
+    .text-error {
+      color: var(--error) !important;
+    } */
+/* 
+    .border-primary {
+      border-color: var(--primary) !important;
+    }
+    .border-secondary {
+      border-color: var(--secondary) !important;
+    }
+    .border-accent {
+      border-color: var(--accent) !important;
+    }
+    .border-success {
+      border-color: var(--success) !important;
+    }
+    .border-warning {
+      border-color: var(--warning) !important;
+    }
+    .border-error {
+      border-color: var(--error) !important;
+    } */
+
+    /* Gradient Utilities */
+    .gradient-primary {
+      background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--accent)
+      ) !important;
+    }
+    .gradient-secondary {
+      background: linear-gradient(
+        135deg,
+        var(--secondary),
+        var(--muted)
+      ) !important;
+    }
   }
 
-  /* Universal Form Control Styling */
-  :is(
-    input[type="checkbox"],
-    input[type="radio"],
-    [class*="checkbox" i],
-    [data-slot="checkbox"]
-  ) {
-    accent-color: var(--theme-accent) !important;
-    background-color: var(--theme-neutral) !important;
-    border: 2px solid var(--theme-border) !important;
-  }
 
-  /* Checked/Active States - Universal Selector */
-  :is(
-    input[type="checkbox"]:checked,
-    input[type="radio"]:checked,
-    [class*="checkbox" i]:checked,
-    [data-slot="checkbox"][data-state="checked"]
-  ) {
-    background-color: var(--theme-accent) !important;
-    border-color: var(--theme-accent) !important;
-    color: var(--theme-accent-fg) !important;
+  .PhoneInputCountry img{
+    max-height: 10px;
+    max-width: 10px;
   }
-
-  /* Interactive States for Dropdowns & Menus */
-  :is(
-    select,
-    select > option,
-    [data-slot="select-item"],
-    [data-radix-select-content] [data-highlighted],
-    [data-radix-dropdown-menu-content] [data-highlighted]
-  ) {
-    background-color: var(--theme-neutral) !important;
-    color: var(--theme-neutral-fg) !important;
-    border-color: var(--theme-border) !important;
-  }
-
-  /* Hover/Focus/Active States for Interactive Elements */
-  :is(
-    select > option:is(:checked, :hover, :focus),
-    [data-slot="select-item"]:is(:hover, :focus, [data-highlighted], [data-state="checked"]),
-    [data-radix-select-content] [data-highlighted],
-    [data-radix-dropdown-menu-content] [data-highlighted]
-  ) {
-    background-color: var(--theme-accent) !important;
-    color: var(--theme-accent-fg) !important;
-  }
-
-  /* Focus Ring for All Interactive Elements */
-  :is(input, select, textarea, button):focus {
-    outline-color: var(--focus-ring) !important;
-    border-color: var(--focus-ring) !important;
-    box-shadow: var(--focus-shadow) !important;
-  }
-
-  /* Global Selection & Scrollbar */
-  ::selection {
-    background-color: var(--theme-accent) !important;
-    color: var(--theme-accent-fg) !important;
-  }
-
-  /* Minimal Modern Scrollbar - Webkit (Chrome, Safari, Edge) */
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    transition: background-color 0.2s ease;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-
-  /* Dark mode scrollbar */
-  .dark ::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-
-  .dark ::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-  }
-
-  /* Firefox Scrollbar */
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
-  }
-
-  .dark * {
-    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
-  }
-
-  /* Premium Black/White Utility Classes */
-  .bw-bg-primary { background-color: var(--bw-primary) !important; }
-  .bw-bg-secondary { background-color: var(--bw-secondary) !important; }
-  .bw-bg-muted { background-color: var(--bw-muted) !important; }
-  .bw-bg-accent { background-color: var(--bw-accent) !important; }
-  .bw-bg-success { background-color: var(--bw-success) !important; }
-  .bw-bg-error { background-color: var(--bw-error) !important; }
-  
-  .bw-text-primary { color: var(--bw-primary) !important; }
-  .bw-text-secondary { color: var(--bw-secondary) !important; }
-  .bw-text-muted { color: var(--bw-muted-fg) !important; }
-  .bw-text-accent { color: var(--bw-accent) !important; }
-  .bw-text-success { color: var(--bw-success) !important; }
-  .bw-text-error { color: var(--bw-error) !important; }
-  
-  .bw-text-primary-fg { color: var(--bw-primary-fg) !important; }
-  .bw-text-secondary-fg { color: var(--bw-secondary-fg) !important; }
-  .bw-text-accent-fg { color: var(--bw-accent-fg) !important; }
-  .bw-text-success-fg { color: var(--bw-success-fg) !important; }
-  .bw-text-error-fg { color: var(--bw-error-fg) !important; }
-  
-  .bw-border { border-color: var(--bw-border) !important; }
-  .bw-ring { box-shadow: 0 0 0 2px var(--bw-ring) !important; }
-
-  /* Premium Gradient Backgrounds - Black/White Theme */
-  .bw-gradient-primary {
-    background: linear-gradient(135deg, var(--bw-primary) 0%, var(--bw-accent) 100%) !important;
-  }
-  
-  .bw-gradient-secondary {
-    background: linear-gradient(135deg, var(--bw-secondary) 0%, var(--bw-muted) 100%) !important;
-  }
-  
-  .bw-gradient-subtle {
-    background: linear-gradient(135deg, var(--bw-muted) 0%, var(--bw-accent) 100%) !important;
-  }
-}
