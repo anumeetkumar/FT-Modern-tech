@@ -9,7 +9,7 @@ const LoginPage = () => {
   const { theme } = useTheme();
 
   return (
-    <div className="min-h-dvh flex flex-col bg-background text-foreground">
+    <div className="min-h-dvh flex flex-col bg-background text-foreground w-full">
 
       {/* Main content area */}
       <main className="flex-1 content-center">
