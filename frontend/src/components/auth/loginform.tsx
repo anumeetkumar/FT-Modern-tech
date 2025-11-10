@@ -48,40 +48,67 @@ function LoginForm() {
   });
 
   const onSubmit = async (data: LoginFormData) => {
-    setIsLoading(true);
-    try {
-      const response = await api.auth.login(data) as any;
+    //setIsLoading(true);
+    
+    // try {
+    //   const response = await api.auth.login(data) as any;
+      
+    //   console.log('Login response:', response);
 
-      if (response?.data?.token) {
-        toast.success(`🎉 ${response.data.message || 'Login successful!'}`);
+    //   // Check if login was successful
+    //   if (response && response.data && response.data.token) {
+    //     toast.success(`🎉 Login successful! ${response.data.message || 'Welcome back!'}`);
 
-        const { role } = response.data.user;
-        const token = response.data.token;
-
-        if (role === 'USER') {
-          Cookies.set('utoken', token, { sameSite: 'lax', secure: true });
-          localStorage.setItem('user', JSON.stringify(response.data.user));
-          router.push('/user/dashboard');
-        } else if (role === 'ADMIN') {
-          Cookies.set('atoken', token, { sameSite: 'lax', secure: true });
-          localStorage.setItem('auser', JSON.stringify(response.data.user));
-          router.push('/admin/dashboard');
-        } else if (role === 'SUPERADMIN') {
-          Cookies.set('stoken', token, { sameSite: 'lax', secure: true });
-          localStorage.setItem('suser', JSON.stringify(response.data.user));
-          router.push('/superadmin/dashboard');
-        } else {
-          toast.error('❌ Unknown user role');
-        }
-      } else {
-        toast.error('❌ Invalid response from server');
-      }
-    } catch (error: any) {
-      console.error('Login error:', error);
-      toast.error(error.message || 'Login failed. Please try again.');
-    } finally {
-      setIsLoading(false);
-    }
+    //     // Handle different user roles
+    //     switch (response.data.user.role) {
+    //       case 'USER':
+    //         Cookies.set("utoken", response.data.token, { sameSite: "lax", secure: true });
+    //         localStorage.setItem("user", JSON.stringify(response.data.user));
+    //         router.push('/user/dashboard');
+    //         break;
+    //       case 'ADMIN': 
+    //         Cookies.set("atoken", response.data.token, { sameSite: "lax", secure: true });
+    //         localStorage.setItem("auser", JSON.stringify(response.data.user));
+    //         router.push('/admin/dashboard');
+    //         break;
+    //       case 'SUPERADMIN':
+    //         Cookies.set("stoken", response.data.token, { sameSite: "lax", secure: true });
+    //         localStorage.setItem("suser", JSON.stringify(response.data.user));
+    //         router.push('/superadmin/dashboard');
+    //         break;
+    //       default:
+    //         // Default fallback
+    //         toast.error('❌ Login Failed: Unknown user role');          
+    //         break;
+    //     }
+    //   } else {
+    //     toast.error('❌ Login Failed: Invalid response from server');
+    //   }
+    // } catch (error: any) {
+    //   console.error('Login error:', error);
+      
+    //   // Extract meaningful error message
+    //   let errorMessage = 'Login failed. Please try again.';
+      
+    //   if (error.message) {
+    //     errorMessage = error.message;
+    //   }
+      
+    //   // Handle specific error cases
+    //   if (error.status === 401) {
+    //     errorMessage = error.message || 'Invalid credentials. Please check your email and password.';
+    //   } else if (error.status === 403) {
+    //     errorMessage = error.message || 'Access forbidden. Please contact administrator.';
+    //   } else if (error.status === 404) {
+    //     errorMessage = 'Service not found. Please try again later.';
+    //   } else if (error.status >= 500) {
+    //     errorMessage = 'Server error. Please try again later.';
+    //   }
+      
+    //   toast.error(`❌ ${errorMessage}`);
+    // } finally {
+    //   setIsLoading(false);
+    // }
   };
 
   return (
