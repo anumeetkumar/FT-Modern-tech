@@ -1,32 +1,35 @@
-import React from 'react'
+import React from "react";
 import { motion } from "framer-motion";
 
-  const KpiCardBase = ({
-    title,
-    value,
-    Icon,
-  }: {
-    title: string;
-    value: number;
-    Icon?: any;
-  }) => {
-    return (
-      <motion.div
-        whileHover={{ y: -2 }}
-        whileTap={{ scale: 0.98 }}
-        className="group rounded-2xl border border-border bg-background dark:bg-foreground/5 p-4 shadow-sm hover:shadow-md"
-      >
-        <div className="flex items-center justify-between">
-          <span className="text-xs uppercase tracking-wider text-muted">
-            {title}
-          </span>
-         {Icon?.length>0 && <Icon className="h-5 w-5 text-muted group-hover:text-foreground" />} 
-        </div>
-        <div className="mt-3 text-2xl font-semibold tracking-tight text-foreground">
-          {Intl.NumberFormat().format(value)}
-        </div>
-      </motion.div>
-    );
-  };
+const KpiCardBase = ({
+  title,
+  value,
+  Icon,
+  subTitle
+}: {
+  title: string;
+  subTitle?: string;
+  value: number;
+  Icon?: any;
+}) => {
+  return (
+    <motion.div
+      whileHover={{ y: -2 }}
+      whileTap={{ scale: 0.98 }}
+      className="group rounded-2xl border border-border bg-background dark:bg-foreground/5 p-4 shadow-sm hover:shadow-md"
+    >
+      <div className="flex items-center justify-between">
+        <span className="text-xs uppercase tracking-wider text-muted">
+          {title}
+        </span>
+        {<Icon className="h-5 w-5 text-muted group-hover:text-foreground" />}
+      </div>
+      <div className="mt-3 text-2xl font-semibold tracking-tight text-foreground">
+        {Intl.NumberFormat().format(value)}
+      </div>
+      {subTitle && <p className="text-muted text-sm">{subTitle}</p>}
+    </motion.div>
+  );
+};
 
-export default KpiCardBase
+export default KpiCardBase;
