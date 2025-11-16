@@ -58,7 +58,9 @@ export function PaymentsTable({
     },
     4: {
       title: () => <div className="font-semibold text-right">Amount</div>,
-      content: (row) => <div className="text-right">{formatINR(row.amount)}</div>,
+      content: (row) => (
+        <div className="text-right">{formatINR(row.amount)}</div>
+      ),
     },
     5: {
       title: () => <div className="font-semibold text-right">Tax</div>,
@@ -109,6 +111,14 @@ export function PaymentsTable({
       data={payments}
       displayOptions={displayOptions}
       multiSelectOptions={multiSelectOptions}
+      showtoolbar
+      showtoolbarInput
+      showtoolbarFilter
+      showtoolbarRecords
+      showtoolbarExport
+      showtoolbarColumn
+      showtoolbarRefreshbtn={false}
+      showtoolbarFullScreen
     />
   );
 }

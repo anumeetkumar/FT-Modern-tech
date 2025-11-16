@@ -32,3 +32,25 @@ export type Payment = {
   reference: string; // txn id, cheque no, etc
   invoiceNo: string;
 };
+
+export type TxnStatus = "success" | "pending" | "failed" | "refunded";
+
+export type TxnMethod = "UPI" | "Card" | "NetBanking" | "Wallet"; // all online flavors
+
+
+export type Txn = {
+  id: string; // FS-2025-... unique id
+  date: string; // ISO
+  status: TxnStatus;
+  method: TxnMethod;
+  credits: number; // +adds credits, -reduces credits on refund
+  amount: number; // gross amount charged (+) or refunded (-)
+  currency: string; // e.g., INR
+  reference?: string; // gateway reference / payment_intent / UTR
+  notes?: string;
+  fee?: number; // gateway fee
+  tax?: number; // tax component
+  invoiceNo?: string; // invoice id
+  receiptUrl?: string; // hosted receipt link
+  meta?: Record<string, string>;
+};

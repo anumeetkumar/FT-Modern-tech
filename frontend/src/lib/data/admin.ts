@@ -11,6 +11,24 @@ export const PLANS = [
   { id: "custom", name: "Custom", tenureMonths: 0, price: 0 },
 ];
 
+
+export function copy(text: string) {
+  try {
+    navigator.clipboard.writeText(text);
+  } catch {}
+}
+
+export function fmtMoney(amt: number, ccy: string) {
+  try {
+    return new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: ccy,
+    }).format(amt);
+  } catch {
+    return `${ccy} ${amt.toFixed(2)}`;
+  }
+}
+
 export function genId(prefix: string = "PAY"): string {
   return `${prefix}-${Math.random().toString(36).slice(2, 8).toUpperCase()}`;
 }
