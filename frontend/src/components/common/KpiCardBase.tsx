@@ -22,7 +22,7 @@ const KpiCardBase = ({
         <span className="text-xs uppercase tracking-wider text-muted">
           {title}
         </span>
-        {<Icon className="h-5 w-5 text-muted group-hover:text-foreground" />}
+        { Icon && <Icon className="h-5 w-5 text-muted group-hover:text-foreground" />}
       </div>
       <div className="mt-3 text-2xl font-semibold tracking-tight text-foreground">
         {Intl.NumberFormat().format(value)}
