@@ -11,6 +11,10 @@ export const PLANS = [
   { id: "custom", name: "Custom", tenureMonths: 0, price: 0 },
 ];
 
+export function genId(prefix: string = "PAY"): string {
+  return `${prefix}-${Math.random().toString(36).slice(2, 8).toUpperCase()}`;
+}
+
 export const CUSTOMERS = [
   "Sharma Logistics",
   "Vijay Transports",
@@ -24,6 +28,14 @@ export const VEHICLES = [
   "DL01EF9876",
   "UP14GH2222",
   "KA05JK7654",
+];
+
+export const PaymentVEHICLES = [
+  { vehicle: "MH12AB1234", imei: "863482040279901" },
+  { vehicle: "GJ06CD4567", imei: "863482040279902" },
+  { vehicle: "DL01EF9876", imei: "863482040279903" },
+  { vehicle: "UP14GH2222", imei: "863482040279904" },
+  { vehicle: "KA05JK7654", imei: "863482040279905" },
 ];
 
 export const STATUSES = {

@@ -9,7 +9,7 @@ const KpiCardBase = ({
 }: {
   title: string;
   subTitle?: string;
-  value: number;
+  value: number | string;
   Icon?: any;
 }) => {
   return (
@@ -25,7 +25,7 @@ const KpiCardBase = ({
         { Icon && <Icon className="h-5 w-5 text-muted group-hover:text-foreground" />}
       </div>
       <div className="mt-3 text-2xl font-semibold tracking-tight text-foreground">
-        {Intl.NumberFormat().format(value)}
+        {typeof value === "number" ? Intl.NumberFormat().format(value) : value }
       </div>
       {subTitle && <p className="text-muted text-sm">{subTitle}</p>}
     </motion.div>
