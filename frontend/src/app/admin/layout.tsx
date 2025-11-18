@@ -33,35 +33,85 @@ const navData: {
       route: "/admin/dashboard"
     },
     {
-      label: "users",
-      icon: "users",
-      route: "/admin/users"
+      label: "Accounts",
+      icon: "settings",
+      route: "",
+      items: [
+        {
+          name: "Users",
+          icon: "support",
+          route: "/admin/users"
+        },
+        {
+          name: "Vehicles",
+          icon: "calendar",
+          route: "/admin/vehicles"
+        },
+        {
+          name: "Drivers",
+          icon: "logs",
+          route: "/admin/drivers"
+        },
+        {
+          name: "Teams",
+          icon: "webhooks",
+          route: "/admin/teams"
+        }
+
+      ]
     },
     {
-      label: "vehicles",
-      icon: "truck",
-      route: "/admin/vehicles"
-    },
-    {
-      label: "Drivers",
-      icon: "truck",
-      route: "/admin/drivers"
-    },
-    {
-      label: "Devices",
-      icon: "SatelliteDish",
-      route: "/admin/devices"
-    },
-    {
-      label: "Sim Cards",
-      icon: "CardSim",
-      route: "/admin/simcards"
+      label: "Assets",
+      icon: "settings",
+      route: "",
+      items: [
+        {
+          name: "Devices",
+          icon: "support",
+          route: "/admin/devices"
+        },
+        {
+          name: "Sim Cards",
+          icon: "calendar",
+          route: "/admin/simcards"
+        }
+
+      ]
     },
     {
       label: "Map",
       icon: "map",
       route: "/admin/map"
     },
+    {
+      label: "Finance",
+      icon: "settings",
+      route: "",
+      items: [
+        {
+          name: "Finance Dashboard",
+          icon: "support",
+          route: "/admin/finance"
+        },
+        {
+          name: "Renewals & Billing",
+          icon: "support",
+          route: "/admin/billing"
+        },
+        {
+          name: "Payments",
+          icon: "calendar",
+          route: "/admin/payments"
+        },
+                        {
+          name: "Transaction History",
+          icon: "calendar",
+          route: "/admin/transactions"
+        }
+
+      ]
+    },
+
     {
       label: "Other",
       icon: "settings",
@@ -82,18 +132,24 @@ const navData: {
           icon: "logs",
           route: "/admin/logs"
         },
-        // {
-        //   name: "Webhooks",
-        //   icon: "webhooks",
-        //   route: "/admin/webhooks"
-        // },
         {
-          name: "Settings",
-          icon: "settings",
-          route: "/admin/settings"
+          name: "Roles",
+          icon: "webhooks",
+          route: "/admin/roles"
+        },
+        {
+          name: "Plans",
+          icon: "webhooks",
+          route: "/admin/plans"
         }
+   
 
       ]
+    },
+    {
+      label: "Settings",
+      icon: "settings",
+      route: "/admin/settings"
     },
   ];
 

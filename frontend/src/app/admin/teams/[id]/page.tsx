@@ -103,14 +103,9 @@ const user: User = {
 // Navigation Configuration & Content Components
 // ——————————————————————————————————————————
 const navItems: NavItem[] = [
-  { key: "profile", label: "Profile", icon: PersonOutlineRoundedIcon },
-  { key: "vehicles", label: "Vehicles", icon: DirectionsCarFilledRoundedIcon },
-  { key: "drivers", label: "Drivers", icon: DirectionsCarFilledRoundedIcon },
-  { key: "documents", label: "Documents", icon: DescriptionRoundedIcon },
-  { key: "tickets", label: "Tickets", icon: SettingsRoundedIcon },
-  { key: "transactions", label: "Transactions", icon: SettingsRoundedIcon },
-  { key: "role", label: "Role", icon: SecurityRoundedIcon },
-   { key: "activitylogs", label: "Activity Logs", icon: SecurityRoundedIcon },
+  { key: "profile", label: "Profile", icon: PersonOutlineRoundedIcon },  
+  { key: "Permissions", label: "Permissions", icon: DescriptionRoundedIcon },
+  { key: "Activity Logs", label: "Activity Logs", icon: DescriptionRoundedIcon },
   { key: "delete", label: "Delete Account", icon: DeleteRoundedIcon, danger: true },
 ];
 
@@ -161,18 +156,10 @@ function renderContent(activeKey: string, userId: string) {
   switch (activeKey) {
     case "profile":
       return <AdminProfileContent adminId={userId} />;
-    case "credithistory":
-      return <CreditHistoryPage />;
-    case "documents":
-      return <AdminDocumentsPage />;
-    case "vehicles":
-      return <AdminVehiclesList />;
-    case "settings":
-      return <AdminSettingPage />;
-    case "role":
-      return <RoleContent />;
-      case "activitylogs":
-      return <div className="p-8 text-center text-neutral-500">Activity Logs content coming soon...</div>;
+    case "Permissions":
+      return "Permissions Content Coming Soon...";
+    case "Activity Logs":
+      return "date range selector + logs table coming soon...";
     case "delete":
       return <DeleteAccountContent />;
     default:

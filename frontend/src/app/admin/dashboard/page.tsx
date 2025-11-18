@@ -8,33 +8,15 @@ import AdoptionAndVehicleSection from "@/components/superadmin/dashboard/Adoptio
 import RecentActivities from "@/components/superadmin/dashboard/RecentActivities";
 import NotificationsAndActivitySection from "@/components/superadmin/dashboard/NotificationsAndActivitySection";
 import AddUserDialog from "@/components/admin/AddUserDialog";
+import { Button } from "@/components/ui/button";
+import { Payments, Send } from "@mui/icons-material";
 
-
-const Lastsync =()=>{
-   const [secondsSinceSync, setSecondsSinceSync] = useState(0);
-     useEffect(() => {
-    const id = setInterval(() => setSecondsSinceSync((s) => s + 1), 1000);
-    return () => clearInterval(id);
-  }, []);
-
-  return (
-     <div className="flex items-center gap-2 text-xs text-muted">
-            <span className="hidden sm:inline">Last sync:</span>
-            <span>{secondsSinceSync}s ago</span>
-            <button
-              className="rounded-lg p-1 hover:bg-neutral-100 dark:hover:bg-neutral-800"
-              aria-label="Refresh"
-            >
-              <RefreshOutlinedIcon fontSize="small" />
-            </button>
-      </div>
-  )
-}
 
 export default function FleetStackDashboard() {
   // State
   const [isDarkMode, setIsDarkMode] = useState(false);
     const [isAddUserOpen, setIsAddUserOpen] = useState(false);
+       const [notifyOpen, setNotifyOpen] = useState(false);
 
   // Detect dark mode changes
   useEffect(() => {
@@ -66,24 +48,29 @@ export default function FleetStackDashboard() {
     <main className="min-h-screen bg-background text-foreground">
       <div className="mx-auto max-w-7xl px-6 pb-14 pt-8">
         {/* License Banner */}
-        <SubscriptionBanner />
+        {/* <SubscriptionBanner /> */}
 
-        {/* Quick Actions */}
-        <div className="mb-6 flex items-end justify-between gap-4">
-          <div className="flex flex-wrap items-center gap-2">
-            <button className="rounded-xl border border-border px-3 py-2 text-xs text-muted  hover:bg-neutral-100 " onClick={() => setIsAddUserOpen(true)}>
-              + Create User
-            </button>
+        {/* Top Bar */}
+        <div className="mb-6 flex items-center justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-semibold tracking-tight">Dashboard</h1>
+            <p className="text-sm text-neutral-500">Self‑hosted GPS Software • FleetStack</p>
           </div>
-          <Lastsync/>
+          <div className="flex items-center gap-3">
+            <Button variant="outline" onClick={() => setNotifyOpen(true)}>
+              <Send className="h-4 w-4" /> Notify Users
+            </Button>
+            <Button>
+              <Payments className="h-4 w-4" /> (7) Buy Credits
+            </Button>
+          </div>
         </div>
 
         {/* KPI Row */}
         <KpiStats isSuperadmin={false} />
-
         {/* Chart + Vehicle Status */}
         <AdoptionAndVehicleSection />
-
+        
         {/* Lists Row (Scrollable) - First Row */}
 
         <RecentActivities />

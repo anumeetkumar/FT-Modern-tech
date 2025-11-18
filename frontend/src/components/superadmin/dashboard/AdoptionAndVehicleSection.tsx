@@ -33,6 +33,7 @@ const AdoptionAndVehicleSection = () => {
   });
 
   const vehicleStatus = [
+    { label: "All", count: 3577, pct:100 },
     { label: "Running", count: 2986, pct: 26.6 },
     { label: "Stop", count: 111, pct: 0.99 },
     { label: "Not Working (48 hours)", count: 7194, pct: 64.08 },

@@ -143,7 +143,9 @@ export type FilterConfig<T> =
 export type FilterConfigMap<T> = Record<string | number, FilterConfig<T>>;
 
 export type MultiSelectOption<T> = {
+  id?:string | number;
   name: string;
+  // label?:string;
   callback: (
     selectedRows: T[],
     selectedIds: Set<string>
