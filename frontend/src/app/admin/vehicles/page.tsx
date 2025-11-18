@@ -855,7 +855,10 @@ export const VEHICLE_DATA: VehicleRow[] = [
 function page() {
   const [openAddModal, setOpenAddModal] = React.useState(false);
   const [showBulkUpload, setShowBulkUpload] = React.useState(false);
-  const [bulkUploadForm, setBulkUploadForm] = React.useState({
+  const [bulkUploadForm, setBulkUploadForm] = React.useState<{
+    plan: string;
+    file: File | null;
+  }>({
     plan: "",
     file: null,
   });

@@ -712,34 +712,34 @@ export default function LogsPage() {
   };
 
   const filterConfig: FilterConfigMap<LogRow> = {
-    q: {
-      kind: "text",
-      label: "🔍 Search",
-      customPredicate: (row, q) =>
-        (row.entityLabel + row.entityId + row.message)
-          .toLowerCase()
-          .includes(String(q).toLowerCase()),
-    },
-    severity: {
-      kind: "multi",
-      label: "⚠ Severity",
-      options: ["info", "warning", "error"].map((x) => ({
-        label: x,
-        value: x,
-      })),
-      predicate: (row, values) =>
-        !values?.length || values.includes(row.severity),
-    },
-    channel: {
-      kind: "multi",
-      label: "📨 Channels",
-      options: ["system", "in-app", "email", "sms"].map((x) => ({
-        label: x,
-        value: x,
-      })),
-      predicate: (row, values) =>
-        !values?.length || values.includes(row.channel),
-    },
+    // q: {
+    //   kind: "text",
+    //   label: "🔍 Search",
+    //   customPredicate: (row, q) =>
+    //     (row.entityLabel + row.entityId + row.message)
+    //       .toLowerCase()
+    //       .includes(String(q).toLowerCase()),
+    // },
+    // severity: {
+    //   kind: "multi",
+    //   label: "⚠ Severity",
+    //   options: ["info", "warning", "error"].map((x) => ({
+    //     label: x,
+    //     value: x,
+    //   })),
+    //   predicate: (row, values) =>
+    //     !values?.length || values.includes(row.severity),
+    // },
+    // channel: {
+    //   kind: "multi",
+    //   label: "📨 Channels",
+    //   options: ["system", "in-app", "email", "sms"].map((x) => ({
+    //     label: x,
+    //     value: x,
+    //   })),
+    //   predicate: (row, values) =>
+    //     !values?.length || values.includes(row.channel),
+    // },
     ts: {
       kind: "dateRange",
       label: "⏱ Time",
@@ -866,7 +866,7 @@ export default function LogsPage() {
             {(["1h", "6h", "24h", "7d", "30d", "all"] as const).map((r) => (
               <Button
                 key={r}
-                variant={quickRange === r && !fromTs && !toTs ? "" : "outline"}
+                variant={quickRange === r && !fromTs && !toTs ? "default" : "outline"}
                 onClick={() => {
                   setQuickRange(r);
                   setFromTs("");
