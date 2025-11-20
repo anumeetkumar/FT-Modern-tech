@@ -900,14 +900,14 @@ function page() {
       <div className="p-2 max-w-xs">
         {/* Header */}
         <div className="flex items-center gap-2 mb-2">
-          <div className="w-7 h-7 rounded-md bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 flex items-center justify-center text-neutral-700  font-medium text-[10px]">
+          <div className="w-7 h-7 rounded-md bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 flex items-center justify-center text-muted  font-medium text-[10px]">
             {row.vehicleNo.slice(0, 2).toUpperCase()}
           </div>
           <div>
             <div className="font-semibold text-[12px] ">
               {row.vehicleNo}
             </div>
-            <div className="text-[9px] text-neutral-500 ">
+            <div className="text-[9px] text-muted ">
               {row.vehicleType.name} • {row.status}
             </div>
           </div>
@@ -930,7 +930,7 @@ function page() {
                 d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
               />
             </svg>
-            <span className="text-neutral-700  font-mono">
+            <span className="text-muted  font-mono">
               {row.imei}
             </span>
           </div>
@@ -949,7 +949,7 @@ function page() {
                 d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
               />
             </svg>
-            <span className="text-neutral-700  font-mono">
+            <span className="text-muted  font-mono">
               {row.vin}
             </span>
           </div>
@@ -968,7 +968,7 @@ function page() {
                 d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
               />
             </svg>
-            <span className="text-neutral-700 ">
+            <span className="text-muted ">
               {row.deviceType.name}
             </span>
           </div>
@@ -977,7 +977,7 @@ function page() {
         {/* Engine & Odometer */}
         <div className="mt-2 pt-2 border-t border-neutral-200 dark:border-neutral-700">
           <div className="flex justify-between text-[10px]">
-            <span className="text-neutral-500 ">
+            <span className="text-muted ">
               Engine Hours:
             </span>
             <span className="typo-h4">
@@ -985,7 +985,7 @@ function page() {
             </span>
           </div>
           <div className="flex justify-between text-[10px] mt-1">
-            <span className="text-neutral-500 ">
+            <span className="text-muted ">
               Odometer:
             </span>
             <span className="typo-h4">
@@ -996,7 +996,7 @@ function page() {
 
         {/* Last Update */}
         <div className="mt-2 pt-2 border-t border-neutral-200 dark:border-neutral-700">
-          <div className="flex items-center gap-1 text-[10px] text-neutral-500 ">
+          <div className="flex items-center gap-1 text-[10px] text-muted ">
             <AccessTimeIcon style={{ fontSize: "9px" }} />
             <span>
               Last: {date} at {time}
@@ -1034,7 +1034,7 @@ function page() {
               style={{ fontSize: "11px" }}
               className="text-neutral-400 "
             />
-            <span className="text-neutral-700  truncate">
+            <span className="text-muted  truncate">
               {user.email}
             </span>
             {user.isEmailVerified && (
@@ -1049,7 +1049,7 @@ function page() {
               style={{ fontSize: "11px" }}
               className="text-neutral-400 "
             />
-            <span className="text-neutral-700  font-mono">
+            <span className="text-muted  font-mono">
               {user.mobilePrefix} {user.mobile}
             </span>
           </div>
@@ -1087,7 +1087,7 @@ function page() {
                 className={
                   value
                     ? "capitalize "
-                    : "text-neutral-500 "
+                    : "text-muted "
                 }
               >
                 {value ? value : "(Any Status)"}
@@ -1589,7 +1589,7 @@ function page() {
           className="flex items-center gap-2 min-w-[200px]"
         >
           {/* Icon Badge */}
-          <div className="flex-shrink-0 h-8 w-8 rounded-lg flex items-center justify-center bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-700 ">
+          <div className="flex-shrink-0 h-8 w-8 rounded-lg flex items-center justify-center bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-muted ">
             <DirectionsCarIcon style={{ fontSize: "16px" }} />
           </div>
 
@@ -1598,7 +1598,7 @@ function page() {
             <div className="font-medium text-[13px]  truncate">
               {row.vehicleNo}
             </div>
-            <div className="flex items-center gap-1 text-[10px] text-neutral-500  mt-0.5">
+            <div className="flex items-center gap-1 text-[10px] text-muted  mt-0.5">
               <span>{row.vehicleType.name}</span>
               <span>•</span>
               <span className="font-mono truncate">{row.imei}</span>
@@ -1644,7 +1644,7 @@ function page() {
               <span className="text-[21px] font-semibold  leading-none">
                 {row.speed}
               </span>
-              <span className="text-[8px] text-neutral-500  uppercase tracking-wide">
+              <span className="text-[8px] text-muted  uppercase tracking-wide">
                 km/h
               </span>
             </div>
@@ -1657,7 +1657,7 @@ function page() {
                     : "text-red-600 dark:text-red-400"
                 }
               />
-              <span className="text-[9px] text-neutral-500  font-medium">
+              <span className="text-[9px] text-muted  font-medium">
                 {row.ignition ? "ON" : "OFF"}
               </span>
             </div>
@@ -1680,7 +1680,7 @@ function page() {
               src={row.primaryUser.profileUrl}
               alt={row.primaryUser.name}
             />
-            <AvatarFallback className="bg-neutral-100 dark:bg-neutral-800 text-neutral-700  text-[10px] font-medium">
+            <AvatarFallback className="bg-neutral-100 dark:bg-neutral-800 text-muted  text-[10px] font-medium">
               {row.primaryUser.name
                 .split(" ")
                 .map((n) => n[0])
@@ -1692,7 +1692,7 @@ function page() {
             <div className="font-medium text-[12px]  truncate">
               {row.primaryUser.name}
             </div>
-            <div className="text-[10px] text-neutral-500  truncate">
+            <div className="text-[10px] text-muted  truncate">
               @{row.primaryUser.username}
             </div>
           </div>
@@ -1712,7 +1712,7 @@ function page() {
         <div className="flex items-center gap-1.5 min-w-[140px]">
           <Avatar className="w-7 h-7 rounded-lg border border-neutral-200 dark:border-neutral-700">
             <AvatarImage src={row.addedBy.profileUrl} alt={row.addedBy.name} />
-            <AvatarFallback className="bg-neutral-100 dark:bg-neutral-800 text-neutral-700  text-[10px] font-medium">
+            <AvatarFallback className="bg-neutral-100 dark:bg-neutral-800 text-muted  text-[10px] font-medium">
               {row.addedBy.name
                 .split(" ")
                 .map((n) => n[0])
@@ -1724,7 +1724,7 @@ function page() {
             <div className="font-medium text-[12px]  truncate">
               {row.addedBy.name}
             </div>
-            <div className="text-[10px] text-neutral-500  truncate">
+            <div className="text-[10px] text-muted  truncate">
               @{row.addedBy.username}
             </div>
           </div>
@@ -1754,7 +1754,7 @@ function page() {
                 {date}
               </span>
             </div>
-            <div className="text-[10px] text-neutral-500  mt-0.5">
+            <div className="text-[10px] text-muted  mt-0.5">
               {time}
             </div>
           </div>
@@ -1787,14 +1787,14 @@ function page() {
             {/* Primary */}
             <div className="flex items-center justify-between px-1.5 py-0.5 rounded bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
               <div className="flex items-center gap-1.5">
-                <span className="text-[9px] text-neutral-500 ">
+                <span className="text-[9px] text-muted ">
                   Pri
                 </span>
                 <span className="text-[10px] font-mono ">
                   {row.primaryExpiry}
                 </span>
               </div>
-              <span className="text-[10px] text-neutral-700 ">
+              <span className="text-[10px] text-muted ">
                 {getStatusIcon(primary)}
               </span>
             </div>
@@ -1802,14 +1802,14 @@ function page() {
             {/* Secondary */}
             <div className="flex items-center justify-between px-1.5 py-0.5 rounded bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
               <div className="flex items-center gap-1.5">
-                <span className="text-[9px] text-neutral-500 ">
+                <span className="text-[9px] text-muted ">
                   Sec
                 </span>
                 <span className="text-[10px] font-mono ">
                   {row.secondaryExpiry}
                 </span>
               </div>
-              <span className="text-[10px] text-neutral-700 ">
+              <span className="text-[10px] text-muted ">
                 {getStatusIcon(secondary)}
               </span>
             </div>
@@ -1832,7 +1832,7 @@ function page() {
             <div className="text-[12px] typo-h4">
               {date}
             </div>
-            <div className="text-[10px] text-neutral-500  mt-0.5">
+            <div className="text-[10px] text-muted  mt-0.5">
               {time}
             </div>
           </div>

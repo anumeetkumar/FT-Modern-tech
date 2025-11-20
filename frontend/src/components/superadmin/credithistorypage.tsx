@@ -155,7 +155,7 @@ function Table({ children }: { children: React.ReactNode }) {
 function THead({ children }: { children: React.ReactNode }) {
   return (
     <thead className="bg-neutral-50/80 dark:bg-neutral-800/80">
-      <tr className="text-[12px] uppercase tracking-[0.16em] text-neutral-500 ">
+      <tr className="text-[12px] uppercase tracking-[0.16em] text-muted ">
         {children}
       </tr>
     </thead>

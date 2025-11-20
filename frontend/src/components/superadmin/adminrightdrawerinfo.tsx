@@ -354,7 +354,7 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
             </div>
           </div>
         ) : (
-          <div className="flex items-center justify-center h-full text-neutral-500 ">
+          <div className="flex items-center justify-center h-full text-muted ">
             No data available
           </div>
         )}

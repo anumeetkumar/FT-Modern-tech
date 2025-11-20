@@ -68,7 +68,7 @@ export function TagInput({ value, onChange }: { value: string[]; onChange: (v: s
         <span key={t} className="inline-flex items-center gap-1 rounded-full border border-neutral-300 px-2 py-1 typo-p12n ">
           <TagIcon fontSize="small"/>
           {t}
-          <button onClick={() => remove(t)} className="ml-1 rounded-full px-1 text-neutral-500 hover:bg-neutral-100  dark:hover:bg-neutral-700">×</button>
+          <button onClick={() => remove(t)} className="ml-1 rounded-full px-1 text-muted hover:bg-neutral-100  dark:hover:bg-neutral-700">×</button>
         </span>
       ))}
       <input
@@ -107,9 +107,9 @@ export function DEV_runCSVTests() {
       );
     if (kind === "doc")
       return (
-        <DescriptionIcon className="text-neutral-700 " />
+        <DescriptionIcon className="text-muted " />
       );
     return (
-      <DescriptionIcon className="text-neutral-500 " />
+      <DescriptionIcon className="text-muted " />
     );
   };

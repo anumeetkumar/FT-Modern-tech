@@ -169,7 +169,7 @@ export default function AdminDocumentsPage() {
           {row.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-neutral-300 px-2 py-0.5 typo-p12n text-neutral-700 dark:border-neutral-600 "
+              className="rounded-full border border-neutral-300 px-2 py-0.5 typo-p12n text-muted dark:border-neutral-600 "
             >
               {tag}
             </span>
@@ -897,7 +897,7 @@ export default function AdminDocumentsPage() {
                 </Button>
               )}
             </DialogTitle>
-            <DialogDescription className="text-neutral-500 ">
+            <DialogDescription className="text-muted ">
               Quick preview
             </DialogDescription>
           </DialogHeader>

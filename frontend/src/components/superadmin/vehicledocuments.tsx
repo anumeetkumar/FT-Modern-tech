@@ -485,8 +485,8 @@ export default function VehicleDocumentsPage() {
   const FileKindIcon = ({ kind }: { kind: FileKind }) => {
     if (kind === "pdf") return <DescriptionIcon className=""/>;
     if (kind === "image") return <div className="h-5 w-5 rounded-sm border border-neutral-400 dark:border-neutral-600"/>;
-    if (kind === "doc") return <DescriptionIcon className="text-neutral-700 "/>;
-    return <DescriptionIcon className="text-neutral-500 "/>;
+    if (kind === "doc") return <DescriptionIcon className="text-muted "/>;
+    return <DescriptionIcon className="text-muted "/>;
   };
 
   const DropZone = () => {
@@ -547,7 +547,7 @@ export default function VehicleDocumentsPage() {
               <button
                 type="button"
                 onClick={handleRemoveFile}
-                className="flex h-6 w-6 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-700 text-neutral-500  hover:bg-red-100 dark:hover:bg-red-900 hover:text-red-600 dark:hover:text-red-200 transition-colors"
+                className="flex h-6 w-6 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-700 text-muted  hover:bg-red-100 dark:hover:bg-red-900 hover:text-red-600 dark:hover:text-red-200 transition-colors"
               >
                 ×
               </button>
@@ -668,9 +668,9 @@ export default function VehicleDocumentsPage() {
               placeholder="Search by name, tags, or Document Type (Ctrl/Cmd+K)"
               value={query}
               onChange={(e)=>{setQuery(e.target.value); setPage(1);}}
-              className="rounded-xl border-neutral-300 dark:border-neutral-600 pr-10  placeholder:text-muted dark:placeholder:text-neutral-500 focus-visible:ring-neutral-900 dark:focus-visible:ring-neutral-100 dark:bg-neutral-800"
+              className="rounded-xl border-neutral-300 dark:border-neutral-600 pr-10  placeholder:text-muted dark:placeholder:text-muted focus-visible:ring-neutral-900 dark:focus-visible:ring-neutral-100 dark:bg-neutral-800"
             />
-            <SearchIcon className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-neutral-700 "/>
+            <SearchIcon className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-muted "/>
           </div>
           <Popover>
             <PopoverTrigger asChild>
@@ -681,7 +681,7 @@ export default function VehicleDocumentsPage() {
             <PopoverContent align="start" className="z-[99999] w-96 rounded-2xl border-neutral-200 dark:border-neutral-700 p-4">
               <div className="space-y-4">
                 <div>
-                  <div className="mb-2 typo-h6 uppercase tracking-wide text-neutral-500 ">File Kind</div>
+                  <div className="mb-2 typo-h6 uppercase tracking-wide text-muted ">File Kind</div>
                   <div className="flex flex-wrap gap-2 typo-p">
                     {["all","pdf","image","doc","other"].map((t)=> (
                       <button
@@ -693,7 +693,7 @@ export default function VehicleDocumentsPage() {
                   </div>
                 </div>
                 <div>
-                  <div className="mb-2 typo-h6 uppercase tracking-wide text-neutral-500 ">Status</div>
+                  <div className="mb-2 typo-h6 uppercase tracking-wide text-muted ">Status</div>
                   <div className="flex flex-wrap gap-2 typo-p">
                     {["all","valid","expiring","expired"].map((s)=> (
                       <button
@@ -705,7 +705,7 @@ export default function VehicleDocumentsPage() {
                   </div>
                 </div>
                 <div>
-                  <div className="mb-2 typo-h6 uppercase tracking-wide text-neutral-500 ">Document Type</div>
+                  <div className="mb-2 typo-h6 uppercase tracking-wide text-muted ">Document Type</div>
                   <div className="flex flex-wrap gap-2 typo-p">
                     <button
                       onClick={()=> { setDocTypeFilter("all"); setPage(1); }}
@@ -858,7 +858,7 @@ export default function VehicleDocumentsPage() {
         <DialogContent className="sm:max-w-2xl">
           <DialogHeader>
             <DialogTitle className="">{editingDocId ? "Edit Document" : "Add Document"}</DialogTitle>
-            <DialogDescription className="text-neutral-500 ">Document Type, name, file, expiry, tags — clean and compliant.</DialogDescription>
+            <DialogDescription className="text-muted ">Document Type, name, file, expiry, tags — clean and compliant.</DialogDescription>
           </DialogHeader>
 
           <div className="grid gap-5 sm:grid-cols-2">
@@ -880,8 +880,8 @@ export default function VehicleDocumentsPage() {
               <div className="space-y-2">
                 <Label htmlFor="doc-name" className="">Name</Label>
                 <div className="flex items-center gap-2">
-                  <DriveFileRenameOutlineIcon className="text-neutral-700 "/>
-                  <Input id="doc-name" value={formName} onChange={(e)=> setFormName(e.target.value)} placeholder="e.g., Insurance Policy 2025.pdf" className="rounded-xl border-neutral-300 dark:border-neutral-600  dark:bg-neutral-800 placeholder:text-muted dark:placeholder:text-neutral-500 focus-visible:ring-neutral-900 dark:focus-visible:ring-neutral-100"/>
+                  <DriveFileRenameOutlineIcon className="text-muted "/>
+                  <Input id="doc-name" value={formName} onChange={(e)=> setFormName(e.target.value)} placeholder="e.g., Insurance Policy 2025.pdf" className="rounded-xl border-neutral-300 dark:border-neutral-600  dark:bg-neutral-800 placeholder:text-muted dark:placeholder:text-muted focus-visible:ring-neutral-900 dark:focus-visible:ring-neutral-100"/>
                 </div>
               </div>
 
@@ -914,7 +914,7 @@ export default function VehicleDocumentsPage() {
 
               <div className="space-y-2">
                 <Label className="">Notes (optional)</Label>
-                <Textarea value={formNotes} onChange={(e)=> setFormNotes(e.target.value)} placeholder="Any context for admins…" className="min-h-[88px] rounded-xl border-neutral-300 dark:border-neutral-600  dark:bg-neutral-800 placeholder:text-muted dark:placeholder:text-neutral-500 focus-visible:ring-neutral-900 dark:focus-visible:ring-neutral-100"/>
+                <Textarea value={formNotes} onChange={(e)=> setFormNotes(e.target.value)} placeholder="Any context for admins…" className="min-h-[88px] rounded-xl border-neutral-300 dark:border-neutral-600  dark:bg-neutral-800 placeholder:text-muted dark:placeholder:text-muted focus-visible:ring-neutral-900 dark:focus-visible:ring-neutral-100"/>
               </div>
             </div>
           </div>
@@ -947,7 +947,7 @@ export default function VehicleDocumentsPage() {
                 </Button>
               )}
             </DialogTitle>
-            <DialogDescription className="text-neutral-500 ">Quick preview</DialogDescription>
+            <DialogDescription className="text-muted ">Quick preview</DialogDescription>
           </DialogHeader>
 
           <div className="h-[70vh] w-full overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900">
@@ -997,7 +997,7 @@ function TagInput({ value, onChange }: { value: string[]; onChange: (v: string[]
         <span key={t} className="inline-flex items-center gap-1 rounded-full border border-neutral-300 dark:border-neutral-600 px-2 py-1 typo-p12n  ">
           <TagIcon fontSize="small"/>
           {t}
-          <button onClick={() => remove(t)} className="ml-1 rounded-full px-1 text-neutral-500  hover:bg-neutral-100 dark:hover:bg-neutral-700">×</button>
+          <button onClick={() => remove(t)} className="ml-1 rounded-full px-1 text-muted  hover:bg-neutral-100 dark:hover:bg-neutral-700">×</button>
         </span>
       ))}
       <input
@@ -1005,7 +1005,7 @@ function TagInput({ value, onChange }: { value: string[]; onChange: (v: string[]
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={onKeyDown}
         placeholder={value.length ? "Add tag and press Enter" : "e.g., compliance"}
-        className="flex-1 bg-transparent typo-p placeholder:text-muted dark:placeholder:text-neutral-500 focus:outline-none"
+        className="flex-1 bg-transparent typo-p placeholder:text-muted dark:placeholder:text-muted focus:outline-none"
       />
     </div>
   );

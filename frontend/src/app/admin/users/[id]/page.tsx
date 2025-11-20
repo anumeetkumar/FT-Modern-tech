@@ -123,7 +123,7 @@ function RoleContent() {
         <h2 className="typo-h1 mb-2">Role Management</h2>
         <p className="typo-base-muted">Manage user roles and permissions.</p>
       </div>
-      <div className="text-center py-12 text-neutral-500">
+      <div className="text-center py-12 text-muted">
         <SecurityRoundedIcon fontSize="large" />
         <p className="mt-2">Role management coming soon...</p>
       </div>
@@ -172,7 +172,7 @@ function renderContent(activeKey: string, userId: string) {
     case "role":
       return <RoleContent />;
       case "activitylogs":
-      return <div className="p-8 text-center text-neutral-500">Activity Logs content coming soon...</div>;
+      return <div className="p-8 text-center text-muted">Activity Logs content coming soon...</div>;
     case "delete":
       return <DeleteAccountContent />;
     default:

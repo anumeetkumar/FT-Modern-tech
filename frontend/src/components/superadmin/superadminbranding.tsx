@@ -147,7 +147,7 @@ function SuperAdminBranding() {
       <CardHeader className="pb-4">
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div className="flex-1 min-w-0">
-            <div className="text-[11px] uppercase tracking-[0.2em] text-neutral-500 ">
+            <div className="text-[11px] uppercase tracking-[0.2em] text-muted ">
               Theme Customization
             </div>
             <CardTitle className="typo-h1  ">
@@ -593,7 +593,7 @@ function ColorInput({
       <div className="flex items-center justify-between">
         <Label className="typo-h6 ">{label}</Label>
         {description && (
-          <span className="text-[10px] text-neutral-500 ">{description}</span>
+          <span className="text-[10px] text-muted ">{description}</span>
         )}
       </div>
       <div className="flex gap-2">

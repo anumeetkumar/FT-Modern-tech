@@ -1227,7 +1227,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                       setPage(1);
                     }}
                     placeholder="Search name, email, role, department…"
-                    className="h-10 w-full rounded-xl border border-neutral-200 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 pl-10 pr-4 typo-p placeholder:text-neutral-500 dark:placeholder:text-muted outline-none ring-0 transition focus:border-neutral-400 dark:focus:border-neutral-400 focus:bg-white dark:focus:bg-neutral-600 focus:shadow-sm"
+                    className="h-10 w-full rounded-xl border border-neutral-200 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 pl-10 pr-4 typo-p placeholder:text-muted dark:placeholder:text-muted outline-none ring-0 transition focus:border-neutral-400 dark:focus:border-neutral-400 focus:bg-white dark:focus:bg-neutral-600 focus:shadow-sm"
                   />
                 </div>
                 )}
@@ -1242,7 +1242,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                     style={{ x: magnet.ry, y: magnet.rx }}
                     transition={springPress}
                     variant="outline"
-                    className="h-10 gap-2 rounded-xl border-neutral-200 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 text-neutral-700 "
+                    className="h-10 gap-2 rounded-xl border-neutral-200 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 text-muted "
                   >
                     <FilterIcon fontSize="small" /> Filter
                   </MotionButton>
@@ -1261,7 +1261,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                         style={{ x: magnet.ry, y: magnet.rx }}
                         transition={springPress}
                         variant="outline"
-                        className="h-10 gap-2 rounded-xl border-neutral-200 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 text-neutral-700 "
+                        className="h-10 gap-2 rounded-xl border-neutral-200 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 text-muted "
                       >
                         <FilterIcon fontSize="small" /> Filter
                       </MotionButton>
@@ -1299,7 +1299,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                           className="will-change-transform"
                         >
                           <div className="px-3 pt-3">
-                            <div className="px-1 pb-2 text-[11px] uppercase tracking-wide text-neutral-500  font-medium">
+                            <div className="px-1 pb-2 text-[11px] uppercase tracking-wide text-muted  font-medium">
                               Dynamic Filters
                             </div>
                             <Separator className="mb-3" />
@@ -1587,7 +1587,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                     onClick={handleRefresh}
                     disabled={isRefreshing}
                     variant="outline"
-                    className="h-10 gap-2 rounded-xl border-neutral-200 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 text-neutral-700  hover:bg-neutral-100 dark:hover:bg-neutral-600 disabled:opacity-60"
+                    className="h-10 gap-2 rounded-xl border-neutral-200 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 text-muted  hover:bg-neutral-100 dark:hover:bg-neutral-600 disabled:opacity-60"
                   >
                     <RefreshIcon
                       fontSize="small"
@@ -1711,7 +1711,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                   </PopoverTrigger>
                   <PopoverContent align="end" className="w-72 rounded-2xl">
                     <div className="mb-2 flex items-center justify-between">
-                      <div className="flex items-center gap-2 text-[11px] uppercase tracking-wide text-neutral-500  font-medium">
+                      <div className="flex items-center gap-2 text-[11px] uppercase tracking-wide text-muted  font-medium">
                         <ColumnsIcon fontSize="small" /> Drag to reorder ·
                         Toggle to hide
                       </div>
@@ -1719,7 +1719,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                         variant="ghost"
                         size="sm"
                         onClick={resetPreferences}
-                        className="h-7 px-2 typo-subtitle hover:text-neutral-700  "
+                        className="h-7 px-2 typo-subtitle hover:text-muted  "
                         title="Reset all table preferences"
                       >
                         Reset
@@ -1866,7 +1866,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                                 updateSort(i, "asc");
                               }
                             }}
-                            className="inline-flex items-center gap-2 font-bold typo-p hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors uppercase tracking-wide"
+                            className="inline-flex items-center gap-2 font-bold typo-p hover:text-muted dark:hover:text-neutral-300 transition-colors uppercase tracking-wide"
                             title="Sort"
                           >
                             {displayOptions[i]?.title?.()}
@@ -1899,7 +1899,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                       <tr>
                         <td
                           colSpan={visibleCols.length + (hasBulk ? 1 : 0)}
-                          className="px-6 py-10 text-center text-neutral-500 "
+                          className="px-6 py-10 text-center text-muted "
                         >
                           No results match your filters.
                         </td>
@@ -2005,14 +2005,14 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
 
                 <div className="flex items-center justify-center gap-1 flex-wrap">
                   <button
-                    className="px-3 py-2 typo-p12n font-medium text-neutral-700  hover:bg-neutral-100 dark:hover:bg-neutral-700 rounded-lg transition-all duration-200 disabled:opacity-50"
+                    className="px-3 py-2 typo-p12n font-medium text-muted  hover:bg-neutral-100 dark:hover:bg-neutral-700 rounded-lg transition-all duration-200 disabled:opacity-50"
                     onClick={() => setPage(1)}
                     disabled={page === 1}
                   >
                     First
                   </button>
                   <button
-                    className="px-3 py-2 typo-p12n font-medium text-neutral-700  hover:bg-neutral-100 dark:hover:bg-neutral-700 rounded-lg transition-colors disabled:opacity-50"
+                    className="px-3 py-2 typo-p12n font-medium text-muted  hover:bg-neutral-100 dark:hover:bg-neutral-700 rounded-lg transition-colors disabled:opacity-50"
                     onClick={() => setPage((p) => Math.max(1, p - 1))}
                     disabled={page === 1}
                   >
@@ -2031,7 +2031,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                             className={`min-w-[36px] h-9 px-2 typo-p500 rounded-lg transition-colors ${
                               i === page
                                 ? "bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 shadow-sm"
-                                : "text-neutral-700  hover:bg-neutral-100 dark:hover:bg-neutral-700"
+                                : "text-muted  hover:bg-neutral-100 dark:hover:bg-neutral-700"
                             }`}
                             onClick={() => setPage(i)}
                           >
@@ -2044,14 +2044,14 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                   </div>
 
                   <button
-                    className="px-3 py-2 typo-p12n font-medium text-neutral-700  hover:bg-neutral-100 dark:hover:bg-neutral-700 rounded-lg transition-colors disabled:opacity-50"
+                    className="px-3 py-2 typo-p12n font-medium text-muted  hover:bg-neutral-100 dark:hover:bg-neutral-700 rounded-lg transition-colors disabled:opacity-50"
                     onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                     disabled={page === totalPages}
                   >
                     Next
                   </button>
                   <button
-                    className="px-3 py-2 typo-p12n font-medium text-neutral-700  hover:bg-neutral-100 dark:hover:bg-neutral-700 rounded-lg transition-colors disabled:opacity-50"
+                    className="px-3 py-2 typo-p12n font-medium text-muted  hover:bg-neutral-100 dark:hover:bg-neutral-700 rounded-lg transition-colors disabled:opacity-50"
                     onClick={() => setPage(totalPages)}
                     disabled={page === totalPages}
                   >
@@ -2097,7 +2097,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
               className="will-change-transform"
             >
               <div className="px-3 pt-3">
-                <div className="px-1 pb-2 text-[11px] uppercase tracking-wide text-neutral-500  font-medium">
+                <div className="px-1 pb-2 text-[11px] uppercase tracking-wide text-muted  font-medium">
                   Dynamic Filters
                 </div>
                 <Separator className="mb-3" />

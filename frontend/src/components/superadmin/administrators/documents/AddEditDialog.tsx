@@ -182,7 +182,7 @@ const AddEditDialog = ({
               <button
                 type="button"
                 onClick={handleRemoveFile}
-                className="flex h-6 w-6 items-center justify-center rounded-full bg-neutral-100 text-neutral-500 hover:bg-red-100 hover:text-red-600 transition-colors dark:bg-neutral-700  dark:hover:bg-red-900 dark:hover:text-red-400"
+                className="flex h-6 w-6 items-center justify-center rounded-full bg-neutral-100 text-muted hover:bg-red-100 hover:text-red-600 transition-colors dark:bg-neutral-700  dark:hover:bg-red-900 dark:hover:text-red-400"
               >
                 ×
               </button>

@@ -52,7 +52,7 @@ const Badge = ({
   tone?: "default" | "ok" | "warn" | "err";
 }) => {
   const tones: Record<string, string> = {
-    default: "border-neutral-200 bg-neutral-50 text-neutral-700",
+    default: "border-neutral-200 bg-neutral-50 text-muted",
     ok: "border-neutral-200 bg-neutral-900 text-white",
     warn: "border-neutral-200 bg-neutral-100 ",
     err: "border-neutral-200 bg-neutral-200 text-neutral-900",
@@ -410,7 +410,7 @@ const MultiSelect = ({
         anchorRight={anchorRight}
       >
         <div className="mb-2 flex items-center gap-2 rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-2">
-          <Search className="h-4 w-4 text-neutral-500" />
+          <Search className="h-4 w-4 text-muted" />
           <input
             value={q}
             onChange={(e) => setQ(e.target.value)}

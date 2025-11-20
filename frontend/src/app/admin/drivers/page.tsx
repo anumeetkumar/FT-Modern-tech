@@ -134,7 +134,7 @@ export default function DriversPage() {
         <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <PersonIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 "
+            className="text-muted "
           />
           Driver Info
         </div>
@@ -142,7 +142,7 @@ export default function DriversPage() {
       content: (row) => (
         <div onClick={() => router.push(`/admin/drivers/${row.id}`)} className="group">
           <div className="flex gap-2 cursor-pointer py-1 rounded-md hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-neutral-700  flex-shrink-0">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-muted  flex-shrink-0">
               <PersonIcon style={{ fontSize: "16px" }} />
             </div>
             <div className="min-w-0">
@@ -162,7 +162,7 @@ export default function DriversPage() {
         <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <CallIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 "
+            className="text-muted "
           />
           Contact
         </div>
@@ -191,7 +191,7 @@ export default function DriversPage() {
         <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <LocationOnIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 "
+            className="text-muted "
           />
           Location
         </div>
@@ -212,7 +212,7 @@ export default function DriversPage() {
         <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <VerifiedIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 "
+            className="text-muted "
           />
           Status
         </div>
@@ -224,7 +224,7 @@ export default function DriversPage() {
         <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <DirectionsCarIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 "
+            className="text-muted "
           />
           Performance
         </div>
