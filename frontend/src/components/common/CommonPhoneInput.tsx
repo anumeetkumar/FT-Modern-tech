@@ -186,7 +186,7 @@ const CountrySelectOption = ({
       onSelect={handleSelect}
     >
       <FlagComponent country={country} countryName={countryName} />
-      <span className="flex-1 text-sm">{countryName}</span>
+      <span className="flex-1 typo-p">{countryName}</span>
       <span className="typo-p/50">{`+${RPNInput.getCountryCallingCode(
         country
       )}`}</span>

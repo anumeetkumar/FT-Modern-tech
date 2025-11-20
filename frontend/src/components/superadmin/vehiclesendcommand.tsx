@@ -122,7 +122,7 @@ export default function VehicleSendCommand() {
           {/* Command & Payload card */}
           <div className="rounded-2xl border border-border bg-card p-4 dark:bg-foreground/5">
             {/* 1. Command */}
-            <label className="text-sm">
+            <label className="typo-p">
               <div className="mb-1 typo-subtitle">Command</div>
               <div className="flex items-center gap-2">
                 <span className="grid h-8 w-8 place-items-center rounded-md border border-border text-foreground">{def.icon}</span>
@@ -163,7 +163,7 @@ export default function VehicleSendCommand() {
             {history.length === 0 ? (
               <div className="rounded-lg border border-border  p-3 typo-p-muted dark:bg-background">No commands yet.</div>
             ) : (
-              <ul className="space-y-2 text-sm">
+              <ul className="space-y-2 typo-p">
                 {history.map(h => (
                   <li key={h.id} className="flex items-center justify-between rounded-lg border border-border bg-card p-3">
                     <div className="min-w-0">

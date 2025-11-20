@@ -458,7 +458,7 @@ export default function PaymentGatewayConfig() {
               <div className="typo-subtitle mb-1">
                 Primary Gateway
               </div>
-              <div className="text-lg font-medium text-foreground">
+              <div className="typo-h3m">
                 {primaryGateway ? primaryGateway.name : "Not Set"}
               </div>
             </div>
@@ -625,7 +625,7 @@ export default function PaymentGatewayConfig() {
                                 updateConfig(gateway.id, { environment: env })
                               }
                               className={classNames(
-                                "flex-1 rounded-xl border border-border px-4 py-2.5 text-sm transition-all",
+                                "flex-1 rounded-xl border border-border px-4 py-2.5 typo-p transition-all",
                                 config.environment === env
                                   ? "bg-primary text-white border-primary"
                                   : "text-foreground hover:bg-foreground/5"
@@ -776,7 +776,7 @@ export default function PaymentGatewayConfig() {
                               )
                             }
                             placeholder={`Enter ${getFieldLabel(field)}`}
-                            className="rounded-xl border-border bg-background text-foreground placeholder:text-muted-foreground font-mono text-sm"
+                            className="rounded-xl border-border bg-background text-foreground placeholder:text-muted-foreground font-mono typo-p"
                           />
                         </div>
                       ))}

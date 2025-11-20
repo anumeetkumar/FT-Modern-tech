@@ -195,7 +195,7 @@ export default function AddPaymentSheet({
             <Separator className="my-3" />
             <div className="flex items-center justify-between">
               <div className="typo-p500">Total</div>
-              <div className="text-lg font-semibold">{formatINR(total)}</div>
+              <div className="typo-h3">{formatINR(total)}</div>
             </div>
           </div>
         </div>

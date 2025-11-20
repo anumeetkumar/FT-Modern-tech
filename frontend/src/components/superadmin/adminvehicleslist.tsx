@@ -318,7 +318,7 @@ function AdminVehiclesList() {
             <div className="font-semibold bw-text-primary dark:text-neutral-100">
               {row.vehicleName}
             </div>
-            <div className="typo-subtitle dark:text-neutral-400">
+            <div className="typo-subtitle ">
               {row.VehicleType} • {row.status}
             </div>
           </div>
@@ -329,7 +329,7 @@ function AdminVehiclesList() {
           <div className="flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-3 w-3 bw-text-muted dark:text-neutral-400 flex-shrink-0"
+              className="h-3 w-3 bw-text-muted  flex-shrink-0"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -348,7 +348,7 @@ function AdminVehiclesList() {
           <div className="flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-3 w-3 bw-text-muted dark:text-neutral-400 flex-shrink-0"
+              className="h-3 w-3 bw-text-muted  flex-shrink-0"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -367,7 +367,7 @@ function AdminVehiclesList() {
           <div className="flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-3 w-3 bw-text-muted dark:text-neutral-400 flex-shrink-0"
+              className="h-3 w-3 bw-text-muted  flex-shrink-0"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -386,7 +386,7 @@ function AdminVehiclesList() {
           <div className="flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-3 w-3 bw-text-muted dark:text-neutral-400 flex-shrink-0"
+              className="h-3 w-3 bw-text-muted  flex-shrink-0"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -407,7 +407,7 @@ function AdminVehiclesList() {
         {/* License Information */}
         <div className="mt-2 pt-2 border-t bw-border dark:border-neutral-700">
           <div className="flex justify-between text-xs">
-            <span className="bw-text-muted dark:text-neutral-400">
+            <span className="bw-text-muted ">
               Primary License:
             </span>
             <span className="font-medium bw-text-primary dark:text-neutral-200">
@@ -415,7 +415,7 @@ function AdminVehiclesList() {
             </span>
           </div>
           <div className="flex justify-between text-xs">
-            <span className="bw-text-muted dark:text-neutral-400">
+            <span className="bw-text-muted ">
               Secondary License:
             </span>
             <span className="font-medium bw-text-primary dark:text-neutral-200">
@@ -426,7 +426,7 @@ function AdminVehiclesList() {
 
         {/* Last Activity */}
         <div className="mt-2 pt-2 border-t bw-border dark:border-neutral-700">
-          <div className="flex items-center gap-1 typo-subtitle dark:text-neutral-400">
+          <div className="flex items-center gap-1 typo-subtitle ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-3 w-3"
@@ -455,7 +455,7 @@ function AdminVehiclesList() {
     // Column 1: Vehicle Info (Name + Type + Status) - WITH PREMIUM TOOLTIP
     0: {
       title: () => (
-        <div className="font-bold tracking-wide uppercase typo-subtitle dark:text-neutral-400">
+        <div className="font-bold tracking-wide uppercase typo-subtitle ">
           Vehicle Information
         </div>
       ),
@@ -494,10 +494,10 @@ function AdminVehiclesList() {
               <div className="h-2 w-2 rounded-full flex-shrink-0 bw-bg-muted dark:bg-neutral-600" />
             </div>
             <div className="flex items-center gap-2 text-xs">
-              <span className="bw-text-muted dark:text-neutral-400">
+              <span className="bw-text-muted ">
                 {row.VehicleType}
               </span>
-              <span className="bw-text-muted dark:text-neutral-500">•</span>
+              <span className="bw-text-muted ">•</span>
               <span className="font-medium bw-text-primary dark:text-neutral-300">
                 {row.status}
               </span>
@@ -511,7 +511,7 @@ function AdminVehiclesList() {
     // Column 2: Device Details (IMEI + VIN + Device Type)
     1: {
       title: () => (
-        <div className="font-bold tracking-wide uppercase typo-subtitle dark:text-neutral-400">
+        <div className="font-bold tracking-wide uppercase typo-subtitle ">
           Device Details
         </div>
       ),
@@ -520,7 +520,7 @@ function AdminVehiclesList() {
           <div className="flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-3.5 w-3.5 bw-text-muted dark:text-neutral-400"
+              className="h-3.5 w-3.5 bw-text-muted "
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -539,7 +539,7 @@ function AdminVehiclesList() {
           <div className="flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-3.5 w-3.5 bw-text-muted dark:text-neutral-400"
+              className="h-3.5 w-3.5 bw-text-muted "
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -551,7 +551,7 @@ function AdminVehiclesList() {
                 d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
               />
             </svg>
-            <span className="font-mono typo-subtitle dark:text-neutral-400">
+            <span className="font-mono typo-subtitle ">
               {row.vin}
             </span>
           </div>
@@ -567,7 +567,7 @@ function AdminVehiclesList() {
     // Column 3: Activity (Last Update + Timezone)
     2: {
       title: () => (
-        <div className="font-bold tracking-wide uppercase typo-subtitle dark:text-neutral-400">
+        <div className="font-bold tracking-wide uppercase typo-subtitle ">
           Activity
         </div>
       ),
@@ -578,7 +578,7 @@ function AdminVehiclesList() {
             <div className="flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-3.5 w-3.5 bw-text-muted dark:text-neutral-400"
+                className="h-3.5 w-3.5 bw-text-muted "
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -590,16 +590,16 @@ function AdminVehiclesList() {
                   d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <div className="text-sm bw-text-primary dark:text-neutral-200">
+              <div className="typo-p bw-text-primary dark:text-neutral-200">
                 {date}
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <span className="typo-subtitle dark:text-neutral-400">
+              <span className="typo-subtitle ">
                 {time}
               </span>
-              <span className="bw-text-muted dark:text-neutral-500">•</span>
-              <span className="font-mono typo-subtitle dark:text-neutral-400">
+              <span className="bw-text-muted ">•</span>
+              <span className="font-mono typo-subtitle ">
                 {row.GMT}
               </span>
             </div>
@@ -611,7 +611,7 @@ function AdminVehiclesList() {
     // Column 4: License Status (Both Expiries Combined)
     3: {
       title: () => (
-        <div className="font-bold tracking-wide uppercase typo-subtitle dark:text-neutral-400">
+        <div className="font-bold tracking-wide uppercase typo-subtitle ">
           License Status
         </div>
       ),
@@ -634,10 +634,10 @@ function AdminVehiclesList() {
             {/* Primary License */}
             <div className="px-3 py-2 rounded-lg border bw-border dark:border-neutral-700 bw-bg-secondary dark:bg-neutral-800">
               <div className="flex items-center justify-between mb-1">
-                <span className="typo-h6 bw-text-muted dark:text-neutral-400">
+                <span className="typo-h6 bw-text-muted ">
                   Primary
                 </span>
-                <span className="text-sm bw-text-primary dark:text-neutral-300">
+                <span className="typo-p bw-text-primary dark:text-neutral-300">
                   {getStatusIcon(primary)}
                 </span>
               </div>
@@ -645,7 +645,7 @@ function AdminVehiclesList() {
                 {row.PrimaryExpiry}
               </div>
               {(primary.isExpired || primary.isExpiringSoon) && (
-                <div className="typo-h6 mt-1 bw-text-muted dark:text-neutral-400">
+                <div className="typo-h6 mt-1 bw-text-muted ">
                   {primary.isExpired
                     ? "Expired"
                     : `${primary.daysUntilExpiry}d left`}
@@ -656,10 +656,10 @@ function AdminVehiclesList() {
             {/* Secondary License */}
             <div className="px-3 py-2 rounded-lg border bw-border dark:border-neutral-700 bw-bg-secondary dark:bg-neutral-800">
               <div className="flex items-center justify-between mb-1">
-                <span className="typo-h6 bw-text-muted dark:text-neutral-400">
+                <span className="typo-h6 bw-text-muted ">
                   Secondary
                 </span>
-                <span className="text-sm bw-text-primary dark:text-neutral-300">
+                <span className="typo-p bw-text-primary dark:text-neutral-300">
                   {getStatusIcon(secondary)}
                 </span>
               </div>
@@ -667,7 +667,7 @@ function AdminVehiclesList() {
                 {row.SacendoryExpiry}
               </div>
               {(secondary.isExpired || secondary.isExpiringSoon) && (
-                <div className="typo-h6 mt-1 bw-text-muted dark:text-neutral-400">
+                <div className="typo-h6 mt-1 bw-text-muted ">
                   {secondary.isExpired
                     ? "Expired"
                     : `${secondary.daysUntilExpiry}d left`}

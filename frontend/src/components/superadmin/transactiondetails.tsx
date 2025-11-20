@@ -143,7 +143,7 @@ function TransactionDetailsDrawer({ transaction, open, onClose }: TransactionDet
         <div className="p-7">
           {/* Header */}
           <div className="flex items-center justify-between mb-4 pb-3 border-b border-neutral-200 dark:border-neutral-700">
-            <h2 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100">Transaction Details</h2>
+            <h2 className="typo-h3 text-neutral-900 dark:text-neutral-100">Transaction Details</h2>
             <Button variant="ghost" size="sm" onClick={onClose} className="h-8 w-8 p-0 dark:hover:bg-neutral-800">
               <CloseIcon fontSize="small" className="dark:text-neutral-100" />
             </Button>
@@ -152,7 +152,7 @@ function TransactionDetailsDrawer({ transaction, open, onClose }: TransactionDet
           {/* Transaction ID & Status */}
           <div className="mb-6">
             <div className="flex items-center gap-3 mb-3">
-              <ReceiptIcon className="text-neutral-400 dark:text-neutral-500" />
+              <ReceiptIcon className="text-neutral-400 " />
               <div className="flex-1">
                 <p className="typo-subtitle">Transaction ID</p>
                 <p className="typo-p600 font-mono text-neutral-900 dark:text-neutral-100">{transaction.transactionId}</p>
@@ -199,20 +199,20 @@ function TransactionDetailsDrawer({ transaction, open, onClose }: TransactionDet
             {/* Contact Details */}
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <CallIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
+                <CallIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                 <span className="typo-p-muted">
                   {transaction.customer.mobilePrefix} {transaction.customer.mobile}
                 </span>
               </div>
               <div className="flex items-center gap-3">
-                <EmailIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
+                <EmailIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                 <span className="typo-p-muted">{transaction.customer.email}</span>
                 {transaction.customer.isVerifiedEmail && (
-                  <VerifiedIcon fontSize="small" className="text-neutral-400 dark:text-neutral-400 w-4 h-4" />
+                  <VerifiedIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                 )}
               </div>
               <div className="flex items-start gap-3">
-                <LocationOnIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4 mt-1 flex-shrink-0" />
+                <LocationOnIcon fontSize="small" className="text-neutral-400  w-4 h-4 mt-1 flex-shrink-0" />
                 <div className="flex-1 min-w-0 space-y-1">
                   <div className="flex items-start gap-2">
                     <span className="typo-subtitle min-w-[60px]">Address</span>
@@ -238,13 +238,13 @@ function TransactionDetailsDrawer({ transaction, open, onClose }: TransactionDet
               <h4 className="typo-p600 text-neutral-900 dark:text-neutral-100 mb-3">Company</h4>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <BusinessIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
+                  <BusinessIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                   <span className="typo-p500 text-neutral-900 dark:text-neutral-100">{transaction.customer.company.name}</span>
                 </div>
                 
                 {transaction.customer.company.website && (
                   <div className="flex items-center gap-3">
-                    <LanguageIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
+                    <LanguageIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                     <a 
                       href={transaction.customer.company.website}
                       target="_blank"
@@ -304,17 +304,17 @@ function TransactionDetailsDrawer({ transaction, open, onClose }: TransactionDet
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <PaymentIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
+                  <PaymentIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                   <span className="typo-p-muted ">Amount</span>
                 </div>
-                <span className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
+                <span className="typo-p font-bold text-neutral-900 dark:text-neutral-100">
                   {transaction.currency} {transaction.amount.toLocaleString()}
                 </span>
               </div>
 
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <CreditCardIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
+                  <CreditCardIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                   <span className="typo-p-muted ">Credits</span>
                 </div>
                 <span className="typo-p500 text-neutral-900 dark:text-neutral-100">
@@ -324,7 +324,7 @@ function TransactionDetailsDrawer({ transaction, open, onClose }: TransactionDet
 
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <AccountBalanceIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
+                  <AccountBalanceIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                   <span className="typo-p-muted ">Gateway</span>
                 </div>
                 <Badge variant="outline" className="text-xs border-neutral-300 dark:border-neutral-600">
@@ -334,7 +334,7 @@ function TransactionDetailsDrawer({ transaction, open, onClose }: TransactionDet
 
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <CalendarTodayIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
+                  <CalendarTodayIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                   <span className="typo-p-muted ">Date & Time</span>
                 </div>
                 <span className="typo-p500 text-neutral-900 dark:text-neutral-100">

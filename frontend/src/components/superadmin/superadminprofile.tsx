@@ -243,7 +243,7 @@ function SuperAdminProfile({ superAdminId }: { superAdminId?: string }) {
               className="w-32 h-16 object-contain p-1"
             />
           ) : (
-            <div className="w-32 h-16 bg-foreground/5 rounded-lg flex items-center justify-center text-muted text-sm">
+            <div className="w-32 h-16 bg-foreground/5 rounded-lg flex items-center justify-center typo-p-muted">
               <BusinessIcon />
             </div>
           )}
@@ -282,7 +282,7 @@ function SuperAdminProfile({ superAdminId }: { superAdminId?: string }) {
                     href={v}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm rounded-lg border border-border px-3 py-1.5 hover:bg-foreground/5 text-foreground/80"
+                    className="inline-flex items-center gap-1 typo-p rounded-lg border border-border px-3 py-1.5 hover:bg-foreground/5 text-foreground/80"
                   >
                     <Icon fontSize="small" />
                     <span className="capitalize">{k}</span>
@@ -399,7 +399,7 @@ function KPITile({ label, value, sub }: { label: string; value: React.ReactNode;
   return (
 <div className="rounded-xl border border-border p-3 h-full bg-background dark:bg-foreground/5">
   <div className="typo-subtitle">{label}</div>
-  <div className="mt-0.5 text-lg font-semibold leading-tight text-foreground">{value}</div>
+  <div className="mt-0.5 typo-h3 leading-tight text-foreground">{value}</div>
   {sub ? (
     <div className="mt-0.5 text-[11px] text-muted">{sub}</div>
   ) : null}

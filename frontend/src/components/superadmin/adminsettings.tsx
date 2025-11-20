@@ -380,13 +380,13 @@ export default function AdminSettingPage() {
       >
         <div>
           <div className="typo-subtitle">Date</div>
-          <div className="text-lg font-medium text-foreground">
+          <div className="typo-h3m">
             {preview.dateStr}
           </div>
         </div>
         <div>
           <div className="typo-subtitle">Time</div>
-          <div className="text-lg font-medium text-foreground">
+          <div className="typo-h3m">
             {preview.timeStr}
           </div>
           <div className="typo-subtitle mt-1 font-mono">
@@ -427,7 +427,7 @@ export default function AdminSettingPage() {
             key={dir}
             onClick={() => set("direction", dir)}
             className={classNames(
-              "rounded-xl border px-3 py-2 text-sm",
+              "rounded-xl border px-3 py-2 typo-p",
               settings.direction === dir
                 ? "border-primary bg-primary text-white"
                 : "border-border text-foreground hover:bg-muted"
@@ -485,7 +485,7 @@ export default function AdminSettingPage() {
             key={th}
             onClick={() => set("theme", th)}
             className={classNames(
-              "rounded-xl border px-3 py-2 text-sm",
+              "rounded-xl border px-3 py-2 typo-p",
               settings.theme === th
                 ? "border-primary bg-primary text-white"
                 : "border-border text-foreground hover:bg-muted"
@@ -509,7 +509,7 @@ export default function AdminSettingPage() {
       >
         <SelectTrigger className="rounded-xl border-border text-foreground bg-background focus-visible:ring-ring">
           <SelectValue>
-            <span className="font-mono font-semibold text-lg text-foreground">
+            <span className="typo-h3m">
               {settings.timezone}
             </span>
           </SelectValue>
@@ -534,7 +534,7 @@ export default function AdminSettingPage() {
             key={unit}
             onClick={() => set("units", unit)}
             className={classNames(
-              "rounded-xl border px-3 py-2 text-sm",
+              "rounded-xl border px-3 py-2 typo-p",
               settings.units === unit
                 ? "border-primary bg-primary text-white"
                 : "border-border text-foreground hover:bg-muted"

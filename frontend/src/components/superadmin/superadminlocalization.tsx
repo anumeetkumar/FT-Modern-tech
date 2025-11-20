@@ -170,13 +170,13 @@ export default function SuperAdminLocalization() {
           >
             <div>
               <div className="typo-subtitle">Date</div>
-              <div className="text-lg font-medium text-foreground">
+              <div className="typo-h3m">
                 {preview.dateStr}
               </div>
             </div>
             <div>
               <div className="typo-subtitle">Time</div>
-              <div className="text-lg font-medium text-foreground">
+              <div className="typo-h3m">
                 {preview.timeStr}
               </div>
             </div>
@@ -224,7 +224,7 @@ export default function SuperAdminLocalization() {
                 key={dir}
                 onClick={() => set("direction", dir)}
                 className={classNames(
-                  "flex-1 rounded-xl border px-3 py-2 text-sm transition-all",
+                  "flex-1 rounded-xl border px-3 py-2 typo-p transition-all",
                   settings.direction === dir
                     ? "border-primary bg-primary text-white"
                     : "border-border text-foreground hover:bg-foreground/5"

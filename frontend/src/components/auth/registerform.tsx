@@ -348,7 +348,7 @@ export default function RegisterForm() {
               </Button>
 
               {/* Footer */}
-              <p className="text-sm text-center pt-4">
+              <p className="typo-p text-center pt-4">
                 Already have an account?{" "}
                 <Link
                   href="/login"

@@ -256,8 +256,8 @@ export function MultiDateRangePicker({
           variant="outline"
           disabled={disabled}
           className={cn(
-            "inline-flex w-full items-center justify-between rounded-lg border-neutral-300 px-3 py-2 text-left font-normal text-sm h-10 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100",
-            !draft?.from && "text-neutral-500 dark:text-neutral-400",
+            "inline-flex w-full items-center justify-between rounded-lg border-neutral-300 px-3 py-2 text-left font-normal typo-p h-10 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100",
+            !draft?.from && "text-neutral-500 ",
             className
           )}
         >
@@ -292,14 +292,14 @@ export function MultiDateRangePicker({
                   </span>
                 </span>
               ) : (
-                <span className="text-neutral-500 dark:text-neutral-400">
+                <span className="text-neutral-500 ">
                   Choose a date range
                 </span>
               )}
             </div>
             <button
               onClick={() => setOpen(false)}
-              className="rounded p-1 text-neutral-500 hover:bg-neutral-100 hover: dark:text-neutral-400 dark:hover:bg-neutral-800 "
+              className="rounded p-1 text-neutral-500 hover:bg-neutral-100 hover:  dark:hover:bg-neutral-800 "
               aria-label="Close"
             >
               <CloseIcon sx={{ fontSize: 18 }} />
@@ -315,7 +315,7 @@ export function MultiDateRangePicker({
                     key={p.key}
                     onClick={() => applyPreset(p.key)}
                     className={cn(
-                      "flex w-full items-center justify-between rounded px-2.5 py-1.5 text-left text-sm transition-colors",
+                      "flex w-full items-center justify-between rounded px-2.5 py-1.5 text-left typo-p transition-colors",
                       selectedPreset === p.key
                         ? "bg-neutral-900 text-white dark:bg-white dark:text-black"
                         : "text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800"
@@ -338,13 +338,13 @@ export function MultiDateRangePicker({
               {/* Date Inputs */}
               <div className="mb-3 grid grid-cols-2 gap-2 text-xs">
                 <div>
-                  <div className="mb-1 font-medium text-neutral-500 dark:text-neutral-400">
+                  <div className="mb-1 font-medium text-neutral-500 ">
                     Start
                   </div>
                   <div className="flex items-center rounded border border-neutral-300 bg-white px-2 py-1.5 dark:border-neutral-600 dark:bg-neutral-800">
                     <CalendarMonthIcon
                       sx={{ fontSize: 16 }}
-                      className="mr-1.5 text-neutral-500 dark:text-neutral-400"
+                      className="mr-1.5 text-neutral-500 "
                     />
                     <span className="truncate text-neutral-700 dark:text-neutral-200">
                       {draft?.from ? formatDate(draft.from) : "—"}
@@ -352,13 +352,13 @@ export function MultiDateRangePicker({
                   </div>
                 </div>
                 <div>
-                  <div className="mb-1 font-medium text-neutral-500 dark:text-neutral-400">
+                  <div className="mb-1 font-medium text-neutral-500 ">
                     End
                   </div>
                   <div className="flex items-center rounded border border-neutral-300 bg-white px-2 py-1.5 dark:border-neutral-600 dark:bg-neutral-800">
                     <CalendarMonthIcon
                       sx={{ fontSize: 16 }}
-                      className="mr-1.5 text-neutral-500 dark:text-neutral-400"
+                      className="mr-1.5 text-neutral-500 "
                     />
                     <span className="truncate text-neutral-700 dark:text-neutral-200">
                       {draft?.to ? formatDate(draft.to) : "—"}
@@ -400,7 +400,7 @@ export function MultiDateRangePicker({
               <div className="flex items-center justify-between">
                 <button
                   onClick={onClear}
-                  className="typo-h6 typo-base-muted underline-offset-2 hover:underline dark:text-neutral-400 "
+                  className="typo-h6 typo-base-muted underline-offset-2 hover:underline  "
                 >
                   Clear
                 </button>

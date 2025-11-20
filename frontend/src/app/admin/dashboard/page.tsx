@@ -54,7 +54,7 @@ export default function FleetStackDashboard() {
         <div className="mb-6 flex items-center justify-between gap-4">
           <div>
             <h1 className="typo-h1">Dashboard</h1>
-            <p className="text-sm text-neutral-500">Self‑hosted GPS Software • FleetStack</p>
+            <p className="typo-p-muted">Self‑hosted GPS Software • FleetStack</p>
           </div>
           <div className="flex items-center gap-3">
             <Button variant="outline" onClick={() => setNotifyOpen(true)}>

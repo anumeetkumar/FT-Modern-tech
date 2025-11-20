@@ -365,7 +365,7 @@ export default function AnalyticsDashboard() {
                     setStatusOnly((s) => ({ ...s, expiring: !!c }))
                   }
                 />
-                <label htmlFor="exp" className="text-sm">
+                <label htmlFor="exp" className="typo-p">
                   Expiring
                 </label>
               </div>
@@ -377,7 +377,7 @@ export default function AnalyticsDashboard() {
                     setStatusOnly((s) => ({ ...s, overdue: !!c }))
                   }
                 />
-                <label htmlFor="ovd" className="text-sm">
+                <label htmlFor="ovd" className="typo-p">
                   Overdue
                 </label>
               </div>
@@ -528,7 +528,7 @@ export default function AnalyticsDashboard() {
                   </div>
                 ))}
                 {topExpiring.length === 0 && (
-                  <div className="p-6 text-center text-zinc-500 text-sm">
+                  <div className="p-6 text-center text-zinc-500 typo-p">
                     No expiring devices in this window.
                   </div>
                 )}
@@ -627,7 +627,7 @@ function MiniStat({
     <div className="flex items-center justify-between rounded-xl border p-3">
       <div>
         <div className="typo-destructive">{label}</div>
-        <div className="text-lg font-semibold">{value}</div>
+        <div className="typo-h3">{value}</div>
       </div>
       <div className="p-2 rounded-lg border bg-white">
         <Icon fontSize="small" />

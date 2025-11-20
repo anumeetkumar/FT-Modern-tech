@@ -182,7 +182,7 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
           <div className="p-7">
             {/* Header */}
             <div className="flex items-center justify-between mb-4 pb-3 border-b border-neutral-200 dark:border-neutral-700">
-              <h2 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100">Administrator Details</h2>
+              <h2 className="typo-h3 text-neutral-900 dark:text-neutral-100">Administrator Details</h2>
               <Button variant="ghost" size="sm" onClick={onClose} className="h-8 w-8 p-0 dark:hover:bg-neutral-800">
                 <CloseIcon fontSize="small" className="dark:text-neutral-100" />
               </Button>
@@ -193,13 +193,13 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
               <div className="flex items-center gap-3 mb-3">
                 <Avatar className="h-16 w-16 border border-neutral-200 dark:border-neutral-700">
                   <AvatarImage src={adminData.profileUrl} alt={adminData.name} />
-                  <AvatarFallback className="bg-neutral-800 dark:bg-neutral-200 text-neutral-100 dark: text-lg font-semibold">
+                  <AvatarFallback className="bg-neutral-800 dark:bg-neutral-200 text-neutral-100 dark: typo-h3">
                     {adminData.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
                   </AvatarFallback>
                 </Avatar>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100">{adminData.name}</h3>
-                  <p className="text-sm text-neutral-500 dark:text-neutral-400">@{adminData.username}</p>
+                  <h3 className="typo-h3 text-neutral-900 dark:text-neutral-100">{adminData.name}</h3>
+                  <p className="typo-p-muted">@{adminData.username}</p>
                   <div className="flex items-center gap-2 mt-1">
                     <Badge variant={adminData.status === 'active' ? 'default' : 'secondary'} className="text-xs">
                       {adminData.status === 'active' ? 'Active' : 'Inactive'}
@@ -214,14 +214,14 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
               <h4 className="typo-p600 text-neutral-900 dark:text-neutral-100 mb-3">Contact Information</h4>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <CallIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
+                  <CallIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                   <span className="typo-p-muted">{adminData.mobilePrefix} {adminData.mobileNumber}</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <EmailIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
+                  <EmailIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                   <span className="typo-p-muted">{adminData.email}</span>
                   {adminData.isEmailVerified && (
-                    <VerifiedIcon fontSize="small" className="text-primary dark:text-neutral-400 w-4 h-4" />
+                    <VerifiedIcon fontSize="small" className="text-primary  w-4 h-4" />
                   )}
                 </div>
               </div>
@@ -248,7 +248,7 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <CalendarTodayIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
+                    <CalendarTodayIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                     <span className="typo-p-muted ">Created</span>
                   </div>
                   <span className="typo-p500 text-neutral-900 dark:text-neutral-100">
@@ -258,7 +258,7 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
                 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <AccessTimeIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
+                    <AccessTimeIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                     <span className="typo-p-muted ">Last Login</span>
                   </div>
                   <span className="typo-p500 text-neutral-900 dark:text-neutral-100">
@@ -268,7 +268,7 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
                 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <DirectionsCarIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
+                    <DirectionsCarIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                     <span className="typo-p-muted ">Vehicles</span>
                   </div>
                   <span className="typo-p500 text-neutral-900 dark:text-neutral-100">
@@ -278,7 +278,7 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
                 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <CreditCardIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
+                    <CreditCardIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                     <span className="typo-p-muted ">Credits</span>
                   </div>
                   <span className="typo-p500 text-neutral-900 dark:text-neutral-100">
@@ -316,7 +316,7 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
                 {/* Website */}
                 {adminData.company.website && (
                   <div className="flex items-center gap-3">
-                    <LanguageIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
+                    <LanguageIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                     <a 
                       href={adminData.company.website}
                       target="_blank"
@@ -354,7 +354,7 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
             </div>
           </div>
         ) : (
-          <div className="flex items-center justify-center h-full text-neutral-500 dark:text-neutral-400">
+          <div className="flex items-center justify-center h-full text-neutral-500 ">
             No data available
           </div>
         )}

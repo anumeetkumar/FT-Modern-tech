@@ -193,7 +193,7 @@ const AdoptionAndVehicleSection = () => {
           <div className="space-y-4">
             {vehicleStatus.map((s) => (
               <motion.div key={s.label} whileHover={{ scale: 1.01 }}>
-                <div className="mb-1 flex items-center justify-between text-sm">
+                <div className="mb-1 flex items-center justify-between typo-p">
                   <span className="text-foreground">{s.label}</span>
                   <span className="font-medium text-foreground">
                     {Intl.NumberFormat().format(s.count)}{" "}

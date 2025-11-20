@@ -392,7 +392,7 @@ function ImportWizard({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Role */}
               <div className="space-y-4">
-                <Label className="text-lg font-medium text-foreground flex items-center gap-2">
+                <Label className="typo-h3m flex items-center gap-2">
                   <PersonIcon className="text-primary" />
                   User Role
                 </Label>
@@ -415,7 +415,7 @@ function ImportWizard({
 
               {/* Sample File */}
               <div className="space-y-4">
-                <Label className="text-lg font-medium text-foreground flex items-center gap-2">
+                <Label className="typo-h3m flex items-center gap-2">
                   <DownloadIcon className="text-accent" />
                   Sample File
                 </Label>
@@ -438,7 +438,7 @@ function ImportWizard({
               <h4 className="font-medium text-primary mb-2">
                 Required Columns:
               </h4>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm text-primary">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-2 typo-p text-primary">
                 {required.map((col, index) => (
                   <div key={col} className="flex items-center gap-2">
                     <div className="w-6 h-6 bg-primary/20 rounded text-xs flex items-center justify-center font-medium">

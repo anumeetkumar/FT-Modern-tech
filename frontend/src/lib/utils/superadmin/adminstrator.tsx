@@ -68,7 +68,7 @@ export function TagInput({ value, onChange }: { value: string[]; onChange: (v: s
         <span key={t} className="inline-flex items-center gap-1 rounded-full border border-neutral-300 px-2 py-1 text-xs ">
           <TagIcon fontSize="small"/>
           {t}
-          <button onClick={() => remove(t)} className="ml-1 rounded-full px-1 text-neutral-500 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-700">×</button>
+          <button onClick={() => remove(t)} className="ml-1 rounded-full px-1 text-neutral-500 hover:bg-neutral-100  dark:hover:bg-neutral-700">×</button>
         </span>
       ))}
       <input
@@ -76,7 +76,7 @@ export function TagInput({ value, onChange }: { value: string[]; onChange: (v: s
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={onKeyDown}
         placeholder={value.length ? "Add tag and press Enter" : "e.g., compliance"}
-        className="flex-1 bg-transparent text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none dark:text-neutral-100 dark:placeholder:text-neutral-500"
+        className="flex-1 bg-transparent typo-p text-neutral-900 placeholder:text-muted focus:outline-none"
       />
     </div>
   );
@@ -110,6 +110,6 @@ export function DEV_runCSVTests() {
         <DescriptionIcon className="text-neutral-700 dark:text-neutral-300" />
       );
     return (
-      <DescriptionIcon className="text-neutral-500 dark:text-neutral-400" />
+      <DescriptionIcon className="text-neutral-500 " />
     );
   };

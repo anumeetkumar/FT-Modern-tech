@@ -134,7 +134,7 @@ export default function DriversPage() {
         <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <PersonIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-neutral-500 "
           />
           Driver Info
         </div>
@@ -162,7 +162,7 @@ export default function DriversPage() {
         <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <CallIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-neutral-500 "
           />
           Contact
         </div>
@@ -191,7 +191,7 @@ export default function DriversPage() {
         <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <LocationOnIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-neutral-500 "
           />
           Location
         </div>
@@ -212,7 +212,7 @@ export default function DriversPage() {
         <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <VerifiedIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-neutral-500 "
           />
           Status
         </div>
@@ -224,7 +224,7 @@ export default function DriversPage() {
         <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <DirectionsCarIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-neutral-500 "
           />
           Performance
         </div>
@@ -315,7 +315,7 @@ export default function DriversPage() {
               <h1 className="typo-h1">
                 Drivers
               </h1>
-              <p className="text-sm text-neutral-500 dark:text-neutral-400">
+              <p className="typo-p-muted">
                 Manage your fleet drivers efficiently
               </p>
             </div>
@@ -492,13 +492,13 @@ function AddDriverForm({
           {/* Error Banner */}
           {errors.form && (
             <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-center gap-3">
-              <div className="text-red-600 text-sm">{errors.form}</div>
+              <div className="text-red-600 typo-p">{errors.form}</div>
             </div>
           )}
 
           {/* Personal Information */}
           <div className="space-y-4">
-            <h3 className="text-lg font-medium text-neutral-900 dark:text-neutral-100">
+            <h3 className="typo-h3m">
               Personal Information
             </h3>
 
@@ -582,7 +582,7 @@ function AddDriverForm({
 
           {/* Account Information */}
           <div className="space-y-4">
-            <h3 className="text-lg font-medium text-neutral-900 dark:text-neutral-100">
+            <h3 className="typo-h3m">
               Account Information
             </h3>
 
@@ -630,7 +630,7 @@ function AddDriverForm({
 
           {/* Location Information */}
           <div className="space-y-4">
-            <h3 className="text-lg font-medium text-neutral-900 dark:text-neutral-100">
+            <h3 className="typo-h3m">
               Location Information
             </h3>
 
@@ -841,7 +841,7 @@ Jane Smith,+91,9876543211,jane@example.com,janesmith,password456,IN`;
       {/* File Upload Section */}
       <div className="space-y-4">
         <div>
-          <h3 className="text-lg font-medium text-neutral-900 dark:text-neutral-100 mb-2">
+          <h3 className="typo-h3m mb-2">
             Upload CSV File
           </h3>
           <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 hover:border-blue-500 transition-colors">
@@ -866,12 +866,12 @@ Jane Smith,+91,9876543211,jane@example.com,janesmith,password456,IN`;
                   <FileUploadIcon fontSize="small" />
                   Choose CSV File
                 </Button>
-                <p className="text-sm text-gray-600 mt-2">
+                <p className="typo-p-muted mt-2">
                   Or drag and drop your CSV file here
                 </p>
               </div>
               {uploadFile && (
-                <p className="text-sm text-green-600">
+                <p className="typo-p text-green-600">
                   Selected: {uploadFile.name}
                 </p>
               )}
@@ -881,19 +881,19 @@ Jane Smith,+91,9876543211,jane@example.com,janesmith,password456,IN`;
 
         {/* Manual CSV Input */}
         <div>
-          <h3 className="text-lg font-medium text-neutral-900 dark:text-neutral-100 mb-2">
+          <h3 className="typo-h3m mb-2">
             Or Paste CSV Content
           </h3>
           <Textarea
             value={csvText}
             onChange={(e) => handleTextChange(e.target.value)}
             placeholder="Paste your CSV content here..."
-            className="h-40 bg-white font-mono text-sm"
+            className="h-40 bg-white font-mono typo-p"
           />
 
           {/* Sample CSV */}
           <div className="mt-2">
-            <details className="text-sm">
+            <details className="typo-p">
               <summary className="cursor-pointer text-blue-600 hover:text-blue-800">
                 View sample CSV format
               </summary>
@@ -909,7 +909,7 @@ Jane Smith,+91,9876543211,jane@example.com,janesmith,password456,IN`;
       {errors.length > 0 && (
         <div className="bg-red-50 border border-red-200 rounded-lg p-4">
           <h4 className="text-red-800 font-medium mb-2">Validation Errors:</h4>
-          <ul className="text-red-700 text-sm space-y-1">
+          <ul className="text-red-700 typo-p space-y-1">
             {errors.map((error, index) => (
               <li key={index}>• {error}</li>
             ))}
@@ -923,7 +923,7 @@ Jane Smith,+91,9876543211,jane@example.com,janesmith,password456,IN`;
           <h4 className="text-green-800 font-medium mb-2">
             ✅ Ready to import {parsedData.length} drivers
           </h4>
-          <div className="text-sm text-green-700">
+          <div className="typo-p text-green-700">
             <div className="grid grid-cols-2 gap-4 mt-2">
               <div>
                 <strong>Sample entries:</strong>

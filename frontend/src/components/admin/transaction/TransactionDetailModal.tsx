@@ -25,7 +25,7 @@ const TransactionDetailModal = ({
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="sm:max-w-lg max-h-[85vh] overflow-y-auto bg-background text-foreground">
         <DialogHeader>
-          <DialogTitle className="text-lg font-semibold">
+          <DialogTitle className="typo-h3">
             Transaction
           </DialogTitle>
           <DialogDescription className="typo-p-muted">
@@ -50,7 +50,7 @@ const TransactionDetailModal = ({
                   Amount & Credits
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-2 text-sm">
+              <CardContent className="space-y-2 typo-p">
                 <Row
                   label="Amount"
                   value={fmtMoney(active.amount, active.currency)}
@@ -87,7 +87,7 @@ const TransactionDetailModal = ({
                   Gateway
                 </CardTitle>
               </CardHeader>
-              <CardContent className="text-sm space-y-1">
+              <CardContent className="typo-p space-y-1">
                 <TextRow label="Reference" value={active.reference} mono />
                 <TextRow label="Invoice" value={active.invoiceNo} />
                 <TextRow label="Notes" value={active.notes} />
@@ -152,7 +152,7 @@ const InfoCard = ({
     <CardContent className="px-3">
       <div className="typo-subtitle">{label}</div>
       <div
-        className={`mt-1 text-sm ${mono ? "font-mono" : "font-medium"} ${
+        className={`mt-1 typo-p ${mono ? "font-mono" : "font-medium"} ${
           capitalize ? "capitalize" : ""
         }`}
       >
@@ -186,7 +186,7 @@ const TextRow = ({
   value: any;
   mono?: boolean;
 }) => (
-  <div className="flex gap-2 text-sm">
+  <div className="flex gap-2 typo-p">
     <span className="text-muted shrink-0">{label}:</span>
     <span className={mono ? "font-mono" : ""}>{value || "—"}</span>
   </div>

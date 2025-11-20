@@ -282,7 +282,7 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
                   className="w-32 h-16 object-contain p-1"
                 />
               ) : (
-                <div className="w-32 h-16 bg-muted rounded-lg flex items-center justify-center text-muted-foreground text-sm">
+                <div className="w-32 h-16 bg-muted rounded-lg flex items-center justify-center typo-p-muted">
                   No Logo
                 </div>
               )}
@@ -324,7 +324,7 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
                         key={k}
                         href={v}
                         target="_blank"
-                        className="inline-flex items-center gap-1 text-sm rounded-lg border border-border px-3 py-1 hover:bg-muted text-muted-foreground hover:text-foreground transition-colors dark:bg-foreground/5"
+                        className="inline-flex items-center gap-1 typo-p rounded-lg border border-border px-3 py-1 hover:bg-muted text-muted-foreground hover:text-foreground transition-colors dark:bg-foreground/5"
                       >
                         <Icon fontSize="small" />
                         <span className="capitalize">{k}</span>
@@ -341,7 +341,7 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
             <div className="typo-subtitle-foreground mb-2">
               Address
             </div>
-            <div className="space-y-2 text-sm">
+            <div className="space-y-2 typo-p">
               <div>
                 <span className="text-muted-foreground">Line</span>{" "}
                 <span className="ml-2 font-medium text-foreground">
@@ -495,7 +495,7 @@ function KPITile({
       <div className="typo-subtitle-foreground">
         {label}
       </div>
-      <div className="mt-0.5 text-lg font-semibold leading-tight text-foreground">
+      <div className="mt-0.5 typo-h3 leading-tight text-foreground">
         {value}
       </div>
       {sub ? (

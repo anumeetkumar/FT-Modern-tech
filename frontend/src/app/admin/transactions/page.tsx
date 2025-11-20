@@ -321,7 +321,7 @@ export default function TransactionsPage() {
       title: () => <span>Txn</span>,
       content: (row) => (
         <div>
-          <div className="font-mono text-sm">{row.id}</div>
+          <div className="font-mono typo-p">{row.id}</div>
           <div className="typo-subtitle max-w-[26ch] truncate">
             {row.notes || "—"}
           </div>
@@ -331,7 +331,7 @@ export default function TransactionsPage() {
 
     3: {
       title: () => <span>Method</span>,
-      content: (row) => <span className="text-sm">{row.method}</span>,
+      content: (row) => <span className="typo-p">{row.method}</span>,
     },
 
     4: {

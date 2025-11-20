@@ -237,7 +237,7 @@ export default function SSLManager() {
       {detail && (
         <div className="flex h-full flex-col text-foreground">
           <SheetHeader>
-            <SheetTitle className="text-lg">{detail.domain}</SheetTitle>
+            <SheetTitle className="typo-h3m">{detail.domain}</SheetTitle>
             <SheetDescription className="text-muted-foreground">
               SSL details and diagnostics
             </SheetDescription>
@@ -252,7 +252,7 @@ export default function SSLManager() {
             </div>
 
             {/* SSL Details */}
-            <div className="space-y-4 text-sm">
+            <div className="space-y-4 typo-p">
               <div className="rounded-xl border border-border p-3 bg-background">
                 <div className="typo-subtitle uppercase tracking-wide-foreground mb-2">
                   Certificate
@@ -382,14 +382,14 @@ function formatDate(iso: string){
 function DnsRow({ label, rec }: { label: string; rec?: { type: string; value: string; ok: boolean } }) {
   if (!rec)
     return (
-      <div className="flex items-center justify-between text-sm">
+      <div className="flex items-center justify-between typo-p">
         <span>{label}</span>
         <span className="text-muted">—</span>
       </div>
     );
 
   return (
-    <div className="flex items-center justify-between text-sm">
+    <div className="flex items-center justify-between typo-p">
       <div>
         <div className="font-medium">
           {label} <span className="typo-subtitle">({rec.type})</span>
@@ -460,7 +460,7 @@ function ActionDialog({ action, onOpenChange, items, onDone }:{
     </DialogHeader>
 
     <div className="space-y-4 bg-background">
-      <div className="rounded-xl border border-border bg-foreground/5 p-3 text-sm">
+      <div className="rounded-xl border border-border bg-foreground/5 p-3 typo-p">
         <div className="h-40 overflow-auto text-xs font-mono leading-relaxed text-foreground bg-foreground/5 rounded-lg">
           {logs.length === 0 ? (
             <div className="text-muted">Ready. Click **Run** to start the operation.</div>

@@ -147,13 +147,13 @@ function SuperAdminBranding() {
       <CardHeader className="pb-4">
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div className="flex-1 min-w-0">
-            <div className="text-[11px] uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
+            <div className="text-[11px] uppercase tracking-[0.2em] text-neutral-500 ">
               Theme Customization
             </div>
             <CardTitle className="typo-h1  dark:text-neutral-100">
               Branding & Colors
             </CardTitle>
-            <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1">
+            <p className="typo-p-muted mt-1">
               Customize the color scheme for your Fleet Stack platform. Configure separate themes for light and dark modes.
             </p>
           </div>
@@ -211,7 +211,7 @@ function SuperAdminBranding() {
               <PaletteIcon className="typo-base-muted" />
             </div>
             <div>
-              <div className="font-semibold text-sm dark:text-neutral-100">Active Preview</div>
+              <div className="font-semibold typo-p dark:text-neutral-100">Active Preview</div>
               <div className="typo-subtitle">
                 Switch between light and dark theme preview
               </div>
@@ -266,7 +266,7 @@ function SuperAdminBranding() {
             {/* Preview Header */}
             <div className="flex items-center justify-between">
               <h4 
-                className="text-lg font-semibold" 
+                className="typo-h3" 
                 style={{ color: currentTheme.foreground }}
               >
                 Sample Dashboard
@@ -336,10 +336,10 @@ function SuperAdminBranding() {
 
             {/* Preview Text */}
             <div className="space-y-2">
-              <p style={{ color: currentTheme.foreground }} className="text-sm">
+              <p style={{ color: currentTheme.foreground }} className="typo-p">
                 This is a preview of how your theme will look with the selected colors.
               </p>
-              <p style={{ color: currentTheme.muted }} className="text-sm">
+              <p style={{ color: currentTheme.muted }} className="typo-p">
                 Muted text appears in secondary content areas.
               </p>
             </div>
@@ -426,7 +426,7 @@ function SuperAdminBranding() {
               
               <Separator className="dark:bg-neutral-700" />
               
-              <div className="text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
+              <div className="text-xs uppercase tracking-widest text-neutral-500 ">
                 Status Colors
               </div>
               
@@ -505,7 +505,7 @@ function SuperAdminBranding() {
               
               <Separator className="dark:bg-neutral-700" />
               
-              <div className="text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
+              <div className="text-xs uppercase tracking-widest text-neutral-500 ">
                 Status Colors
               </div>
               
@@ -593,7 +593,7 @@ function ColorInput({
       <div className="flex items-center justify-between">
         <Label className="typo-h6 dark:text-neutral-300">{label}</Label>
         {description && (
-          <span className="text-[10px] text-neutral-500 dark:text-neutral-400">{description}</span>
+          <span className="text-[10px] text-neutral-500 ">{description}</span>
         )}
       </div>
       <div className="flex gap-2">
@@ -603,7 +603,7 @@ function ColorInput({
             value={inputValue}
             onChange={(e) => handleInputChange(e.target.value)}
             placeholder="#000000"
-            className={`pr-12 font-mono text-sm dark:bg-neutral-700 dark:border-neutral-600 dark:text-neutral-100 ${
+            className={`pr-12 font-mono typo-p dark:bg-neutral-700 dark:border-neutral-600 dark:text-neutral-100 ${
               !isValid ? 'border-red-500 dark:border-red-500' : ''
             }`}
           />

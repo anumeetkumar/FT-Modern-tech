@@ -177,7 +177,7 @@ function ProfileCard({
         </div>
       </div>
 
-      <div className="mt-3 grid gap-2 text-sm">
+      <div className="mt-3 grid gap-2 typo-p">
         <div className="flex items-center gap-2 text-foreground">
           <MailOutlineIcon fontSize="small" />
           <a className="truncate hover:underline" href={`mailto:${p.email}`}>

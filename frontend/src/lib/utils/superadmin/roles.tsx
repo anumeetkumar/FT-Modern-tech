@@ -89,7 +89,7 @@ export function LevelToggle({
           <TooltipTrigger asChild>
             <button
               onClick={() => onChange(opt)}
-              className={`px-3 h-8 text-sm transition-colors ${
+              className={`px-3 h-8 typo-p transition-colors ${
                 value === opt
                   ? "bg-primary text-white"
                   : "bg-background text-foreground hover:bg-foreground/5"

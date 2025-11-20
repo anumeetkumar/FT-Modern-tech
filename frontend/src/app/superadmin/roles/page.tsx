@@ -164,7 +164,7 @@ export default function RoleManager() {
             <div className="col-span-4 h-full min-h-0">
               <div className="rounded-2xl border border-border shadow-sm overflow-hidden flex flex-col h-full">
                 <div className="flex items-center justify-between  border-b border-border px-3 py-2 bg-foreground/5">
-                  <div className="font-medium text-sm flex items-center gap-2">
+                  <div className="font-medium typo-p flex items-center gap-2">
                     <AdminPanelSettingsIcon className="h-5 w-5" /> Roles
                   </div>
                   <Button

@@ -108,7 +108,7 @@ export default function AdminDocumentsPage() {
           >
             <button
               onClick={() => openView(row)}
-              className="flex items-center gap-2 w-full px-2 py-1.5 rounded-md text-sm hover:bg-accent"
+              className="flex items-center gap-2 w-full px-2 py-1.5 rounded-md typo-p hover:bg-accent"
             >
               <VisibilityIcon fontSize="small" />
               <span>View</span>
@@ -116,7 +116,7 @@ export default function AdminDocumentsPage() {
 
             <button
               onClick={() => openEditDialog(row)}
-              className="flex items-center gap-2 w-full px-2 py-1.5 rounded-md text-sm hover:bg-accent"
+              className="flex items-center gap-2 w-full px-2 py-1.5 rounded-md typo-p hover:bg-accent"
             >
               <EditIcon fontSize="small" />
               <span>Edit</span>
@@ -124,7 +124,7 @@ export default function AdminDocumentsPage() {
 
             <button
               onClick={() => row}
-              className="flex items-center gap-2 w-full px-2 py-1.5 rounded-md text-sm hover:bg-accent"
+              className="flex items-center gap-2 w-full px-2 py-1.5 rounded-md typo-p hover:bg-accent"
             >
               <DownloadIcon fontSize="small" />
               <span>Download</span>
@@ -132,7 +132,7 @@ export default function AdminDocumentsPage() {
 
             <button
               onClick={() => removeDoc(row.id)}
-              className="flex items-center gap-2 w-full px-2 py-1.5 rounded-md text-sm text-red-600 hover:bg-accent/70"
+              className="flex items-center gap-2 w-full px-2 py-1.5 rounded-md typo-p text-red-600 hover:bg-accent/70"
             >
               <DeleteOutlineIcon fontSize="small" />
               <span>Delete</span>
@@ -728,7 +728,7 @@ export default function AdminDocumentsPage() {
                   </span>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p className="text-sm">
+                  <p className="typo-p">
                     <strong>Valid Documents:</strong>{" "}
                     {docs.filter((d) => d.status === "valid").length} documents
                     <br />
@@ -747,7 +747,7 @@ export default function AdminDocumentsPage() {
                   </span>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p className="text-sm">
+                  <p className="typo-p">
                     <strong>Expiring Soon:</strong>{" "}
                     {docs.filter((d) => d.status === "expiring").length}{" "}
                     documents
@@ -767,7 +767,7 @@ export default function AdminDocumentsPage() {
                   </span>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p className="text-sm">
+                  <p className="typo-p">
                     <strong>Expired:</strong>{" "}
                     {docs.filter((d) => d.status === "expired").length}{" "}
                     documents
@@ -801,7 +801,7 @@ export default function AdminDocumentsPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            className="mb-3 flex items-center justify-between rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-2 text-sm text-neutral-900 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
+            className="mb-3 flex items-center justify-between rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-2 typo-p text-neutral-900 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
           >
             <span>{selectedIds.size} selected</span>
             <div className="flex items-center gap-2">
@@ -897,7 +897,7 @@ export default function AdminDocumentsPage() {
                 </Button>
               )}
             </DialogTitle>
-            <DialogDescription className="text-neutral-500 dark:text-neutral-400">
+            <DialogDescription className="text-neutral-500 ">
               Quick preview
             </DialogDescription>
           </DialogHeader>
@@ -919,7 +919,7 @@ export default function AdminDocumentsPage() {
                 />
               )
             ) : (
-              <div className="flex h-full items-center justify-center text-sm text-neutral-500 dark:text-neutral-400">
+              <div className="flex h-full items-center justify-center typo-p-muted">
                 No preview available
               </div>
             )}

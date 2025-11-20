@@ -79,7 +79,7 @@ export default function DetailSheet({
 
               {/* Key-value rows */}
               {sec.items && sec.items.length > 0 && (
-                <div className="space-y-2 text-sm">
+                <div className="space-y-2 typo-p">
                   {sec.items.map((item) => (
                     <div
                       key={item.label}
@@ -94,7 +94,7 @@ export default function DetailSheet({
 
               {/* Free content block */}
               {sec.content && (
-                <div className="text-sm leading-relaxed">{sec.content}</div>
+                <div className="typo-p leading-relaxed">{sec.content}</div>
               )}
             </div>
           ))}

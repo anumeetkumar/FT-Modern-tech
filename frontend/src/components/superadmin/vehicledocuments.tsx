@@ -486,7 +486,7 @@ export default function VehicleDocumentsPage() {
     if (kind === "pdf") return <DescriptionIcon className="text-neutral-900 dark:text-neutral-100"/>;
     if (kind === "image") return <div className="h-5 w-5 rounded-sm border border-neutral-400 dark:border-neutral-600"/>;
     if (kind === "doc") return <DescriptionIcon className="text-neutral-700 dark:text-neutral-300"/>;
-    return <DescriptionIcon className="text-neutral-500 dark:text-neutral-400"/>;
+    return <DescriptionIcon className="text-neutral-500 "/>;
   };
 
   const DropZone = () => {
@@ -519,7 +519,7 @@ export default function VehicleDocumentsPage() {
         )}
       >
         <CloudUploadIcon className="h-7 w-7 text-neutral-900 dark:text-neutral-100"/>
-        <div className="text-sm ">Drag & drop your file here</div>
+        <div className="typo-p ">Drag & drop your file here</div>
         <div className="typo-subtitle">PDF, Images, DOCX — up to 50 MB</div>
         
         {!formFile ? (
@@ -547,7 +547,7 @@ export default function VehicleDocumentsPage() {
               <button
                 type="button"
                 onClick={handleRemoveFile}
-                className="flex h-6 w-6 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-700 text-neutral-500 dark:text-neutral-400 hover:bg-red-100 dark:hover:bg-red-900 hover:text-red-600 dark:hover:text-red-200 transition-colors"
+                className="flex h-6 w-6 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-700 text-neutral-500  hover:bg-red-100 dark:hover:bg-red-900 hover:text-red-600 dark:hover:text-red-200 transition-colors"
               >
                 ×
               </button>
@@ -577,7 +577,7 @@ export default function VehicleDocumentsPage() {
           </motion.div>
           <div>
             <h1 className="typo-h1">Vehicle Documents</h1>
-            <p className="text-sm text-neutral-500 dark:text-neutral-400">Black & white. Pixel-perfect. View, add, track, and export vehicle documents.</p>
+            <p className="typo-p-muted">Black & white. Pixel-perfect. View, add, track, and export vehicle documents.</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
@@ -591,14 +591,14 @@ export default function VehicleDocumentsPage() {
       {/* Quick Stats */}
       <div className="mb-6 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         <div className="rounded-2xl border border-neutral-200 dark:border-neutral-700 p-4">
-          <div className="text-sm text-neutral-500 dark:text-neutral-400">Total documents</div>
+          <div className="typo-p-muted">Total documents</div>
           <div className="mt-1 flex items-baseline gap-2">
             <span className="typo-h1 font-semibold text-neutral-900 dark:text-neutral-100">{docs.length}</span>
             <Badge variant="outline" className="rounded-full border-neutral-300 dark:border-neutral-600 text-xs dark:text-neutral-100">v{docs.reduce((a,b)=>a+b.version,0)}</Badge>
           </div>
         </div>
         <div className="rounded-2xl border border-neutral-200 dark:border-neutral-700 p-4">
-          <div className="text-sm text-neutral-500 dark:text-neutral-400">Health Status</div>
+          <div className="typo-p-muted">Health Status</div>
           <div className="mt-2 flex flex-wrap gap-2 typo-p12n">
             <TooltipProvider>
               <Tooltip>
@@ -608,7 +608,7 @@ export default function VehicleDocumentsPage() {
                   </span>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p className="text-sm">
+                  <p className="typo-p">
                     <strong>Valid Documents:</strong> {docs.filter(d=>d.status==="valid").length} documents<br/>
                     Documents that are current and not expiring within 30 days
                   </p>
@@ -624,7 +624,7 @@ export default function VehicleDocumentsPage() {
                   </span>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p className="text-sm">
+                  <p className="typo-p">
                     <strong>Expiring Soon:</strong> {docs.filter(d=>d.status==="expiring").length} documents<br/>
                     Documents that will expire within the next 30 days
                   </p>
@@ -640,7 +640,7 @@ export default function VehicleDocumentsPage() {
                   </span>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p className="text-sm">
+                  <p className="typo-p">
                     <strong>Expired:</strong> {docs.filter(d=>d.status==="expired").length} documents<br/>
                     Documents that have already passed their expiry date
                   </p>
@@ -650,7 +650,7 @@ export default function VehicleDocumentsPage() {
           </div>
         </div>
         <div className="rounded-2xl border border-neutral-200 dark:border-neutral-700 p-4 sm:col-span-2 lg:col-span-1">
-          <div className="flex items-center justify-between text-sm text-neutral-500 dark:text-neutral-400">
+          <div className="flex items-center justify-between typo-p-muted">
             <span>Storage used</span>
             <span className="text-neutral-900 dark:text-neutral-100 font-medium">{formatBytes(storageUsed)} / {formatBytes(storageQuota)}</span>
           </div>
@@ -668,7 +668,7 @@ export default function VehicleDocumentsPage() {
               placeholder="Search by name, tags, or Document Type (Ctrl/Cmd+K)"
               value={query}
               onChange={(e)=>{setQuery(e.target.value); setPage(1);}}
-              className="rounded-xl border-neutral-300 dark:border-neutral-600 pr-10 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus-visible:ring-neutral-900 dark:focus-visible:ring-neutral-100 dark:bg-neutral-800"
+              className="rounded-xl border-neutral-300 dark:border-neutral-600 pr-10 text-neutral-900 dark:text-neutral-100 placeholder:text-muted dark:placeholder:text-neutral-500 focus-visible:ring-neutral-900 dark:focus-visible:ring-neutral-100 dark:bg-neutral-800"
             />
             <SearchIcon className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-neutral-700 dark:text-neutral-300"/>
           </div>
@@ -681,8 +681,8 @@ export default function VehicleDocumentsPage() {
             <PopoverContent align="start" className="z-[99999] w-96 rounded-2xl border-neutral-200 dark:border-neutral-700 p-4">
               <div className="space-y-4">
                 <div>
-                  <div className="mb-2 typo-h6 uppercase tracking-wide text-neutral-500 dark:text-neutral-400">File Kind</div>
-                  <div className="flex flex-wrap gap-2 text-sm">
+                  <div className="mb-2 typo-h6 uppercase tracking-wide text-neutral-500 ">File Kind</div>
+                  <div className="flex flex-wrap gap-2 typo-p">
                     {["all","pdf","image","doc","other"].map((t)=> (
                       <button
                         key={t}
@@ -693,8 +693,8 @@ export default function VehicleDocumentsPage() {
                   </div>
                 </div>
                 <div>
-                  <div className="mb-2 typo-h6 uppercase tracking-wide text-neutral-500 dark:text-neutral-400">Status</div>
-                  <div className="flex flex-wrap gap-2 text-sm">
+                  <div className="mb-2 typo-h6 uppercase tracking-wide text-neutral-500 ">Status</div>
+                  <div className="flex flex-wrap gap-2 typo-p">
                     {["all","valid","expiring","expired"].map((s)=> (
                       <button
                         key={s}
@@ -705,8 +705,8 @@ export default function VehicleDocumentsPage() {
                   </div>
                 </div>
                 <div>
-                  <div className="mb-2 typo-h6 uppercase tracking-wide text-neutral-500 dark:text-neutral-400">Document Type</div>
-                  <div className="flex flex-wrap gap-2 text-sm">
+                  <div className="mb-2 typo-h6 uppercase tracking-wide text-neutral-500 ">Document Type</div>
+                  <div className="flex flex-wrap gap-2 typo-p">
                     <button
                       onClick={()=> { setDocTypeFilter("all"); setPage(1); }}
                       className={cn("rounded-full border px-3 py-1", docTypeFilter === "all" ? "border-neutral-900 dark:border-white bg-neutral-900 dark:bg-white text-white dark:text-black" : "border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-700")}
@@ -727,19 +727,19 @@ export default function VehicleDocumentsPage() {
 
         <div className="flex items-center gap-2">
           <div className="hidden items-center gap-2 sm:flex">
-            <span className="text-sm text-neutral-500 dark:text-neutral-400">Rows</span>
+            <span className="typo-p-muted">Rows</span>
             <select
               value={perPage}
               onChange={(e)=>{setPerPage(parseInt(e.target.value)); setPage(1);}}
-              className="rounded-lg border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 px-2 py-1 text-sm text-neutral-900 dark:text-neutral-100"
+              className="rounded-lg border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 px-2 py-1 typo-p"
             >
               {[10,20,50].map(n=> (<option key={n} value={n}>{n}</option>))}
             </select>
           </div>
           <div className="flex items-center gap-2">
-            <button onClick={()=> setPage((p)=> Math.max(1, p-1))} className="rounded-lg border border-neutral-300 dark:border-neutral-600 px-2 py-1 text-sm text-neutral-900 dark:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-700">Prev</button>
+            <button onClick={()=> setPage((p)=> Math.max(1, p-1))} className="rounded-lg border border-neutral-300 dark:border-neutral-600 px-2 py-1 typo-p hover:bg-neutral-50 dark:hover:bg-neutral-700">Prev</button>
             <span className="min-w-[80px] text-center typo-p-muted">{page}/{totalPages}</span>
-            <button onClick={()=> setPage((p)=> Math.min(totalPages, p+1))} className="rounded-lg border border-neutral-300 dark:border-neutral-600 px-2 py-1 text-sm text-neutral-900 dark:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-700">Next</button>
+            <button onClick={()=> setPage((p)=> Math.min(totalPages, p+1))} className="rounded-lg border border-neutral-300 dark:border-neutral-600 px-2 py-1 typo-p hover:bg-neutral-50 dark:hover:bg-neutral-700">Next</button>
           </div>
         </div>
       </div>
@@ -751,7 +751,7 @@ export default function VehicleDocumentsPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            className="mb-3 flex items-center justify-between rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 px-4 py-2 text-sm text-neutral-900 dark:text-neutral-100"
+            className="mb-3 flex items-center justify-between rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 px-4 py-2 typo-p"
           >
             <span>{selectedIds.size} selected</span>
             <div className="flex items-center gap-2">
@@ -820,7 +820,7 @@ export default function VehicleDocumentsPage() {
                   </div>
                   <div className="typo-subtitle">{formatBytes(d.size)}</div>
                 </TableCell>
-                <TableCell className="text-sm text-neutral-900 dark:text-neutral-100">{d.docType}</TableCell>
+                <TableCell className="typo-p">{d.docType}</TableCell>
                 <TableCell className="hidden sm:table-cell">
                   <div className="flex flex-wrap gap-1">
                     {d.tags.map((t) => (
@@ -828,8 +828,8 @@ export default function VehicleDocumentsPage() {
                     ))}
                   </div>
                 </TableCell>
-                <TableCell className="hidden md:table-cell text-sm text-neutral-900 dark:text-neutral-100">{formatDate(d.uploadedAt)}</TableCell>
-                <TableCell className="hidden lg:table-cell text-sm text-neutral-900 dark:text-neutral-100">{formatDate(d.expiry ?? null)}</TableCell>
+                <TableCell className="hidden md:table-cell typo-p">{formatDate(d.uploadedAt)}</TableCell>
+                <TableCell className="hidden lg:table-cell typo-p">{formatDate(d.expiry ?? null)}</TableCell>
                 <TableCell><StatusBadge status={d.status} expiry={d.expiry ?? null}/></TableCell>
               </TableRow>
             ))}
@@ -839,10 +839,10 @@ export default function VehicleDocumentsPage() {
                 <TableCell colSpan={9}>
                   <div className="flex flex-col items-center justify-center gap-3 py-14 text-center">
                     <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-neutral-200 dark:border-neutral-700 dark:bg-neutral-800">
-                      <UploadFileIcon className="dark:text-neutral-400"/>
+                      <UploadFileIcon className=""/>
                     </div>
-                    <div className="text-lg font-medium text-neutral-900 dark:text-neutral-100">No documents match your filters</div>
-                    <div className="text-sm text-neutral-500 dark:text-neutral-400">Try adjusting search or filters — or add a new document.</div>
+                    <div className="typo-h3m">No documents match your filters</div>
+                    <div className="typo-p-muted">Try adjusting search or filters — or add a new document.</div>
                     <div className="mt-2"><Button onClick={openAddDialog}>Add document</Button></div>
                   </div>
                 </TableCell>
@@ -858,7 +858,7 @@ export default function VehicleDocumentsPage() {
         <DialogContent className="sm:max-w-2xl">
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-100">{editingDocId ? "Edit Document" : "Add Document"}</DialogTitle>
-            <DialogDescription className="text-neutral-500 dark:text-neutral-400">Document Type, name, file, expiry, tags — clean and compliant.</DialogDescription>
+            <DialogDescription className="text-neutral-500 ">Document Type, name, file, expiry, tags — clean and compliant.</DialogDescription>
           </DialogHeader>
 
           <div className="grid gap-5 sm:grid-cols-2">
@@ -881,7 +881,7 @@ export default function VehicleDocumentsPage() {
                 <Label htmlFor="doc-name" className="">Name</Label>
                 <div className="flex items-center gap-2">
                   <DriveFileRenameOutlineIcon className="text-neutral-700 dark:text-neutral-300"/>
-                  <Input id="doc-name" value={formName} onChange={(e)=> setFormName(e.target.value)} placeholder="e.g., Insurance Policy 2025.pdf" className="rounded-xl border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100 dark:bg-neutral-800 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus-visible:ring-neutral-900 dark:focus-visible:ring-neutral-100"/>
+                  <Input id="doc-name" value={formName} onChange={(e)=> setFormName(e.target.value)} placeholder="e.g., Insurance Policy 2025.pdf" className="rounded-xl border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100 dark:bg-neutral-800 placeholder:text-muted dark:placeholder:text-neutral-500 focus-visible:ring-neutral-900 dark:focus-visible:ring-neutral-100"/>
                 </div>
               </div>
 
@@ -891,7 +891,7 @@ export default function VehicleDocumentsPage() {
                   <PopoverTrigger asChild>
                     <Button variant="outline" className="w-full justify-start rounded-xl border-neutral-300 dark:border-neutral-600 text-left font-normal text-neutral-900 dark:text-neutral-100 dark:bg-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-700">
                       <CalendarMonthIcon className="mr-2"/>
-                      {formExpiry ? formatDate(formExpiry) : <span className="text-neutral-400 dark:text-neutral-500">Select date</span>}
+                      {formExpiry ? formatDate(formExpiry) : <span className="text-neutral-400 ">Select date</span>}
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent align="start" className="z-[99999] w-auto rounded-2xl border-neutral-200 dark:border-neutral-700 dark:bg-neutral-800 p-0">
@@ -914,7 +914,7 @@ export default function VehicleDocumentsPage() {
 
               <div className="space-y-2">
                 <Label className="">Notes (optional)</Label>
-                <Textarea value={formNotes} onChange={(e)=> setFormNotes(e.target.value)} placeholder="Any context for admins…" className="min-h-[88px] rounded-xl border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100 dark:bg-neutral-800 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus-visible:ring-neutral-900 dark:focus-visible:ring-neutral-100"/>
+                <Textarea value={formNotes} onChange={(e)=> setFormNotes(e.target.value)} placeholder="Any context for admins…" className="min-h-[88px] rounded-xl border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100 dark:bg-neutral-800 placeholder:text-muted dark:placeholder:text-neutral-500 focus-visible:ring-neutral-900 dark:focus-visible:ring-neutral-100"/>
               </div>
             </div>
           </div>
@@ -947,7 +947,7 @@ export default function VehicleDocumentsPage() {
                 </Button>
               )}
             </DialogTitle>
-            <DialogDescription className="text-neutral-500 dark:text-neutral-400">Quick preview</DialogDescription>
+            <DialogDescription className="text-neutral-500 ">Quick preview</DialogDescription>
           </DialogHeader>
 
           <div className="h-[70vh] w-full overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900">
@@ -959,7 +959,7 @@ export default function VehicleDocumentsPage() {
                 <iframe src={viewerDoc.url} className="h-full w-full" title="document preview"/>
               )
             ) : (
-              <div className="flex h-full items-center justify-center text-sm text-neutral-500 dark:text-neutral-400">No preview available</div>
+              <div className="flex h-full items-center justify-center typo-p-muted">No preview available</div>
             )}
           </div>
         </DialogContent>
@@ -997,7 +997,7 @@ function TagInput({ value, onChange }: { value: string[]; onChange: (v: string[]
         <span key={t} className="inline-flex items-center gap-1 rounded-full border border-neutral-300 dark:border-neutral-600 px-2 py-1 text-xs  dark:text-neutral-300">
           <TagIcon fontSize="small"/>
           {t}
-          <button onClick={() => remove(t)} className="ml-1 rounded-full px-1 text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-700">×</button>
+          <button onClick={() => remove(t)} className="ml-1 rounded-full px-1 text-neutral-500  hover:bg-neutral-100 dark:hover:bg-neutral-700">×</button>
         </span>
       ))}
       <input
@@ -1005,7 +1005,7 @@ function TagInput({ value, onChange }: { value: string[]; onChange: (v: string[]
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={onKeyDown}
         placeholder={value.length ? "Add tag and press Enter" : "e.g., compliance"}
-        className="flex-1 bg-transparent text-sm text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:outline-none"
+        className="flex-1 bg-transparent typo-p placeholder:text-muted dark:placeholder:text-neutral-500 focus:outline-none"
       />
     </div>
   );

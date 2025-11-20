@@ -132,7 +132,7 @@ export default function RenewSheet({ open, onOpenChange, selection }: any) {
                 </SelectContent>
               </Select>
               <div className="flex items-center gap-3">
-                <Label className="text-sm">Tenure (months)</Label>
+                <Label className="typo-p">Tenure (months)</Label>
                 <Input
                   type="number"
                   min={1}
@@ -168,7 +168,7 @@ export default function RenewSheet({ open, onOpenChange, selection }: any) {
             <SelectSeparator className="my-3" />
             <div className="flex items-center justify-between">
               <div className="typo-p500">Total</div>
-              <div className="text-lg font-semibold">
+              <div className="typo-h3">
                 {formatINR(totals.total)}
               </div>
             </div>
@@ -212,7 +212,7 @@ export default function RenewSheet({ open, onOpenChange, selection }: any) {
                       setSendVia((s) => ({ ...s, email: !!c }))
                     }
                   />
-                  <Label htmlFor="email" className="text-sm">
+                  <Label htmlFor="email" className="typo-p">
                     Email
                   </Label>
                   <Checkbox
@@ -222,7 +222,7 @@ export default function RenewSheet({ open, onOpenChange, selection }: any) {
                       setSendVia((s) => ({ ...s, sms: !!c }))
                     }
                   />
-                  <Label htmlFor="sms" className="text-sm">
+                  <Label htmlFor="sms" className="typo-p">
                     SMS
                   </Label>
                   <Checkbox
@@ -232,7 +232,7 @@ export default function RenewSheet({ open, onOpenChange, selection }: any) {
                       setSendVia((s) => ({ ...s, whatsapp: !!c }))
                     }
                   />
-                  <Label htmlFor="wa" className="text-sm">
+                  <Label htmlFor="wa" className="typo-p">
                     WhatsApp
                   </Label>
                 </div>

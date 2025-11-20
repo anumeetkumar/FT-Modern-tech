@@ -17,7 +17,7 @@ export function SimCardsTable({ simCards, onRefresh, onSimCardAction }: SimCards
     0: {
       title: () => <div className="font-semibold">SIM Number</div>,
       content: (row: SimCardRow) => (
-        <div className="font-mono text-sm">
+        <div className="font-mono typo-p">
           {row.SimNo}
         </div>
       ),
@@ -35,7 +35,7 @@ export function SimCardsTable({ simCards, onRefresh, onSimCardAction }: SimCards
       content: (row: SimCardRow) => (
         <div>
           {row.IMSI ? (
-            <div className="font-mono text-sm">
+            <div className="font-mono typo-p">
               {row.IMSI}
             </div>
           ) : (
@@ -49,7 +49,7 @@ export function SimCardsTable({ simCards, onRefresh, onSimCardAction }: SimCards
       content: (row: SimCardRow) => (
         <div>
           {row.ICCID ? (
-            <div className="font-mono text-sm">
+            <div className="font-mono typo-p">
               {row.ICCID}
             </div>
           ) : (
@@ -80,7 +80,7 @@ export function SimCardsTable({ simCards, onRefresh, onSimCardAction }: SimCards
     5: {
       title: () => <div className="font-semibold">Created</div>,
       content: (row: SimCardRow) => (
-        <div className="text-sm text-gray-600">
+        <div className="typo-p-muted">
           {new Date(row.CreatedAt).toLocaleDateString()}
         </div>
       ),

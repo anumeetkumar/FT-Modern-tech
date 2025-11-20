@@ -83,7 +83,7 @@ const EditAdminDialog: React.FC<EditAdminDialogProps> = ({
           <div>
             <Input placeholder="Full Name" {...register("name")} />
             {errors.name && (
-              <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+              <p className="text-red-500 typo-p mt-1">{errors.name.message}</p>
             )}
           </div>
 
@@ -91,7 +91,7 @@ const EditAdminDialog: React.FC<EditAdminDialogProps> = ({
           <div>
             <Input placeholder="Email" {...register("email")} />
             {errors.email && (
-              <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+              <p className="text-red-500 typo-p mt-1">{errors.email.message}</p>
             )}
           </div>
 
@@ -102,7 +102,7 @@ const EditAdminDialog: React.FC<EditAdminDialogProps> = ({
               onChange={(val) => setValue("mobileNumber", val)}
             />
             {errors.mobileNumber && (
-              <p className="text-red-500 text-sm mt-1">
+              <p className="text-red-500 typo-p mt-1">
                 {errors.mobileNumber.message}
               </p>
             )}
@@ -112,7 +112,7 @@ const EditAdminDialog: React.FC<EditAdminDialogProps> = ({
           <div>
             <Textarea placeholder="Address Line" {...register("addressLine")} />
             {errors.addressLine && (
-              <p className="text-red-500 text-sm mt-1">
+              <p className="text-red-500 typo-p mt-1">
                 {errors.addressLine.message}
               </p>
             )}
@@ -123,7 +123,7 @@ const EditAdminDialog: React.FC<EditAdminDialogProps> = ({
             <div>
               <Input placeholder="Country Code" {...register("countryCode")} />
               {errors.countryCode && (
-                <p className="text-red-500 text-sm mt-1">
+                <p className="text-red-500 typo-p mt-1">
                   {errors.countryCode.message}
                 </p>
               )}
@@ -131,7 +131,7 @@ const EditAdminDialog: React.FC<EditAdminDialogProps> = ({
             <div>
               <Input placeholder="State Code" {...register("stateCode")} />
               {errors.stateCode && (
-                <p className="text-red-500 text-sm mt-1">
+                <p className="text-red-500 typo-p mt-1">
                   {errors.stateCode.message}
                 </p>
               )}
@@ -139,7 +139,7 @@ const EditAdminDialog: React.FC<EditAdminDialogProps> = ({
             <div>
               <Input placeholder="City Name" {...register("cityName")} />
               {errors.cityName && (
-                <p className="text-red-500 text-sm mt-1">
+                <p className="text-red-500 typo-p mt-1">
                   {errors.cityName.message}
                 </p>
               )}
@@ -147,7 +147,7 @@ const EditAdminDialog: React.FC<EditAdminDialogProps> = ({
             <div>
               <Input placeholder="Pincode" {...register("pincode")} />
               {errors.pincode && (
-                <p className="text-red-500 text-sm mt-1">
+                <p className="text-red-500 typo-p mt-1">
                   {errors.pincode.message}
                 </p>
               )}

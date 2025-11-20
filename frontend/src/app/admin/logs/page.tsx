@@ -415,7 +415,7 @@ const MultiSelect = ({
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder={`Search ${label.toLowerCase()}`}
-            className="w-full bg-transparent text-sm outline-none placeholder:text-neutral-400"
+            className="w-full bg-transparent typo-p outline-none placeholder:text-muted"
           />
           {q && (
             <button
@@ -652,7 +652,7 @@ export default function LogsPage() {
           setScope(t);
           setPage(1);
         }}
-        className={`inline-flex items-center gap-2 rounded-2xl border px-3 py-2 text-sm ${
+        className={`inline-flex items-center gap-2 rounded-2xl border px-3 py-2 typo-p ${
           active
             ? "border-primary bg-primary text-white"
             : "border-neutral-300 bg-white text-neutral-900 hover:bg-neutral-50"
@@ -764,7 +764,7 @@ export default function LogsPage() {
         <div className="mb-5 flex items-center justify-between">
           <div>
             <h1 className="typo-h1">Logs</h1>
-            <p className="text-sm text-neutral-500">
+            <p className="typo-p-muted">
               Vehicles • Users • Drivers
             </p>
           </div>

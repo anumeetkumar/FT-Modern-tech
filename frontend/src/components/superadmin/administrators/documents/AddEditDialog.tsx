@@ -146,7 +146,7 @@ const AddEditDialog = ({
         )}
       >
         <CloudUploadIcon className="h-7 w-7 text-neutral-900 dark:text-neutral-100" />
-        <div className="text-sm ">
+        <div className="typo-p ">
           Drag & drop your file here
         </div>
         <div className="typo-subtitle">
@@ -182,7 +182,7 @@ const AddEditDialog = ({
               <button
                 type="button"
                 onClick={handleRemoveFile}
-                className="flex h-6 w-6 items-center justify-center rounded-full bg-neutral-100 text-neutral-500 hover:bg-red-100 hover:text-red-600 transition-colors dark:bg-neutral-700 dark:text-neutral-400 dark:hover:bg-red-900 dark:hover:text-red-400"
+                className="flex h-6 w-6 items-center justify-center rounded-full bg-neutral-100 text-neutral-500 hover:bg-red-100 hover:text-red-600 transition-colors dark:bg-neutral-700  dark:hover:bg-red-900 dark:hover:text-red-400"
               >
                 ×
               </button>

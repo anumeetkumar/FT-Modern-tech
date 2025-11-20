@@ -192,7 +192,7 @@ function LoginForm() {
               <div className="flex items-center justify-between">
                 <Link
                   href="/forgot-password"
-                  className="text-sm text-primary hover:text-primary/80"
+                  className="typo-p text-primary hover:text-primary/80"
                 >
                   Forgot password?
                 </Link>

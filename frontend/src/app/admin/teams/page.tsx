@@ -194,7 +194,7 @@ export default function TeamsTable() {
         <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <PersonIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-neutral-500 "
           />
           Member Info
         </div>
@@ -228,7 +228,7 @@ export default function TeamsTable() {
         <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <CallIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-neutral-500 "
           />
           Contact
         </div>
@@ -258,7 +258,7 @@ export default function TeamsTable() {
         <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <ShieldIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-neutral-500 "
           />
           Role
         </div>
@@ -275,7 +275,7 @@ export default function TeamsTable() {
         <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <VerifiedIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-neutral-500 "
           />
           Status
         </div>
@@ -288,7 +288,7 @@ export default function TeamsTable() {
         <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <LockIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-neutral-500 "
           />
           Permissions
         </div>
@@ -347,7 +347,7 @@ export default function TeamsTable() {
           <div className="mb-6 flex items-center justify-between gap-4">
             <div>
               <h1 className="typo-h1">Teams</h1>
-              <p className="text-sm text-neutral-500">
+              <p className="typo-p-muted">
                 Manage teammates and their permissions. Add members via the
                 modal, fine‑tune via the drawer.
               </p>

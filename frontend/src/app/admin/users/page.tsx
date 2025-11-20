@@ -284,7 +284,7 @@ export default function Page() {
       ),
       content: (row) => (
         <div
-          className="text-sm cursor-pointer"
+          className="typo-p cursor-pointer"
           onClick={(e) => {
             e.stopPropagation();
             router.push(`/admin/users/${row.id}`);
@@ -356,19 +356,19 @@ export default function Page() {
     },
     4: {
       title: () => <>Department</>,
-      content: (row) => <span className="text-sm">{row.department}</span>,
+      content: (row) => <span className="typo-p">{row.department}</span>,
     },
     5: {
       title: () => <>ID</>,
-      content: (row) => <span className="text-sm">{row.id}</span>,
+      content: (row) => <span className="typo-p">{row.id}</span>,
     },
     6: {
       title: () => <>Country</>,
-      content: (row) => <span className="text-sm">{row.country}</span>,
+      content: (row) => <span className="typo-p">{row.country}</span>,
     },
     7: {
       title: () => <>Role</>,
-      content: (row) => <span className="text-sm">{row.role}</span>,
+      content: (row) => <span className="typo-p">{row.role}</span>,
     },
     8: {
       title: () => <>Action</>,
@@ -447,7 +447,7 @@ export default function Page() {
               <h1 className="typo-h1">
                 User Management
               </h1>
-              {/* <p className="text-sm text-neutral-500">
+              {/* <p className="typo-p-muted">
                 Self‑hosted GPS Software • FleetStack
               </p> */}
             </div>

@@ -167,7 +167,7 @@ export default function SuperAdminSettings() {
           <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
             <div>
               <div className="typo-subtitle">Demo Login</div>
-              <div className="text-lg font-medium text-foreground">
+              <div className="typo-h3m">
                 {settings.demoLoginEnabled ? "Active" : "Inactive"}
               </div>
             </div>
@@ -187,7 +187,7 @@ export default function SuperAdminSettings() {
               <div className="typo-subtitle">
                 Free Signup Credits
               </div>
-              <div className="text-lg font-medium text-foreground">
+              <div className="typo-h3m">
                 {settings.signupAllowed ? settings.signupFreeCredits : "N/A"}
               </div>
             </div>
@@ -228,7 +228,7 @@ export default function SuperAdminSettings() {
                 key={digit}
                 onClick={() => set("reverseGeocodingDigits", digit)}
                 className={classNames(
-                  "flex-1 rounded-xl border px-4 py-3 text-sm transition-all",
+                  "flex-1 rounded-xl border px-4 py-3 typo-p transition-all",
                   settings.reverseGeocodingDigits === digit
                     ? "border-primary bg-primary text-white"
                     : "border-border text-foreground hover:bg-foreground/5"

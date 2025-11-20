@@ -327,7 +327,7 @@ export default function SupportSplitView() {
                 >
                   <div className="flex flex-col gap-1 min-w-0">
                     <div className="truncate font-medium leading-tight text-foreground">{t.title}</div>
-                    <div className="flex items-center justify-between gap-2 text-sm">
+                    <div className="flex items-center justify-between gap-2 typo-p">
                       <div className="min-w-0 truncate text-muted">
                         {t.id} • {t.name}
                       </div>
@@ -388,7 +388,7 @@ export default function SupportSplitView() {
         <div className="px-5 py-4 bg-background border-b border-border">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <div className="text-sm uppercase tracking-wider text-muted">{active.id}</div>
+              <div className="typo-p uppercase tracking-wider text-muted">{active.id}</div>
               <h2 className="mt-1 typo-h2">{active.title}</h2>
               <div className="mt-1 flex items-center flex-wrap gap-2 typo-p">
                 <PersonOutlineIcon fontSize="small" />
@@ -420,7 +420,7 @@ export default function SupportSplitView() {
         </div>
 
         {/* Details Bar */}
-        <div className="px-5 py-3 bg-background border-b border-border flex flex-wrap items-center gap-2 text-sm">
+        <div className="px-5 py-3 bg-background border-b border-border flex flex-wrap items-center gap-2 typo-p">
           <span className="text-muted">Status:</span>
           <StatusBadge status={active.status} />
           <span className="text-border">•</span>
@@ -567,7 +567,7 @@ export default function SupportSplitView() {
     ) : (
       <div className="h-full grid place-items-center text-muted border border-dashed border-border rounded-2xl p-12">
         <div className="max-w-sm text-center">
-          <div className="text-lg font-medium text-foreground">Select a ticket</div>
+          <div className="typo-h3m">Select a ticket</div>
           <p className="mt-1 typo-p-muted">Choose an item from the left list to view details.</p>
         </div>
       </div>

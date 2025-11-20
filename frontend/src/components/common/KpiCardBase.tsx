@@ -27,7 +27,7 @@ const KpiCardBase = ({
       <div className="mt-3 typo-h1 font-semibold  text-foreground">
         {typeof value === "number" ? Intl.NumberFormat().format(value) : value }
       </div>
-      {subTitle && <p className="text-muted text-sm">{subTitle}</p>}
+      {subTitle && <p className="typo-p-muted">{subTitle}</p>}
     </motion.div>
   );
 };

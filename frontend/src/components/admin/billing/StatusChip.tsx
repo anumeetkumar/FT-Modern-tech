@@ -17,7 +17,7 @@ export default function StatusChip({
   return (
     <button
       onClick={onClick}
-      className={`px-3 py-1.5 rounded-full text-sm border ${
+      className={`px-3 py-1.5 rounded-full typo-p border ${
         toneClasses[tone]
       } ${active ? "ring-2 ring-black" : ""}`}
     >

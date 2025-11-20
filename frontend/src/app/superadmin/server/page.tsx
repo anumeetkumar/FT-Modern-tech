@@ -230,7 +230,7 @@ export default function ServerStatusPage() {
       </div>
 
       {banner && (
-        <div className="mb-4 rounded-xl border border-neutral-300 bg-white p-3 text-sm dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-200">
+        <div className="mb-4 rounded-xl border border-neutral-300 bg-white p-3 typo-p dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-200">
           <InfoOutlinedIcon className="mr-2 align-[-2px]" />
           {banner}
         </div>

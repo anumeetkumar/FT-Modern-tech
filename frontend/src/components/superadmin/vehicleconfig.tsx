@@ -124,14 +124,14 @@ export default function VehicleConfig({ initial, loading, onSave, onReset, class
           <button
             onClick={handleReset}
             disabled={loading}
-            className="rounded-lg border border-border px-3 py-1.5 text-sm hover:bg-foreground/5"
+            className="rounded-lg border border-border px-3 py-1.5 typo-p hover:bg-foreground/5"
           >
             Reset
           </button>
           <button
             onClick={handleSave}
             disabled={!dirty || !!loading}
-            className={`rounded-lg px-3 py-1.5 text-sm text-primary-foreground ${
+            className={`rounded-lg px-3 py-1.5 typo-p text-primary-foreground ${
               dirty ? "bg-primary hover:bg-primary/90" : "bg-foreground/5 cursor-not-allowed"
             }`}
           >
@@ -199,7 +199,7 @@ export default function VehicleConfig({ initial, loading, onSave, onReset, class
             <div className="typo-p500">Ignition Source</div>
             <div className="text-[12px] text-muted-foreground">Choose how engine ON/OFF is derived.</div>
           </div>
-          <div className="flex flex-wrap gap-6 text-sm">
+          <div className="flex flex-wrap gap-6 typo-p">
             <label className="inline-flex items-center gap-2">
               <input
                 type="radio"

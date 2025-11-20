@@ -1217,7 +1217,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                 {showtoolbarInput && (
                 <div className="relative flex-1 lg:max-w-sm">
                   <SearchIcon
-                    className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400 dark:text-neutral-500"
+                    className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400 "
                     fontSize="small"
                   />
                   <input
@@ -1227,7 +1227,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                       setPage(1);
                     }}
                     placeholder="Search name, email, role, department…"
-                    className="h-10 w-full rounded-xl border border-neutral-200 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 pl-10 pr-4 text-sm text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-500 dark:placeholder:text-neutral-400 outline-none ring-0 transition focus:border-neutral-400 dark:focus:border-neutral-400 focus:bg-white dark:focus:bg-neutral-600 focus:shadow-sm"
+                    className="h-10 w-full rounded-xl border border-neutral-200 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 pl-10 pr-4 typo-p placeholder:text-neutral-500 dark:placeholder:text-muted outline-none ring-0 transition focus:border-neutral-400 dark:focus:border-neutral-400 focus:bg-white dark:focus:bg-neutral-600 focus:shadow-sm"
                   />
                 </div>
                 )}
@@ -1299,7 +1299,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                           className="will-change-transform"
                         >
                           <div className="px-3 pt-3">
-                            <div className="px-1 pb-2 text-[11px] uppercase tracking-wide text-neutral-500 dark:text-neutral-400 font-medium">
+                            <div className="px-1 pb-2 text-[11px] uppercase tracking-wide text-neutral-500  font-medium">
                               Dynamic Filters
                             </div>
                             <Separator className="mb-3" />
@@ -1408,7 +1408,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                                                   ).map((o) => o.value);
                                                   setVal(arr);
                                                 }}
-                                                className="h-24 w-full rounded-lg border border-neutral-200 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 px-2 text-sm outline-none"
+                                                className="h-24 w-full rounded-lg border border-neutral-200 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 px-2 typo-p outline-none"
                                               >
                                                 {(selectOptions || []).map(
                                                   (opt) => (
@@ -1597,7 +1597,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                   </MotionButton>
                 )}
                 {showtoolbarRecords && (
-                <div className="flex items-center gap-2 text-sm">
+                <div className="flex items-center gap-2 typo-p">
                   <span className="typo-p-muted font-medium whitespace-nowrap">
                     Records:
                   </span>
@@ -1649,7 +1649,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                     onMouseEnter={handleExportEnter}
                     onMouseLeave={handleExportLeave}
                   >
-                    <ul className="text-sm">
+                    <ul className="typo-p">
                       <li>
                         <button
                           className="w-full text-left px-3 py-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-700 inline-flex items-center gap-2"
@@ -1711,7 +1711,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                   </PopoverTrigger>
                   <PopoverContent align="end" className="w-72 rounded-2xl">
                     <div className="mb-2 flex items-center justify-between">
-                      <div className="flex items-center gap-2 text-[11px] uppercase tracking-wide text-neutral-500 dark:text-neutral-400 font-medium">
+                      <div className="flex items-center gap-2 text-[11px] uppercase tracking-wide text-neutral-500  font-medium">
                         <ColumnsIcon fontSize="small" /> Drag to reorder ·
                         Toggle to hide
                       </div>
@@ -1719,7 +1719,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                         variant="ghost"
                         size="sm"
                         onClick={resetPreferences}
-                        className="h-7 px-2 typo-subtitle hover:text-neutral-700 dark:text-neutral-400 "
+                        className="h-7 px-2 typo-subtitle hover:text-neutral-700  "
                         title="Reset all table preferences"
                       >
                         Reset
@@ -1748,7 +1748,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                               fontSize="small"
                               className="text-neutral-400"
                             />
-                            <div className="text-sm">
+                            <div className="typo-p">
                               {displayOptions[idx]?.title?.()}
                             </div>
                           </div>
@@ -1796,7 +1796,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
           {/* Table */}
           <div className="w-full overflow-x-auto overflow-y-hidden rounded-2xl border border-neutral-200 dark:border-neutral-700 bg-gradient-to-b from-white to-neutral-50 dark:from-neutral-800 dark:to-neutral-900 shadow-sm hover:shadow-md transition-shadow duration-300">
             <div id="smart-table-print">
-              <table className="w-full min-w-[800px] text-sm">
+              <table className="w-full min-w-[800px] typo-p">
                 <thead>
                   <tr className="text-left">
                     {/* Selection header (only if hasBulk) */}
@@ -1866,7 +1866,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                                 updateSort(i, "asc");
                               }
                             }}
-                            className="inline-flex items-center gap-2 font-bold text-sm text-neutral-900 dark:text-neutral-100 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors uppercase tracking-wide"
+                            className="inline-flex items-center gap-2 font-bold typo-p hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors uppercase tracking-wide"
                             title="Sort"
                           >
                             {displayOptions[i]?.title?.()}
@@ -1899,7 +1899,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                       <tr>
                         <td
                           colSpan={visibleCols.length + (hasBulk ? 1 : 0)}
-                          className="px-6 py-10 text-center text-neutral-500 dark:text-neutral-400"
+                          className="px-6 py-10 text-center text-neutral-500 "
                         >
                           No results match your filters.
                         </td>
@@ -2097,7 +2097,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
               className="will-change-transform"
             >
               <div className="px-3 pt-3">
-                <div className="px-1 pb-2 text-[11px] uppercase tracking-wide text-neutral-500 dark:text-neutral-400 font-medium">
+                <div className="px-1 pb-2 text-[11px] uppercase tracking-wide text-neutral-500  font-medium">
                   Dynamic Filters
                 </div>
                 <Separator className="mb-3" />
@@ -2198,7 +2198,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                                     ).map((o) => o.value);
                                     setVal(arr);
                                   }}
-                                  className="h-24 w-full rounded-lg border border-neutral-200 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 px-2 text-sm outline-none"
+                                  className="h-24 w-full rounded-lg border border-neutral-200 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 px-2 typo-p outline-none"
                                 >
                                   {(selectOptions || []).map((opt) => (
                                     <option key={opt.value} value={opt.value}>

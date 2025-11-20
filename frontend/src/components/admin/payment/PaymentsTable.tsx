@@ -52,7 +52,7 @@ export function PaymentsTable({
       content: (row) => (
         <div className="inline-flex items-center gap-2">
           <ChannelBadge channel={row.channel} />
-          <span className="text-sm text-zinc-700">{row.method}</span>
+          <span className="typo-p-muted">{row.method}</span>
         </div>
       ),
     },
@@ -80,7 +80,7 @@ export function PaymentsTable({
       title: () => <div className="font-semibold">Reference / Invoice</div>,
       content: (row) => (
         <div>
-          <div className="text-sm">{row.reference}</div>
+          <div className="typo-p">{row.reference}</div>
           <div className="typo-destructive">{row.invoiceNo}</div>
         </div>
       ),

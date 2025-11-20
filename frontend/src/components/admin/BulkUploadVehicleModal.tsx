@@ -62,7 +62,7 @@ export default function BulkUploadVehicleModal({
                 setBulkUploadForm((p) => ({ ...p, plan: e.target.value }))
               }
               required
-              className="w-full rounded-xl border border-border bg-muted px-3 py-2 text-sm outline-none focus:border-accent focus:bg-background"
+              className="w-full rounded-xl border border-border bg-muted px-3 py-2 typo-p outline-none focus:border-accent focus:bg-background"
             >
               <option value="">Select Plan</option>
               {plans.map((p) => (
@@ -111,7 +111,7 @@ export default function BulkUploadVehicleModal({
           </div>
 
           {/* CSV FORMAT INFO */}
-          <div className="rounded-xl bg-accent/10 p-4 text-sm">
+          <div className="rounded-xl bg-accent/10 p-4 typo-p">
             <div className="font-medium mb-2 text-accent">
               Required CSV Format:
             </div>

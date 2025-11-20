@@ -300,10 +300,10 @@ function TimePicker({
               }
               handleHourChange(newHour);
             }}
-            className="w-full px-2 py-1.5 text-center border border-neutral-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100"
+            className="w-full px-2 py-1.5 text-center border border-neutral-300 rounded typo-p focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100"
           />
         </div>
-        <span className="typo-base-muted font-medium dark:text-neutral-400">
+        <span className="typo-base-muted font-medium ">
           :
         </span>
         {/* Minute Input */}
@@ -319,7 +319,7 @@ function TimePicker({
               if (newMinute < 0) newMinute = 0;
               handleMinuteChange(newMinute);
             }}
-            className="w-full px-2 py-1.5 text-center border border-neutral-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100"
+            className="w-full px-2 py-1.5 text-center border border-neutral-300 rounded typo-p focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100"
           />
         </div>
         {/* AM/PM Toggle */}
@@ -467,8 +467,8 @@ export function MultiDateTimeRangePicker({
           variant="outline"
           disabled={disabled}
           className={cn(
-            "inline-flex w-full items-center justify-between rounded-lg border-neutral-300 px-3 py-2 text-left font-normal text-sm h-10 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100",
-            !draft?.from && "text-neutral-500 dark:text-neutral-400",
+            "inline-flex w-full items-center justify-between rounded-lg border-neutral-300 px-3 py-2 text-left font-normal typo-p h-10 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100",
+            !draft?.from && "text-neutral-500 ",
             className
           )}
         >
@@ -504,14 +504,14 @@ export function MultiDateTimeRangePicker({
                   </span>
                 </span>
               ) : (
-                <span className="text-neutral-500 dark:text-neutral-400">
+                <span className="text-neutral-500 ">
                   Choose a date-time range
                 </span>
               )}
             </div>
             <button
               onClick={() => setOpen(false)}
-              className="rounded p-1 text-neutral-500 hover:bg-neutral-100 hover: dark:text-neutral-400 dark:hover:bg-neutral-800 "
+              className="rounded p-1 text-neutral-500 hover:bg-neutral-100 hover:  dark:hover:bg-neutral-800 "
               aria-label="Close"
             >
               <CloseIcon sx={{ fontSize: 18 }} />
@@ -527,7 +527,7 @@ export function MultiDateTimeRangePicker({
                     key={p.key}
                     onClick={() => applyPreset(p.key)}
                     className={cn(
-                      "flex w-full items-center justify-between rounded px-2.5 py-1.5 text-left text-sm transition-colors",
+                      "flex w-full items-center justify-between rounded px-2.5 py-1.5 text-left typo-p transition-colors",
                       selectedPreset === p.key
                         ? "bg-neutral-900 text-white dark:bg-white dark:text-black"
                         : "text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800"
@@ -612,7 +612,7 @@ export function MultiDateTimeRangePicker({
               <div className="flex items-center justify-between pt-2 border-t border-neutral-200 dark:border-neutral-700">
                 <button
                   onClick={onClear}
-                  className="typo-h6 typo-base-muted underline-offset-2 hover:underline dark:text-neutral-400 "
+                  className="typo-h6 typo-base-muted underline-offset-2 hover:underline  "
                 >
                   Clear
                 </button>

@@ -39,7 +39,7 @@ export function BillingCustomersTable({
       content: (row) => (
         <div>
           <div className="font-medium">{row.vehicle}</div>
-          <div className="typo-subtitle">IMEI {row.imei}</div>
+          <div className="text-xs text-gray-500">IMEI {row.imei}</div>
         </div>
       ),
     },
@@ -56,7 +56,7 @@ export function BillingCustomersTable({
       content: (row) => (
         <div>
           <div>{formatDate(row.expiryAt)}</div>
-          <div className="typo-subtitle">
+          <div className="text-xs text-gray-500">
             {row.daysLeft < 0
               ? `${Math.abs(row.daysLeft)} days overdue`
               : `${row.daysLeft} days left`}
@@ -71,7 +71,7 @@ export function BillingCustomersTable({
     5: {
       title: () => <div className="font-semibold">Auto</div>,
       content: (row) => (
-        <span className="text-sm text-gray-500">{row.autoRenew ? "Yes" : "No"}</span>
+        <span className="typo-p-muted">{row.autoRenew ? "Yes" : "No"}</span>
       ),
     },
   };
@@ -147,7 +147,7 @@ export function BillingCustomersTable({
               </div>
 
               <div className="flex items-center gap-3">
-                <div className="text-sm  font-medium hidden md:block">
+                <div className="typo-p  font-medium hidden md:block">
                   {formatINR(stats.amount)}
                 </div>
                 <Checkbox

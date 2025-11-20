@@ -142,7 +142,7 @@ export default function AdminSettings() {
             {/* Allow Signup */}
             <div className="flex items-center justify-between rounded-xl border border-border bg-background p-5">
               <div className="space-y-1">
-                <span className="font-medium text-foreground text-sm">
+                <span className="font-medium text-foreground typo-p">
                   Allow New Signups
                 </span>
                 <p className="typo-subtitle">

@@ -144,7 +144,7 @@ const KV = ({
       {label}
     </span>
     <span
-      className={`text-sm dark:text-neutral-100 ${mono ? "font-mono" : ""}`}
+      className={`typo-p dark:text-neutral-100 ${mono ? "font-mono" : ""}`}
     >
       {value}
     </span>
@@ -575,7 +575,7 @@ export default function VehicleDetailsPreview({
               icon={<ReceiptLongIcon fontSize="small" />}
               title="Recent Events"
             />
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 typo-p">
               <li className="flex items-center justify-between">
                 <span className="text-foreground">Location ping</span>
                 <span className="typo-subtitle">

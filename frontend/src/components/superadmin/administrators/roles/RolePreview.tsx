@@ -45,7 +45,7 @@ export default function RoleContent() {
       <div className="mx-auto max-w-4xl px-4 py-6 flex flex-col gap-6">
         {/* Role Selector */}
         <div className="w-full border border-border rounded-2xl p-4 bg-card">
-          <h2 className="text-lg font-semibold mb-3 text-foreground">
+          <h2 className="typo-h3 mb-3 text-foreground">
             Select Role
           </h2>
           <Select value={selectedId} onValueChange={(v) => setSelectedId(v)}>
@@ -108,7 +108,7 @@ export default function RoleContent() {
           ) : (
             <div className="flex flex-col items-center justify-center py-12 text-muted-foreground">
               <SecurityRoundedIcon fontSize="large" />
-              <p className="mt-2 text-sm">
+              <p className="mt-2 typo-p">
                 Select a role to preview its permissions.
               </p>
             </div>

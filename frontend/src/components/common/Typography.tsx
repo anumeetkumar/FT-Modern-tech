@@ -31,16 +31,16 @@ interface TypographyProps {
 const variantClasses: Record<TypographyVariant, string> = {
   h1: "typo-h1 font-semibold",
   h2: "text-xl font-semibold",
-  h3: "text-lg font-semibold",
+  h3: "typo-h3",
   h4: "text-base font-medium",
   h5: "typo-p500",
   h6: "typo-h6",
 
-  p: "text-sm font-normal leading-relaxed",
+  p: "typo-p font-normal leading-relaxed",
   p500: "typo-p500",
   p600: "typo-p600",
 
-  body1: "text-sm font-normal",
+  body1: "typo-p font-normal",
   subtitle: "text-xs font-normal text-muted",
 
   // 👇 newly added

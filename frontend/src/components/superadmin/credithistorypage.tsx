@@ -147,7 +147,7 @@ function Table({ children }: { children: React.ReactNode }) {
   return (
     <div className="w-full overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
       <div className="w-full overflow-x-auto">
-        <table className="w-full text-left text-sm">{children}</table>
+        <table className="w-full text-left typo-p">{children}</table>
       </div>
     </div>
   );
@@ -155,7 +155,7 @@ function Table({ children }: { children: React.ReactNode }) {
 function THead({ children }: { children: React.ReactNode }) {
   return (
     <thead className="bg-neutral-50/80 dark:bg-neutral-800/80">
-      <tr className="text-[12px] uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
+      <tr className="text-[12px] uppercase tracking-[0.16em] text-neutral-500 ">
         {children}
       </tr>
     </thead>
@@ -532,7 +532,7 @@ export default function CreditHistoryPage() {
                         Today ( {today} )
                       </div>
                     </div>
-                    <div className="mt-2 divide-y divide-border text-sm">
+                    <div className="mt-2 divide-y divide-border typo-p">
                       <div className="flex items-center justify-between py-2 text-muted-foreground">
                         <span>Assign Credit :</span>
                         <span>{summary.assign}</span>
@@ -570,7 +570,7 @@ export default function CreditHistoryPage() {
                       value={query}
                       onChange={(e) => setQuery(e.target.value)}
                       placeholder="Search description, id, device…"
-                      className="bg-transparent outline-none text-sm w-[260px] text-foreground placeholder:text-muted-foreground"
+                      className="bg-transparent outline-none typo-p w-[260px] text-foreground placeholder:text-muted-foreground"
                     />
                     <Separator
                       orientation="vertical"

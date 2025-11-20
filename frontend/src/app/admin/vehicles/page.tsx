@@ -907,7 +907,7 @@ function page() {
             <div className="font-semibold text-[12px] text-neutral-900 dark:text-neutral-100">
               {row.vehicleNo}
             </div>
-            <div className="text-[9px] text-neutral-500 dark:text-neutral-400">
+            <div className="text-[9px] text-neutral-500 ">
               {row.vehicleType.name} • {row.status}
             </div>
           </div>
@@ -918,7 +918,7 @@ function page() {
           <div className="flex items-center gap-1.5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-2.5 w-2.5 text-neutral-400 dark:text-neutral-500 flex-shrink-0"
+              className="h-2.5 w-2.5 text-neutral-400  flex-shrink-0"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -937,7 +937,7 @@ function page() {
           <div className="flex items-center gap-1.5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-2.5 w-2.5 text-neutral-400 dark:text-neutral-500 flex-shrink-0"
+              className="h-2.5 w-2.5 text-neutral-400  flex-shrink-0"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -956,7 +956,7 @@ function page() {
           <div className="flex items-center gap-1.5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-2.5 w-2.5 text-neutral-400 dark:text-neutral-500 flex-shrink-0"
+              className="h-2.5 w-2.5 text-neutral-400  flex-shrink-0"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -977,7 +977,7 @@ function page() {
         {/* Engine & Odometer */}
         <div className="mt-2 pt-2 border-t border-neutral-200 dark:border-neutral-700">
           <div className="flex justify-between text-[10px]">
-            <span className="text-neutral-500 dark:text-neutral-400">
+            <span className="text-neutral-500 ">
               Engine Hours:
             </span>
             <span className="font-medium text-neutral-900 dark:text-neutral-100">
@@ -985,7 +985,7 @@ function page() {
             </span>
           </div>
           <div className="flex justify-between text-[10px] mt-1">
-            <span className="text-neutral-500 dark:text-neutral-400">
+            <span className="text-neutral-500 ">
               Odometer:
             </span>
             <span className="font-medium text-neutral-900 dark:text-neutral-100">
@@ -996,7 +996,7 @@ function page() {
 
         {/* Last Update */}
         <div className="mt-2 pt-2 border-t border-neutral-200 dark:border-neutral-700">
-          <div className="flex items-center gap-1 text-[10px] text-neutral-500 dark:text-neutral-400">
+          <div className="flex items-center gap-1 text-[10px] text-neutral-500 ">
             <AccessTimeIcon style={{ fontSize: "9px" }} />
             <span>
               Last: {date} at {time}
@@ -1032,7 +1032,7 @@ function page() {
           <div className="flex items-center gap-1.5">
             <EmailIcon
               style={{ fontSize: "11px" }}
-              className="text-neutral-400 dark:text-neutral-500"
+              className="text-neutral-400 "
             />
             <span className="text-neutral-700 dark:text-neutral-300 truncate">
               {user.email}
@@ -1047,7 +1047,7 @@ function page() {
           <div className="flex items-center gap-1.5">
             <PhoneIcon
               style={{ fontSize: "11px" }}
-              className="text-neutral-400 dark:text-neutral-500"
+              className="text-neutral-400 "
             />
             <span className="text-neutral-700 dark:text-neutral-300 font-mono">
               {user.mobilePrefix} {user.mobile}
@@ -1087,13 +1087,13 @@ function page() {
                 className={
                   value
                     ? "capitalize text-neutral-900 dark:text-neutral-100"
-                    : "text-neutral-500 dark:text-neutral-400"
+                    : "text-neutral-500 "
                 }
               >
                 {value ? value : "(Any Status)"}
               </span>
               <svg
-                className="w-3 h-3 text-neutral-400 dark:text-neutral-500"
+                className="w-3 h-3 text-neutral-400 "
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -1115,7 +1115,7 @@ function page() {
                     placeholder="Search status..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full h-8 pl-8 pr-3 rounded-md border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-sm outline-none"
+                    className="w-full h-8 pl-8 pr-3 rounded-md border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 typo-p outline-none"
                     autoFocus
                   />
                   <svg
@@ -1134,7 +1134,7 @@ function page() {
                 </div>
                 <div className="max-h-52 overflow-y-auto">
                   <div
-                    className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm"
+                    className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer typo-p"
                     onClick={() => {
                       setValue(undefined);
                       setIsOpen(false);
@@ -1145,7 +1145,7 @@ function page() {
                   {filteredStatuses.map((s) => (
                     <div
                       key={s}
-                      className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm capitalize"
+                      className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer typo-p capitalize"
                       onClick={() => {
                         setValue(s);
                         setIsOpen(false);
@@ -1190,7 +1190,7 @@ function page() {
                 setIsOpen(!isOpen);
                 setSearchQuery("");
               }}
-              className="w-full h-9 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 text-sm outline-none flex items-center justify-between text-left"
+              className="w-full h-9 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 typo-p outline-none flex items-center justify-between text-left"
             >
               <span className={value ? "" : "text-slate-500"}>
                 {value || "(Any Type)"}
@@ -1218,7 +1218,7 @@ function page() {
                     placeholder="Search vehicle types..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full h-8 pl-8 pr-3 rounded-md border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-sm outline-none"
+                    className="w-full h-8 pl-8 pr-3 rounded-md border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 typo-p outline-none"
                     autoFocus
                   />
                   <svg
@@ -1237,7 +1237,7 @@ function page() {
                 </div>
                 <div className="max-h-52 overflow-y-auto">
                   <div
-                    className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm"
+                    className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer typo-p"
                     onClick={() => {
                       setValue(undefined);
                       setIsOpen(false);
@@ -1248,7 +1248,7 @@ function page() {
                   {filteredTypes.map((t) => (
                     <div
                       key={t}
-                      className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm"
+                      className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer typo-p"
                       onClick={() => {
                         setValue(t);
                         setIsOpen(false);
@@ -1293,7 +1293,7 @@ function page() {
                 setIsOpen(!isOpen);
                 setSearchQuery("");
               }}
-              className="w-full h-9 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 text-sm outline-none flex items-center justify-between text-left"
+              className="w-full h-9 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 typo-p outline-none flex items-center justify-between text-left"
             >
               <span className={value ? "" : "text-slate-500"}>
                 {value || "(Any Device)"}
@@ -1321,7 +1321,7 @@ function page() {
                     placeholder="Search device types..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full h-8 pl-8 pr-3 rounded-md border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-sm outline-none"
+                    className="w-full h-8 pl-8 pr-3 rounded-md border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 typo-p outline-none"
                     autoFocus
                   />
                   <svg
@@ -1340,7 +1340,7 @@ function page() {
                 </div>
                 <div className="max-h-52 overflow-y-auto">
                   <div
-                    className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm"
+                    className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer typo-p"
                     onClick={() => {
                       setValue(undefined);
                       setIsOpen(false);
@@ -1351,7 +1351,7 @@ function page() {
                   {filteredDevices.map((d) => (
                     <div
                       key={d}
-                      className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm"
+                      className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer typo-p"
                       onClick={() => {
                         setValue(d);
                         setIsOpen(false);
@@ -1396,7 +1396,7 @@ function page() {
                 setIsOpen(!isOpen);
                 setSearchQuery("");
               }}
-              className="w-full h-9 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 text-sm outline-none flex items-center justify-between text-left"
+              className="w-full h-9 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 typo-p outline-none flex items-center justify-between text-left"
             >
               <span className={value ? "truncate" : "text-slate-500"}>
                 {value || "(Any User)"}
@@ -1424,7 +1424,7 @@ function page() {
                     placeholder="Search users..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full h-8 pl-8 pr-3 rounded-md border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-sm outline-none"
+                    className="w-full h-8 pl-8 pr-3 rounded-md border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 typo-p outline-none"
                     autoFocus
                   />
                   <svg
@@ -1443,7 +1443,7 @@ function page() {
                 </div>
                 <div className="max-h-52 overflow-y-auto">
                   <div
-                    className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm"
+                    className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer typo-p"
                     onClick={() => {
                       setValue(undefined);
                       setIsOpen(false);
@@ -1598,7 +1598,7 @@ function page() {
             <div className="font-medium text-[13px] text-neutral-900 dark:text-neutral-100 truncate">
               {row.vehicleNo}
             </div>
-            <div className="flex items-center gap-1 text-[10px] text-neutral-500 dark:text-neutral-400 mt-0.5">
+            <div className="flex items-center gap-1 text-[10px] text-neutral-500  mt-0.5">
               <span>{row.vehicleType.name}</span>
               <span>•</span>
               <span className="font-mono truncate">{row.imei}</span>
@@ -1639,12 +1639,12 @@ function page() {
             <div className="flex items-center gap-1">
               <SpeedIcon
                 style={{ fontSize: "12px" }}
-                className="text-neutral-400 dark:text-neutral-500"
+                className="text-neutral-400 "
               />
               <span className="text-[21px] font-semibold text-neutral-900 dark:text-neutral-100 leading-none">
                 {row.speed}
               </span>
-              <span className="text-[8px] text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
+              <span className="text-[8px] text-neutral-500  uppercase tracking-wide">
                 km/h
               </span>
             </div>
@@ -1657,7 +1657,7 @@ function page() {
                     : "text-red-600 dark:text-red-400"
                 }
               />
-              <span className="text-[9px] text-neutral-500 dark:text-neutral-400 font-medium">
+              <span className="text-[9px] text-neutral-500  font-medium">
                 {row.ignition ? "ON" : "OFF"}
               </span>
             </div>
@@ -1692,7 +1692,7 @@ function page() {
             <div className="font-medium text-[12px] text-neutral-900 dark:text-neutral-100 truncate">
               {row.primaryUser.name}
             </div>
-            <div className="text-[10px] text-neutral-500 dark:text-neutral-400 truncate">
+            <div className="text-[10px] text-neutral-500  truncate">
               @{row.primaryUser.username}
             </div>
           </div>
@@ -1724,7 +1724,7 @@ function page() {
             <div className="font-medium text-[12px] text-neutral-900 dark:text-neutral-100 truncate">
               {row.addedBy.name}
             </div>
-            <div className="text-[10px] text-neutral-500 dark:text-neutral-400 truncate">
+            <div className="text-[10px] text-neutral-500  truncate">
               @{row.addedBy.username}
             </div>
           </div>
@@ -1748,13 +1748,13 @@ function page() {
             <div className="flex items-center gap-1">
               <AccessTimeIcon
                 style={{ fontSize: "12px" }}
-                className="text-neutral-400 dark:text-neutral-500"
+                className="text-neutral-400 "
               />
               <span className="text-[12px] font-medium text-neutral-900 dark:text-neutral-100">
                 {date}
               </span>
             </div>
-            <div className="text-[10px] text-neutral-500 dark:text-neutral-400 mt-0.5">
+            <div className="text-[10px] text-neutral-500  mt-0.5">
               {time}
             </div>
           </div>
@@ -1787,7 +1787,7 @@ function page() {
             {/* Primary */}
             <div className="flex items-center justify-between px-1.5 py-0.5 rounded bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
               <div className="flex items-center gap-1.5">
-                <span className="text-[9px] text-neutral-500 dark:text-neutral-400">
+                <span className="text-[9px] text-neutral-500 ">
                   Pri
                 </span>
                 <span className="text-[10px] font-mono text-neutral-900 dark:text-neutral-100">
@@ -1802,7 +1802,7 @@ function page() {
             {/* Secondary */}
             <div className="flex items-center justify-between px-1.5 py-0.5 rounded bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
               <div className="flex items-center gap-1.5">
-                <span className="text-[9px] text-neutral-500 dark:text-neutral-400">
+                <span className="text-[9px] text-neutral-500 ">
                   Sec
                 </span>
                 <span className="text-[10px] font-mono text-neutral-900 dark:text-neutral-100">
@@ -1832,7 +1832,7 @@ function page() {
             <div className="text-[12px] font-medium text-neutral-900 dark:text-neutral-100">
               {date}
             </div>
-            <div className="text-[10px] text-neutral-500 dark:text-neutral-400 mt-0.5">
+            <div className="text-[10px] text-neutral-500  mt-0.5">
               {time}
             </div>
           </div>
@@ -1879,7 +1879,7 @@ function page() {
               <h1 className="typo-h1">
                 Vehicle Management
               </h1>
-              {/* <p className="text-sm text-neutral-500">
+              {/* <p className="typo-p-muted">
                 Self‑hosted GPS Software • FleetStack
               </p> */}
             </div>

@@ -154,7 +154,7 @@ export function Metric({
 }) {
   return (
     <div className="rounded-2xl border border-border bg-background p-3">
-      <div className="mb-1 flex items-center justify-between text-sm">
+      <div className="mb-1 flex items-center justify-between typo-p">
         <span className="text-muted">{label}</span>
         <span className="inline-flex items-center gap-1 text-foreground">
           {icon}

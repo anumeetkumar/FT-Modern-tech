@@ -312,7 +312,7 @@ export default function UserPolicyManagement() {
       >
         <Card className="rounded-2xl border border-border bg-card p-6">
           <div className="mb-1">
-            <h3 className="text-lg font-semibold text-foreground mb-1">
+            <h3 className="typo-h3 mb-1">
               {POLICY_OPTIONS.find((p) => p.value === selectedPolicy)?.label}
             </h3>
             <p className="typo-p-muted">
