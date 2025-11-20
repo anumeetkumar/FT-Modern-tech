@@ -168,7 +168,7 @@ const Pill = ({
       <div className="text-[10px] tracking-widest text-muted-foreground">
         {label}
       </div>
-      <div className="typo-p500>{value}</div>
+      <div className="typo-p500">{value}</div>
     </div>
   </div>
 );
@@ -550,7 +550,7 @@ export default function VehicleDetailsPreview({
                     />
                     <div className="min-w-0">
                       <div className="flex items-center gap-1">
-                        <div className="truncate typo-p500>
+                        <div className="truncate typo-p500">
                           {user.name}
                         </div>
                         {user.isEmailVerified && (

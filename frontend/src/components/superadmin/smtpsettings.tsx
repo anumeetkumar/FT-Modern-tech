@@ -141,7 +141,7 @@ const SuperAdminSMTPSettings = () => {
         {/* Enable SMTP */}
         <div className="flex items-center justify-between p-4 bg-background border border-border rounded-xl">
           <div className="flex-1">
-            <div className="typo-p500>
+            <div className="typo-p500">
               Enable SMTP Service
             </div>
             <div className="typo-subtitle mt-0.5">
@@ -177,7 +177,7 @@ const SuperAdminSMTPSettings = () => {
             <div className="md:col-span-2">
               <Label
                 htmlFor="smtp-host"
-                className="typo-p500
+                className="typo-p500"
               >
                 SMTP Host
               </Label>
@@ -197,7 +197,7 @@ const SuperAdminSMTPSettings = () => {
             <div>
               <Label
                 htmlFor="smtp-port"
-                className="typo-p500
+                className="typo-p500"
               >
                 Port
               </Label>
@@ -215,7 +215,7 @@ const SuperAdminSMTPSettings = () => {
 
           <div className="flex items-center justify-between p-4 bg-background border border-border rounded-xl">
             <div className="flex-1">
-              <div className="typo-p500>
+              <div className="typo-p500">
                 Use TLS/SSL Encryption
               </div>
               <div className="typo-subtitle mt-0.5">
@@ -233,7 +233,7 @@ const SuperAdminSMTPSettings = () => {
           <div>
             <Label
               htmlFor="smtp-username"
-              className="typo-p500
+              className="typo-p500"
             >
               Username / Email
             </Label>
@@ -253,7 +253,7 @@ const SuperAdminSMTPSettings = () => {
           <div>
             <Label
               htmlFor="smtp-password"
-              className="typo-p500
+              className="typo-p500"
             >
               Password / App Password
             </Label>
@@ -303,7 +303,7 @@ const SuperAdminSMTPSettings = () => {
           <div>
             <Label
               htmlFor="from-email"
-              className="typo-p500
+              className="typo-p500"
             >
               From Email Address
             </Label>
@@ -323,7 +323,7 @@ const SuperAdminSMTPSettings = () => {
           <div>
             <Label
               htmlFor="from-name"
-              className="typo-p500
+              className="typo-p500"
             >
               From Name
             </Label>
@@ -343,7 +343,7 @@ const SuperAdminSMTPSettings = () => {
           <div>
             <Label
               htmlFor="reply-to-email"
-              className="typo-p500
+              className="typo-p500"
             >
               Reply-To Email (Optional)
             </Label>
