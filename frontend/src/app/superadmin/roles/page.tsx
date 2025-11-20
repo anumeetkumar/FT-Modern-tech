@@ -296,7 +296,7 @@ export default function RoleManager() {
                         <TooltipContent>{PRESET_HELP[p.key]}</TooltipContent>
                       </Tooltip>
                     ))}
-                    <div className="ml-auto flex items-center gap-2 text-xs">
+                    <div className="ml-auto flex items-center gap-2 typo-p12n">
                       <span>Set all:</span>
                       {(
                         ["none", "view", "edit", "manage", "full"] as Level[]

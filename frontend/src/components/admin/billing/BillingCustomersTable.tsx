@@ -139,7 +139,7 @@ export function BillingCustomersTable({
                       {stats.total} devices
                     </Badge>
                   </div>
-                  <div className="text-xs ">
+                  <div className="typo-p12n ">
                     {stats.expiring} expiring • {stats.overdue} overdue •{" "}
                     {stats.suspended} suspended
                   </div>

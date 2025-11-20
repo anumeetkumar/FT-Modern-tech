@@ -648,7 +648,7 @@ export default function CreditHistoryPage() {
                         </Td>
                         <Td className="text-right">
                           <span
-                            className={`inline-flex items-center rounded-full border px-2 py-[2px] text-xs ${
+                            className={`inline-flex items-center rounded-full border px-2 py-[2px] typo-p12n ${
                               t.creditsChange > 0
                                 ? "border-border bg-foreground/10"
                                 : "border-border bg-foreground/5"

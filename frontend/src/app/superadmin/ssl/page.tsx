@@ -461,7 +461,7 @@ function ActionDialog({ action, onOpenChange, items, onDone }:{
 
     <div className="space-y-4 bg-background">
       <div className="rounded-xl border border-border bg-foreground/5 p-3 typo-p">
-        <div className="h-40 overflow-auto text-xs font-mono leading-relaxed text-foreground bg-foreground/5 rounded-lg">
+        <div className="h-40 overflow-auto typo-p12n font-mono leading-relaxed text-foreground bg-foreground/5 rounded-lg">
           {logs.length === 0 ? (
             <div className="text-muted">Ready. Click **Run** to start the operation.</div>
           ) : (

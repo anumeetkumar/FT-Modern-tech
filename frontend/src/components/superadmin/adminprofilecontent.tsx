@@ -121,7 +121,7 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
   if (loading) {
     return (
       <div className="p-8">
-        <h2 className="typo-h1 mb-2 dark:text-neutral-100">
+        <h2 className="typo-h1 mb-2 ">
           Loading...
         </h2>
       </div>

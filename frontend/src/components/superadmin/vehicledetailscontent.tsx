@@ -144,7 +144,7 @@ const KV = ({
       {label}
     </span>
     <span
-      className={`typo-p dark:text-neutral-100 ${mono ? "font-mono" : ""}`}
+      className={`typo-p  ${mono ? "font-mono" : ""}`}
     >
       {value}
     </span>
@@ -184,10 +184,10 @@ const SectionTitle = ({
 }) => (
   <div className="mb-3 flex items-center justify-between">
     <div className="flex items-center gap-2">
-      <div className="grid h-7 w-7 place-items-center rounded-md border border-neutral-300 dark:border-neutral-600 dark:text-neutral-100">
+      <div className="grid h-7 w-7 place-items-center rounded-md border border-neutral-300 dark:border-neutral-600 ">
         {icon}
       </div>
-      <h3 className="typo-p600 dark:text-neutral-100">{title}</h3>
+      <h3 className="typo-p600 ">{title}</h3>
     </div>
     {hint ? (
       <span className="typo-subtitle">
@@ -206,7 +206,7 @@ const Avatar = ({
   alt: string;
   fallback: string;
 }) => (
-  <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border dark:border-neutral-600 bg-white dark:bg-neutral-700 typo-p600 dark:text-neutral-100">
+  <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border dark:border-neutral-600 bg-white dark:bg-neutral-700 typo-p600 ">
     {/* eslint-disable-next-line @next/next/no-img-element */}
     {src ? (
       <img src={src} alt={alt} className="h-full w-full object-cover" />
@@ -492,7 +492,7 @@ export default function VehicleDetailsPreview({
               icon={<KeyIcon fontSize="small" />}
               title="Subscription"
             />
-            <div className="mb-2 flex items-center justify-between text-xs">
+            <div className="mb-2 flex items-center justify-between typo-p12n">
               <span className="text-muted-foreground">Primary</span>
               <span className="font-mono text-foreground">
                 {v.primaryExpiry}
@@ -509,7 +509,7 @@ export default function VehicleDetailsPreview({
             <div className="mt-2 typo-subtitle">
               {primaryDaysLeft} days remaining
             </div>
-            <div className="mt-4 mb-2 flex items-center justify-between text-xs">
+            <div className="mt-4 mb-2 flex items-center justify-between typo-p12n">
               <span className="text-muted-foreground">Secondary</span>
               <span className="font-mono text-foreground">
                 {v.secondaryExpiry}

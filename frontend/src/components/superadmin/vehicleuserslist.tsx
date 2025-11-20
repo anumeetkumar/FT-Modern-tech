@@ -198,7 +198,7 @@ function ProfileCard({
       <div className="mt-4 flex items-center justify-end">
         <button
           onClick={() => onLogin(p.username)}
-          className="inline-flex items-center gap-2 rounded-lg bg-primary text-white px-3 py-1.5 text-xs transition hover:bg-primary/90"
+          className="inline-flex items-center gap-2 rounded-lg bg-primary text-white px-3 py-1.5 typo-p12n transition hover:bg-primary/90"
         >
           <LoginIcon style={{ fontSize: 16 }} />
           <span>Login</span>

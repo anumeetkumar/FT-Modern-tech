@@ -99,7 +99,7 @@ const TransactionDetailModal = ({
                       {Object.entries(active.meta).map(([k, v]) => (
                         <div
                           key={k}
-                          className="flex items-center justify-between rounded border border-border px-2 py-1 text-xs"
+                          className="flex items-center justify-between rounded border border-border px-2 py-1 typo-p12n"
                         >
                           <span className="text-muted">{k}</span>
                           <span className="font-mono">{v}</span>

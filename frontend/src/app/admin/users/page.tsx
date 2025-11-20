@@ -290,7 +290,7 @@ export default function Page() {
             router.push(`/admin/users/${row.id}`);
           }}
         >
-          <p className="font-semibold text-slate-900 dark:text-slate-100">
+          <p className="typo-h4">
             {row.name}
           </p>
           <p className=" typo-subtitle">

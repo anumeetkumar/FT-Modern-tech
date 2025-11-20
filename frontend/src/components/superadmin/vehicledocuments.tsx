@@ -540,7 +540,7 @@ export default function VehicleDocumentsPage() {
                   <FileKindIcon kind={inferFileKind(formFile)} />
                 </div>
                 <div className="text-left">
-                  <div className="typo-p500  dark:text-neutral-100 truncate max-w-[150px]">{formFile.name}</div>
+                  <div className="typo-p500   truncate max-w-[150px]">{formFile.name}</div>
                   <div className="typo-subtitle">{formatBytes(formFile.size)}</div>
                 </div>
               </div>
@@ -572,7 +572,7 @@ export default function VehicleDocumentsPage() {
       {/* Page Header */}
       <div className="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
         <div className="flex items-center gap-3">
-          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className="flex h-11 w-11 items-center justify-center rounded-2xl border border-neutral-200 dark:border-neutral-700 dark:text-neutral-100">
+          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className="flex h-11 w-11 items-center justify-center rounded-2xl border border-neutral-200 dark:border-neutral-700 ">
             <UploadFileIcon/>
           </motion.div>
           <div>
@@ -594,7 +594,7 @@ export default function VehicleDocumentsPage() {
           <div className="typo-p-muted">Total documents</div>
           <div className="mt-1 flex items-baseline gap-2">
             <span className="typo-h1 font-semibold ">{docs.length}</span>
-            <Badge variant="outline" className="rounded-full border-neutral-300 dark:border-neutral-600 text-xs dark:text-neutral-100">v{docs.reduce((a,b)=>a+b.version,0)}</Badge>
+            <Badge variant="outline" className="rounded-full border-neutral-300 dark:border-neutral-600 typo-p12n ">v{docs.reduce((a,b)=>a+b.version,0)}</Badge>
           </div>
         </div>
         <div className="rounded-2xl border border-neutral-200 dark:border-neutral-700 p-4">
@@ -788,10 +788,10 @@ export default function VehicleDocumentsPage() {
                       <Button variant="ghost" className="h-8 w-8 rounded-full p-0 hover:bg-neutral-100 dark:hover:bg-neutral-700"><MoreVertIcon/></Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="start" className="z-[9999] min-w-52 border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700">
-                      <DropdownMenuLabel className="dark:text-neutral-100">Quick actions</DropdownMenuLabel>
+                      <DropdownMenuLabel className="">Quick actions</DropdownMenuLabel>
                       <DropdownMenuSeparator className="dark:bg-neutral-700"/>
-                      <DropdownMenuItem onClick={() => openView(d)} className="dark:text-neutral-100 dark:hover:bg-neutral-700"><VisibilityIcon className="mr-2"/> View</DropdownMenuItem>
-                      <DropdownMenuItem onClick={() => openEditDialog(d)} className="dark:text-neutral-100 dark:hover:bg-neutral-700"><EditIcon className="mr-2"/> Edit / New version</DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => openView(d)} className=" dark:hover:bg-neutral-700"><VisibilityIcon className="mr-2"/> View</DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => openEditDialog(d)} className=" dark:hover:bg-neutral-700"><EditIcon className="mr-2"/> Edit / New version</DropdownMenuItem>
                       <DropdownMenuItem
                         onClick={() => {
                           if (d.url) {
@@ -803,7 +803,7 @@ export default function VehicleDocumentsPage() {
                             alert("No file available to download (seeded demo).");
                           }
                         }}
-                        className="dark:text-neutral-100 dark:hover:bg-neutral-700"
+                        className=" dark:hover:bg-neutral-700"
                       >
                         <DownloadIcon className="mr-2"/> Download
                       </DropdownMenuItem>
@@ -994,7 +994,7 @@ function TagInput({ value, onChange }: { value: string[]; onChange: (v: string[]
   return (
     <div className="flex min-h-[44px] w-full flex-wrap items-center gap-2 rounded-xl border border-neutral-300 dark:border-neutral-600 dark:bg-neutral-800 px-3 py-2">
       {value.map((t) => (
-        <span key={t} className="inline-flex items-center gap-1 rounded-full border border-neutral-300 dark:border-neutral-600 px-2 py-1 text-xs  ">
+        <span key={t} className="inline-flex items-center gap-1 rounded-full border border-neutral-300 dark:border-neutral-600 px-2 py-1 typo-p12n  ">
           <TagIcon fontSize="small"/>
           {t}
           <button onClick={() => remove(t)} className="ml-1 rounded-full px-1 text-neutral-500  hover:bg-neutral-100 dark:hover:bg-neutral-700">×</button>

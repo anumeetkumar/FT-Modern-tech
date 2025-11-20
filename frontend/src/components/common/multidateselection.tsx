@@ -256,7 +256,7 @@ export function MultiDateRangePicker({
           variant="outline"
           disabled={disabled}
           className={cn(
-            "inline-flex w-full items-center justify-between rounded-lg border-neutral-300 px-3 py-2 text-left font-normal typo-p h-10 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100",
+            "inline-flex w-full items-center justify-between rounded-lg border-neutral-300 px-3 py-2 text-left font-normal typo-p h-10 dark:border-neutral-600 dark:bg-neutral-800 ",
             !draft?.from && "text-neutral-500 ",
             className
           )}
@@ -336,7 +336,7 @@ export function MultiDateRangePicker({
             {/* Calendar & Actions */}
             <div className="grow p-3">
               {/* Date Inputs */}
-              <div className="mb-3 grid grid-cols-2 gap-2 text-xs">
+              <div className="mb-3 grid grid-cols-2 gap-2 typo-p12n">
                 <div>
                   <div className="mb-1 font-medium text-neutral-500 ">
                     Start
@@ -414,7 +414,7 @@ export function MultiDateRangePicker({
                   </Button>
                   <Button
                     onClick={onApply}
-                    className="h-8 rounded bg-neutral-900 text-white hover:bg-neutral-800 text-xs px-3 dark:bg-white dark:text-black dark:hover:bg-neutral-100"
+                    className="h-8 rounded bg-neutral-900 text-white hover:bg-neutral-800 typo-p12n px-3 dark:bg-white dark:text-black dark:hover:bg-neutral-100"
                     disabled={!draft?.from || !draft?.to}
                   >
                     Apply

@@ -143,9 +143,9 @@ function TransactionDetailsDrawer({ transaction, open, onClose }: TransactionDet
         <div className="p-7">
           {/* Header */}
           <div className="flex items-center justify-between mb-4 pb-3 border-b border-neutral-200 dark:border-neutral-700">
-            <h2 className="typo-h3 text-neutral-900 dark:text-neutral-100">Transaction Details</h2>
+            <h2 className="typo-h3 ">Transaction Details</h2>
             <Button variant="ghost" size="sm" onClick={onClose} className="h-8 w-8 p-0 dark:hover:bg-neutral-800">
-              <CloseIcon fontSize="small" className="dark:text-neutral-100" />
+              <CloseIcon fontSize="small" className="" />
             </Button>
           </div>
 
@@ -155,7 +155,7 @@ function TransactionDetailsDrawer({ transaction, open, onClose }: TransactionDet
               <ReceiptIcon className="text-neutral-400 " />
               <div className="flex-1">
                 <p className="typo-subtitle">Transaction ID</p>
-                <p className="typo-p600 font-mono text-neutral-900 dark:text-neutral-100">{transaction.transactionId}</p>
+                <p className="typo-p600 font-mono ">{transaction.transactionId}</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -176,7 +176,7 @@ function TransactionDetailsDrawer({ transaction, open, onClose }: TransactionDet
 
           {/* Customer Information */}
           <div className="mb-6">
-            <h4 className="typo-p600 text-neutral-900 dark:text-neutral-100 mb-3">Customer Information</h4>
+            <h4 className="typo-p600  mb-3">Customer Information</h4>
             
             {/* Customer Avatar & Name */}
             <div className="flex items-center gap-3 mb-4">
@@ -188,7 +188,7 @@ function TransactionDetailsDrawer({ transaction, open, onClose }: TransactionDet
               <div className="flex-1 min-w-0">
                 <Link 
                   href={`/superadmin/administrators/${transaction.customer.id}`}
-                  className="text-base font-semibold text-neutral-900 dark:text-neutral-100 hover:underline"
+                  className="text-base font-semibold  hover:underline"
                 >
                   {transaction.customer.name}
                 </Link>
@@ -235,11 +235,11 @@ function TransactionDetailsDrawer({ transaction, open, onClose }: TransactionDet
           {/* Company Information */}
           {transaction.customer.company && (
             <div className="mb-6">
-              <h4 className="typo-p600 text-neutral-900 dark:text-neutral-100 mb-3">Company</h4>
+              <h4 className="typo-p600  mb-3">Company</h4>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <BusinessIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
-                  <span className="typo-p500 text-neutral-900 dark:text-neutral-100">{transaction.customer.company.name}</span>
+                  <span className="typo-p500 ">{transaction.customer.company.name}</span>
                 </div>
                 
                 {transaction.customer.company.website && (
@@ -300,14 +300,14 @@ function TransactionDetailsDrawer({ transaction, open, onClose }: TransactionDet
 
           {/* Payment Details */}
           <div className="mb-6">
-            <h4 className="typo-p600 text-neutral-900 dark:text-neutral-100 mb-3">Payment Details</h4>
+            <h4 className="typo-p600  mb-3">Payment Details</h4>
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <PaymentIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                   <span className="typo-p-muted ">Amount</span>
                 </div>
-                <span className="typo-p font-bold text-neutral-900 dark:text-neutral-100">
+                <span className="typo-p font-bold ">
                   {transaction.currency} {transaction.amount.toLocaleString()}
                 </span>
               </div>
@@ -317,7 +317,7 @@ function TransactionDetailsDrawer({ transaction, open, onClose }: TransactionDet
                   <CreditCardIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                   <span className="typo-p-muted ">Credits</span>
                 </div>
-                <span className="typo-p500 text-neutral-900 dark:text-neutral-100">
+                <span className="typo-p500 ">
                   {transaction.credits.toLocaleString()}
                 </span>
               </div>
@@ -327,7 +327,7 @@ function TransactionDetailsDrawer({ transaction, open, onClose }: TransactionDet
                   <AccountBalanceIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                   <span className="typo-p-muted ">Gateway</span>
                 </div>
-                <Badge variant="outline" className="text-xs border-neutral-300 dark:border-neutral-600">
+                <Badge variant="outline" className="typo-p12n border-neutral-300 dark:border-neutral-600">
                   {transaction.gateway}
                 </Badge>
               </div>
@@ -337,7 +337,7 @@ function TransactionDetailsDrawer({ transaction, open, onClose }: TransactionDet
                   <CalendarTodayIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                   <span className="typo-p-muted ">Date & Time</span>
                 </div>
-                <span className="typo-p500 text-neutral-900 dark:text-neutral-100">
+                <span className="typo-p500 ">
                   {formatDate(transaction.datetime)}
                 </span>
               </div>

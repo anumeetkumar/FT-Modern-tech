@@ -239,7 +239,7 @@ function SuperAdminWhiteLabel() {
                 <li>Navigate to DNS Management / DNS Settings</li>
                 <li>Add or update an <strong>A Record</strong>:</li>
               </ol>
-              <div className="bg-background p-3 rounded border border-border font-mono text-xs space-y-1 mt-2">
+              <div className="bg-background p-3 rounded border border-border font-mono typo-p12n space-y-1 mt-2">
                 <div>
                   <span className="text-muted">Type:</span>{" "}
                   <strong className="text-foreground">A</strong>
@@ -453,7 +453,7 @@ function SuperAdminWhiteLabel() {
   <div>
     <span className="font-medium text-muted">Last Updated:</span> {new Date(settings.updatedAt).toLocaleString()}
   </div>
-  <Badge variant="outline" className="text-xs border-border text-foreground">
+  <Badge variant="outline" className="typo-p12n border-border text-foreground">
     <CheckCircleRoundedIcon fontSize="small" className="mr-1 text-foreground" />
     All changes saved
   </Badge>

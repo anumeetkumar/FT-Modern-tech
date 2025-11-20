@@ -115,7 +115,7 @@ export default function DetailSheet({
                   </Button>
                 )}
               </div>
-              <pre className="max-h-[45vh] overflow-auto rounded-md border bg-muted p-3 text-xs leading-relaxed">
+              <pre className="max-h-[45vh] overflow-auto rounded-md border bg-muted p-3 typo-p12n leading-relaxed">
                 {JSON.stringify(rawJSON, null, 2)}
               </pre>
             </div>

@@ -198,7 +198,7 @@ function SuperAdminAPIConfig() {
   if (loading) {
     return (
       <div className="p-8">
-        <h2 className="typo-h1 mb-2 dark:text-neutral-100">Saving...</h2>
+        <h2 className="typo-h1 mb-2 ">Saving...</h2>
       </div>
     );
   }

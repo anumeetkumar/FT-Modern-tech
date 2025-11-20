@@ -70,7 +70,7 @@ export const TagInput = React.forwardRef<HTMLInputElement, TagInputProps>(
             <Badge
               key={index}
               variant="secondary"
-              className="flex items-center gap-1 px-2 py-1 text-xs"
+              className="flex items-center gap-1 px-2 py-1 typo-p12n"
             >
               {tag}
               {!disabled && (

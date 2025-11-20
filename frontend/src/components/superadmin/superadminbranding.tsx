@@ -150,7 +150,7 @@ function SuperAdminBranding() {
             <div className="text-[11px] uppercase tracking-[0.2em] text-neutral-500 ">
               Theme Customization
             </div>
-            <CardTitle className="typo-h1  dark:text-neutral-100">
+            <CardTitle className="typo-h1  ">
               Branding & Colors
             </CardTitle>
             <p className="typo-p-muted mt-1">
@@ -211,7 +211,7 @@ function SuperAdminBranding() {
               <PaletteIcon className="typo-base-muted" />
             </div>
             <div>
-              <div className="font-semibold typo-p dark:text-neutral-100">Active Preview</div>
+              <div className="font-semibold typo-p ">Active Preview</div>
               <div className="typo-subtitle">
                 Switch between light and dark theme preview
               </div>
@@ -303,7 +303,7 @@ function SuperAdminBranding() {
                   borderWidth: '1px'
                 }}
               >
-                <div style={{ color: currentTheme.muted }} className="text-xs mb-1">
+                <div style={{ color: currentTheme.muted }} className="typo-p12n mb-1">
                   Sample Card
                 </div>
                 <div style={{ color: currentTheme.foreground }} className="font-semibold">
@@ -541,7 +541,7 @@ function SuperAdminBranding() {
               <div className="typo-p500 text-blue-900 dark:text-blue-100">
                 Theme Customization Tips
               </div>
-              <div className="text-xs text-blue-700 dark:text-blue-300 space-y-1">
+              <div className="typo-p12n text-blue-700 dark:text-blue-300 space-y-1">
                 <p>• Default Fleet Stack theme uses black/white for professional appearance</p>
                 <p>• Customize colors to match your brand identity</p>
                 <p>• Ensure sufficient contrast for accessibility</p>
@@ -603,7 +603,7 @@ function ColorInput({
             value={inputValue}
             onChange={(e) => handleInputChange(e.target.value)}
             placeholder="#000000"
-            className={`pr-12 font-mono typo-p dark:bg-neutral-700 dark:border-neutral-600 dark:text-neutral-100 ${
+            className={`pr-12 font-mono typo-p dark:bg-neutral-700 dark:border-neutral-600  ${
               !isValid ? 'border-red-500 dark:border-red-500' : ''
             }`}
           />

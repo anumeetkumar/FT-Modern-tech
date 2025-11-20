@@ -268,7 +268,7 @@ const ReverseCoding = () => {
                 />
               </div>
               {configs.reverseGeocoding.providerActive && (
-                <div className="mt-3 flex items-center gap-2 text-xs">
+                <div className="mt-3 flex items-center gap-2 typo-p12n">
                   <Badge className="bg-primary text-white">ACTIVE</Badge>
                   <span className="text-muted">
                     This provider is now handling all reverse geocoding requests
@@ -282,7 +282,7 @@ const ReverseCoding = () => {
               <div className="typo-h6 mb-2 text-foreground">
                 Provider Documentation & Setup
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-xs">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-2 typo-p12n">
                 {[
                   [
                     "https://console.cloud.google.com/apis/credentials",

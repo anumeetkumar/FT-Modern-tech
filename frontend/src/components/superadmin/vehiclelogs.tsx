@@ -190,7 +190,7 @@ export default function VehicleLogsPage() {
   {/* Table */}
   <div className="overflow-hidden rounded-xl border border-border bg-background shadow-sm">
     <div className="overflow-x-auto">
-      <table className="w-full table-fixed text-xs">
+      <table className="w-full table-fixed typo-p12n">
         <thead>
           <tr className="border-b border-border  text-[10px] font-medium text-muted uppercase tracking-wider">
             <th className="sticky left-0 z-20 w-12  px-2 py-2 text-left">Sr</th>
@@ -409,18 +409,18 @@ function Row({ row, idx }: { row: LogRow; idx: number }) {
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 align="end"
-                className="w-40 bg-background border-border text-xs"
+                className="w-40 bg-background border-border typo-p12n"
               >
-                <DropdownMenuItem onClick={() => copy(row.imei)} className="text-xs">
+                <DropdownMenuItem onClick={() => copy(row.imei)} className="typo-p12n">
                   Copy IMEI
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => copy(coord)} className="text-xs">
+                <DropdownMenuItem onClick={() => copy(coord)} className="typo-p12n">
                   Copy Lat,Lng
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
                   onClick={() => copy(JSON.stringify(row))}
-                  className="text-xs"
+                  className="typo-p12n"
                 >
                   Copy JSON
                 </DropdownMenuItem>

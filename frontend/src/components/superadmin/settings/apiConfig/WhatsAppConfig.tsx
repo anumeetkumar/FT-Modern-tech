@@ -239,7 +239,7 @@ const WhatsAppConfigComponent = () => {
             />
           </div>
           {configs.whatsapp.providerActive && (
-            <div className="mt-3 flex items-center gap-2 text-xs">
+            <div className="mt-3 flex items-center gap-2 typo-p12n">
               <Badge className="bg-primary text-white">
                 ACTIVE
               </Badge>
@@ -255,7 +255,7 @@ const WhatsAppConfigComponent = () => {
           <div className="typo-h6 mb-2 text-foreground">
             Provider Documentation & Setup
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 typo-p12n">
             <a
               href="https://www.twilio.com/console"
               target="_blank"

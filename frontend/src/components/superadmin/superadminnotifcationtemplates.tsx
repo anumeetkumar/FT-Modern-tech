@@ -23,7 +23,7 @@ const displayOptions: DisplayMap<EmailTemplate> = {
   },
   1: {
     title: () => "Language",
-    content: (row) => <span className="uppercase text-xs tracking-wide">{row.languageCode}</span>
+    content: (row) => <span className="uppercase typo-p12n tracking-wide">{row.languageCode}</span>
   }
 }
 

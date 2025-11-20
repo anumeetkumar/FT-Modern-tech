@@ -235,7 +235,7 @@ export default function SuperAdminSettings() {
                 )}
               >
                 <div className="font-medium">{digit} Digits</div>
-                <div className="text-xs opacity-75 mt-1">
+                <div className="typo-p12n opacity-75 mt-1">
                   {digit === "2" ? "City/Region" : "Street Level"}
                 </div>
               </button>

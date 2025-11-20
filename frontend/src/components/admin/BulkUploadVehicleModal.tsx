@@ -102,7 +102,7 @@ export default function BulkUploadVehicleModal({
                   <div className="font-medium">
                     {bulkUploadForm.file?.name || "Choose file or drag and drop"}
                   </div>
-                  <div className="text-xs mt-1 opacity-70">
+                  <div className="typo-p12n mt-1 opacity-70">
                     CSV, Excel files up to 10MB
                   </div>
                 </div>
@@ -123,7 +123,7 @@ export default function BulkUploadVehicleModal({
               <div>
                 <strong>Example:</strong>
               </div>
-              <div className="font-mono text-xs bg-accent/20 p-2 rounded mt-2 break-words">
+              <div className="font-mono typo-p12n bg-accent/20 p-2 rounded mt-2 break-words">
                 Username,Vehicle No.,Vehicle Type,Device Type,IMEI,SIM<br />
                 John Doe,MH01AB1234,Car,Teltonika FMB920,123456789012345,9876543210
               </div>

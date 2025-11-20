@@ -221,7 +221,7 @@ export function BulkUploadSimCardsDialog({ onSubmit, providers }: BulkUploadSimC
           <Card>
             <CardHeader className="pb-3">
               <CardTitle className="typo-p">CSV Format</CardTitle>
-              <CardDescription className="text-xs">
+              <CardDescription className="typo-p12n">
                 Format: simno, provider, imsi (optional), iccid (optional)
               </CardDescription>
             </CardHeader>
@@ -324,7 +324,7 @@ export function BulkUploadSimCardsDialog({ onSubmit, providers }: BulkUploadSimC
                           )}
                         </div>
                         {simCard.errors.length > 0 && (
-                          <div className="text-xs text-red-600 mt-1">
+                          <div className="typo-p12n text-red-600 mt-1">
                             {simCard.errors.join(', ')}
                           </div>
                         )}

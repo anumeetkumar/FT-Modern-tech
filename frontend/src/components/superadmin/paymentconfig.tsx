@@ -544,7 +544,7 @@ export default function PaymentGatewayConfig() {
                     {config.enabled && (
                       <Badge
                         variant="outline"
-                        className="bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 border-green-300 dark:border-green-700 text-xs"
+                        className="bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 border-green-300 dark:border-green-700 typo-p12n"
                       >
                         <CheckCircleIcon className="w-3 h-3 mr-1" />
                         Enabled
@@ -553,7 +553,7 @@ export default function PaymentGatewayConfig() {
                     {config.isPrimary && (
                       <Badge
                         variant="outline"
-                        className="bg-primary/10 text-primary border-primary/30 text-xs"
+                        className="bg-primary/10 text-primary border-primary/30 typo-p12n"
                       >
                         <VerifiedUserIcon className="w-3 h-3 mr-1" />
                         Primary
@@ -562,7 +562,7 @@ export default function PaymentGatewayConfig() {
                     {isConfigured && (
                       <Badge
                         variant="outline"
-                        className="bg-foreground/5 text-muted-foreground border-border text-xs"
+                        className="bg-foreground/5 text-muted-foreground border-border typo-p12n"
                       >
                         Configured
                       </Badge>
@@ -671,7 +671,7 @@ export default function PaymentGatewayConfig() {
                                     <h4 className="font-semibold typo-p mb-1">
                                       🔐 Development Environment
                                     </h4>
-                                    <p className="text-xs">
+                                    <p className="typo-p12n">
                                       Credentials are currently stored locally
                                       in your browser's localStorage for
                                       development and testing purposes only.
@@ -682,14 +682,14 @@ export default function PaymentGatewayConfig() {
                                     <h4 className="font-semibold typo-p mb-1">
                                       ⚠️ Production Warning
                                     </h4>
-                                    <p className="text-xs">
+                                    <p className="typo-p12n">
                                       <strong>
                                         Never store sensitive credentials in
                                         localStorage in production.
                                       </strong>{" "}
                                       Use secure backend storage with:
                                     </p>
-                                    <ul className="text-xs mt-2 space-y-1 list-disc list-inside ml-2">
+                                    <ul className="typo-p12n mt-2 space-y-1 list-disc list-inside ml-2">
                                       <li>
                                         Environment variables (.env files)
                                       </li>
@@ -706,11 +706,11 @@ export default function PaymentGatewayConfig() {
                                     <h4 className="font-semibold typo-p mb-1">
                                       ✅ Recommended Approach
                                     </h4>
-                                    <p className="text-xs">
+                                    <p className="typo-p12n">
                                       Configure payment gateways through a
                                       secure admin API endpoint that:
                                     </p>
-                                    <ul className="text-xs mt-2 space-y-1 list-disc list-inside ml-2">
+                                    <ul className="typo-p12n mt-2 space-y-1 list-disc list-inside ml-2">
                                       <li>
                                         Requires authentication and
                                         authorization

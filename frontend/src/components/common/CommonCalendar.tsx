@@ -204,7 +204,7 @@ export default function EventsCalendar({
       </div>
 
       {/* Filters */}
-      <div className="mb-3 flex flex-wrap items-center gap-2 text-xs">
+      <div className="mb-3 flex flex-wrap items-center gap-2 typo-p12n">
         {(isSuperAdmin
           ? ["ADMIN_CREATED", "USER_CREATED", "VEHICLE_EXPIRY", "VEHICLE_ADDED"]
           : ["USER_CREATED", "VEHICLE_EXPIRY", "VEHICLE_ADDED"]
@@ -264,7 +264,7 @@ export default function EventsCalendar({
                     {/* Density strip */}
                     {/* <div className={`absolute inset-x-0 top-0 h-1 ${dens}`} /> */}
 
-                    <div className="flex items-center justify-between text-xs">
+                    <div className="flex items-center justify-between typo-p12n">
                       <span
                         className={`inline-flex h-6 w-6 items-center justify-center rounded-full ${
                           isToday ? "border border-primary" : ""
@@ -516,7 +516,7 @@ export default function EventsCalendar({
 
             {/* Event details */}
             <div className="rounded-2xl border border-neutral-200 bg-white p-4 dark:border-neutral-700 dark:bg-neutral-800">
-              <div className="mb-2 flex items-center gap-2 typo-p600 dark:text-neutral-100">
+              <div className="mb-2 flex items-center gap-2 typo-p600 ">
                 <EventNoteIcon style={{ fontSize: 16 }} />
                 <span>Event Details</span>
               </div>

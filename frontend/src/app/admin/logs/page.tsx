@@ -59,7 +59,7 @@ const Badge = ({
   };
   return (
     <span
-      className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs ${tones[tone]}`}
+      className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 typo-p12n ${tones[tone]}`}
     >
       {children}
     </span>
@@ -836,7 +836,7 @@ export default function LogsPage() {
                       return n;
                     })
                   }
-                  className="flex items-center gap-2 rounded-2xl text-xs"
+                  className="flex items-center gap-2 rounded-2xl typo-p12n"
                 >
                   <Icon className="h-4 w-4" /> {s.toUpperCase()}
                 </Button>
@@ -883,14 +883,14 @@ export default function LogsPage() {
                 type="datetime-local"
                 value={fromTs}
                 onChange={(e) => setFromTs(e.target.value)}
-                className="rounded-xl border border-neutral-300 bg-white px-2 py-1 text-xs"
+                className="rounded-xl border border-neutral-300 bg-white px-2 py-1 typo-p12n"
               />
               <span className="typo-subtitle">to</span>
               <input
                 type="datetime-local"
                 value={toTs}
                 onChange={(e) => setToTs(e.target.value)}
-                className="rounded-xl border border-neutral-300 bg-white px-2 py-1 text-xs"
+                className="rounded-xl border border-neutral-300 bg-white px-2 py-1 typo-p12n"
               />
             </div> */}
 

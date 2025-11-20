@@ -632,7 +632,7 @@ export function SmartAutoTable<T extends Record<string, any>>(
                     setPage(1);
                   }}
                   placeholder="Search name, email, role, department…"
-                  className="h-10 w-full rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 pl-10 pr-4 typo-p text-slate-900 dark:text-slate-100 placeholder: dark:placeholder:text-slate-400 outline-none ring-0 transition focus:border-slate-400 dark:focus:border-slate-400 focus:bg-white dark:focus:bg-slate-600 focus:shadow-sm"
+                  className="h-10 w-full rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 pl-10 pr-4 typo-p  placeholder: dark:placeholder:text-slate-400 outline-none ring-0 transition focus:border-slate-400 dark:focus:border-slate-400 focus:bg-white dark:focus:bg-slate-600 focus:shadow-sm"
                 />
               </div>
 
@@ -941,7 +941,7 @@ export function SmartAutoTable<T extends Record<string, any>>(
                           </Button>
                           <MotionButton
                             size="sm"
-                            className="text-xs"
+                            className="typo-p12n"
                             whileTap={{ scale: 0.98 }}
                             whileHover={{ y: -0.5 }}
                             transition={springPress}
@@ -969,7 +969,7 @@ export function SmartAutoTable<T extends Record<string, any>>(
                     setPageSize(Number(e.target.value));
                     setPage(1);
                   }}
-                  className="h-10 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 px-3 typo-p500 outline-none"
+                  className="h-10 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700  px-3 typo-p500 outline-none"
                 >
                   {[10, 20, 30, 50, 100].map((n) => (
                     <option key={n} value={n}>
@@ -1113,7 +1113,7 @@ export function SmartAutoTable<T extends Record<string, any>>(
                               setSortDir("asc");
                             }
                           }}
-                          className="inline-flex items-center gap-2 font-bold typo-p text-slate-900 dark:text-slate-100 hover:text-slate-700 dark:hover:text-slate-300 transition-colors uppercase tracking-wide"
+                          className="inline-flex items-center gap-2 font-bold typo-p  hover:text-slate-700 dark:hover:text-slate-300 transition-colors uppercase tracking-wide"
                           title="Sort"
                         >
                           {displayOptions[i]?.title?.()}
@@ -1191,7 +1191,7 @@ export function SmartAutoTable<T extends Record<string, any>>(
                                     </TooltipTrigger>
                                     <TooltipContent
                                       side="top"
-                                      className={`max-w-xs rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 shadow-xl ${Z_TIP}`}
+                                      className={`max-w-xs rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800  shadow-xl ${Z_TIP}`}
                                     >
                                       {tooltipNode}
                                     </TooltipContent>
@@ -1216,11 +1216,11 @@ export function SmartAutoTable<T extends Record<string, any>>(
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
               <div className="typo-p-muted dark:text-slate-400 text-center lg:text-left lg:flex-1">
                 Showing{" "}
-                <span className="font-medium text-slate-900 dark:text-slate-100">
+                <span className="typo-h4">
                   {pageRows.length}
                 </span>{" "}
                 of{" "}
-                <span className="font-medium text-slate-900 dark:text-slate-100">
+                <span className="typo-h4">
                   {sorted.length}
                 </span>{" "}
                 results
@@ -1253,7 +1253,7 @@ export function SmartAutoTable<T extends Record<string, any>>(
                           key={i}
                           className={`min-w-[36px] h-9 px-2 typo-p500 rounded-lg transition-colors ${
                             i === page
-                              ? "bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 shadow-sm"
+                              ? "bg-slate-900 dark:bg-slate-100 text-white  shadow-sm"
                               : "text-slate-700  hover:bg-slate-100 dark:hover:bg-slate-700"
                           }`}
                           onClick={() => setPage(i)}
@@ -1284,11 +1284,11 @@ export function SmartAutoTable<T extends Record<string, any>>(
 
               <div className="typo-p-muted dark:text-slate-400 text-center lg:text-right lg:flex-1">
                 Page{" "}
-                <span className="font-medium text-slate-900 dark:text-slate-100">
+                <span className="typo-h4">
                   {page}
                 </span>{" "}
                 of{" "}
-                <span className="font-medium text-slate-900 dark:text-slate-100">
+                <span className="typo-h4">
                   {totalPages}
                 </span>
               </div>

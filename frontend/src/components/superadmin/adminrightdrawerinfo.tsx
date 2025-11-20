@@ -182,9 +182,9 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
           <div className="p-7">
             {/* Header */}
             <div className="flex items-center justify-between mb-4 pb-3 border-b border-neutral-200 dark:border-neutral-700">
-              <h2 className="typo-h3 text-neutral-900 dark:text-neutral-100">Administrator Details</h2>
+              <h2 className="typo-h3 ">Administrator Details</h2>
               <Button variant="ghost" size="sm" onClick={onClose} className="h-8 w-8 p-0 dark:hover:bg-neutral-800">
-                <CloseIcon fontSize="small" className="dark:text-neutral-100" />
+                <CloseIcon fontSize="small" className="" />
               </Button>
             </div>
 
@@ -198,10 +198,10 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
                   </AvatarFallback>
                 </Avatar>
                 <div className="flex-1 min-w-0">
-                  <h3 className="typo-h3 text-neutral-900 dark:text-neutral-100">{adminData.name}</h3>
+                  <h3 className="typo-h3 ">{adminData.name}</h3>
                   <p className="typo-p-muted">@{adminData.username}</p>
                   <div className="flex items-center gap-2 mt-1">
-                    <Badge variant={adminData.status === 'active' ? 'default' : 'secondary'} className="text-xs">
+                    <Badge variant={adminData.status === 'active' ? 'default' : 'secondary'} className="typo-p12n">
                       {adminData.status === 'active' ? 'Active' : 'Inactive'}
                     </Badge>
                   </div>
@@ -211,7 +211,7 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
 
             {/* Contact Information */}
             <div className="mb-6">
-              <h4 className="typo-p600 text-neutral-900 dark:text-neutral-100 mb-3">Contact Information</h4>
+              <h4 className="typo-p600  mb-3">Contact Information</h4>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <CallIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
@@ -229,11 +229,11 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
 
             {/* Address */}
             <div className="mb-6">
-              <h4 className="typo-p600 text-neutral-900 dark:text-neutral-100 mb-3">Address</h4>
+              <h4 className="typo-p600  mb-3">Address</h4>
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <span className={`fi fi-${adminData.address.countryCode.toLowerCase()}`} style={{ fontSize: "16px" }} />
-                  <span className="typo-p500 text-neutral-900 dark:text-neutral-100">{adminData.address.country}</span>
+                  <span className="typo-p500 ">{adminData.address.country}</span>
                 </div>
                 <div className="typo-p-muted  ml-6">
                   <p>{adminData.address.line1}</p>
@@ -244,14 +244,14 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
 
             {/* Activity & Statistics */}
             <div className="mb-6">
-              <h4 className="typo-p600 text-neutral-900 dark:text-neutral-100 mb-3">Activity & Statistics</h4>
+              <h4 className="typo-p600  mb-3">Activity & Statistics</h4>
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <CalendarTodayIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                     <span className="typo-p-muted ">Created</span>
                   </div>
-                  <span className="typo-p500 text-neutral-900 dark:text-neutral-100">
+                  <span className="typo-p500 ">
                     {formatDate(adminData.createdAt)}
                   </span>
                 </div>
@@ -261,7 +261,7 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
                     <AccessTimeIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                     <span className="typo-p-muted ">Last Login</span>
                   </div>
-                  <span className="typo-p500 text-neutral-900 dark:text-neutral-100">
+                  <span className="typo-p500 ">
                     {formatDate(adminData.lastLogin)}
                   </span>
                 </div>
@@ -271,7 +271,7 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
                     <DirectionsCarIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                     <span className="typo-p-muted ">Vehicles</span>
                   </div>
-                  <span className="typo-p500 text-neutral-900 dark:text-neutral-100">
+                  <span className="typo-p500 ">
                     {adminData.vehiclesCount.toLocaleString()}
                   </span>
                 </div>
@@ -281,7 +281,7 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
                     <CreditCardIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                     <span className="typo-p-muted ">Credits</span>
                   </div>
-                  <span className="typo-p500 text-neutral-900 dark:text-neutral-100">
+                  <span className="typo-p500 ">
                     {adminData.credits.toLocaleString()}
                   </span>
                 </div>
@@ -290,7 +290,7 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
 
             {/* Company Information */}
             <div className="mb-6">
-              <h4 className="typo-p600 text-neutral-900 dark:text-neutral-100 mb-3">Company</h4>
+              <h4 className="typo-p600  mb-3">Company</h4>
               <div className="space-y-3">
                 {/* Company Logo & Name */}
                 <div className="flex items-center gap-3">
@@ -309,7 +309,7 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
                     />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="typo-p500 text-neutral-900 dark:text-neutral-100">{adminData.company.name}</p>
+                    <p className="typo-p500 ">{adminData.company.name}</p>
                   </div>
                 </div>
 

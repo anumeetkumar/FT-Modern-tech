@@ -289,7 +289,7 @@ function CalendarDayButton({
         data-[range-start=true]:bg-primary data-[range-start=true]:text-white
         data-[range-end=true]:bg-primary data-[range-end=true]:text-white
         hover:bg-foreground/5 hover:text-foreground
-        [&>span]:text-xs [&>span]:opacity-70 outline-none
+        [&>span]:typo-p12n [&>span]:opacity-70 outline-none
       `,
         defaultClassNames.day,
         className

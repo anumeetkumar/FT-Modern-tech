@@ -136,7 +136,7 @@ export default function VehicleSendCommand() {
 
             {/* 2. Payload (editable only) */}
             <div className="mt-4">
-              <div className="mb-1 flex items-center justify-between text-xs">
+              <div className="mb-1 flex items-center justify-between typo-p12n">
                 <span className="rounded-sm bg-primary px-2 py-0.5 text-white">Payload</span>
                 <button className="inline-flex items-center gap-1 rounded border border-border bg-background px-2 py-0.5 text-muted" onClick={() => copy(payload)} disabled={!payload}><ContentCopyIcon style={{ fontSize: 14 }} />Copy</button>
               </div>
@@ -150,7 +150,7 @@ export default function VehicleSendCommand() {
             {/* 3. Send */}
             <div className="mt-4 flex items-center justify-between">
               <label className="flex items-center gap-2 typo-p12n"><input type="checkbox" className="h-4 w-4" checked={confirm} onChange={e => setConfirm(e.target.checked)} /> Confirm before send</label>
-              <button onClick={send} disabled={validate().length > 0} className={`inline-flex items-center gap-2 rounded-lg px-3 py-2 text-xs ${validate().length ? "cursor-not-allowed border border-border text-muted" : "bg-primary text-white hover:opacity-90"}`}>
+              <button onClick={send} disabled={validate().length > 0} className={`inline-flex items-center gap-2 rounded-lg px-3 py-2 typo-p12n ${validate().length ? "cursor-not-allowed border border-border text-muted" : "bg-primary text-white hover:opacity-90"}`}>
                 <SendIcon style={{ fontSize: 16 }} />
                 <span>Send</span>
               </button>

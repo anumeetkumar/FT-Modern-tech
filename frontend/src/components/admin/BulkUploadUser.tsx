@@ -441,7 +441,7 @@ function ImportWizard({
               <div className="grid grid-cols-2 md:grid-cols-3 gap-2 typo-p text-primary">
                 {required.map((col, index) => (
                   <div key={col} className="flex items-center gap-2">
-                    <div className="w-6 h-6 bg-primary/20 rounded text-xs flex items-center justify-center font-medium">
+                    <div className="w-6 h-6 bg-primary/20 rounded typo-p12n flex items-center justify-center font-medium">
                       {index + 1}
                     </div>
                     <span>{col}</span>

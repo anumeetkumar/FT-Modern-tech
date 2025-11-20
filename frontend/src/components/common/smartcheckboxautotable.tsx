@@ -599,7 +599,7 @@ function DateRangeField({
         <PopoverTrigger asChild>
           <Button
             variant="outline"
-            className="w-full h-9 justify-between rounded-lg border-neutral-200 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 text-left font-normal dark:text-neutral-100"
+            className="w-full h-9 justify-between rounded-lg border-neutral-200 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 text-left font-normal "
           >
             <span className="truncate">
               {value?.from || value?.to
@@ -1559,7 +1559,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                               </Button>
                               <MotionButton
                                 size="sm"
-                                className="text-xs"
+                                className="typo-p12n"
                                 whileTap={{ scale: 0.98 }}
                                 whileHover={{ y: -0.5 }}
                                 transition={springPress}
@@ -2322,7 +2322,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                   </Button>
                   <MotionButton
                     size="sm"
-                    className="text-xs"
+                    className="typo-p12n"
                     whileTap={{ scale: 0.98 }}
                     whileHover={{ y: -0.5 }}
                     transition={springPress}

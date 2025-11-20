@@ -897,7 +897,7 @@ Jane Smith,+91,9876543211,jane@example.com,janesmith,password456,IN`;
               <summary className="cursor-pointer text-blue-600 hover:text-blue-800">
                 View sample CSV format
               </summary>
-              <pre className="mt-2 p-3 bg-gray-50 rounded border text-xs overflow-x-auto">
+              <pre className="mt-2 p-3 bg-gray-50 rounded border typo-p12n overflow-x-auto">
                 {sampleCsv}
               </pre>
             </details>

@@ -315,7 +315,7 @@ function AdminVehiclesList() {
               .toUpperCase()}
           </div>
           <div>
-            <div className="font-semibold bw-text-primary dark:text-neutral-100">
+            <div className="font-semibold bw-text-primary ">
               {row.vehicleName}
             </div>
             <div className="typo-subtitle ">
@@ -325,7 +325,7 @@ function AdminVehiclesList() {
         </div>
 
         {/* Device Information */}
-        <div className="space-y-1 text-xs">
+        <div className="space-y-1 typo-p12n">
           <div className="flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -406,7 +406,7 @@ function AdminVehiclesList() {
 
         {/* License Information */}
         <div className="mt-2 pt-2 border-t bw-border dark:border-neutral-700">
-          <div className="flex justify-between text-xs">
+          <div className="flex justify-between typo-p12n">
             <span className="bw-text-muted ">
               Primary License:
             </span>
@@ -414,7 +414,7 @@ function AdminVehiclesList() {
               {row.PrimaryExpiry}
             </span>
           </div>
-          <div className="flex justify-between text-xs">
+          <div className="flex justify-between typo-p12n">
             <span className="bw-text-muted ">
               Secondary License:
             </span>
@@ -488,12 +488,12 @@ function AdminVehiclesList() {
           {/* Vehicle Details */}
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-0.5">
-              <div className="font-semibold bw-text-primary dark:text-neutral-100 truncate">
+              <div className="font-semibold bw-text-primary  truncate">
                 {row.vehicleName}
               </div>
               <div className="h-2 w-2 rounded-full flex-shrink-0 bw-bg-muted dark:bg-neutral-600" />
             </div>
-            <div className="flex items-center gap-2 text-xs">
+            <div className="flex items-center gap-2 typo-p12n">
               <span className="bw-text-muted ">
                 {row.VehicleType}
               </span>
@@ -532,7 +532,7 @@ function AdminVehiclesList() {
                 d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
               />
             </svg>
-            <span className="font-mono text-xs bw-text-primary dark:text-neutral-200">
+            <span className="font-mono typo-p12n bw-text-primary dark:text-neutral-200">
               {row.imei}
             </span>
           </div>
@@ -835,7 +835,7 @@ function AdminVehiclesList() {
               <div className="mb-1 typo-h1 font-semibold text-foreground">
                 432
               </div>
-              <div className="mt-2 inline-flex items-center rounded-full bg-primary px-2 py-0.5 text-xs text-white">
+              <div className="mt-2 inline-flex items-center rounded-full bg-primary px-2 py-0.5 typo-p12n text-white">
                 ▲ 3.8%
               </div>
             </div>
@@ -940,7 +940,7 @@ function KpiCard({
       {hasDelta && (
         <div
           className={classNames(
-            "mt-2 inline-flex items-center rounded-full px-2 py-0.5 text-xs",
+            "mt-2 inline-flex items-center rounded-full px-2 py-0.5 typo-p12n",
             isUp
               ? "bg-neutral-900 dark:bg-white text-white dark:text-black"
               : "bg-neutral-200 dark:bg-neutral-700  "

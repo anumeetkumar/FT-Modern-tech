@@ -41,7 +41,7 @@ const variantClasses: Record<TypographyVariant, string> = {
   p600: "typo-p600",
 
   body1: "typo-p font-normal",
-  subtitle: "text-xs font-normal text-muted",
+  subtitle: "typo-p12n font-normal text-muted",
 
   // 👇 newly added
   p12m: "text-[12px] font-medium",

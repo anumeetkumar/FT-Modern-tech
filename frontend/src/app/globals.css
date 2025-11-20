@@ -59,7 +59,7 @@
   @apply text-sm font-medium;
 }
 .typo-h6 {
-  @apply text-xs font-medium;
+  @apply typo-p12n font-medium;
 }
 
 .typo-base-muted{
@@ -86,15 +86,15 @@
   @apply text-sm font-normal;
 }
 .typo-subtitle {
-  @apply text-xs font-normal text-muted;
+  @apply typo-p12n font-normal text-muted;
 }
 
 /* .typo-destructive {
-  @apply text-xs text-red-500;
+  @apply typo-p12n text-red-500;
 } */
 
 .typo-p12n {
-  @apply text-xs;
+  @apply typo-p12n;
 }
 .typo-p14m {
   @apply text-[14px] font-medium;

@@ -300,7 +300,7 @@ function TimePicker({
               }
               handleHourChange(newHour);
             }}
-            className="w-full px-2 py-1.5 text-center border border-neutral-300 rounded typo-p focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100"
+            className="w-full px-2 py-1.5 text-center border border-neutral-300 rounded typo-p focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:border-neutral-600 dark:bg-neutral-800 "
           />
         </div>
         <span className="typo-base-muted font-medium ">
@@ -319,7 +319,7 @@ function TimePicker({
               if (newMinute < 0) newMinute = 0;
               handleMinuteChange(newMinute);
             }}
-            className="w-full px-2 py-1.5 text-center border border-neutral-300 rounded typo-p focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100"
+            className="w-full px-2 py-1.5 text-center border border-neutral-300 rounded typo-p focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:border-neutral-600 dark:bg-neutral-800 "
           />
         </div>
         {/* AM/PM Toggle */}
@@ -467,7 +467,7 @@ export function MultiDateTimeRangePicker({
           variant="outline"
           disabled={disabled}
           className={cn(
-            "inline-flex w-full items-center justify-between rounded-lg border-neutral-300 px-3 py-2 text-left font-normal typo-p h-10 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100",
+            "inline-flex w-full items-center justify-between rounded-lg border-neutral-300 px-3 py-2 text-left font-normal typo-p h-10 dark:border-neutral-600 dark:bg-neutral-800 ",
             !draft?.from && "text-neutral-500 ",
             className
           )}
@@ -498,7 +498,7 @@ export function MultiDateTimeRangePicker({
                       {presets.find((p) => p.key === selectedPreset)?.label}
                     </span>
                   )}
-                  <span className="text-xs">
+                  <span className="typo-p12n">
                     {formatDateTime(draft.from, use24HourFormat)} →{" "}
                     {formatDateTime(draft.to, use24HourFormat)}
                   </span>
@@ -626,7 +626,7 @@ export function MultiDateTimeRangePicker({
                   </Button>
                   <Button
                     onClick={onApply}
-                    className="h-8 rounded bg-neutral-900 text-white hover:bg-neutral-800 text-xs px-3 dark:bg-white dark:text-black dark:hover:bg-neutral-100"
+                    className="h-8 rounded bg-neutral-900 text-white hover:bg-neutral-800 typo-p12n px-3 dark:bg-white dark:text-black dark:hover:bg-neutral-100"
                     disabled={!draft?.from || !draft?.to}
                   >
                     Apply

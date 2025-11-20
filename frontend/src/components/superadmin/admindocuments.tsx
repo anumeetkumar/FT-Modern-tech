@@ -169,7 +169,7 @@ export default function AdminDocumentsPage() {
           {row.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-neutral-300 px-2 py-0.5 text-xs text-neutral-700 dark:border-neutral-600 "
+              className="rounded-full border border-neutral-300 px-2 py-0.5 typo-p12n text-neutral-700 dark:border-neutral-600 "
             >
               {tag}
             </span>
@@ -801,20 +801,20 @@ export default function AdminDocumentsPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            className="mb-3 flex items-center justify-between rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-2 typo-p text-neutral-900 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
+            className="mb-3 flex items-center justify-between rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-2 typo-p text-neutral-900 dark:border-neutral-700 dark:bg-neutral-800 "
           >
             <span>{selectedIds.size} selected</span>
             <div className="flex items-center gap-2">
               <Button
                 variant="outline"
-                className="rounded-lg border-neutral-300 text-neutral-900 hover:bg-white dark:border-neutral-600 dark:text-neutral-100 dark:hover:bg-neutral-700"
+                className="rounded-lg border-neutral-300 text-neutral-900 hover:bg-white dark:border-neutral-600  dark:hover:bg-neutral-700"
                 onClick={exportSelectedAsCSV}
               >
                 <DownloadIcon className="mr-2" /> Export
               </Button>
               <Button
                 variant="outline"
-                className="rounded-lg border-neutral-300 text-neutral-900 hover:bg-white dark:border-neutral-600 dark:text-neutral-100 dark:hover:bg-neutral-700"
+                className="rounded-lg border-neutral-300 text-neutral-900 hover:bg-white dark:border-neutral-600  dark:hover:bg-neutral-700"
                 onClick={() => selectedIds.forEach((id) => removeDoc(id))}
               >
                 <DeleteOutlineIcon className="mr-2" /> Delete
@@ -880,12 +880,12 @@ export default function AdminDocumentsPage() {
       <Dialog open={openViewer} onOpenChange={setOpenViewer}>
         <DialogContent className="sm:max-w-4xl dark:bg-neutral-900 dark:border-neutral-700">
           <DialogHeader>
-            <DialogTitle className="text-neutral-900 flex items-center justify-between dark:text-neutral-100">
+            <DialogTitle className="text-neutral-900 flex items-center justify-between ">
               <span>{viewerDoc?.name ?? "Preview"}</span>
               {viewerDoc?.url && (
                 <Button
                   variant="outline"
-                  className="rounded-lg border-neutral-300 text-neutral-900 hover:bg-white dark:border-neutral-600 dark:text-neutral-100 dark:hover:bg-neutral-700"
+                  className="rounded-lg border-neutral-300 text-neutral-900 hover:bg-white dark:border-neutral-600  dark:hover:bg-neutral-700"
                   onClick={() => {
                     const a = document.createElement("a");
                     a.href = viewerDoc.url!;
