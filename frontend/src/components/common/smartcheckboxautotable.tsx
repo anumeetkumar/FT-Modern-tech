@@ -1176,7 +1176,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                 className="mb-3 rounded-2xl border border-neutral-200 dark:border-neutral-700 bg-white/90 dark:bg-neutral-800/90 backdrop-blur p-3 shadow-[0_6px_24px_rgba(2,6,23,0.06)]"
               >
                 <div className="flex flex-col px-3 sm:flex-row sm:items-center sm:justify-between gap-3">
-                  <div className="text-sm text-neutral-700 dark:text-neutral-300">
+                  <div className="typo-p-muted">
                     <span className="font-semibold">{selectedIds.size}</span>{" "}
                     selected
                   </div>
@@ -1598,7 +1598,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                 )}
                 {showtoolbarRecords && (
                 <div className="flex items-center gap-2 text-sm">
-                  <span className="text-neutral-600 dark:text-neutral-400 font-medium whitespace-nowrap">
+                  <span className="typo-p-muted font-medium whitespace-nowrap">
                     Records:
                   </span>
                   <Select
@@ -1607,7 +1607,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                       updatePageSize(Number(value));
                     }}
                   >
-                    <SelectTrigger className="h-10 w-20 rounded-xl border border-neutral-200 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 px-3 text-sm font-medium">
+                    <SelectTrigger className="h-10 w-20 rounded-xl border border-neutral-200 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 px-3 typo-p500">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent className="rounded-xl">
@@ -1719,7 +1719,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                         variant="ghost"
                         size="sm"
                         onClick={resetPreferences}
-                        className="h-7 px-2 typo-subtitle hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200"
+                        className="h-7 px-2 typo-subtitle hover:text-neutral-700 dark:text-neutral-400 "
                         title="Reset all table preferences"
                       >
                         Reset
@@ -1870,7 +1870,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                             title="Sort"
                           >
                             {displayOptions[i]?.title?.()}
-                            <span className="text-neutral-600 dark:text-neutral-400 ml-1">
+                            <span className="typo-p-muted ml-1">
                               {active ? (
                                 sortDir === "asc" ? (
                                   <ChevronUp fontSize="small" />
@@ -1986,7 +1986,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
             {/* Pagination */}
             <div className="border-t border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-4 sm:px-6 py-4">
               <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-                <div className="text-sm text-neutral-600 dark:text-neutral-400 text-center lg:text-left lg:flex-1">
+                <div className="typo-p-muted  text-center lg:text-left lg:flex-1">
                   Showing{" "}
                   <span className="font-medium text-neutral-900 dark:text-neutral-100">
                     {pageRows.length}
@@ -2028,7 +2028,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                         out.push(
                           <button
                             key={i}
-                            className={`min-w-[36px] h-9 px-2 text-sm font-medium rounded-lg transition-colors ${
+                            className={`min-w-[36px] h-9 px-2 typo-p500 rounded-lg transition-colors ${
                               i === page
                                 ? "bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 shadow-sm"
                                 : "text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700"
@@ -2059,7 +2059,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                   </button>
                 </div>
 
-                <div className="text-sm text-neutral-600 dark:text-neutral-400 text-center lg:text-right lg:flex-1">
+                <div className="typo-p-muted  text-center lg:text-right lg:flex-1">
                   Page{" "}
                   <span className="font-medium text-neutral-900 dark:text-neutral-100">
                     {page}

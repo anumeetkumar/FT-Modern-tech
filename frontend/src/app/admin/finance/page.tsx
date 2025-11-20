@@ -298,7 +298,7 @@ export default function AnalyticsDashboard() {
               <h1 className="typo-h1">
                 Analytics
               </h1>
-              <p className="text-sm text-zinc-500 mt-1">
+              <p className="typo-p-muted mt-1">
                 Real‑time insight across renewals, payments, and device health.
               </p>
             </div>
@@ -469,7 +469,7 @@ export default function AnalyticsDashboard() {
               <div className="text-3xl font-semibold">
                 {INR(renewalValue30)}
               </div>
-              <div className="mt-2 text-sm text-zinc-600">
+              <div className="mt-2 typo-p-muted">
                 {expiring.length} devices expiring within 30 days
               </div>
               <Separator className="my-4" />
@@ -659,7 +659,7 @@ function PulseRow({
         <div className={`p-2 rounded-lg border bg-white ${clr}`}>
           <Icon fontSize="small" />
         </div>
-        <div className="text-sm text-zinc-600">{label}</div>
+        <div className="typo-p-muted">{label}</div>
       </div>
       <div className="font-medium">{value}</div>
     </div>

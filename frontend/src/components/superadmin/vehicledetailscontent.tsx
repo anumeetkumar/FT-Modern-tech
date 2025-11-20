@@ -187,7 +187,7 @@ const SectionTitle = ({
       <div className="grid h-7 w-7 place-items-center rounded-md border border-neutral-300 dark:border-neutral-600 dark:text-neutral-100">
         {icon}
       </div>
-      <h3 className="text-sm font-semibold dark:text-neutral-100">{title}</h3>
+      <h3 className="typo-p600 dark:text-neutral-100">{title}</h3>
     </div>
     {hint ? (
       <span className="typo-subtitle">
@@ -206,7 +206,7 @@ const Avatar = ({
   alt: string;
   fallback: string;
 }) => (
-  <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border dark:border-neutral-600 bg-white dark:bg-neutral-700 text-sm font-semibold dark:text-neutral-100">
+  <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border dark:border-neutral-600 bg-white dark:bg-neutral-700 typo-p600 dark:text-neutral-100">
     {/* eslint-disable-next-line @next/next/no-img-element */}
     {src ? (
       <img src={src} alt={alt} className="h-full w-full object-cover" />
@@ -252,7 +252,7 @@ export default function VehicleDetailsPreview({
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-semibold text-foreground">
+                  <span className="typo-p600 text-foreground">
                     {v.vehicleNo}
                   </span>
                   <StatusBadge status={v.status} />
@@ -329,7 +329,7 @@ export default function VehicleDetailsPreview({
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             <div className="rounded-lg border border-border p-3 dark:bg-background">
               <div className="typo-subtitle">VIN</div>
-              <div className="mt-1 flex items-center justify-between font-mono text-sm text-foreground">
+              <div className="mt-1 flex items-center justify-between font-mono typo-p">
                 {v.vin}
                 <button
                   onClick={() => copy(v.vin)}
@@ -341,7 +341,7 @@ export default function VehicleDetailsPreview({
             </div>
             <div className="rounded-lg border border-border p-3 dark:bg-background">
               <div className="typo-subtitle">IMEI</div>
-              <div className="mt-1 flex items-center justify-between font-mono text-sm text-foreground">
+              <div className="mt-1 flex items-center justify-between font-mono typo-p">
                 {v.imei}
                 <button
                   onClick={() => copy(v.imei)}
@@ -353,7 +353,7 @@ export default function VehicleDetailsPreview({
             </div>
             <div className="rounded-lg border border-border p-3 dark:bg-background">
               <div className="typo-subtitle">Timezone</div>
-              <div className="mt-1 text-sm text-foreground">{v.gmt}</div>
+              <div className="mt-1 typo-p">{v.gmt}</div>
             </div>
           </div>
         </div>
@@ -396,7 +396,7 @@ export default function VehicleDetailsPreview({
                 <div className="typo-subtitle mb-1">
                   {item.label}
                 </div>
-                <div className="text-sm font-medium text-foreground uppercase">
+                <div className="typo-p500 text-foreground uppercase">
                   {item.value}
                 </div>
               </div>

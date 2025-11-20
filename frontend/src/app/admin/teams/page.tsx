@@ -191,7 +191,7 @@ export default function TeamsTable() {
   const teamDisplayOptions: DisplayMap<TeamRow> = {
     1: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <PersonIcon
             style={{ fontSize: "14px" }}
             className="text-neutral-500 dark:text-neutral-400"
@@ -225,7 +225,7 @@ export default function TeamsTable() {
 
     2: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <CallIcon
             style={{ fontSize: "14px" }}
             className="text-neutral-500 dark:text-neutral-400"
@@ -235,7 +235,7 @@ export default function TeamsTable() {
       ),
       content: (row) => (
         <div className="space-y-0.5">
-          <div className="flex items-center gap-1 text-sm text-neutral-700 dark:text-neutral-300">
+          <div className="flex items-center gap-1 typo-p-muted">
             <CallIcon
               style={{ fontSize: "12px" }}
               className="text-neutral-400"
@@ -255,7 +255,7 @@ export default function TeamsTable() {
 
     3: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <ShieldIcon
             style={{ fontSize: "14px" }}
             className="text-neutral-500 dark:text-neutral-400"
@@ -264,7 +264,7 @@ export default function TeamsTable() {
         </div>
       ),
       content: (row) => (
-        <div className="text-sm text-neutral-700 dark:text-neutral-300 capitalize">
+        <div className="typo-p-muted capitalize">
           {row.role}
         </div>
       ),
@@ -272,7 +272,7 @@ export default function TeamsTable() {
 
     4: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <VerifiedIcon
             style={{ fontSize: "14px" }}
             className="text-neutral-500 dark:text-neutral-400"
@@ -285,7 +285,7 @@ export default function TeamsTable() {
 
     5: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <LockIcon
             style={{ fontSize: "14px" }}
             className="text-neutral-500 dark:text-neutral-400"
@@ -294,14 +294,14 @@ export default function TeamsTable() {
         </div>
       ),
       content: (row) => (
-        <div className="text-sm text-neutral-700 dark:text-neutral-300">
+        <div className="typo-p-muted">
           {row.permissions} assigned
         </div>
       ),
     },
     6: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           Actions
         </div>
       ),

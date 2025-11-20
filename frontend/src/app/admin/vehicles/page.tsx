@@ -1454,7 +1454,7 @@ function page() {
                   {filteredUsers.map((u) => (
                     <div
                       key={u}
-                      className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm truncate"
+                      className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer typo-p-muted truncate"
                       onClick={() => {
                         setValue(u);
                         setIsOpen(false);
@@ -1575,7 +1575,7 @@ function page() {
     // Column 0: Vehicle Information with icon
     0: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <DirectionsCarIcon style={{ fontSize: "14px" }} />
           Vehicle
         </div>
@@ -1612,7 +1612,7 @@ function page() {
     // Column 1: Status & Speed
     1: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <SpeedIcon style={{ fontSize: "14px" }} />
           Status
         </div>
@@ -1669,7 +1669,7 @@ function page() {
     // Column 2: Primary User
     2: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           Primary User
         </div>
       ),
@@ -1704,7 +1704,7 @@ function page() {
     // Column 3: Added By
     3: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           Added By
         </div>
       ),
@@ -1736,7 +1736,7 @@ function page() {
     // Column 4: Last Activity
     4: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <AccessTimeIcon style={{ fontSize: "14px" }} />
           Last Activity
         </div>
@@ -1765,7 +1765,7 @@ function page() {
     // Column 5: License Status
     5: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           License
         </div>
       ),
@@ -1821,7 +1821,7 @@ function page() {
     // Column 6: Created At
     6: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           Created At
         </div>
       ),
@@ -1843,7 +1843,7 @@ function page() {
     // Column 7: Active Status with Toggle
     7: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           Account
         </div>
       ),

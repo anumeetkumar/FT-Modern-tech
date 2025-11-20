@@ -258,7 +258,7 @@ export default function UserPolicyManagement() {
             <h1 className="typo-h1">
               User Policy Management
             </h1>
-            <p className="text-sm text-muted-foreground">
+            <p className="typo-p-muted">
               Create and manage legal agreements for your users
             </p>
           </div>
@@ -282,7 +282,7 @@ export default function UserPolicyManagement() {
 
       {/* Policy Selector */}
       <Card className="mb-6 rounded-2xl border border-border bg-card p-5">
-        <Label className="text-sm font-medium text-foreground mb-2 block">
+        <Label className="typo-p500 text-foreground mb-2 block">
           Select Policy to Edit
         </Label>
         <Select
@@ -315,7 +315,7 @@ export default function UserPolicyManagement() {
             <h3 className="text-lg font-semibold text-foreground mb-1">
               {POLICY_OPTIONS.find((p) => p.value === selectedPolicy)?.label}
             </h3>
-            <p className="text-sm text-muted-foreground">
+            <p className="typo-p-muted">
               Configure the policy content and settings
             </p>
           </div>
@@ -348,7 +348,7 @@ export default function UserPolicyManagement() {
               onChange={(e) =>
                 updateSetting(selectedPolicy, { content: e.target.value })
               }
-              className="w-full h-[400px] rounded-xl border border-border bg-background p-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
+              className="w-full h-[400px] rounded-xl border border-border bg-background p-4 typo-p placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
               placeholder="Enter your policy content here..."
             />
 

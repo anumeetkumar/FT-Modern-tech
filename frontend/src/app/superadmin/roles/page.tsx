@@ -351,7 +351,7 @@ export default function RoleManager() {
 
                 {/* Audit */}
                 <div className="border-t border-border p-4 bg-background flex items-center justify-between">
-                  <div className="text-sm text-muted">
+                  <div className="typo-p-muted">
                     Updated {selected?.audit.updatedAt} by{" "}
                     {selected?.audit.updatedBy}
                   </div>

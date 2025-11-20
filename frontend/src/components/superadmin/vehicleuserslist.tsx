@@ -152,14 +152,14 @@ function ProfileCard({
               className="h-full w-full object-cover"
             />
           ) : (
-            <div className="grid h-full w-full place-items-center text-sm font-semibold text-foreground">
+            <div className="grid h-full w-full place-items-center typo-p600 text-foreground">
               {initials(p.name)}
             </div>
           )}
         </div>
         <div className="min-w-0">
           <div className="flex items-center gap-2">
-            <div className="truncate text-sm font-semibold text-foreground">
+            <div className="truncate typo-p600 text-foreground">
               {p.name}
             </div>
             {VerifiedBadge}
@@ -263,7 +263,7 @@ export default function VehicleUsersListItem() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search name, email, username, or mobile…"
-                className="h-6 w-full border-none bg-transparent text-sm outline-none text-foreground placeholder:text-muted "
+                className="h-6 w-full border-none bg-transparent typo-p outline-none placeholder:text-muted "
               />
             </div>
           </div>
@@ -274,7 +274,7 @@ export default function VehicleUsersListItem() {
             <ProfileCard key={p.username} p={p} onLogin={handleLogin} />
           ))}
           {filtered.length === 0 && (
-            <div className="col-span-full rounded-xl border border-border bg-card p-6 text-center text-sm text-muted dark:bg-foreground/5">
+            <div className="col-span-full rounded-xl border border-border bg-card p-6 text-center typo-p-muted dark:bg-foreground/5">
               No profiles match "{query}".
             </div>
           )}

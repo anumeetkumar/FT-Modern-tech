@@ -63,7 +63,7 @@ function MenuItem({
     <button
       onClick={onClick}
       className={[
-        "group w-full flex items-center gap-3 rounded-xl px-4 py-3 transition-all border text-sm font-medium ",
+        "group w-full flex items-center gap-3 rounded-xl px-4 py-3 transition-all border typo-p500 ",
         danger
           ? "border-border/60 text-destructive"
           : `border-transparent ${!active ? "hover:bg-foreground/10" :  ""} `,
@@ -135,7 +135,7 @@ export function NavigationMenu({
   return (
     <Card className="rounded-2xl border border-border dark:bg-foreground/5 shadow-sm ">
       <CardHeader className="pb-3">
-        <CardTitle className="text-sm font-semibold text-foreground ">
+        <CardTitle className="typo-p600 text-foreground ">
           Navigation
         </CardTitle>
       </CardHeader>

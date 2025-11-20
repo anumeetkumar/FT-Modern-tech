@@ -28,7 +28,7 @@ const TransactionDetailModal = ({
           <DialogTitle className="text-lg font-semibold">
             Transaction
           </DialogTitle>
-          <DialogDescription className="text-sm text-muted">
+          <DialogDescription className="typo-p-muted">
             Gateway payment information
           </DialogDescription>
         </DialogHeader>

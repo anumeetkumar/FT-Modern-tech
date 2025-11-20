@@ -27,7 +27,7 @@ const NotificationsAndActivitySection = () => {
       <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
         <div className="mb-3 flex items-center gap-2">
           <NotificationsNoneOutlinedIcon className="h-5 w-5 text-foreground" />
-          <h3 className="text-sm font-semibold text-foreground">Recent Notifications</h3>
+          <h3 className="typo-p600 text-foreground">Recent Notifications</h3>
         </div>
         <div className="h-80 overflow-y-auto pr-1">
           <ul className="divide-y divide-border">
@@ -48,7 +48,7 @@ const NotificationsAndActivitySection = () => {
       <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
         <div className="mb-3 flex items-center gap-2">
           <TimelineOutlinedIcon className="h-5 w-5 text-foreground" />
-          <h3 className="text-sm font-semibold text-foreground">Recent User Activity</h3>
+          <h3 className="typo-p600 text-foreground">Recent User Activity</h3>
         </div>
         <div className="h-80 overflow-y-auto pr-1">
           <ul className="divide-y divide-border">

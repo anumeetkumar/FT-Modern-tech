@@ -473,7 +473,7 @@ export default function TransactionsPage() {
               <h1 className="typo-h1">
                 Transactions
               </h1>
-              <p className="text-sm text-zinc-500 mt-1">
+              <p className="typo-p-muted mt-1">
                 Online payments & credits from your gateway
                 (Stripe/UPI/Card/etc.).
               </p>

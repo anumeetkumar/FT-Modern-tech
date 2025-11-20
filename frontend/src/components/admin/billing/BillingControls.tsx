@@ -220,7 +220,7 @@ const BillingControls: React.FC<BillingControlsProps> = ({
       {selected.length > 0 && (
         <Card className="mt-4 border-zinc-200">
           <CardContent className="p-4 flex items-center justify-between">
-            <div className="text-sm text-zinc-600">
+            <div className="typo-p-muted">
               <span className="font-medium text-zinc-900">
                 {selected.length}
               </span>{" "}

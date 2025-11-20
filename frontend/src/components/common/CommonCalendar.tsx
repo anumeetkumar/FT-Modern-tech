@@ -177,7 +177,7 @@ export default function EventsCalendar({
               <ChevronRightIcon />
             </button>
             <button
-              className="ml-2 inline-flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground"
+              className="ml-2 inline-flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 typo-p"
               onClick={goToday}
             >
               <TodayIcon style={{ fontSize: 16 }} /> Today
@@ -197,7 +197,7 @@ export default function EventsCalendar({
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search events, notes, metadata…"
-              className="h-6 w-64 border-none bg-transparent text-sm outline-none text-foreground placeholder-muted"
+              className="h-6 w-64 border-none bg-transparent typo-p outline-none placeholder-muted"
             />
           </div>
         </div>
@@ -346,7 +346,7 @@ export default function EventsCalendar({
           <div className="sticky top-4 flex flex-col gap-4">
             {/* Day summary with counts */}
             <div className="rounded-2xl border border-border bg-background p-4">
-              <div className="mb-1 text-sm font-semibold text-foreground">
+              <div className="mb-1 typo-p600 text-foreground">
                 {focusDay
                   ? focusDay.toLocaleDateString(undefined, {
                       weekday: "long",
@@ -358,7 +358,7 @@ export default function EventsCalendar({
               </div>
 
               {focusEvents.length === 0 ? (
-                <div className="rounded-lg border border-border bg-background p-3 text-sm text-muted">
+                <div className="rounded-lg border border-border bg-background p-3 typo-p-muted">
                   No events for this day.
                 </div>
               ) : (
@@ -516,16 +516,16 @@ export default function EventsCalendar({
 
             {/* Event details */}
             <div className="rounded-2xl border border-neutral-200 bg-white p-4 dark:border-neutral-700 dark:bg-neutral-800">
-              <div className="mb-2 flex items-center gap-2 text-sm font-semibold dark:text-neutral-100">
+              <div className="mb-2 flex items-center gap-2 typo-p600 dark:text-neutral-100">
                 <EventNoteIcon style={{ fontSize: 16 }} />
                 <span>Event Details</span>
               </div>
               {!selectedEvent ? (
-                <div className="rounded-lg border border-border bg-background p-3 text-sm text-muted">
+                <div className="rounded-lg border border-border bg-background p-3 typo-p-muted">
                   Select an event to view details.
                 </div>
               ) : (
-                <div className="grid gap-2 text-sm text-foreground">
+                <div className="grid gap-2 typo-p">
                   <div className="flex items-center justify-between">
                     <span>Type</span>
                     <span className="inline-flex items-center gap-2">

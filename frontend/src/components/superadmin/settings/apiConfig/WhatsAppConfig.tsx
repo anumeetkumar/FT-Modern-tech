@@ -153,7 +153,7 @@ const WhatsAppConfigComponent = () => {
   <div className="flex items-center justify-between mb-4">
     <div className="flex items-center gap-2">
       <WhatsAppIcon className="text-muted" fontSize="small" />
-      <div className="text-sm font-medium  text-foreground">
+      <div className="typo-p500  text-foreground">
         WhatsApp Messaging
       </div>
       {configs.whatsapp.enabled && (
@@ -285,7 +285,7 @@ const WhatsAppConfigComponent = () => {
             <div>
               <Label
                 htmlFor="whatsapp-accountSid"
-                className="text-sm text-foreground"
+                className="typo-p"
               >
                 Account SID
               </Label>
@@ -302,7 +302,7 @@ const WhatsAppConfigComponent = () => {
             <div>
               <Label
                 htmlFor="whatsapp-authToken"
-                className="text-sm text-foreground"
+                className="typo-p"
               >
                 Auth Token
               </Label>
@@ -336,7 +336,7 @@ const WhatsAppConfigComponent = () => {
             <div>
               <Label
                 htmlFor="whatsapp-phoneNumberId"
-                className="text-sm text-foreground"
+                className="typo-p"
               >
                 Phone Number ID
               </Label>
@@ -355,7 +355,7 @@ const WhatsAppConfigComponent = () => {
             <div>
               <Label
                 htmlFor="whatsapp-accessToken"
-                className="text-sm text-foreground"
+                className="typo-p"
               >
                 Access Token
               </Label>

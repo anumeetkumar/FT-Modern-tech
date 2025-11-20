@@ -144,10 +144,10 @@ export default function VehicleLogsPage() {
     <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
       <div>
         <h1 className="typo-h1">Vehicle Logs</h1>
-        <p className="mt-1 text-sm text-muted">Generate and filter vehicle GPS logs</p>
+        <p className="mt-1 typo-p-muted">Generate and filter vehicle GPS logs</p>
       </div>
       <div className="flex flex-col gap-3">
-        <label className="text-sm font-medium mb-2 block text-foreground">Date & Time Range</label>
+        <label className="typo-p500 mb-2 block text-foreground">Date & Time Range</label>
         <MultiDateTimeRangePicker value={dateRange} onChange={setDateRange} presets={presets} />
       </div>
     </div>
@@ -155,7 +155,7 @@ export default function VehicleLogsPage() {
     {/* Search and DateTime Range in one row */}
     <div className="mt-4 flex flex-col gap-3 lg:flex-row lg:items-end">
       <div className="flex-1">
-        <label className="text-sm font-medium mb-2 block text-foreground">Search</label>
+        <label className="typo-p500 mb-2 block text-foreground">Search</label>
         <div className="relative ">
           <SearchIcon
             className="absolute left-3 top-1/2 -translate-y-1/2 text-muted"
@@ -182,7 +182,7 @@ export default function VehicleLogsPage() {
     </div>
 
     {/* Results counter */}
-    <div className="mt-3 text-sm text-muted">
+    <div className="mt-3 typo-p-muted">
       Showing {filtered.length} result{filtered.length !== 1 ? "s" : ""}
     </div>
   </div>
@@ -206,7 +206,7 @@ export default function VehicleLogsPage() {
         <tbody className="dark:bg-foreground/5">
           {slice.length === 0 ? (
             <tr>
-              <td colSpan={9} className="py-8 text-center text-sm text-muted">
+              <td colSpan={9} className="py-8 text-center typo-p-muted">
                 No logs found
               </td>
             </tr>
@@ -218,7 +218,7 @@ export default function VehicleLogsPage() {
         </tbody>
       </table>
       {filtered.length === 0 && (
-        <div className="p-6 text-center text-sm text-muted dark:bg-foreground/5">
+        <div className="p-6 text-center typo-p-muted dark:bg-foreground/5">
           No results. Adjust your date range or search.
         </div>
       )}
@@ -283,13 +283,13 @@ function Row({ row, idx }: { row: LogRow; idx: number }) {
   return (
     <>
       <tr className="border-b border-border hover:bg-muted/50">
-        <td className="px-2 py-2 align-top sticky left-0 bg-background text-foreground text-xs">
+        <td className="px-2 py-2 align-top sticky left-0 bg-background typo-p12n">
           {row.srno}
         </td>
         <td className="px-2 py-2 align-top font-mono bg-background text-foreground text-[11px]">
           {row.imei}
         </td>
-        <td className="px-2 py-2 align-top text-foreground text-xs">
+        <td className="px-2 py-2 align-top typo-p12n">
           <span className="inline-flex items-center gap-0.5">
             <SpeedIcon style={{ fontSize: 12 }} />
             {row.speed}

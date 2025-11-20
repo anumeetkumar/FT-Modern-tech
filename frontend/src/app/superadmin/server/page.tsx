@@ -261,7 +261,7 @@ export default function ServerStatusPage() {
                   </div>
                 </div>
               </div>
-              <div className="text-right text-sm text-muted">
+              <div className="text-right typo-p-muted">
                 <div>Uptime {health ? humanTime(health.uptimeSec) : "—"}</div>
                 <div className="text-muted">
                   Started{" "}
@@ -309,7 +309,7 @@ export default function ServerStatusPage() {
               <Badge variant="secondary">{pg?.dbName ?? "—"}</Badge>
             </div>
 
-            <div className="grid grid-cols-2 gap-2 text-sm text-foreground">
+            <div className="grid grid-cols-2 gap-2 typo-p">
               <KV label="Size" value={pg ? humanBytes(pg.sizeBytes) : "—"} />
               <KV label="Connections" value={pg?.connections ?? "—"} />
               {pg?.deadTuples !== undefined && (
@@ -433,7 +433,7 @@ export default function ServerStatusPage() {
                 <MemoryIcon className="text-foreground" />
                 <div className="font-semibold text-foreground">Redis</div>
               </div>
-              <div className="grid grid-cols-2 gap-2 text-sm text-foreground">
+              <div className="grid grid-cols-2 gap-2 typo-p">
                 <KV
                   label="State"
                   value={redis?.connected ? "connected" : "down"}
@@ -474,7 +474,7 @@ export default function ServerStatusPage() {
                 <WifiIcon className="text-foreground" />
                 <div className="font-semibold text-foreground">Socket.io</div>
               </div>
-              <div className="grid grid-cols-3 gap-2 text-sm text-foreground">
+              <div className="grid grid-cols-3 gap-2 typo-p">
                 <KV
                   label="Clients"
                   value={socket ? socket.clients.toLocaleString() : "—"}

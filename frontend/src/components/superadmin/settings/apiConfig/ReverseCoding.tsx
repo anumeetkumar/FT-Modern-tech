@@ -160,7 +160,7 @@ const ReverseCoding = () => {
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <LocationOnRoundedIcon className="text-muted" fontSize="small" />
-          <div className="text-sm font-medium  text-foreground">
+          <div className="typo-p500  text-foreground">
             Reverse Geocoding Service
           </div>
           {configs.reverseGeocoding.enabled && (

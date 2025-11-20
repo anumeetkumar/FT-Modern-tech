@@ -114,7 +114,7 @@ export default function AdminSettings() {
             <h1 className="typo-h1">
               Application Settings
             </h1>
-            <p className="text-sm text-muted">
+            <p className="typo-p-muted">
               Configure system-wide settings for your application.
             </p>
           </div>

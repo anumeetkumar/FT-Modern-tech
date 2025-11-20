@@ -279,7 +279,7 @@ export function MultiDateRangePicker({
         <div className="overflow-hidden rounded-lg border border-neutral-200 bg-white dark:border-neutral-700 dark:bg-neutral-900">
           {/* Header */}
           <div className="flex items-center justify-between border-b border-neutral-200 px-3 py-2.5 dark:border-neutral-700">
-            <div className="text-sm font-medium text-neutral-700 dark:text-neutral-200">
+            <div className="typo-p500 text-neutral-700 dark:text-neutral-200">
               {draft?.from && draft?.to ? (
                 <span className="flex items-center gap-2">
                   {selectedPreset !== "custom" && (
@@ -299,7 +299,7 @@ export function MultiDateRangePicker({
             </div>
             <button
               onClick={() => setOpen(false)}
-              className="rounded p-1 text-neutral-500 hover:bg-neutral-100 hover:text-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-200"
+              className="rounded p-1 text-neutral-500 hover:bg-neutral-100 hover: dark:text-neutral-400 dark:hover:bg-neutral-800 "
               aria-label="Close"
             >
               <CloseIcon sx={{ fontSize: 18 }} />
@@ -400,7 +400,7 @@ export function MultiDateRangePicker({
               <div className="flex items-center justify-between">
                 <button
                   onClick={onClear}
-                  className="typo-h6 text-neutral-600 hover:text-neutral-900 underline-offset-2 hover:underline dark:text-neutral-400 dark:hover:text-neutral-200"
+                  className="typo-h6 typo-base-muted underline-offset-2 hover:underline dark:text-neutral-400 "
                 >
                   Clear
                 </button>
@@ -408,7 +408,7 @@ export function MultiDateRangePicker({
                   <Button
                     variant="outline"
                     onClick={onCancel}
-                    className="h-8 rounded border-neutral-300 text-xs px-3 dark:border-neutral-600 dark:text-neutral-300 dark:hover:bg-neutral-800"
+                    className="h-8 rounded border-neutral-300 typo-subtitle dark:hover:bg-neutral-800"
                   >
                     Cancel
                   </Button>

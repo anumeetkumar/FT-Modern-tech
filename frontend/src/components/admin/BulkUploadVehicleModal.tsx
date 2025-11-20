@@ -53,7 +53,7 @@ export default function BulkUploadVehicleModal({
         <form onSubmit={handleBulkUploadSubmit} className="space-y-4">
           {/* PLAN */}
           <div>
-            <label className="block text-sm font-medium text-foreground mb-2">
+            <label className="block typo-p500 text-foreground mb-2">
               Select Plan
             </label>
             <select
@@ -75,7 +75,7 @@ export default function BulkUploadVehicleModal({
 
           {/* FILE UPLOAD */}
           <div>
-            <label className="block text-sm font-medium text-foreground mb-2">
+            <label className="block typo-p500 text-foreground mb-2">
               Upload CSV File
             </label>
             <div className="relative">
@@ -95,7 +95,7 @@ export default function BulkUploadVehicleModal({
 
               <label
                 htmlFor="bulk-upload-file"
-                className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl border-2 border-dashed border-border px-6 py-8 text-sm text-muted hover:border-accent hover:bg-background transition"
+                className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl border-2 border-dashed border-border px-6 py-8 typo-p-muted hover:border-accent hover:bg-background transition"
               >
                 <UploadFile fontSize="large" />
                 <div className="text-center">
@@ -135,13 +135,13 @@ export default function BulkUploadVehicleModal({
             <button
               type="button"
               onClick={() => setShow(false)}
-              className="flex-1 rounded-xl border border-border bg-background px-4 py-2 text-sm font-medium hover:bg-muted transition"
+              className="flex-1 rounded-xl border border-border bg-background px-4 py-2 typo-p500 hover:bg-muted transition"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="flex-1 rounded-xl bg-primary px-4 py-2 text-sm font-medium text-background hover:bg-secondary transition"
+              className="flex-1 rounded-xl bg-primary px-4 py-2 typo-p500 text-background hover:bg-secondary transition"
             >
               Upload Vehicles
             </button>

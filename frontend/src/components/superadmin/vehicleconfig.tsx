@@ -196,7 +196,7 @@ export default function VehicleConfig({ initial, loading, onSave, onReset, class
 
         <div className="md:col-span-2 rounded-xl border border-border bg-card p-3 dark:bg-foreground/5">
           <div className="mb-2 ">
-            <div className="text-sm font-medium">Ignition Source</div>
+            <div className="typo-p500">Ignition Source</div>
             <div className="text-[12px] text-muted-foreground">Choose how engine ON/OFF is derived.</div>
           </div>
           <div className="flex flex-wrap gap-6 text-sm">
@@ -234,7 +234,7 @@ function FieldCard({ title, hint, children }: { title: string; hint?: string; ch
   return (
     <div className="rounded-xl border border-border bg-card p-3 dark:bg-foreground/5">
       <div className="mb-2">
-        <div className="text-sm font-medium">{title}</div>
+        <div className="typo-p500">{title}</div>
         {hint ? <div className="text-[12px] text-muted-foreground">{hint}</div> : null}
       </div>
       {children}
@@ -254,12 +254,12 @@ function NumberField({ id, label, value, onChange, min, max, step, suffix }: {
 }) {
   return (
     <div className="space-y-1.5">
-      <label htmlFor={id} className="text-sm font-medium">{label}</label>
+      <label htmlFor={id} className="typo-p500">{label}</label>
       <div className="relative">
         <input
           id={id}
           type="number"
-          className="w-full rounded-lg border border-border bg-background px-3 py-2 pr-16 text-sm text-foreground outline-none focus:ring-0"
+          className="w-full rounded-lg border border-border bg-background px-3 py-2 pr-16 typo-p outline-none focus:ring-0"
           value={Number.isFinite(value) ? String(value) : ""}
           onChange={(e) => onChange(clamp(toNumberStrict(e.target.value), min ?? Number.MIN_SAFE_INTEGER, max ?? Number.MAX_SAFE_INTEGER))}
           min={min}

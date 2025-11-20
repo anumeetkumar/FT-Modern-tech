@@ -153,7 +153,7 @@ const FirebaseConfigComponent = () => {
   <div className="flex items-center justify-between mb-4">
     <div className="flex items-center gap-2">
       <FireplaceRoundedIcon className="text-muted" fontSize="small" />
-      <div className="text-sm font-medium  text-foreground">
+      <div className="typo-p500  text-foreground">
         Firebase Configuration
       </div>
       {configs.firebase.enabled && (
@@ -186,7 +186,7 @@ const FirebaseConfigComponent = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <Label htmlFor="firebase-apiKey" className="text-sm text-foreground">
+          <Label htmlFor="firebase-apiKey" className="typo-p">
             API Key
           </Label>
           <div className="relative mt-1.5">
@@ -212,7 +212,7 @@ const FirebaseConfigComponent = () => {
         </div>
 
         <div>
-          <Label htmlFor="firebase-authDomain" className="text-sm text-foreground">
+          <Label htmlFor="firebase-authDomain" className="typo-p">
             Auth Domain
           </Label>
           <Input
@@ -225,7 +225,7 @@ const FirebaseConfigComponent = () => {
         </div>
 
         <div>
-          <Label htmlFor="firebase-projectId" className="text-sm text-foreground">
+          <Label htmlFor="firebase-projectId" className="typo-p">
             Project ID
           </Label>
           <Input
@@ -238,7 +238,7 @@ const FirebaseConfigComponent = () => {
         </div>
 
         <div>
-          <Label htmlFor="firebase-storageBucket" className="text-sm text-foreground">
+          <Label htmlFor="firebase-storageBucket" className="typo-p">
             Storage Bucket
           </Label>
           <Input
@@ -251,7 +251,7 @@ const FirebaseConfigComponent = () => {
         </div>
 
         <div>
-          <Label htmlFor="firebase-messagingSenderId" className="text-sm text-foreground">
+          <Label htmlFor="firebase-messagingSenderId" className="typo-p">
             Messaging Sender ID
           </Label>
           <Input
@@ -264,7 +264,7 @@ const FirebaseConfigComponent = () => {
         </div>
 
         <div>
-          <Label htmlFor="firebase-appId" className="text-sm text-foreground">
+          <Label htmlFor="firebase-appId" className="typo-p">
             App ID
           </Label>
           <Input
@@ -277,7 +277,7 @@ const FirebaseConfigComponent = () => {
         </div>
 
         <div className="md:col-span-2">
-          <Label htmlFor="firebase-measurementId" className="text-sm text-foreground">
+          <Label htmlFor="firebase-measurementId" className="typo-p">
             Measurement ID (Optional - for Analytics)
           </Label>
           <Input

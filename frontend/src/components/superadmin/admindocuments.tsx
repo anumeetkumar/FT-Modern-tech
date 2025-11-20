@@ -683,7 +683,7 @@ export default function AdminDocumentsPage() {
             <h1 className="typo-h1">
               Admin Documents
             </h1>
-            <p className="text-sm text-muted">
+            <p className="typo-p-muted">
               Black & white. Pixel-perfect. View, add, track, and export admin
               documents.
             </p>
@@ -702,7 +702,7 @@ export default function AdminDocumentsPage() {
       {/* Quick Stats */}
       <div className="mb-6 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         <div className="rounded-2xl border border-border bg-card p-4 dark:bg-foreground/5">
-          <div className="text-sm text-muted">Total documents</div>
+          <div className="typo-p-muted">Total documents</div>
           <div className="mt-1 flex items-baseline gap-2">
             <span className="typo-h1 font-semibold text-foreground">
               {docs.length}
@@ -717,7 +717,7 @@ export default function AdminDocumentsPage() {
         </div>
 
         <div className="rounded-2xl border border-border bg-card p-4 dark:bg-foreground/5">
-          <div className="text-sm text-muted">Health Status</div>
+          <div className="typo-p-muted">Health Status</div>
           <div className="mt-2 flex flex-wrap gap-2 typo-p12n">
             <TooltipProvider>
               <Tooltip>
@@ -781,7 +781,7 @@ export default function AdminDocumentsPage() {
         </div>
 
         <div className="rounded-2xl border border-border bg-card p-4 sm:col-span-2 lg:col-span-1 dark:bg-foreground/5">
-          <div className="flex items-center justify-between text-sm text-muted">
+          <div className="flex items-center justify-between typo-p-muted">
             <span>Storage used</span>
             <span className="font-medium">
               {formatBytes(storageUsed)} / {formatBytes(storageQuota)}

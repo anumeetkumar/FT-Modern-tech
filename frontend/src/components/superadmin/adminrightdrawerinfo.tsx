@@ -193,7 +193,7 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
               <div className="flex items-center gap-3 mb-3">
                 <Avatar className="h-16 w-16 border border-neutral-200 dark:border-neutral-700">
                   <AvatarImage src={adminData.profileUrl} alt={adminData.name} />
-                  <AvatarFallback className="bg-neutral-800 dark:bg-neutral-200 text-neutral-100 dark:text-neutral-800 text-lg font-semibold">
+                  <AvatarFallback className="bg-neutral-800 dark:bg-neutral-200 text-neutral-100 dark: text-lg font-semibold">
                     {adminData.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
                   </AvatarFallback>
                 </Avatar>
@@ -211,15 +211,15 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
 
             {/* Contact Information */}
             <div className="mb-6">
-              <h4 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-3">Contact Information</h4>
+              <h4 className="typo-p600 text-neutral-900 dark:text-neutral-100 mb-3">Contact Information</h4>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <CallIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
-                  <span className="text-sm text-neutral-700 dark:text-neutral-300">{adminData.mobilePrefix} {adminData.mobileNumber}</span>
+                  <span className="typo-p-muted">{adminData.mobilePrefix} {adminData.mobileNumber}</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <EmailIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
-                  <span className="text-sm text-neutral-700 dark:text-neutral-300">{adminData.email}</span>
+                  <span className="typo-p-muted">{adminData.email}</span>
                   {adminData.isEmailVerified && (
                     <VerifiedIcon fontSize="small" className="text-primary dark:text-neutral-400 w-4 h-4" />
                   )}
@@ -229,13 +229,13 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
 
             {/* Address */}
             <div className="mb-6">
-              <h4 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-3">Address</h4>
+              <h4 className="typo-p600 text-neutral-900 dark:text-neutral-100 mb-3">Address</h4>
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <span className={`fi fi-${adminData.address.countryCode.toLowerCase()}`} style={{ fontSize: "16px" }} />
-                  <span className="text-sm font-medium text-neutral-900 dark:text-neutral-100">{adminData.address.country}</span>
+                  <span className="typo-p500 text-neutral-900 dark:text-neutral-100">{adminData.address.country}</span>
                 </div>
-                <div className="text-sm text-neutral-600 dark:text-neutral-400 ml-6">
+                <div className="typo-p-muted  ml-6">
                   <p>{adminData.address.line1}</p>
                   <p>{adminData.address.city}, {adminData.address.state} {adminData.address.postalCode}</p>
                 </div>
@@ -244,14 +244,14 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
 
             {/* Activity & Statistics */}
             <div className="mb-6">
-              <h4 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-3">Activity & Statistics</h4>
+              <h4 className="typo-p600 text-neutral-900 dark:text-neutral-100 mb-3">Activity & Statistics</h4>
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <CalendarTodayIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
-                    <span className="text-sm text-neutral-600 dark:text-neutral-400">Created</span>
+                    <span className="typo-p-muted ">Created</span>
                   </div>
-                  <span className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                  <span className="typo-p500 text-neutral-900 dark:text-neutral-100">
                     {formatDate(adminData.createdAt)}
                   </span>
                 </div>
@@ -259,9 +259,9 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <AccessTimeIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
-                    <span className="text-sm text-neutral-600 dark:text-neutral-400">Last Login</span>
+                    <span className="typo-p-muted ">Last Login</span>
                   </div>
-                  <span className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                  <span className="typo-p500 text-neutral-900 dark:text-neutral-100">
                     {formatDate(adminData.lastLogin)}
                   </span>
                 </div>
@@ -269,9 +269,9 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <DirectionsCarIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
-                    <span className="text-sm text-neutral-600 dark:text-neutral-400">Vehicles</span>
+                    <span className="typo-p-muted ">Vehicles</span>
                   </div>
-                  <span className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                  <span className="typo-p500 text-neutral-900 dark:text-neutral-100">
                     {adminData.vehiclesCount.toLocaleString()}
                   </span>
                 </div>
@@ -279,9 +279,9 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <CreditCardIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
-                    <span className="text-sm text-neutral-600 dark:text-neutral-400">Credits</span>
+                    <span className="typo-p-muted ">Credits</span>
                   </div>
-                  <span className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                  <span className="typo-p500 text-neutral-900 dark:text-neutral-100">
                     {adminData.credits.toLocaleString()}
                   </span>
                 </div>
@@ -290,7 +290,7 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
 
             {/* Company Information */}
             <div className="mb-6">
-              <h4 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-3">Company</h4>
+              <h4 className="typo-p600 text-neutral-900 dark:text-neutral-100 mb-3">Company</h4>
               <div className="space-y-3">
                 {/* Company Logo & Name */}
                 <div className="flex items-center gap-3">
@@ -309,7 +309,7 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
                     />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="text-sm font-medium text-neutral-900 dark:text-neutral-100">{adminData.company.name}</p>
+                    <p className="typo-p500 text-neutral-900 dark:text-neutral-100">{adminData.company.name}</p>
                   </div>
                 </div>
 
@@ -321,7 +321,7 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
                       href={adminData.company.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-100 underline"
+                      className="typo-p-muted hover:text-neutral-900 dark:hover:text-neutral-100 underline"
                     >
                       {adminData.company.website.replace('https://', '')}
                     </a>
@@ -340,7 +340,7 @@ function AdminRightDrawerInfo({ userId, isOpen, onClose }: AdminRightDrawerInfoP
                             href={url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-2 rounded-lg border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200"
+                            className="p-2 rounded-lg border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors typo-p-muted hover: "
                             title={platform.charAt(0).toUpperCase() + platform.slice(1)}
                           >
                             {getSocialIcon(platform)}

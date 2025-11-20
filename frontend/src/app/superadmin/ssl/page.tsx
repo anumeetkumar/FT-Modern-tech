@@ -204,7 +204,7 @@ export default function SSLManager() {
       </ScrollArea>
 
       {/* Pagination */}
-      <div className="px-4 py-3 border-t border-border bg-background flex items-center justify-between text-sm text-foreground">
+      <div className="px-4 py-3 border-t border-border bg-background flex items-center justify-between typo-p">
         <div>
           Showing {(clampedPage - 1) * PAGE_SIZE + 1}–
           {Math.min(filtered.length, clampedPage * PAGE_SIZE)} of {filtered.length}
@@ -246,7 +246,7 @@ export default function SSLManager() {
           <div className="mt-2 px-4 pb-4 space-y-4">
             <div className="flex items-center gap-3">
               <StatusBadge status={detail.status} />
-              <span className="text-sm text-muted-foreground">
+              <span className="typo-p-muted">
                 Expires: {detail.expiresAt ? formatDate(detail.expiresAt) : "—"}
               </span>
             </div>
@@ -394,7 +394,7 @@ function DnsRow({ label, rec }: { label: string; rec?: { type: string; value: st
         <div className="font-medium">
           {label} <span className="typo-subtitle">({rec.type})</span>
         </div>
-        <div className="text-foreground text-xs flex items-center gap-2">
+        <div className="typo-p12n flex items-center gap-2">
           <code className="bg-foreground/5 rounded px-1 py-0.5 border border-border">{rec.value}</code>
           <Button
             variant="outline"

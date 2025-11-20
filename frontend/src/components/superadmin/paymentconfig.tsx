@@ -411,7 +411,7 @@ export default function PaymentGatewayConfig() {
             <h1 className="typo-h1">
               Payment Gateway Configuration
             </h1>
-            <p className="text-sm text-muted-foreground">
+            <p className="typo-p-muted">
               Configure and manage your payment processors
             </p>
           </div>
@@ -580,7 +580,7 @@ export default function PaymentGatewayConfig() {
                       <DialogTitle className="typo-h2">
                         {gateway.name}
                       </DialogTitle>
-                      <DialogDescription className="text-sm text-muted-foreground">
+                      <DialogDescription className="typo-p-muted">
                         {gateway.description}
                       </DialogDescription>
                     </div>
@@ -668,7 +668,7 @@ export default function PaymentGatewayConfig() {
                                 </DialogTitle>
                                 <DialogDescription className="space-y-3 pt-4 text-muted-foreground">
                                   <div>
-                                    <h4 className="font-semibold text-sm text-foreground mb-1">
+                                    <h4 className="font-semibold typo-p mb-1">
                                       🔐 Development Environment
                                     </h4>
                                     <p className="text-xs">
@@ -679,7 +679,7 @@ export default function PaymentGatewayConfig() {
                                   </div>
                                   <Separator className="bg-border" />
                                   <div>
-                                    <h4 className="font-semibold text-sm text-foreground mb-1">
+                                    <h4 className="font-semibold typo-p mb-1">
                                       ⚠️ Production Warning
                                     </h4>
                                     <p className="text-xs">
@@ -703,7 +703,7 @@ export default function PaymentGatewayConfig() {
                                   </div>
                                   <Separator className="bg-border" />
                                   <div>
-                                    <h4 className="font-semibold text-sm text-foreground mb-1">
+                                    <h4 className="font-semibold typo-p mb-1">
                                       ✅ Recommended Approach
                                     </h4>
                                     <p className="text-xs">
@@ -756,7 +756,7 @@ export default function PaymentGatewayConfig() {
                         <div key={field}>
                           <Label
                             htmlFor={`${gateway.id}-${field}`}
-                            className="mb-1.5 block text-sm text-foreground"
+                            className="mb-1.5 block typo-p"
                           >
                             {getFieldLabel(field)}
                           </Label>
@@ -864,7 +864,7 @@ export default function PaymentGatewayConfig() {
                               <DialogDescription className="space-y-3 pt-4">
                                 {/* Feature Availability */}
                                 <div>
-                                  <h4 className="font-semibold text-sm text-foreground mb-1">
+                                  <h4 className="font-semibold typo-p mb-1">
                                     📋 Feature Availability
                                   </h4>
                                   <p className="typo-subtitle">
@@ -894,7 +894,7 @@ export default function PaymentGatewayConfig() {
 
                                 {/* Regional Differences */}
                                 <div>
-                                  <h4 className="font-semibold text-sm text-foreground mb-1">
+                                  <h4 className="font-semibold typo-p mb-1">
                                     🌍 Regional Differences
                                   </h4>
                                   <p className="typo-subtitle">
@@ -909,7 +909,7 @@ export default function PaymentGatewayConfig() {
 
                                 {/* Getting Started */}
                                 <div>
-                                  <h4 className="font-semibold text-sm text-foreground mb-1">
+                                  <h4 className="font-semibold typo-p mb-1">
                                     💡 Getting Started
                                   </h4>
                                   <p className="typo-subtitle">
@@ -947,7 +947,7 @@ export default function PaymentGatewayConfig() {
                             className="flex items-center gap-2 rounded-xl border border-border bg-foreground/5/50 p-3"
                           >
                             <CheckCircleIcon className="w-5 h-5 text-green-600 dark:text-green-400" />
-                            <span className="text-sm text-foreground">
+                            <span className="typo-p">
                               {feature}
                             </span>
                           </div>

@@ -136,7 +136,7 @@ const AdoptionAndVehicleSection = () => {
           <div className="mb-3 flex items-center justify-between gap-3">
             <div className="flex items-center gap-2">
               <TimelineOutlinedIcon className="h-5 w-5 text-foreground" />
-              <h3 className="text-sm font-semibold text-foreground">Adoption & Growth</h3>
+              <h3 className="typo-p600 text-foreground">Adoption & Growth</h3>
             </div>
             <div className="flex items-center gap-2 text-xs">
               <ToggleChip active={tf === "12m"} onClick={() => setTf("12m")}>12M</ToggleChip>
@@ -188,7 +188,7 @@ const AdoptionAndVehicleSection = () => {
         <div className="rounded-2xl border border-border bg-background p-4 shadow-sm">
           <div className="mb-3 flex items-center gap-2">
             <DirectionsCarOutlinedIcon className="h-5 w-5 text-foreground" />
-            <h3 className="text-sm font-semibold text-foreground">Vehicle Status</h3>
+            <h3 className="typo-p600 text-foreground">Vehicle Status</h3>
           </div>
           <div className="space-y-4">
             {vehicleStatus.map((s) => (
@@ -224,7 +224,7 @@ const AdoptionAndVehicleSection = () => {
               className="relative w-[min(90vw,720px)] rounded-2xl border border-border bg-background p-4 shadow-xl"
             >
               <div className="mb-2 flex items-center justify-between">
-                <h4 className="text-sm font-semibold text-foreground">Manual Copy</h4>
+                <h4 className="typo-p600 text-foreground">Manual Copy</h4>
                 <button className="rounded-lg p-1 text-muted hover:bg-muted" onClick={() => setCopyModalOpen(false)}>
                   <CloseRoundedIcon fontSize="small" />
                 </button>

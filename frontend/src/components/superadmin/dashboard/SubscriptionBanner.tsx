@@ -38,10 +38,10 @@ const SubscriptionBanner = () => {
               <div className="flex items-start gap-4">
                 <VerifiedUserOutlinedIcon className="mt-0.5 h-5 w-5 text-foreground" />
                 <div>
-                  <h3 className="text-sm font-semibold text-foreground">
+                  <h3 className="typo-p600 text-foreground">
                     You are using the Freemium version
                   </h3>
-                  <p className="mt-1 text-sm text-muted">
+                  <p className="mt-1 typo-p-muted">
                     Unlock enterprise features, unlimited scale, and dedicated
                     support. Activate your license to remove restrictions and
                     enable deployment automation.
@@ -49,11 +49,11 @@ const SubscriptionBanner = () => {
                   <div className="mt-3 flex flex-wrap items-center gap-2">
                     <button
                       onClick={() => setIsDialogOpen(true)}
-                      className="rounded-xl border border-primary px-4 py-2 text-sm font-medium transition-colors text-primary hover:bg-primary hover:text-background"
+                      className="rounded-xl border border-primary px-4 py-2 typo-p500 transition-colors text-primary hover:bg-primary hover:text-background"
                     >
                       Activate License
                     </button>
-                    <button className="rounded-xl border border-muted px-4 py-2 text-sm text-muted hover:bg-foreground/5">
+                    <button className="rounded-xl border border-muted px-4 py-2 typo-p-muted hover:bg-foreground/5">
                       Compare Plans
                     </button>
                   </div>

@@ -300,7 +300,7 @@ export default function PaymentsAdminPage() {
               <h1 className="typo-h1">
                 Payments
               </h1>
-              <p className="text-sm text-zinc-500 mt-1">
+              <p className="typo-p-muted mt-1">
                 List of all received payments & manual receipts for device
                 renewals.
               </p>
@@ -338,7 +338,7 @@ export default function PaymentsAdminPage() {
         {selected.length > 0 && (
           <Card className="mt-4 border-zinc-200">
             <CardContent className="p-4 flex items-center justify-between">
-              <div className="text-sm text-zinc-600">
+              <div className="typo-p-muted">
                 <span className="font-medium text-zinc-900">
                   {selected.length}
                 </span>{" "}

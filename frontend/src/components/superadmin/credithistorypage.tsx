@@ -425,7 +425,7 @@ export default function CreditHistoryPage() {
                     >
                       <div className="flex">
                         <div className="p-3">
-                          <div className="text-sm font-medium mb-2 text-foreground">
+                          <div className="typo-p500 mb-2 text-foreground">
                             Select Date Range
                           </div>
                           <Calendar
@@ -438,7 +438,7 @@ export default function CreditHistoryPage() {
                           />
                         </div>
                         {/* <div className="p-3 border-l border-border">
-                          <div className="text-sm font-medium mb-2 text-foreground">
+                          <div className="typo-p500 mb-2 text-foreground">
                             To Date
                           </div>
                           <Calendar
@@ -513,13 +513,13 @@ export default function CreditHistoryPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Bill To */}
                   <div>
-                    <div className="text-sm font-semibold text-foreground">
+                    <div className="typo-p600 text-foreground">
                       Bill To:
                     </div>
                     <div className="mt-2 font-semibold text-foreground">
                       {BILL_TO.name}
                     </div>
-                    <div className="mt-1 text-sm text-muted-foreground">
+                    <div className="mt-1 typo-p-muted">
                       {BILL_TO.addressLines.map((l, i) => (
                         <div key={i}>{l}</div>
                       ))}

@@ -158,16 +158,16 @@ export default function RenewSheet({ open, onOpenChange, selection }: any) {
 
           <div className="rounded-xl border p-4">
             <div className="flex items-center justify-between">
-              <div className="text-sm text-zinc-600">Amount</div>
+              <div className="typo-p-muted">Amount</div>
               <div className="font-medium">{formatINR(totals.base)}</div>
             </div>
             <div className="flex items-center justify-between mt-1">
-              <div className="text-sm text-zinc-600">GST (18%)</div>
+              <div className="typo-p-muted">GST (18%)</div>
               <div className="font-medium">{formatINR(totals.tax)}</div>
             </div>
             <SelectSeparator className="my-3" />
             <div className="flex items-center justify-between">
-              <div className="text-sm text-zinc-800 font-medium">Total</div>
+              <div className="typo-p500">Total</div>
               <div className="text-lg font-semibold">
                 {formatINR(totals.total)}
               </div>
@@ -193,7 +193,7 @@ export default function RenewSheet({ open, onOpenChange, selection }: any) {
 
             {method === "online" ? (
               <div className="rounded-xl border p-4">
-                <div className="text-sm text-zinc-600">Payment link</div>
+                <div className="typo-p-muted">Payment link</div>
                 <div className="mt-1 font-medium break-all flex items-center gap-2">
                   <LinkIcon sx={{ fontSize: 16 }} />
                   <a

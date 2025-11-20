@@ -151,7 +151,7 @@ const SSOConfigComponent = () => {
   <div className="flex items-center justify-between mb-4">
     <div className="flex items-center gap-2">
       <LoginRoundedIcon className="text-muted-foreground" fontSize="small" />
-      <div className="text-sm font-medium  text-foreground">
+      <div className="typo-p500  text-foreground">
         SSO - Google OAuth 2.0
       </div>
       {configs.sso.enabled && (
@@ -198,7 +198,7 @@ const SSOConfigComponent = () => {
 
       <div className="space-y-4">
         <div>
-          <Label htmlFor="sso-clientId" className="text-sm text-foreground">
+          <Label htmlFor="sso-clientId" className="typo-p">
             Google Client ID
           </Label>
           <Input
@@ -212,7 +212,7 @@ const SSOConfigComponent = () => {
         </div>
 
         <div>
-          <Label htmlFor="sso-clientSecret" className="text-sm text-foreground">
+          <Label htmlFor="sso-clientSecret" className="typo-p">
             Google Client Secret
           </Label>
           <div className="relative mt-1.5">
@@ -239,7 +239,7 @@ const SSOConfigComponent = () => {
         </div>
 
         <div>
-          <Label htmlFor="sso-redirectUri" className="text-sm text-foreground">
+          <Label htmlFor="sso-redirectUri" className="typo-p">
             Redirect URI
           </Label>
           <div className="flex gap-2 mt-1.5">

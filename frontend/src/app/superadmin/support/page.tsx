@@ -304,7 +304,7 @@ export default function SupportSplitView() {
     className="rounded-2xl pb-3 border border-border shadow-sm overflow-hidden dark:bg-foreground/5"
   >
     <div className="flex items-center justify-between px-4 py-3 bg-background border-b border-border bg-foreground/10">
-      <div className="text-sm font-medium uppercase tracking-wider text-foreground">Inbox</div>
+      <div className="typo-p500 uppercase tracking-wider text-foreground">Inbox</div>
       <div className="typo-subtitle">{filtered.length} tickets</div>
     </div>
 
@@ -337,7 +337,7 @@ export default function SupportSplitView() {
                       </div>
                     </div>
                     {t.preview && (
-                      <div className="text-sm text-muted line-clamp-1">{t.preview}</div>
+                      <div className="typo-p-muted line-clamp-1">{t.preview}</div>
                     )}
                   </div>
                 </button>
@@ -349,7 +349,7 @@ export default function SupportSplitView() {
     </div>
 
     {/* Pagination */}
-    <div className="px-4 py-3 border-t border-border bg-background flex items-center justify-between text-sm text-foreground">
+    <div className="px-4 py-3 border-t border-border bg-background flex items-center justify-between typo-p">
       <div>Page {clampedPage} / {totalPages}</div>
       <div className="flex items-center gap-2">
         <Button
@@ -390,7 +390,7 @@ export default function SupportSplitView() {
             <div>
               <div className="text-sm uppercase tracking-wider text-muted">{active.id}</div>
               <h2 className="mt-1 typo-h2">{active.title}</h2>
-              <div className="mt-1 flex items-center flex-wrap gap-2 text-sm text-foreground">
+              <div className="mt-1 flex items-center flex-wrap gap-2 typo-p">
                 <PersonOutlineIcon fontSize="small" />
                 <span>{active.name}</span>
                 <span className="text-border">•</span>
@@ -517,7 +517,7 @@ export default function SupportSplitView() {
                 <ScrollArea className="h-full">
                   <div className="px-5 py-5 space-y-4">
                     {threadInternal.length === 0 && (
-                      <div className="text-sm text-muted">No internal notes yet.</div>
+                      <div className="typo-p-muted">No internal notes yet.</div>
                     )}
                     {threadInternal.map((msg) => (
                       <div key={msg.id} className="group">
@@ -568,7 +568,7 @@ export default function SupportSplitView() {
       <div className="h-full grid place-items-center text-muted border border-dashed border-border rounded-2xl p-12">
         <div className="max-w-sm text-center">
           <div className="text-lg font-medium text-foreground">Select a ticket</div>
-          <p className="mt-1 text-sm text-muted">Choose an item from the left list to view details.</p>
+          <p className="mt-1 typo-p-muted">Choose an item from the left list to view details.</p>
         </div>
       </div>
     )}

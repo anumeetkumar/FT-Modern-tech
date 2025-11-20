@@ -132,7 +132,7 @@ export default function SuperAdminSettings() {
             <h1 className="typo-h1">
               Application Settings
             </h1>
-            <p className="text-sm text-muted-foreground">
+            <p className="typo-p-muted">
               Configure system-wide settings for your application.
             </p>
           </div>
@@ -152,7 +152,7 @@ export default function SuperAdminSettings() {
       <div className="mb-6">
         <div className="rounded-2xl border border-border bg-background p-5 transition-colors dark:bg-foreground/5">
           <div className="mb-3 flex items-center justify-between">
-            <div className="text-sm text-foreground/70">
+            <div className="typo-p/70">
               Current Configuration
             </div>
             <div className="typo-subtitle">

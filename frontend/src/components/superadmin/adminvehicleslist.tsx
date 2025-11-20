@@ -925,7 +925,7 @@ function KpiCard({
         <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-neutral-200 dark:border-neutral-700 dark:bg-neutral-700">
           {icon}
         </div>
-        <div className="text-sm font-medium text-neutral-900 dark:text-neutral-200">
+        <div className="typo-p500 text-neutral-900 dark:text-neutral-200">
           {title}
         </div>
       </div>
@@ -943,7 +943,7 @@ function KpiCard({
             "mt-2 inline-flex items-center rounded-full px-2 py-0.5 text-xs",
             isUp
               ? "bg-neutral-900 dark:bg-white text-white dark:text-black"
-              : "bg-neutral-200 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-300"
+              : "bg-neutral-200 dark:bg-neutral-700  dark:text-neutral-300"
           )}
         >
           {isUp ? "▲" : "▼"} {Math.abs(delta!).toFixed(1)}%

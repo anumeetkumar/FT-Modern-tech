@@ -208,7 +208,7 @@ function SuperAdminBranding() {
         <div className="flex items-center justify-between p-4 rounded-xl border border-neutral-200 dark:border-neutral-700 dark:bg-neutral-800">
           <div className="flex items-center gap-3">
             <div className="h-10 w-10 rounded-lg bg-neutral-100 dark:bg-neutral-700 grid place-items-center">
-              <PaletteIcon className="text-neutral-600 dark:text-neutral-300" />
+              <PaletteIcon className="typo-base-muted" />
             </div>
             <div>
               <div className="font-semibold text-sm dark:text-neutral-100">Active Preview</div>
@@ -249,8 +249,8 @@ function SuperAdminBranding() {
                 {/* Live Preview */}
         <div className="rounded-2xl border border-neutral-200 p-5 dark:border-neutral-700 dark:bg-neutral-800">
           <div className="flex items-center gap-2 mb-4">
-            <ColorLensIcon className="text-neutral-600 dark:text-neutral-300" fontSize="small" />
-            <h3 className="text-sm font-semibold uppercase tracking-widest text-neutral-900 dark:text-neutral-100">
+            <ColorLensIcon className="typo-base-muted" fontSize="small" />
+            <h3 className="typo-p600 uppercase tracking-widest text-neutral-900 dark:text-neutral-100">
               Live Preview - {activeTheme === 'light' ? 'Light Mode' : 'Dark Mode'}
             </h3>
           </div>
@@ -328,7 +328,7 @@ function SuperAdminBranding() {
                   borderWidth: '1px'
                 }}
               >
-                <div style={{ color: currentTheme.warning }} className="text-sm font-medium">
+                <div style={{ color: currentTheme.warning }} className="typo-p500">
                   Warning
                 </div>
               </div>
@@ -347,7 +347,7 @@ function SuperAdminBranding() {
             {/* Preview Buttons */}
             <div className="flex gap-2 pt-2">
               <button
-                className="px-4 py-2 rounded-lg text-sm font-medium transition-all"
+                className="px-4 py-2 rounded-lg typo-p500 transition-all"
                 style={{
                   backgroundColor: currentTheme.primary,
                   color: activeTheme === 'light' ? '#ffffff' : '#000000',
@@ -356,7 +356,7 @@ function SuperAdminBranding() {
                 Primary Button
               </button>
               <button
-                className="px-4 py-2 rounded-lg text-sm font-medium transition-all"
+                className="px-4 py-2 rounded-lg typo-p500 transition-all"
                 style={{
                   backgroundColor: 'transparent',
                   color: currentTheme.foreground,
@@ -375,8 +375,8 @@ function SuperAdminBranding() {
           {/* Light Theme Colors */}
           <div className="rounded-2xl border border-neutral-200 p-5 dark:border-neutral-700 dark:bg-neutral-800">
             <div className="flex items-center gap-2 mb-4">
-              <LightModeIcon className="text-neutral-600 dark:text-neutral-300" fontSize="small" />
-              <h3 className="text-sm font-semibold uppercase tracking-widest text-neutral-900 dark:text-neutral-100">
+              <LightModeIcon className="typo-base-muted" fontSize="small" />
+              <h3 className="typo-p600 uppercase tracking-widest text-neutral-900 dark:text-neutral-100">
                 Light Mode Colors
               </h3>
             </div>
@@ -454,8 +454,8 @@ function SuperAdminBranding() {
           {/* Dark Theme Colors */}
           <div className="rounded-2xl border border-neutral-200 p-5 dark:border-neutral-700 dark:bg-neutral-800">
             <div className="flex items-center gap-2 mb-4">
-              <DarkModeIcon className="text-neutral-600 dark:text-neutral-300" fontSize="small" />
-              <h3 className="text-sm font-semibold uppercase tracking-widest text-neutral-900 dark:text-neutral-100">
+              <DarkModeIcon className="typo-base-muted" fontSize="small" />
+              <h3 className="typo-p600 uppercase tracking-widest text-neutral-900 dark:text-neutral-100">
                 Dark Mode Colors
               </h3>
             </div>
@@ -538,7 +538,7 @@ function SuperAdminBranding() {
           <div className="flex gap-3">
             <FormatPaintIcon className="text-blue-600 dark:text-blue-400 flex-shrink-0" fontSize="small" />
             <div className="space-y-1">
-              <div className="text-sm font-medium text-blue-900 dark:text-blue-100">
+              <div className="typo-p500 text-blue-900 dark:text-blue-100">
                 Theme Customization Tips
               </div>
               <div className="text-xs text-blue-700 dark:text-blue-300 space-y-1">

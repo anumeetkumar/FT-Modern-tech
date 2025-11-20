@@ -17,13 +17,13 @@ function MobileAccordion({ label, icon, route, items }: {
       {isLeaf && route ? (
         <Link
           href={route}
-          className="flex w-full items-center gap-2 px-3 py-3 text-left text-sm font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
+          className="flex w-full items-center gap-2 px-3 py-3 text-left typo-p500 text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
         >
           <span className="flex items-center gap-2">{icon && getIcon(icon)}{label}</span>
         </Link>
       ) : (
         <button
-          className="flex w-full items-center justify-between gap-2 px-3 py-3 text-left text-sm font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
+          className="flex w-full items-center justify-between gap-2 px-3 py-3 text-left typo-p500 text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
           onClick={() => !isLeaf && setOpen((v) => !v)}
           aria-expanded={open}
         >

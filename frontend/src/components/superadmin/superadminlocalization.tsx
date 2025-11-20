@@ -137,7 +137,7 @@ export default function SuperAdminLocalization() {
             <h1 className="typo-h1">
               Localization Settings
             </h1>
-            <p className="text-sm text-muted">
+            <p className="typo-p-muted">
               Configure language, timezone, date formats, and map focus for your
               application.
             </p>
@@ -157,7 +157,7 @@ export default function SuperAdminLocalization() {
       <div className="mb-6">
         <div className="rounded-2xl border border-border bg-background p-5 transition-colors">
           <div className="mb-3 flex items-center justify-between">
-            <div className="text-sm text-muted">Live Preview</div>
+            <div className="typo-p-muted">Live Preview</div>
             <div className="typo-subtitle">
               Lang: {settings.language.toUpperCase()} • Dir:{" "}
               {settings.direction.toUpperCase()} • TZ: {settings.timezone}
@@ -182,7 +182,7 @@ export default function SuperAdminLocalization() {
             </div>
             <div>
               <div className="typo-subtitle">Map Center</div>
-              <div className="text-sm font-medium font-mono text-foreground">
+              <div className="typo-p500 font-mono text-foreground">
                 {settings.mapLat.toFixed(4)}, {settings.mapLng.toFixed(4)}
               </div>
               <div className="typo-subtitle">Zoom: {settings.mapZoom}</div>
@@ -266,7 +266,7 @@ export default function SuperAdminLocalization() {
         {/* Time Format */}
         <ResuableCard title="Time Format" icon={<AccessTimeIcon />}>
           <div className="flex items-center justify-between rounded-xl border border-border bg-background p-3">
-            <span className="text-sm text-foreground">24-hour clock</span>
+            <span className="typo-p">24-hour clock</span>
             <Switch
               checked={settings.timeFormat === "24h"}
               onCheckedChange={(v) => set("timeFormat", v ? "24h" : "12h")}
@@ -307,7 +307,7 @@ export default function SuperAdminLocalization() {
             {(["km", "miles"] as Units[]).map((unit) => (
               <button
                 key={unit}
-                className="rounded-xl border border-border px-3 py-2 text-sm text-foreground hover:bg-foreground/5"
+                className="rounded-xl border border-border px-3 py-2 typo-p hover:bg-foreground/5"
               >
                 {unit.toUpperCase()}
               </button>
@@ -321,7 +321,7 @@ export default function SuperAdminLocalization() {
             {(["light", "dark", "system"] as Theme[]).map((th) => (
               <button
                 key={th}
-                className="rounded-xl border border-border px-3 py-2 text-sm text-foreground hover:bg-foreground/5"
+                className="rounded-xl border border-border px-3 py-2 typo-p hover:bg-foreground/5"
               >
                 {th === "light" && <LightModeIcon className="mr-1" />}
                 {th === "dark" && <DarkModeIcon className="mr-1" />}

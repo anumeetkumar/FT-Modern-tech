@@ -93,7 +93,7 @@ const SuperAdminSMTPSettings = () => {
             <h2 className="typo-h2">
               SMTP Configuration
             </h2>
-            <p className="text-sm text-muted mt-1">
+            <p className="typo-p-muted mt-1">
               Configure your email server settings
             </p>
           </div>
@@ -169,7 +169,7 @@ const SuperAdminSMTPSettings = () => {
 
         {/* SMTP Server Configuration */}
         <div className="space-y-4">
-          <div className="text-sm font-semibold text-foreground">
+          <div className="typo-p600 text-foreground">
             SMTP Server Configuration
           </div>
 
@@ -296,7 +296,7 @@ const SuperAdminSMTPSettings = () => {
 
         {/* Sender Information */}
         <div className="space-y-4">
-          <div className="text-sm font-semibold text-foreground">
+          <div className="typo-p600 text-foreground">
             Sender Information
           </div>
 

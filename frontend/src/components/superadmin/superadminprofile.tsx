@@ -209,7 +209,7 @@ function SuperAdminProfile({ superAdminId }: { superAdminId?: string }) {
             </Badge>
           )}
         </div>
-        <div className="text-sm text-muted">@{superAdmin.username}</div>
+        <div className="typo-p-muted">@{superAdmin.username}</div>
       </div>
     </div>
 
@@ -251,7 +251,7 @@ function SuperAdminProfile({ superAdminId }: { superAdminId?: string }) {
             <div className="font-semibold  text-foreground">{superAdmin.company.name}</div>
             {superAdmin.company.website && (
               <a
-                className="text-sm text-muted underline-offset-4 hover:underline"
+                className="typo-p-muted underline-offset-4 hover:underline"
                 href={superAdmin.company.website}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -305,13 +305,13 @@ function SuperAdminProfile({ superAdminId }: { superAdminId?: string }) {
             ["Postal", superAdmin.address.postalCode || "—"],
           ].map(([label, value]) => (
             <div key={label} className="flex items-start gap-3">
-              <span className="text-sm text-muted min-w-[70px] flex-shrink-0">{label}</span>
-              <span className="text-sm font-medium text-foreground flex-1">{value}</span>
+              <span className="typo-p-muted min-w-[70px] flex-shrink-0">{label}</span>
+              <span className="typo-p500 text-foreground flex-1">{value}</span>
             </div>
           ))}
           <div className="flex items-start gap-3">
-            <span className="text-sm text-muted min-w-[70px] flex-shrink-0">Country</span>
-            <span className="text-sm font-medium text-foreground flex-1 inline-flex items-center gap-1.5">
+            <span className="typo-p-muted min-w-[70px] flex-shrink-0">Country</span>
+            <span className="typo-p500 text-foreground flex-1 inline-flex items-center gap-1.5">
               <span className={`fi fi-${superAdmin.address.countryCode.toLowerCase()}`} style={{ fontSize: "14px" }}></span>
               {superAdmin.address.country} ({superAdmin.address.countryCode})
             </span>
@@ -323,7 +323,7 @@ function SuperAdminProfile({ superAdminId }: { superAdminId?: string }) {
     {/* Contact */}
     <div className="mt-6 rounded-2xl border border-border p-5 bg-background dark:bg-foreground/5">
       <div className="typo-subtitle mb-2">Contact</div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-foreground/80">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 typo-p/80">
         <div className="space-y-3">
           <div className="flex items-center gap-3">
             <EmailRoundedIcon fontSize="small" className="text-muted" />
@@ -356,7 +356,7 @@ function SuperAdminProfile({ superAdminId }: { superAdminId?: string }) {
 
     {/* Activity */}
     <div className="mt-6 rounded-2xl border border-border bg-background dark:bg-foreground/5">
-      <div className="px-5 py-4 border-b border-border text-sm font-medium  text-foreground">
+      <div className="px-5 py-4 border-b border-border typo-p500  text-foreground">
         Recent Activity
       </div>
       <ScrollArea className="h-56">

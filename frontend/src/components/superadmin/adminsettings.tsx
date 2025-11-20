@@ -332,7 +332,7 @@ export default function AdminSettingPage() {
         <h1 className="typo-h1">
           Admin Setting
         </h1>
-        <p className="text-sm text-muted">
+        <p className="typo-p-muted">
           Premium static settings for language, layout, formats, theme,
           timezone & units.
         </p>
@@ -366,7 +366,7 @@ export default function AdminSettingPage() {
       )}
     >
       <div className="mb-3 flex items-center justify-between">
-        <div className="text-sm text-muted">Live Preview</div>
+        <div className="typo-p-muted">Live Preview</div>
         <div className="typo-subtitle">
           Theme: {settings.theme.toUpperCase()} • Dir:{" "}
           {settings.direction.toUpperCase()} • Units:{" "}
@@ -469,7 +469,7 @@ export default function AdminSettingPage() {
     {/* Time Format */}
     <Card title="Time Format" icon={<AccessTimeIcon />}>
       <div className="flex items-center justify-between rounded-xl border border-border bg-foreground/5 p-3">
-        <span className="text-sm text-foreground">24-hour clock</span>
+        <span className="typo-p">24-hour clock</span>
         <Switch
           checked={settings.time24h}
           onCheckedChange={(v) => set("time24h", Boolean(v))}

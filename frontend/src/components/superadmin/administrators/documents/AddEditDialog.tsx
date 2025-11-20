@@ -146,7 +146,7 @@ const AddEditDialog = ({
         )}
       >
         <CloudUploadIcon className="h-7 w-7 text-neutral-900 dark:text-neutral-100" />
-        <div className="text-sm text-neutral-800 dark:text-neutral-200">
+        <div className="text-sm ">
           Drag & drop your file here
         </div>
         <div className="typo-subtitle">
@@ -171,7 +171,7 @@ const AddEditDialog = ({
                   <FileKindIcon kind={inferFileKind(formFile)} />
                 </div>
                 <div className="text-left">
-                  <div className="text-sm font-medium text-neutral-800 truncate max-w-[150px] dark:text-neutral-200">
+                  <div className="typo-p500  truncate max-w-[150px] dark:text-neutral-200">
                     {formFile.name}
                   </div>
                   <div className="typo-subtitle">

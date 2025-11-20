@@ -185,16 +185,16 @@ export default function AddPaymentSheet({
 
           <div className="rounded-xl border p-4">
             <div className="flex items-center justify-between">
-              <div className="text-sm text-zinc-600">Amount</div>
+              <div className="typo-p-muted">Amount</div>
               <div className="font-medium">{formatINR(amount)}</div>
             </div>
             <div className="flex items-center justify-between mt-1">
-              <div className="text-sm text-zinc-600">GST ({taxPct}%)</div>
+              <div className="typo-p-muted">GST ({taxPct}%)</div>
               <div className="font-medium">{formatINR(tax)}</div>
             </div>
             <Separator className="my-3" />
             <div className="flex items-center justify-between">
-              <div className="text-sm text-zinc-800 font-medium">Total</div>
+              <div className="typo-p500">Total</div>
               <div className="text-lg font-semibold">{formatINR(total)}</div>
             </div>
           </div>

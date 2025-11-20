@@ -215,7 +215,7 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
               )}
             </div>
 
-            <div className="text-sm text-muted-foreground">
+            <div className="typo-p-muted">
               @{user.username}
             </div>
           </div>
@@ -293,7 +293,7 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
                 </div>
                 {user.company.website && (
                   <a
-                    className="text-sm text-muted-foreground underline-offset-4 hover:underline"
+                    className="typo-p-muted underline-offset-4 hover:underline"
                     href={user.company.website}
                     target="_blank"
                   >
@@ -385,7 +385,7 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
             Contact
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="space-y-2 text-sm text-muted-foreground">
+            <div className="space-y-2 typo-p-muted">
               <div className="flex items-center gap-3">
                 <EmailRoundedIcon fontSize="small" />
                 <a
@@ -420,7 +420,7 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
 
         {/* Activity */}
         <div className="mt-6 rounded-2xl border border-border bg-card overflow-hidden">
-          <div className="px-5 py-4 border-b border-border text-sm font-medium  text-foreground bg-foreground/5">
+          <div className="px-5 py-4 border-b border-border typo-p500  text-foreground bg-foreground/5">
             Recent Activity
           </div>
           <ScrollArea className="h-56">

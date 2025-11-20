@@ -277,7 +277,7 @@ function ImportWizard({
           >
             <div
               className={cn(
-                "w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold",
+                "w-8 h-8 rounded-full flex items-center justify-center typo-p600",
                 step === "config"
                   ? "bg-primary text-white"
                   : "bg-foreground/5 text-foreground"
@@ -314,7 +314,7 @@ function ImportWizard({
           >
             <div
               className={cn(
-                "w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold",
+                "w-8 h-8 rounded-full flex items-center justify-center typo-p600",
                 step === "upload"
                   ? "bg-primary text-primary-foreground"
                   : step === "review"
@@ -353,7 +353,7 @@ function ImportWizard({
           >
             <div
               className={cn(
-                "w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold",
+                "w-8 h-8 rounded-full flex items-center justify-center typo-p600",
                 step === "review"
                   ? "bg-primary text-primary-foreground"
                   : "bg-foreground/5 text-foreground"
@@ -408,7 +408,7 @@ function ImportWizard({
                     ))}
                   </SelectContent>
                 </Select>
-                <p className="text-sm text-muted-foreground">
+                <p className="typo-p-muted">
                   All imported users will be assigned this role
                 </p>
               </div>
@@ -427,7 +427,7 @@ function ImportWizard({
                   <DownloadIcon fontSize="small" />
                   Download Sample CSV
                 </Button>
-                <p className="text-sm text-muted-foreground">
+                <p className="typo-p-muted">
                   Download template with required columns and sample data
                 </p>
               </div>

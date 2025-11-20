@@ -33,12 +33,12 @@ const variantClasses: Record<TypographyVariant, string> = {
   h2: "text-xl font-semibold",
   h3: "text-lg font-semibold",
   h4: "text-base font-medium",
-  h5: "text-sm font-medium",
+  h5: "typo-p500",
   h6: "typo-h6",
 
   p: "text-sm font-normal leading-relaxed",
-  p500: "text-sm font-medium",
-  p600: "text-sm font-semibold",
+  p500: "typo-p500",
+  p600: "typo-p600",
 
   body1: "text-sm font-normal",
   subtitle: "text-xs font-normal text-muted",

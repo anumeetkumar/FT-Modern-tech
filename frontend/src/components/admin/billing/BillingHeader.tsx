@@ -70,7 +70,7 @@ const BillingHeader = () => {
             <h1 className="typo-h1">
               Renewals & Billing
             </h1>
-            <p className="text-sm text-zinc-500 mt-1">
+            <p className="typo-p-muted mt-1">
               Per‑device plans & renewals under each customer.
             </p>
           </div>

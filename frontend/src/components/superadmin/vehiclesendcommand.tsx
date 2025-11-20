@@ -109,7 +109,7 @@ export default function VehicleSendCommand() {
           <h1 className="typo-h1">Send Command</h1>
           <p className="mt-1 typo-subtitle">{DEVICE.vehicleNo} • IMEI <span className="font-mono">{DEVICE.imei}</span> • {DEVICE.protocol}</p>
         </div>
-        <select className="rounded-lg border  bg-background px-2 py-2 text-sm text-foreground" value={transport} onChange={e => setTransport(e.target.value as Transport)}>
+        <select className="rounded-lg border  bg-background px-2 py-2 typo-p" value={transport} onChange={e => setTransport(e.target.value as Transport)}>
           <option>SMS</option>x
           <option>GPRS</option>
         </select>
@@ -126,7 +126,7 @@ export default function VehicleSendCommand() {
               <div className="mb-1 typo-subtitle">Command</div>
               <div className="flex items-center gap-2">
                 <span className="grid h-8 w-8 place-items-center rounded-md border border-border text-foreground">{def.icon}</span>
-                <select className="w-full rounded-lg border border-border bg-background px-2 py-2 text-sm text-foreground" value={cmd} onChange={e => setCmd(e.target.value as CommandType)}>
+                <select className="w-full rounded-lg border border-border bg-background px-2 py-2 typo-p" value={cmd} onChange={e => setCmd(e.target.value as CommandType)}>
                   {COMMANDS.map(c => <option key={c.key} value={c.key}>{c.label}</option>)}
                 </select>
               </div>
@@ -140,7 +140,7 @@ export default function VehicleSendCommand() {
                 <span className="rounded-sm bg-primary px-2 py-0.5 text-white">Payload</span>
                 <button className="inline-flex items-center gap-1 rounded border border-border bg-background px-2 py-0.5 text-muted" onClick={() => copy(payload)} disabled={!payload}><ContentCopyIcon style={{ fontSize: 14 }} />Copy</button>
               </div>
-              <textarea className="h-28 w-full resize-none rounded-lg border border-border  p-3 font-mono text-sm text-foreground dark:bg-background" value={payload} onChange={e => setPayload(e.target.value)} placeholder="Type exact payload to send…" />
+              <textarea className="h-28 w-full resize-none rounded-lg border border-border  p-3 font-mono typo-p dark:bg-background" value={payload} onChange={e => setPayload(e.target.value)} placeholder="Type exact payload to send…" />
               <details className="mt-2 typo-subtitle">
                 <summary className="cursor-pointer select-none">Request JSON</summary>
                 <pre className="mt-2 max-h-32 overflow-auto rounded-lg border border-border  p-2 text-muted">{JSON.stringify(requestJson, null, 2)}</pre>
@@ -159,9 +159,9 @@ export default function VehicleSendCommand() {
 
           {/* Recent (left column) */}
           <div className="rounded-2xl border border-border bg-card p-4 dark:bg-foreground/5">
-            <div className="mb-2 text-sm font-semibold text-foreground">Recent</div>
+            <div className="mb-2 typo-p600 text-foreground">Recent</div>
             {history.length === 0 ? (
-              <div className="rounded-lg border border-border  p-3 text-sm text-muted dark:bg-background">No commands yet.</div>
+              <div className="rounded-lg border border-border  p-3 typo-p-muted dark:bg-background">No commands yet.</div>
             ) : (
               <ul className="space-y-2 text-sm">
                 {history.map(h => (
@@ -185,11 +185,11 @@ export default function VehicleSendCommand() {
         {/* Right (4) — Result panel */}
         <div className="lg:col-span-4 ">
           <div className="lg:sticky lg:top-4 rounded-2xl border border-border bg-card p-4 dark:bg-foreground/5">
-            <div className="mb-2 text-sm font-semibold text-foreground ">Server Response</div>
+            <div className="mb-2 typo-p600 text-foreground ">Server Response</div>
             {!response ? (
-              <div className="rounded-lg border border-border  p-3 text-sm text-muted dark:bg-background">No response yet.</div>
+              <div className="rounded-lg border border-border  p-3 typo-p-muted dark:bg-background">No response yet.</div>
             ) : (
-              <div className="grid gap-2 text-sm text-foreground">
+              <div className="grid gap-2 typo-p">
                 <div className="flex items-center justify-between"><span>Status</span><span className={`rounded-sm px-1.5 py-0.5 text-[10px] ${response.ok ? "bg-primary text-white" : "border border-border text-destructive"}`}>{response.ok ? "SUCCESS" : "FAILED"}</span></div>
                 <div className="flex items-center justify-between"><span>HTTP Code</span><span className="font-mono">{response.code}</span></div>
                 <div className="flex items-center justify-between"><span>Message</span><span>{response.message}</span></div>

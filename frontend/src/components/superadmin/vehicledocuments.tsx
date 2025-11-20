@@ -519,7 +519,7 @@ export default function VehicleDocumentsPage() {
         )}
       >
         <CloudUploadIcon className="h-7 w-7 text-neutral-900 dark:text-neutral-100"/>
-        <div className="text-sm text-neutral-800 dark:text-neutral-200">Drag & drop your file here</div>
+        <div className="text-sm ">Drag & drop your file here</div>
         <div className="typo-subtitle">PDF, Images, DOCX — up to 50 MB</div>
         
         {!formFile ? (
@@ -540,7 +540,7 @@ export default function VehicleDocumentsPage() {
                   <FileKindIcon kind={inferFileKind(formFile)} />
                 </div>
                 <div className="text-left">
-                  <div className="text-sm font-medium text-neutral-800 dark:text-neutral-100 truncate max-w-[150px]">{formFile.name}</div>
+                  <div className="typo-p500  dark:text-neutral-100 truncate max-w-[150px]">{formFile.name}</div>
                   <div className="typo-subtitle">{formatBytes(formFile.size)}</div>
                 </div>
               </div>
@@ -738,7 +738,7 @@ export default function VehicleDocumentsPage() {
           </div>
           <div className="flex items-center gap-2">
             <button onClick={()=> setPage((p)=> Math.max(1, p-1))} className="rounded-lg border border-neutral-300 dark:border-neutral-600 px-2 py-1 text-sm text-neutral-900 dark:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-700">Prev</button>
-            <span className="min-w-[80px] text-center text-sm text-neutral-700 dark:text-neutral-300">{page}/{totalPages}</span>
+            <span className="min-w-[80px] text-center typo-p-muted">{page}/{totalPages}</span>
             <button onClick={()=> setPage((p)=> Math.min(totalPages, p+1))} className="rounded-lg border border-neutral-300 dark:border-neutral-600 px-2 py-1 text-sm text-neutral-900 dark:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-700">Next</button>
           </div>
         </div>
@@ -864,7 +864,7 @@ export default function VehicleDocumentsPage() {
           <div className="grid gap-5 sm:grid-cols-2">
             <div className="space-y-3">
               <div className="space-y-2">
-                <Label className="text-neutral-800 dark:text-neutral-200">Document Type</Label>
+                <Label className="">Document Type</Label>
                 <Select value={formDocType} onValueChange={(v)=> setFormDocType(v as DocumentItem["docType"]) }>
                   <SelectTrigger className="rounded-xl border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100 dark:bg-neutral-800 focus-visible:ring-neutral-900 dark:focus-visible:ring-neutral-100">
                     <SelectValue placeholder="Select type" />
@@ -878,7 +878,7 @@ export default function VehicleDocumentsPage() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="doc-name" className="text-neutral-800 dark:text-neutral-200">Name</Label>
+                <Label htmlFor="doc-name" className="">Name</Label>
                 <div className="flex items-center gap-2">
                   <DriveFileRenameOutlineIcon className="text-neutral-700 dark:text-neutral-300"/>
                   <Input id="doc-name" value={formName} onChange={(e)=> setFormName(e.target.value)} placeholder="e.g., Insurance Policy 2025.pdf" className="rounded-xl border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100 dark:bg-neutral-800 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus-visible:ring-neutral-900 dark:focus-visible:ring-neutral-100"/>
@@ -886,7 +886,7 @@ export default function VehicleDocumentsPage() {
               </div>
 
               <div className="space-y-2">
-                <Label className="text-neutral-800 dark:text-neutral-200">Expiry (optional)</Label>
+                <Label className="">Expiry (optional)</Label>
                 <Popover>
                   <PopoverTrigger asChild>
                     <Button variant="outline" className="w-full justify-start rounded-xl border-neutral-300 dark:border-neutral-600 text-left font-normal text-neutral-900 dark:text-neutral-100 dark:bg-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-700">
@@ -901,19 +901,19 @@ export default function VehicleDocumentsPage() {
               </div>
 
               <div className="space-y-2">
-                <Label className="text-neutral-800 dark:text-neutral-200">Tags</Label>
+                <Label className="">Tags</Label>
                 <TagInput value={formTags} onChange={setFormTags}/>
               </div>
             </div>
 
             <div className="space-y-3">
               <div className="space-y-2">
-                <Label className="text-neutral-800 dark:text-neutral-200">Upload</Label>
+                <Label className="">Upload</Label>
                 <DropZone/>
               </div>
 
               <div className="space-y-2">
-                <Label className="text-neutral-800 dark:text-neutral-200">Notes (optional)</Label>
+                <Label className="">Notes (optional)</Label>
                 <Textarea value={formNotes} onChange={(e)=> setFormNotes(e.target.value)} placeholder="Any context for admins…" className="min-h-[88px] rounded-xl border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100 dark:bg-neutral-800 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus-visible:ring-neutral-900 dark:focus-visible:ring-neutral-100"/>
               </div>
             </div>
@@ -994,7 +994,7 @@ function TagInput({ value, onChange }: { value: string[]; onChange: (v: string[]
   return (
     <div className="flex min-h-[44px] w-full flex-wrap items-center gap-2 rounded-xl border border-neutral-300 dark:border-neutral-600 dark:bg-neutral-800 px-3 py-2">
       {value.map((t) => (
-        <span key={t} className="inline-flex items-center gap-1 rounded-full border border-neutral-300 dark:border-neutral-600 px-2 py-1 text-xs text-neutral-800 dark:text-neutral-300">
+        <span key={t} className="inline-flex items-center gap-1 rounded-full border border-neutral-300 dark:border-neutral-600 px-2 py-1 text-xs  dark:text-neutral-300">
           <TagIcon fontSize="small"/>
           {t}
           <button onClick={() => remove(t)} className="ml-1 rounded-full px-1 text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-700">×</button>

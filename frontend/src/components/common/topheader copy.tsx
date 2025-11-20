@@ -164,7 +164,7 @@ function TopHeader({ mobileOpen, setMobileOpen, role }: TopHeaderProps) {
                                     <AvatarFallback>{user?.name?.charAt(0)}</AvatarFallback>
                                 </Avatar>
                                 <div className="hidden text-left leading-tight sm:block">
-                                    <div className="text-sm font-semibold text-slate-800 dark:text-slate-100">{user?.name || 'Loading...'}</div>
+                                    <div className="typo-p600 text-slate-800 dark:text-slate-100">{user?.name || 'Loading...'}</div>
                                     <div className="text-[11px] text-slate-500">{user?.role || 'Loading...'}</div>
                                 </div>
                             </button>

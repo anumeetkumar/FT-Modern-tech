@@ -54,7 +54,7 @@ const Badge = ({
   const tones: Record<string, string> = {
     default: "border-neutral-200 bg-neutral-50 text-neutral-700",
     ok: "border-neutral-200 bg-neutral-900 text-white",
-    warn: "border-neutral-200 bg-neutral-100 text-neutral-800",
+    warn: "border-neutral-200 bg-neutral-100 ",
     err: "border-neutral-200 bg-neutral-200 text-neutral-900",
   };
   return (
@@ -462,7 +462,7 @@ const MultiSelect = ({
                 onChange={() => toggle(o.key)}
               />
               <div className="min-w-0">
-                <div className="truncate text-sm font-medium leading-none">
+                <div className="truncate typo-p500 leading-none">
                   {o.label}
                 </div>
                 {o.sub && (

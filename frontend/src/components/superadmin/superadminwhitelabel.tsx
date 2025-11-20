@@ -178,7 +178,7 @@ function SuperAdminWhiteLabel() {
      <div className="rounded-2xl border border-border bg-background p-5 dark:bg-foreground/5">
   <div className="flex items-center gap-2 mb-4">
     <LanguageRoundedIcon className="text-muted" fontSize="small" />
-    <div className="text-sm font-medium  text-foreground">
+    <div className="typo-p500  text-foreground">
       Base URL Configuration
     </div>
   </div>
@@ -204,7 +204,7 @@ function SuperAdminWhiteLabel() {
     <div className="flex items-start gap-3 p-3 rounded-lg border border-border">
       <DnsRoundedIcon className="text-muted mt-0.5" fontSize="small" />
       <div className="flex-1">
-        <div className="text-sm font-medium mb-1 text-foreground">
+        <div className="typo-p500 mb-1 text-foreground">
           Server Information
         </div>
         <div className="typo-subtitle space-y-1">
@@ -225,7 +225,7 @@ function SuperAdminWhiteLabel() {
       <Alert className="border-border ">
         <InfoRoundedIcon className="h-4 w-4 text-foreground" />
         <AlertDescription>
-          <div className="text-sm text-foreground">
+          <div className="typo-p">
             <div className="font-semibold mb-2 text-foreground">
               DNS Configuration Required
             </div>
@@ -278,13 +278,13 @@ function SuperAdminWhiteLabel() {
   <div className="rounded-2xl border border-border  p-5 dark:bg-foreground/5">
     <div className="flex items-center gap-2 mb-4">
       <ImageRoundedIcon className="text-muted" fontSize="small" />
-      <div className="text-sm font-medium  text-foreground">Favicon</div>
+      <div className="typo-p500  text-foreground">Favicon</div>
       <Badge variant="outline" className="typo-subtitle border-border ">16x16 or 32x32 px</Badge>
     </div>
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div>
-        <Label className="text-sm font-medium mb-2 block text-foreground">Upload Favicon</Label>
+        <Label className="typo-p500 mb-2 block text-foreground">Upload Favicon</Label>
         <div className="border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-muted transition-colors dark:bg-background">
           <input
             type="file"
@@ -308,7 +308,7 @@ function SuperAdminWhiteLabel() {
       </div>
 
       <div>
-        <Label className="text-sm font-medium mb-2 block text-foreground">Preview</Label>
+        <Label className="typo-p500 mb-2 block text-foreground">Preview</Label>
         <div className="border border-border rounded-lg p-6  flex flex-col items-center justify-center min-h-[140px] dark:bg-background">
           {faviconPreview ? (
             <>
@@ -324,7 +324,7 @@ function SuperAdminWhiteLabel() {
               </Button>
             </>
           ) : (
-            <div className="text-sm text-muted">No favicon uploaded</div>
+            <div className="typo-p-muted">No favicon uploaded</div>
           )}
         </div>
       </div>
@@ -335,13 +335,13 @@ function SuperAdminWhiteLabel() {
   <div className="rounded-2xl border border-border bg-background p-5 dark:bg-foreground/5">
     <div className="flex items-center gap-2 mb-4">
       <ImageRoundedIcon className="text-muted" fontSize="small" />
-      <div className="text-sm font-medium  text-foreground">Dark Logo</div>
+      <div className="typo-p500  text-foreground">Dark Logo</div>
       <Badge variant="outline" className="typo-subtitle border-border ">For light backgrounds</Badge>
     </div>
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div>
-        <Label className="text-sm font-medium mb-2 block text-foreground">Upload Dark Logo</Label>
+        <Label className="typo-p500 mb-2 block text-foreground">Upload Dark Logo</Label>
         <div className="border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-muted transition-colors dark:bg-background">
           <input
             type="file"
@@ -365,7 +365,7 @@ function SuperAdminWhiteLabel() {
       </div>
 
       <div>
-        <Label className="text-sm font-medium mb-2 block text-foreground">Preview</Label>
+        <Label className="typo-p500 mb-2 block text-foreground">Preview</Label>
         <div className="border border-border rounded-lg p-6  flex flex-col items-center justify-center min-h-[140px] dark:bg-background">
           {darkLogoPreview ? (
             <>
@@ -381,7 +381,7 @@ function SuperAdminWhiteLabel() {
               </Button>
             </>
           ) : (
-            <div className="text-sm text-muted">No dark logo uploaded</div>
+            <div className="typo-p-muted">No dark logo uploaded</div>
           )}
         </div>
       </div>
@@ -392,13 +392,13 @@ function SuperAdminWhiteLabel() {
   <div className="rounded-2xl border border-border bg-background p-5 dark:bg-foreground/5">
     <div className="flex items-center gap-2 mb-4">
       <ImageRoundedIcon className="text-muted" fontSize="small" />
-      <div className="text-sm font-medium  text-foreground">Light Logo</div>
+      <div className="typo-p500  text-foreground">Light Logo</div>
       <Badge variant="outline" className="typo-subtitle border-border ">For dark backgrounds</Badge>
     </div>
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div>
-        <Label className="text-sm font-medium mb-2 block text-foreground">Upload Light Logo</Label>
+        <Label className="typo-p500 mb-2 block text-foreground">Upload Light Logo</Label>
         <div className="border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-muted transition-colors dark:bg-background">
           <input
             type="file"
@@ -422,7 +422,7 @@ function SuperAdminWhiteLabel() {
       </div>
 
       <div>
-        <Label className="text-sm font-medium mb-2 block text-foreground">Preview</Label>
+        <Label className="typo-p500 mb-2 block text-foreground">Preview</Label>
         <div className="border border-border rounded-lg p-6  flex flex-col items-center justify-center min-h-[140px] dark:bg-background">
           {lightLogoPreview ? (
             <>
@@ -438,7 +438,7 @@ function SuperAdminWhiteLabel() {
               </Button>
             </>
           ) : (
-            <div className="text-sm text-muted">No light logo uploaded</div>
+            <div className="typo-p-muted">No light logo uploaded</div>
           )}
         </div>
       </div>

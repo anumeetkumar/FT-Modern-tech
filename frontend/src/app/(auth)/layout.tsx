@@ -25,7 +25,7 @@ const Authlayout = ({ children }: { children: React.ReactNode }) => {
             />
           </div>
 
-          <nav className="hidden md:flex items-center gap-4 text-sm text-muted">
+          <nav className="hidden md:flex items-center gap-4 typo-p-muted">
             <a href="#" className="transition hover:text-foreground">
               Docs
             </a>

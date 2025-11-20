@@ -230,7 +230,7 @@ function LoginForm() {
           </Button>
 
           {/* Footer Links */}
-          <div className="flex items-center justify-between pt-5 text-sm text-muted">
+          <div className="flex items-center justify-between pt-5 typo-p-muted">
             <a href="#" className="underline underline-offset-4 hover:text-primary">
               Driver Login
             </a>

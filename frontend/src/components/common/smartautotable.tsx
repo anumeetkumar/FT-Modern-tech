@@ -970,7 +970,7 @@ export function SmartAutoTable<T extends Record<string, any>>(
                     setPageSize(Number(e.target.value));
                     setPage(1);
                   }}
-                  className="h-10 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 px-3 text-sm font-medium outline-none"
+                  className="h-10 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 px-3 typo-p500 outline-none"
                 >
                   {[10, 20, 30, 50, 100].map((n) => (
                     <option key={n} value={n}>
@@ -1252,7 +1252,7 @@ export function SmartAutoTable<T extends Record<string, any>>(
                       out.push(
                         <button
                           key={i}
-                          className={`min-w-[36px] h-9 px-2 text-sm font-medium rounded-lg transition-colors ${
+                          className={`min-w-[36px] h-9 px-2 typo-p500 rounded-lg transition-colors ${
                             i === page
                               ? "bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 shadow-sm"
                               : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"

@@ -70,7 +70,7 @@ export default function RoleContent() {
                 <h2 className="typo-h1 font-bold text-foreground">
                   {draft.title}
                 </h2>
-                <p className="text-sm text-muted-foreground">
+                <p className="typo-p-muted">
                   Permissions overview for this role
                 </p>
               </div>

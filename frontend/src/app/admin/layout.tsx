@@ -201,7 +201,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 
         {/* Desktop Nav Row */}
         <nav className="relative hidden border-t border-border bg-background shadow-lg md:block">
-          <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-2 text-sm font-medium text-muted-foreground">
+          <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-2 ypo-p500-muted">
             {navData.map((nav) => (
               <DesktopNavItem key={nav.label} label={nav.label} icon={nav.icon} route={nav.route} items={nav.items} />
             ))}

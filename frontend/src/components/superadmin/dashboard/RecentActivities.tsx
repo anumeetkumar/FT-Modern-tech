@@ -44,7 +44,7 @@ const RecentActivities = () => {
         <div className="mb-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <DirectionsCarOutlinedIcon className="h-5 w-5 text-foreground" />
-            <h3 className="text-sm font-semibold text-foreground">Recent Vehicles</h3>
+            <h3 className="typo-p600 text-foreground">Recent Vehicles</h3>
           </div>
         </div>
         <div className="h-80 overflow-y-auto pr-1">
@@ -75,7 +75,7 @@ const RecentActivities = () => {
         <div className="mb-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <ReceiptLongOutlinedIcon className="h-5 w-5 text-foreground" />
-            <h3 className="text-sm font-semibold text-foreground">Recent Transactions</h3>
+            <h3 className="typo-p600 text-foreground">Recent Transactions</h3>
           </div>
           <button className="flex items-center gap-1 rounded-lg px-2 py-1 typo-subtitle hover:bg-foreground/5">
             <Link href="transactions">View All</Link>
@@ -94,7 +94,7 @@ const RecentActivities = () => {
                     </p>
                   </div>
                   <div className="shrink-0 text-right">
-                    <p className="text-sm font-semibold text-foreground">
+                    <p className="typo-p600 text-foreground">
                       ₹{Intl.NumberFormat().format(t.amount)}
                     </p>
                      <StatusBadge status={t.status} />
@@ -111,7 +111,7 @@ const RecentActivities = () => {
       <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
         <div className="mb-3 flex items-center gap-2">
           <PersonAddAltOutlinedIcon className="h-5 w-5 text-foreground" />
-          <h3 className="text-sm font-semibold text-foreground">Recent Users</h3>
+          <h3 className="typo-p600 text-foreground">Recent Users</h3>
         </div>
         <div className="h-80 overflow-y-auto pr-1">
           <ul className="divide-y divide-border">

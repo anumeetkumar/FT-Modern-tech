@@ -58,8 +58,18 @@
   @apply text-xs font-medium;
 }
 
+.typo-base-muted{
+  @apply text-base text-muted;
+}
+
 .typo-p {
   @apply text-sm font-normal leading-relaxed;
+}
+.typo-p-muted {
+  @apply text-sm text-muted;
+}
+.typo-p500-muted {
+  @apply text-sm font-medium;
 }
 .typo-p500 {
   @apply text-sm font-medium;

@@ -41,7 +41,7 @@ export function PriceCurrency({
           onChange(Number.isFinite(n) ? n : undefined, currency ?? "INR");
         }}
         placeholder="Amount"
-        className="h-7 w-24 outline-none border-none bg-transparent text-sm text-foreground placeholder:text-muted-foreground"
+        className="h-7 w-24 outline-none border-none bg-transparent typo-p placeholder:text-muted-foreground"
       />
       <span className="mx-2 h-5 w-px bg-border" />
       <Select
