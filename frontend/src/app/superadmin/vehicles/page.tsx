@@ -1122,7 +1122,7 @@ function page() {
                       setIsOpen(false);
                     }}
                   >
-                    <span className="text-slate-500">(Any Status)</span>
+                    <span className="">(Any Status)</span>
                   </div>
                   {filteredStatuses.map((s) => (
                     <div
@@ -1174,7 +1174,7 @@ function page() {
               }}
               className="w-full h-9 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 typo-p outline-none flex items-center justify-between text-left"
             >
-              <span className={value ? "" : "text-slate-500"}>
+              <span className={value ? "" : ""}>
                 {value || "(Any Type)"}
               </span>
               <svg
@@ -1225,7 +1225,7 @@ function page() {
                       setIsOpen(false);
                     }}
                   >
-                    <span className="text-slate-500">(Any Type)</span>
+                    <span className="">(Any Type)</span>
                   </div>
                   {filteredTypes.map((t) => (
                     <div
@@ -1277,7 +1277,7 @@ function page() {
               }}
               className="w-full h-9 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 typo-p outline-none flex items-center justify-between text-left"
             >
-              <span className={value ? "" : "text-slate-500"}>
+              <span className={value ? "" : ""}>
                 {value || "(Any Device)"}
               </span>
               <svg
@@ -1328,7 +1328,7 @@ function page() {
                       setIsOpen(false);
                     }}
                   >
-                    <span className="text-slate-500">(Any Device)</span>
+                    <span className="">(Any Device)</span>
                   </div>
                   {filteredDevices.map((d) => (
                     <div
@@ -1380,7 +1380,7 @@ function page() {
               }}
               className="w-full h-9 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 typo-p outline-none flex items-center justify-between text-left"
             >
-              <span className={value ? "truncate" : "text-slate-500"}>
+              <span className={value ? "truncate" : ""}>
                 {value || "(Any User)"}
               </span>
               <svg
@@ -1431,7 +1431,7 @@ function page() {
                       setIsOpen(false);
                     }}
                   >
-                    <span className="text-slate-500">(Any User)</span>
+                    <span className="">(Any User)</span>
                   </div>
                   {filteredUsers.map((u) => (
                     <div

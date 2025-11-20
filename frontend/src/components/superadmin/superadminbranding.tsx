@@ -426,7 +426,7 @@ function SuperAdminBranding() {
               
               <Separator className="dark:bg-neutral-700" />
               
-              <div className="text-xs uppercase tracking-widest text-neutral-500 ">
+              <div className="typo-subtitle uppercase ">
                 Status Colors
               </div>
               
@@ -505,7 +505,7 @@ function SuperAdminBranding() {
               
               <Separator className="dark:bg-neutral-700" />
               
-              <div className="text-xs uppercase tracking-widest text-neutral-500 ">
+              <div className="typo-subtitle uppercase ">
                 Status Colors
               </div>
               

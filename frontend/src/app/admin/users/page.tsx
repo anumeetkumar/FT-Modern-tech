@@ -301,7 +301,7 @@ export default function Page() {
       tooltip: (row) => (
         <div className="text-[12px] leading-snug">
           <div className="font-semibold">{row.name}</div>
-          <div className="text-slate-500">
+          <div className="">
             {row.role} · {row.department}
           </div>
           <div className="mt-1 text-slate-400">Last login: {row.lastLogin}</div>

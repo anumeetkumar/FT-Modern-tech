@@ -622,7 +622,7 @@ export function SmartAutoTable<T extends Record<string, any>>(
             <div className="flex flex-1 items-stretch gap-3">
               <div className="relative flex-1 lg:max-w-sm">
                 <SearchIcon
-                  className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500"
+                  className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:"
                   fontSize="small"
                 />
                 <input
@@ -632,7 +632,7 @@ export function SmartAutoTable<T extends Record<string, any>>(
                     setPage(1);
                   }}
                   placeholder="Search name, email, role, department…"
-                  className="h-10 w-full rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 pl-10 pr-4 typo-p text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400 outline-none ring-0 transition focus:border-slate-400 dark:focus:border-slate-400 focus:bg-white dark:focus:bg-slate-600 focus:shadow-sm"
+                  className="h-10 w-full rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 pl-10 pr-4 typo-p text-slate-900 dark:text-slate-100 placeholder: dark:placeholder:text-slate-400 outline-none ring-0 transition focus:border-slate-400 dark:focus:border-slate-400 focus:bg-white dark:focus:bg-slate-600 focus:shadow-sm"
                 />
               </div>
 
@@ -677,7 +677,7 @@ export function SmartAutoTable<T extends Record<string, any>>(
                     >
                       {/* Header */}
                       <div className="px-3 pt-3">
-                        <div className="px-1 pb-2 text-[11px] uppercase tracking-wide text-slate-500 dark:text-slate-400 font-medium">
+                        <div className="px-1 pb-2 text-[11px] uppercase tracking-wide  dark:text-slate-400 font-medium">
                           Dynamic Filters
                         </div>
                         <Separator className="mb-3" />
@@ -743,7 +743,7 @@ export function SmartAutoTable<T extends Record<string, any>>(
                                   transition={{ type: "spring", stiffness: 520, damping: 38, mass: 0.7 }}
                                   className="rounded-xl border border-slate-200 dark:border-slate-600 p-3 bg-white/70 dark:bg-slate-800/70"
                                 >
-                                  <Label className="mb-2 block text-xs text-slate-700 ">
+                                  <Label className="mb-2 block typo-subtitle ">
                                     {conf.label ?? key}
                                   </Label>
 
@@ -932,7 +932,6 @@ export function SmartAutoTable<T extends Record<string, any>>(
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="text-xs text-slate-500"
                             onClick={() => {
                               setFilterValues({});
                               setPage(1);
@@ -1026,7 +1025,7 @@ export function SmartAutoTable<T extends Record<string, any>>(
                   </MotionButton>
                 </PopoverTrigger>
                 <PopoverContent align="end" className="w-72 rounded-2xl">
-                  <div className="mb-2 flex items-center gap-2 text-[11px] uppercase tracking-wide text-slate-500 dark:text-slate-400 font-medium">
+                  <div className="mb-2 flex items-center gap-2 text-[11px] uppercase tracking-wide  dark:text-slate-400 font-medium">
                     <ColumnsIcon fontSize="small" /> Drag to reorder · Toggle to
                     hide
                   </div>
@@ -1145,7 +1144,7 @@ export function SmartAutoTable<T extends Record<string, any>>(
                     >
                       <td
                         colSpan={visibleCols.length}
-                        className="px-6 py-10 text-center text-slate-500 dark:text-slate-400"
+                        className="px-6 py-10 text-center  dark:text-slate-400"
                       >
                         No results match your filters.
                       </td>
