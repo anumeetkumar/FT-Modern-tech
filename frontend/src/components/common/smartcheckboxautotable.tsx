@@ -1748,7 +1748,7 @@ export function SmartCheckboxAutoTable<T extends Record<string, any>>(
                               fontSize="small"
                               className="text-neutral-400"
                             />
-                            <div className="typo-p">
+                            <div className="typo-p text-foreground">
                               {displayOptions[idx]?.title?.()}
                             </div>
                           </div>

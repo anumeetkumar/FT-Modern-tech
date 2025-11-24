@@ -289,9 +289,9 @@ export default function AnalyticsDashboard() {
 
   // ------------------ UI ------------------
   return (
-    <div className="min-h-screen bg-white text-zinc-950">
+    <div className="min-h-screen mx-auto max-w-7xl">
       {/* Header */}
-      <div className="sticky top-10 z-30 border-b bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+      <div className="z-30 border-b ">
         <div className="mx-auto max-w-7xl px-4 py-4 md:py-5">
           <div className="flex items-center justify-between">
             <div>
