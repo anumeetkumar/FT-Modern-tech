@@ -111,10 +111,10 @@ export default function AdminSettings() {
             <SettingsIcon className="text-foreground/90" />
           </motion.div>
           <div>
-            <h1 className="text-2xl font-semibold text-foreground tracking-tight">
+            <h1 className="typo-h1">
               Application Settings
             </h1>
-            <p className="text-sm text-muted">
+            <p className="typo-p-muted">
               Configure system-wide settings for your application.
             </p>
           </div>
@@ -142,10 +142,10 @@ export default function AdminSettings() {
             {/* Allow Signup */}
             <div className="flex items-center justify-between rounded-xl border border-border bg-background p-5">
               <div className="space-y-1">
-                <span className="font-medium text-foreground text-sm">
+                <span className="font-medium text-foreground typo-p">
                   Allow New Signups
                 </span>
-                <p className="text-xs text-muted">
+                <p className="typo-subtitle">
                   {settings.signupAllowed
                     ? "New users can register"
                     : "Signup is currently disabled"}
@@ -167,7 +167,7 @@ export default function AdminSettings() {
               >
                 <div className="flex items-center gap-2 mb-3">
                   <AccountBalanceWalletIcon className="text-foreground/80 h-5 w-5" />
-                  <Label className="text-sm font-medium text-foreground">
+                  <Label className="typo-p500">
                     Free Signup Credits
                   </Label>
                 </div>
@@ -182,7 +182,7 @@ export default function AdminSettings() {
                   className="rounded-lg"
                   placeholder="100"
                 />
-                <p className="mt-2 text-xs text-muted">
+                <p className="mt-2 typo-subtitle">
                   Credits awarded to new users when they register
                 </p>
               </motion.div>
@@ -193,7 +193,7 @@ export default function AdminSettings() {
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="text-xs text-muted italic"
+                className="typo-subtitle italic"
               >
                 Enable signups to configure free credits for new users.
               </motion.p>

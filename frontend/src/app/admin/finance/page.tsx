@@ -289,16 +289,16 @@ export default function AnalyticsDashboard() {
 
   // ------------------ UI ------------------
   return (
-    <div className="min-h-screen bg-white text-zinc-950">
+    <div className="min-h-screen mx-auto max-w-7xl">
       {/* Header */}
-      <div className="sticky top-10 z-30 border-b bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+      <div className="z-30 border-b ">
         <div className="mx-auto max-w-7xl px-4 py-4 md:py-5">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">
+              <h1 className="typo-h1">
                 Analytics
               </h1>
-              <p className="text-sm text-zinc-500 mt-1">
+              <p className="typo-p-muted mt-1">
                 Real‑time insight across renewals, payments, and device health.
               </p>
             </div>
@@ -365,7 +365,7 @@ export default function AnalyticsDashboard() {
                     setStatusOnly((s) => ({ ...s, expiring: !!c }))
                   }
                 />
-                <label htmlFor="exp" className="text-sm">
+                <label htmlFor="exp" className="typo-p">
                   Expiring
                 </label>
               </div>
@@ -377,7 +377,7 @@ export default function AnalyticsDashboard() {
                     setStatusOnly((s) => ({ ...s, overdue: !!c }))
                   }
                 />
-                <label htmlFor="ovd" className="text-sm">
+                <label htmlFor="ovd" className="typo-p">
                   Overdue
                 </label>
               </div>
@@ -469,7 +469,7 @@ export default function AnalyticsDashboard() {
               <div className="text-3xl font-semibold">
                 {INR(renewalValue30)}
               </div>
-              <div className="mt-2 text-sm text-zinc-600">
+              <div className="mt-2 typo-p-muted">
                 {expiring.length} devices expiring within 30 days
               </div>
               <Separator className="my-4" />
@@ -517,7 +517,7 @@ export default function AnalyticsDashboard() {
                       </Badge>
                       <div>
                         <div className="font-medium">{name}</div>
-                        <div className="text-xs text-zinc-500">
+                        <div className="typo-destructive">
                           Potential: {INR(amt)}
                         </div>
                       </div>
@@ -528,7 +528,7 @@ export default function AnalyticsDashboard() {
                   </div>
                 ))}
                 {topExpiring.length === 0 && (
-                  <div className="p-6 text-center text-zinc-500 text-sm">
+                  <div className="p-6 text-center text-zinc-500 typo-p">
                     No expiring devices in this window.
                   </div>
                 )}
@@ -574,50 +574,13 @@ export default function AnalyticsDashboard() {
         </div>
       </div>
 
-      <footer className="mx-auto max-w-7xl px-4 py-12 text-xs text-zinc-400">
+      <footer className="mx-auto max-w-7xl px-4 py-12 typo-subtitle">
         FleetStack • Analytics UI — v1.2
       </footer>
     </div>
   );
 }
 
-// ------------------ Bits ------------------
-function KPI({
-  icon: Icon,
-  title,
-  value,
-  hint,
-  tone,
-}: {
-  icon: any;
-  title: string;
-  value: string;
-  hint?: string;
-  tone?: "amber" | "rose" | undefined;
-}) {
-  const toneCls =
-    tone === "amber"
-      ? "border-amber-200"
-      : tone === "rose"
-      ? "border-rose-200"
-      : "border-zinc-200";
-  return (
-    <Card className={`rounded-2xl ${toneCls} border shadow-sm`}>
-      <CardContent className="p-5 flex items-start justify-between">
-        <div>
-          <p className="text-sm text-zinc-500">{title}</p>
-          <p className="mt-1 text-2xl font-semibold tracking-tight">{value}</p>
-          {hint ? <p className="mt-1 text-xs text-zinc-500">{hint}</p> : null}
-        </div>
-        {Icon ? (
-          <div className="p-3 rounded-xl border bg-white text-zinc-900">
-            <Icon fontSize="small" />
-          </div>
-        ) : null}
-      </CardContent>
-    </Card>
-  );
-}
 
 function ChartCard({
   title,
@@ -663,8 +626,8 @@ function MiniStat({
   return (
     <div className="flex items-center justify-between rounded-xl border p-3">
       <div>
-        <div className="text-xs text-zinc-500">{label}</div>
-        <div className="text-lg font-semibold">{value}</div>
+        <div className="typo-destructive">{label}</div>
+        <div className="typo-h3">{value}</div>
       </div>
       <div className="p-2 rounded-lg border bg-white">
         <Icon fontSize="small" />
@@ -696,7 +659,7 @@ function PulseRow({
         <div className={`p-2 rounded-lg border bg-white ${clr}`}>
           <Icon fontSize="small" />
         </div>
-        <div className="text-sm text-zinc-600">{label}</div>
+        <div className="typo-p-muted">{label}</div>
       </div>
       <div className="font-medium">{value}</div>
     </div>

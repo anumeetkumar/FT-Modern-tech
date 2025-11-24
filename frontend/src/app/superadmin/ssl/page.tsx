@@ -136,7 +136,7 @@ export default function SSLManager() {
 
     {/* Table */}
     <div className="mt-5 rounded-2xl border border-border shadow-sm overflow-hidden bg-background">
-      <div className="grid grid-cols-12 gap-0 bg-foreground/5 border-b border-border px-4 py-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+      <div className="grid grid-cols-12 gap-0 bg-foreground/5 border-b border-border px-4 py-3 typo-h6 uppercase tracking-wider text-muted-foreground">
         <div className="col-span-6">Domain</div>
         <div className="col-span-2">Status</div>
         <div className="col-span-4 text-right">Actions</div>
@@ -152,7 +152,7 @@ export default function SSLManager() {
               <div className="col-span-6 min-w-0">
                 <button onClick={() => setDetailId(item.id)} className="text-left w-full">
                   <div className="truncate font-medium text-foreground">{item.domain}</div>
-                  <div className="text-xs text-muted-foreground">
+                  <div className="typo-subtitle">
                     Expiry: {item.expiresAt ? formatDate(item.expiresAt) : "—"}
                   </div>
                 </button>
@@ -204,7 +204,7 @@ export default function SSLManager() {
       </ScrollArea>
 
       {/* Pagination */}
-      <div className="px-4 py-3 border-t border-border bg-background flex items-center justify-between text-sm text-foreground">
+      <div className="px-4 py-3 border-t border-border bg-background flex items-center justify-between typo-p">
         <div>
           Showing {(clampedPage - 1) * PAGE_SIZE + 1}–
           {Math.min(filtered.length, clampedPage * PAGE_SIZE)} of {filtered.length}
@@ -237,7 +237,7 @@ export default function SSLManager() {
       {detail && (
         <div className="flex h-full flex-col text-foreground">
           <SheetHeader>
-            <SheetTitle className="text-lg">{detail.domain}</SheetTitle>
+            <SheetTitle className="typo-h3m">{detail.domain}</SheetTitle>
             <SheetDescription className="text-muted-foreground">
               SSL details and diagnostics
             </SheetDescription>
@@ -246,15 +246,15 @@ export default function SSLManager() {
           <div className="mt-2 px-4 pb-4 space-y-4">
             <div className="flex items-center gap-3">
               <StatusBadge status={detail.status} />
-              <span className="text-sm text-muted-foreground">
+              <span className="typo-p-muted">
                 Expires: {detail.expiresAt ? formatDate(detail.expiresAt) : "—"}
               </span>
             </div>
 
             {/* SSL Details */}
-            <div className="space-y-4 text-sm">
+            <div className="space-y-4 typo-p">
               <div className="rounded-xl border border-border p-3 bg-background">
-                <div className="text-xs uppercase tracking-wide text-muted-foreground mb-2">
+                <div className="typo-subtitle uppercase tracking-wide-foreground mb-2">
                   Certificate
                 </div>
                 <ul className="space-y-1">
@@ -288,7 +288,7 @@ export default function SSLManager() {
 
               {/* DNS Checks */}
               <div className="rounded-xl border border-border p-3 bg-background">
-                <div className="text-xs uppercase tracking-wide text-muted-foreground mb-2">
+                <div className="typo-subtitle uppercase tracking-wide-foreground mb-2">
                   DNS Checks
                 </div>
                 <div className="space-y-2">
@@ -300,7 +300,7 @@ export default function SSLManager() {
 
             {/* Actions */}
             <div className="rounded-xl border border-border p-3 bg-background">
-              <div className="text-xs uppercase tracking-wide text-muted-foreground mb-2">
+              <div className="typo-subtitle uppercase tracking-wide-foreground mb-2">
                 Actions
               </div>
               <div className="flex flex-wrap items-center gap-2">
@@ -343,10 +343,10 @@ export default function SSLManager() {
 
             {/* Logs */}
             <div className="rounded-xl border border-border p-3 bg-background">
-              <div className="text-xs uppercase tracking-wide text-muted-foreground mb-2">
+              <div className="typo-subtitle uppercase tracking-wide-foreground mb-2">
                 Logs (last 24h)
               </div>
-              <div className="h-40 overflow-auto text-xs font-mono leading-relaxed text-muted-foreground bg-foreground/5 rounded-lg p-3 border border-border">
+              <div className="h-40 overflow-auto typo-subtitle bg-foreground/5 rounded-lg p-3 border border-border">
                 [10:12] ACME: order created
                 <br />[10:12] ACME: DNS-01 challenge pending
                 <br />[10:13] DNS verified for _acme-challenge.{detail.domain}
@@ -382,19 +382,19 @@ function formatDate(iso: string){
 function DnsRow({ label, rec }: { label: string; rec?: { type: string; value: string; ok: boolean } }) {
   if (!rec)
     return (
-      <div className="flex items-center justify-between text-sm">
+      <div className="flex items-center justify-between typo-p">
         <span>{label}</span>
         <span className="text-muted">—</span>
       </div>
     );
 
   return (
-    <div className="flex items-center justify-between text-sm">
+    <div className="flex items-center justify-between typo-p">
       <div>
         <div className="font-medium">
-          {label} <span className="text-muted text-xs">({rec.type})</span>
+          {label} <span className="typo-subtitle">({rec.type})</span>
         </div>
-        <div className="text-foreground text-xs flex items-center gap-2">
+        <div className="typo-p12n flex items-center gap-2">
           <code className="bg-foreground/5 rounded px-1 py-0.5 border border-border">{rec.value}</code>
           <Button
             variant="outline"
@@ -460,8 +460,8 @@ function ActionDialog({ action, onOpenChange, items, onDone }:{
     </DialogHeader>
 
     <div className="space-y-4 bg-background">
-      <div className="rounded-xl border border-border bg-foreground/5 p-3 text-sm">
-        <div className="h-40 overflow-auto text-xs font-mono leading-relaxed text-foreground bg-foreground/5 rounded-lg">
+      <div className="rounded-xl border border-border bg-foreground/5 p-3 typo-p">
+        <div className="h-40 overflow-auto typo-p12n font-mono leading-relaxed text-foreground bg-foreground/5 rounded-lg">
           {logs.length === 0 ? (
             <div className="text-muted">Ready. Click **Run** to start the operation.</div>
           ) : (
@@ -479,7 +479,7 @@ function ActionDialog({ action, onOpenChange, items, onDone }:{
       </div>
 
       <div className="flex items-center justify-between">
-        <div className="text-xs text-muted">Let's Encrypt • ACME • auto-reload</div>
+        <div className="typo-subtitle">Let's Encrypt • ACME • auto-reload</div>
         <div className="flex items-center gap-2">
           {done === "idle" && !running && (
             <Button

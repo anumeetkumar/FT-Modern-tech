@@ -457,7 +457,7 @@ export default function VehicleDocumentsPage() {
 
   const StatusBadge = ({ status, expiry }: { status: DocumentItem["status"]; expiry?: Date | null }) => {
     const left = daysUntil(expiry ?? undefined);
-    const base = "inline-flex items-center gap-1 rounded-full border px-2 py-1 text-xs font-medium tracking-wide";
+    const base = "inline-flex items-center gap-1 rounded-full border px-2 py-1 typo-h6 tracking-wide";
     if (status === "valid") {
       return (
         <span className={cn(base, "border-green-200 bg-green-50 text-green-800 dark:border-green-800 dark:bg-green-900/30 dark:text-green-200")}>
@@ -483,10 +483,10 @@ export default function VehicleDocumentsPage() {
   };
 
   const FileKindIcon = ({ kind }: { kind: FileKind }) => {
-    if (kind === "pdf") return <DescriptionIcon className="text-neutral-900 dark:text-neutral-100"/>;
+    if (kind === "pdf") return <DescriptionIcon className=""/>;
     if (kind === "image") return <div className="h-5 w-5 rounded-sm border border-neutral-400 dark:border-neutral-600"/>;
-    if (kind === "doc") return <DescriptionIcon className="text-neutral-700 dark:text-neutral-300"/>;
-    return <DescriptionIcon className="text-neutral-500 dark:text-neutral-400"/>;
+    if (kind === "doc") return <DescriptionIcon className="text-muted "/>;
+    return <DescriptionIcon className="text-muted "/>;
   };
 
   const DropZone = () => {
@@ -518,9 +518,9 @@ export default function VehicleDocumentsPage() {
           hover ? "border-neutral-900 dark:border-neutral-100 bg-neutral-50 dark:bg-neutral-800" : "border-neutral-300 dark:border-neutral-600"
         )}
       >
-        <CloudUploadIcon className="h-7 w-7 text-neutral-900 dark:text-neutral-100"/>
-        <div className="text-sm text-neutral-800 dark:text-neutral-200">Drag & drop your file here</div>
-        <div className="text-xs text-neutral-500 dark:text-neutral-400">PDF, Images, DOCX — up to 50 MB</div>
+        <CloudUploadIcon className="h-7 w-7 "/>
+        <div className="typo-p ">Drag & drop your file here</div>
+        <div className="typo-subtitle">PDF, Images, DOCX — up to 50 MB</div>
         
         {!formFile ? (
           <div className="mt-1 flex items-center justify-center">
@@ -540,14 +540,14 @@ export default function VehicleDocumentsPage() {
                   <FileKindIcon kind={inferFileKind(formFile)} />
                 </div>
                 <div className="text-left">
-                  <div className="text-sm font-medium text-neutral-800 dark:text-neutral-100 truncate max-w-[150px]">{formFile.name}</div>
-                  <div className="text-xs text-neutral-500 dark:text-neutral-400">{formatBytes(formFile.size)}</div>
+                  <div className="typo-p500   truncate max-w-[150px]">{formFile.name}</div>
+                  <div className="typo-subtitle">{formatBytes(formFile.size)}</div>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={handleRemoveFile}
-                className="flex h-6 w-6 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-700 text-neutral-500 dark:text-neutral-400 hover:bg-red-100 dark:hover:bg-red-900 hover:text-red-600 dark:hover:text-red-200 transition-colors"
+                className="flex h-6 w-6 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-700 text-muted  hover:bg-red-100 dark:hover:bg-red-900 hover:text-red-600 dark:hover:text-red-200 transition-colors"
               >
                 ×
               </button>
@@ -572,12 +572,12 @@ export default function VehicleDocumentsPage() {
       {/* Page Header */}
       <div className="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
         <div className="flex items-center gap-3">
-          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className="flex h-11 w-11 items-center justify-center rounded-2xl border border-neutral-200 dark:border-neutral-700 dark:text-neutral-100">
+          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className="flex h-11 w-11 items-center justify-center rounded-2xl border border-neutral-200 dark:border-neutral-700 ">
             <UploadFileIcon/>
           </motion.div>
           <div>
-            <h1 className="text-2xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">Vehicle Documents</h1>
-            <p className="text-sm text-neutral-500 dark:text-neutral-400">Black & white. Pixel-perfect. View, add, track, and export vehicle documents.</p>
+            <h1 className="typo-h1">Vehicle Documents</h1>
+            <p className="typo-p-muted">Black & white. Pixel-perfect. View, add, track, and export vehicle documents.</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
@@ -591,15 +591,15 @@ export default function VehicleDocumentsPage() {
       {/* Quick Stats */}
       <div className="mb-6 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         <div className="rounded-2xl border border-neutral-200 dark:border-neutral-700 p-4">
-          <div className="text-sm text-neutral-500 dark:text-neutral-400">Total documents</div>
+          <div className="typo-p-muted">Total documents</div>
           <div className="mt-1 flex items-baseline gap-2">
-            <span className="text-2xl font-semibold text-neutral-900 dark:text-neutral-100">{docs.length}</span>
-            <Badge variant="outline" className="rounded-full border-neutral-300 dark:border-neutral-600 text-xs dark:text-neutral-100">v{docs.reduce((a,b)=>a+b.version,0)}</Badge>
+            <span className="typo-h1 font-semibold ">{docs.length}</span>
+            <Badge variant="outline" className="rounded-full border-neutral-300 dark:border-neutral-600 typo-p12n ">v{docs.reduce((a,b)=>a+b.version,0)}</Badge>
           </div>
         </div>
         <div className="rounded-2xl border border-neutral-200 dark:border-neutral-700 p-4">
-          <div className="text-sm text-neutral-500 dark:text-neutral-400">Health Status</div>
-          <div className="mt-2 flex flex-wrap gap-2 text-xs sm:text-sm">
+          <div className="typo-p-muted">Health Status</div>
+          <div className="mt-2 flex flex-wrap gap-2 typo-p12n">
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -608,7 +608,7 @@ export default function VehicleDocumentsPage() {
                   </span>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p className="text-sm">
+                  <p className="typo-p">
                     <strong>Valid Documents:</strong> {docs.filter(d=>d.status==="valid").length} documents<br/>
                     Documents that are current and not expiring within 30 days
                   </p>
@@ -624,7 +624,7 @@ export default function VehicleDocumentsPage() {
                   </span>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p className="text-sm">
+                  <p className="typo-p">
                     <strong>Expiring Soon:</strong> {docs.filter(d=>d.status==="expiring").length} documents<br/>
                     Documents that will expire within the next 30 days
                   </p>
@@ -640,7 +640,7 @@ export default function VehicleDocumentsPage() {
                   </span>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p className="text-sm">
+                  <p className="typo-p">
                     <strong>Expired:</strong> {docs.filter(d=>d.status==="expired").length} documents<br/>
                     Documents that have already passed their expiry date
                   </p>
@@ -650,12 +650,12 @@ export default function VehicleDocumentsPage() {
           </div>
         </div>
         <div className="rounded-2xl border border-neutral-200 dark:border-neutral-700 p-4 sm:col-span-2 lg:col-span-1">
-          <div className="flex items-center justify-between text-sm text-neutral-500 dark:text-neutral-400">
+          <div className="flex items-center justify-between typo-p-muted">
             <span>Storage used</span>
-            <span className="text-neutral-900 dark:text-neutral-100 font-medium">{formatBytes(storageUsed)} / {formatBytes(storageQuota)}</span>
+            <span className=" font-medium">{formatBytes(storageUsed)} / {formatBytes(storageQuota)}</span>
           </div>
           <Progress value={storagePct} className="mt-3 h-2 bg-neutral-100 dark:bg-neutral-700" />
-          <div className="mt-2 text-xs text-neutral-500 dark:text-neutral-400">{storagePct.toFixed(1)}% used</div>
+          <div className="mt-2 typo-subtitle">{storagePct.toFixed(1)}% used</div>
         </div>
       </div>
 
@@ -668,54 +668,54 @@ export default function VehicleDocumentsPage() {
               placeholder="Search by name, tags, or Document Type (Ctrl/Cmd+K)"
               value={query}
               onChange={(e)=>{setQuery(e.target.value); setPage(1);}}
-              className="rounded-xl border-neutral-300 dark:border-neutral-600 pr-10 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus-visible:ring-neutral-900 dark:focus-visible:ring-neutral-100 dark:bg-neutral-800"
+              className="rounded-xl border-neutral-300 dark:border-neutral-600 pr-10  placeholder:text-muted dark:placeholder:text-muted focus-visible:ring-neutral-900 dark:focus-visible:ring-neutral-100 dark:bg-neutral-800"
             />
-            <SearchIcon className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-neutral-700 dark:text-neutral-300"/>
+            <SearchIcon className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-muted "/>
           </div>
           <Popover>
             <PopoverTrigger asChild>
-              <Button variant="outline" className="rounded-xl border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-700">
+              <Button variant="outline" className="rounded-xl border-neutral-300 dark:border-neutral-600  hover:bg-neutral-50 dark:hover:bg-neutral-700">
                 <FilterListIcon className="mr-2"/> Filters
               </Button>
             </PopoverTrigger>
             <PopoverContent align="start" className="z-[99999] w-96 rounded-2xl border-neutral-200 dark:border-neutral-700 p-4">
               <div className="space-y-4">
                 <div>
-                  <div className="mb-2 text-xs font-medium uppercase tracking-wide text-neutral-500 dark:text-neutral-400">File Kind</div>
-                  <div className="flex flex-wrap gap-2 text-sm">
+                  <div className="mb-2 typo-h6 uppercase tracking-wide text-muted ">File Kind</div>
+                  <div className="flex flex-wrap gap-2 typo-p">
                     {["all","pdf","image","doc","other"].map((t)=> (
                       <button
                         key={t}
                         onClick={()=>{setFileKindFilter(t as any); setPage(1);}}
-                        className={cn("rounded-full border px-3 py-1", t===fileKindFilter ? "border-neutral-900 dark:border-white bg-neutral-900 dark:bg-white text-white dark:text-black" : "border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-700")}
+                        className={cn("rounded-full border px-3 py-1", t===fileKindFilter ? "border-neutral-900 dark:border-white bg-neutral-900 dark:bg-white text-white dark:text-black" : "border-neutral-300 dark:border-neutral-600  hover:bg-neutral-50 dark:hover:bg-neutral-700")}
                       >{t}</button>
                     ))}
                   </div>
                 </div>
                 <div>
-                  <div className="mb-2 text-xs font-medium uppercase tracking-wide text-neutral-500 dark:text-neutral-400">Status</div>
-                  <div className="flex flex-wrap gap-2 text-sm">
+                  <div className="mb-2 typo-h6 uppercase tracking-wide text-muted ">Status</div>
+                  <div className="flex flex-wrap gap-2 typo-p">
                     {["all","valid","expiring","expired"].map((s)=> (
                       <button
                         key={s}
                         onClick={()=>{setStatusFilter(s as any); setPage(1);}}
-                        className={cn("rounded-full border px-3 py-1", s===statusFilter ? "border-neutral-900 dark:border-white bg-neutral-900 dark:bg-white text-white dark:text-black" : "border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-700")}
+                        className={cn("rounded-full border px-3 py-1", s===statusFilter ? "border-neutral-900 dark:border-white bg-neutral-900 dark:bg-white text-white dark:text-black" : "border-neutral-300 dark:border-neutral-600  hover:bg-neutral-50 dark:hover:bg-neutral-700")}
                       >{s}</button>
                     ))}
                   </div>
                 </div>
                 <div>
-                  <div className="mb-2 text-xs font-medium uppercase tracking-wide text-neutral-500 dark:text-neutral-400">Document Type</div>
-                  <div className="flex flex-wrap gap-2 text-sm">
+                  <div className="mb-2 typo-h6 uppercase tracking-wide text-muted ">Document Type</div>
+                  <div className="flex flex-wrap gap-2 typo-p">
                     <button
                       onClick={()=> { setDocTypeFilter("all"); setPage(1); }}
-                      className={cn("rounded-full border px-3 py-1", docTypeFilter === "all" ? "border-neutral-900 dark:border-white bg-neutral-900 dark:bg-white text-white dark:text-black" : "border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-700")}
+                      className={cn("rounded-full border px-3 py-1", docTypeFilter === "all" ? "border-neutral-900 dark:border-white bg-neutral-900 dark:bg-white text-white dark:text-black" : "border-neutral-300 dark:border-neutral-600  hover:bg-neutral-50 dark:hover:bg-neutral-700")}
                     >All</button>
                     {DOC_TYPE_OPTIONS.map((opt) => (
                       <button
                         key={opt}
                         onClick={()=> { setDocTypeFilter(opt); setPage(1); }}
-                        className={cn("rounded-full border px-3 py-1", docTypeFilter === opt ? "border-neutral-900 dark:border-white bg-neutral-900 dark:bg-white text-white dark:text-black" : "border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-700")}
+                        className={cn("rounded-full border px-3 py-1", docTypeFilter === opt ? "border-neutral-900 dark:border-white bg-neutral-900 dark:bg-white text-white dark:text-black" : "border-neutral-300 dark:border-neutral-600  hover:bg-neutral-50 dark:hover:bg-neutral-700")}
                       >{opt}</button>
                     ))}
                   </div>
@@ -727,19 +727,19 @@ export default function VehicleDocumentsPage() {
 
         <div className="flex items-center gap-2">
           <div className="hidden items-center gap-2 sm:flex">
-            <span className="text-sm text-neutral-500 dark:text-neutral-400">Rows</span>
+            <span className="typo-p-muted">Rows</span>
             <select
               value={perPage}
               onChange={(e)=>{setPerPage(parseInt(e.target.value)); setPage(1);}}
-              className="rounded-lg border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 px-2 py-1 text-sm text-neutral-900 dark:text-neutral-100"
+              className="rounded-lg border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 px-2 py-1 typo-p"
             >
               {[10,20,50].map(n=> (<option key={n} value={n}>{n}</option>))}
             </select>
           </div>
           <div className="flex items-center gap-2">
-            <button onClick={()=> setPage((p)=> Math.max(1, p-1))} className="rounded-lg border border-neutral-300 dark:border-neutral-600 px-2 py-1 text-sm text-neutral-900 dark:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-700">Prev</button>
-            <span className="min-w-[80px] text-center text-sm text-neutral-700 dark:text-neutral-300">{page}/{totalPages}</span>
-            <button onClick={()=> setPage((p)=> Math.min(totalPages, p+1))} className="rounded-lg border border-neutral-300 dark:border-neutral-600 px-2 py-1 text-sm text-neutral-900 dark:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-700">Next</button>
+            <button onClick={()=> setPage((p)=> Math.max(1, p-1))} className="rounded-lg border border-neutral-300 dark:border-neutral-600 px-2 py-1 typo-p hover:bg-neutral-50 dark:hover:bg-neutral-700">Prev</button>
+            <span className="min-w-[80px] text-center typo-p-muted">{page}/{totalPages}</span>
+            <button onClick={()=> setPage((p)=> Math.min(totalPages, p+1))} className="rounded-lg border border-neutral-300 dark:border-neutral-600 px-2 py-1 typo-p hover:bg-neutral-50 dark:hover:bg-neutral-700">Next</button>
           </div>
         </div>
       </div>
@@ -751,12 +751,12 @@ export default function VehicleDocumentsPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            className="mb-3 flex items-center justify-between rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 px-4 py-2 text-sm text-neutral-900 dark:text-neutral-100"
+            className="mb-3 flex items-center justify-between rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 px-4 py-2 typo-p"
           >
             <span>{selectedIds.size} selected</span>
             <div className="flex items-center gap-2">
-              <Button variant="outline" className="rounded-lg border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100 hover:bg-white dark:hover:bg-neutral-700" onClick={exportSelectedAsCSV}><DownloadIcon className="mr-2"/> Export</Button>
-              <Button variant="outline" className="rounded-lg border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100 hover:bg-white dark:hover:bg-neutral-700" onClick={()=> selectedIds.forEach((id)=> removeDoc(id))}><DeleteOutlineIcon className="mr-2"/> Delete</Button>
+              <Button variant="outline" className="rounded-lg border-neutral-300 dark:border-neutral-600  hover:bg-white dark:hover:bg-neutral-700" onClick={exportSelectedAsCSV}><DownloadIcon className="mr-2"/> Export</Button>
+              <Button variant="outline" className="rounded-lg border-neutral-300 dark:border-neutral-600  hover:bg-white dark:hover:bg-neutral-700" onClick={()=> selectedIds.forEach((id)=> removeDoc(id))}><DeleteOutlineIcon className="mr-2"/> Delete</Button>
             </div>
           </motion.div>
         )}
@@ -768,15 +768,15 @@ export default function VehicleDocumentsPage() {
           <Table>
           <TableHeader>
             <TableRow className="hover:bg-white dark:hover:bg-neutral-800">
-              <TableHead className="w-[80px] dark:text-neutral-300">Actions</TableHead>
+              <TableHead className="w-[80px] ">Actions</TableHead>
               <TableHead className="w-[40px]"><Checkbox checked={pageData.length>0 && pageData.every(d=> selectedIds.has(d.id))} onCheckedChange={toggleSelectAll} aria-label="Select all"/></TableHead>
-              <TableHead className="w-[28px] dark:text-neutral-300">File</TableHead>
-              <TableHead className="dark:text-neutral-300">Name</TableHead>
-              <TableHead className="dark:text-neutral-300">Document Type</TableHead>
-              <TableHead className="hidden sm:table-cell dark:text-neutral-300">Tags</TableHead>
-              <TableHead className="hidden md:table-cell dark:text-neutral-300">Uploaded</TableHead>
-              <TableHead className="hidden lg:table-cell dark:text-neutral-300">Expiry</TableHead>
-              <TableHead className="dark:text-neutral-300">Status</TableHead>
+              <TableHead className="w-[28px] ">File</TableHead>
+              <TableHead className="">Name</TableHead>
+              <TableHead className="">Document Type</TableHead>
+              <TableHead className="hidden sm:table-cell ">Tags</TableHead>
+              <TableHead className="hidden md:table-cell ">Uploaded</TableHead>
+              <TableHead className="hidden lg:table-cell ">Expiry</TableHead>
+              <TableHead className="">Status</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -788,10 +788,10 @@ export default function VehicleDocumentsPage() {
                       <Button variant="ghost" className="h-8 w-8 rounded-full p-0 hover:bg-neutral-100 dark:hover:bg-neutral-700"><MoreVertIcon/></Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="start" className="z-[9999] min-w-52 border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700">
-                      <DropdownMenuLabel className="dark:text-neutral-100">Quick actions</DropdownMenuLabel>
+                      <DropdownMenuLabel className="">Quick actions</DropdownMenuLabel>
                       <DropdownMenuSeparator className="dark:bg-neutral-700"/>
-                      <DropdownMenuItem onClick={() => openView(d)} className="dark:text-neutral-100 dark:hover:bg-neutral-700"><VisibilityIcon className="mr-2"/> View</DropdownMenuItem>
-                      <DropdownMenuItem onClick={() => openEditDialog(d)} className="dark:text-neutral-100 dark:hover:bg-neutral-700"><EditIcon className="mr-2"/> Edit / New version</DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => openView(d)} className=" dark:hover:bg-neutral-700"><VisibilityIcon className="mr-2"/> View</DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => openEditDialog(d)} className=" dark:hover:bg-neutral-700"><EditIcon className="mr-2"/> Edit / New version</DropdownMenuItem>
                       <DropdownMenuItem
                         onClick={() => {
                           if (d.url) {
@@ -803,7 +803,7 @@ export default function VehicleDocumentsPage() {
                             alert("No file available to download (seeded demo).");
                           }
                         }}
-                        className="dark:text-neutral-100 dark:hover:bg-neutral-700"
+                        className=" dark:hover:bg-neutral-700"
                       >
                         <DownloadIcon className="mr-2"/> Download
                       </DropdownMenuItem>
@@ -815,21 +815,21 @@ export default function VehicleDocumentsPage() {
                 <TableCell><div className="flex items-center justify-center"><FileKindIcon kind={d.fileKind}/></div></TableCell>
                 <TableCell className="max-w-[320px]">
                   <div className="flex items-center gap-2">
-                    <span className="truncate font-medium text-neutral-900 dark:text-neutral-100">{d.name}</span>
-                    <Badge variant="outline" className="rounded-full border-neutral-300 dark:border-neutral-600 text-[10px] dark:text-neutral-300">v{d.version}</Badge>
+                    <span className="truncate typo-h4">{d.name}</span>
+                    <Badge variant="outline" className="rounded-full border-neutral-300 dark:border-neutral-600 text-[10px] ">v{d.version}</Badge>
                   </div>
-                  <div className="text-xs text-neutral-500 dark:text-neutral-400">{formatBytes(d.size)}</div>
+                  <div className="typo-subtitle">{formatBytes(d.size)}</div>
                 </TableCell>
-                <TableCell className="text-sm text-neutral-900 dark:text-neutral-100">{d.docType}</TableCell>
+                <TableCell className="typo-p">{d.docType}</TableCell>
                 <TableCell className="hidden sm:table-cell">
                   <div className="flex flex-wrap gap-1">
                     {d.tags.map((t) => (
-                      <span key={t} className="rounded-full border border-neutral-300 dark:border-neutral-600 px-2 py-0.5 text-xs text-neutral-700 dark:text-neutral-300">{t}</span>
+                      <span key={t} className="rounded-full border border-neutral-300 dark:border-neutral-600 px-2 py-0.5 typo-subtitle">{t}</span>
                     ))}
                   </div>
                 </TableCell>
-                <TableCell className="hidden md:table-cell text-sm text-neutral-900 dark:text-neutral-100">{formatDate(d.uploadedAt)}</TableCell>
-                <TableCell className="hidden lg:table-cell text-sm text-neutral-900 dark:text-neutral-100">{formatDate(d.expiry ?? null)}</TableCell>
+                <TableCell className="hidden md:table-cell typo-p">{formatDate(d.uploadedAt)}</TableCell>
+                <TableCell className="hidden lg:table-cell typo-p">{formatDate(d.expiry ?? null)}</TableCell>
                 <TableCell><StatusBadge status={d.status} expiry={d.expiry ?? null}/></TableCell>
               </TableRow>
             ))}
@@ -839,10 +839,10 @@ export default function VehicleDocumentsPage() {
                 <TableCell colSpan={9}>
                   <div className="flex flex-col items-center justify-center gap-3 py-14 text-center">
                     <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-neutral-200 dark:border-neutral-700 dark:bg-neutral-800">
-                      <UploadFileIcon className="dark:text-neutral-400"/>
+                      <UploadFileIcon className=""/>
                     </div>
-                    <div className="text-lg font-medium text-neutral-900 dark:text-neutral-100">No documents match your filters</div>
-                    <div className="text-sm text-neutral-500 dark:text-neutral-400">Try adjusting search or filters — or add a new document.</div>
+                    <div className="typo-h3m">No documents match your filters</div>
+                    <div className="typo-p-muted">Try adjusting search or filters — or add a new document.</div>
                     <div className="mt-2"><Button onClick={openAddDialog}>Add document</Button></div>
                   </div>
                 </TableCell>
@@ -857,16 +857,16 @@ export default function VehicleDocumentsPage() {
       <Dialog open={openDialog} onOpenChange={setOpenDialog}>
         <DialogContent className="sm:max-w-2xl">
           <DialogHeader>
-            <DialogTitle className="text-neutral-900 dark:text-neutral-100">{editingDocId ? "Edit Document" : "Add Document"}</DialogTitle>
-            <DialogDescription className="text-neutral-500 dark:text-neutral-400">Document Type, name, file, expiry, tags — clean and compliant.</DialogDescription>
+            <DialogTitle className="">{editingDocId ? "Edit Document" : "Add Document"}</DialogTitle>
+            <DialogDescription className="text-muted ">Document Type, name, file, expiry, tags — clean and compliant.</DialogDescription>
           </DialogHeader>
 
           <div className="grid gap-5 sm:grid-cols-2">
             <div className="space-y-3">
               <div className="space-y-2">
-                <Label className="text-neutral-800 dark:text-neutral-200">Document Type</Label>
+                <Label className="">Document Type</Label>
                 <Select value={formDocType} onValueChange={(v)=> setFormDocType(v as DocumentItem["docType"]) }>
-                  <SelectTrigger className="rounded-xl border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100 dark:bg-neutral-800 focus-visible:ring-neutral-900 dark:focus-visible:ring-neutral-100">
+                  <SelectTrigger className="rounded-xl border-neutral-300 dark:border-neutral-600  dark:bg-neutral-800 focus-visible:ring-neutral-900 dark:focus-visible:ring-neutral-100">
                     <SelectValue placeholder="Select type" />
                   </SelectTrigger>
                   <SelectContent className="z-[99999] rounded-2xl border-neutral-200 dark:border-neutral-700 dark:bg-neutral-800">
@@ -878,20 +878,20 @@ export default function VehicleDocumentsPage() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="doc-name" className="text-neutral-800 dark:text-neutral-200">Name</Label>
+                <Label htmlFor="doc-name" className="">Name</Label>
                 <div className="flex items-center gap-2">
-                  <DriveFileRenameOutlineIcon className="text-neutral-700 dark:text-neutral-300"/>
-                  <Input id="doc-name" value={formName} onChange={(e)=> setFormName(e.target.value)} placeholder="e.g., Insurance Policy 2025.pdf" className="rounded-xl border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100 dark:bg-neutral-800 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus-visible:ring-neutral-900 dark:focus-visible:ring-neutral-100"/>
+                  <DriveFileRenameOutlineIcon className="text-muted "/>
+                  <Input id="doc-name" value={formName} onChange={(e)=> setFormName(e.target.value)} placeholder="e.g., Insurance Policy 2025.pdf" className="rounded-xl border-neutral-300 dark:border-neutral-600  dark:bg-neutral-800 placeholder:text-muted dark:placeholder:text-muted focus-visible:ring-neutral-900 dark:focus-visible:ring-neutral-100"/>
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label className="text-neutral-800 dark:text-neutral-200">Expiry (optional)</Label>
+                <Label className="">Expiry (optional)</Label>
                 <Popover>
                   <PopoverTrigger asChild>
-                    <Button variant="outline" className="w-full justify-start rounded-xl border-neutral-300 dark:border-neutral-600 text-left font-normal text-neutral-900 dark:text-neutral-100 dark:bg-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-700">
+                    <Button variant="outline" className="w-full justify-start rounded-xl border-neutral-300 dark:border-neutral-600 text-left font-normal  dark:bg-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-700">
                       <CalendarMonthIcon className="mr-2"/>
-                      {formExpiry ? formatDate(formExpiry) : <span className="text-neutral-400 dark:text-neutral-500">Select date</span>}
+                      {formExpiry ? formatDate(formExpiry) : <span className="text-neutral-400 ">Select date</span>}
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent align="start" className="z-[99999] w-auto rounded-2xl border-neutral-200 dark:border-neutral-700 dark:bg-neutral-800 p-0">
@@ -901,26 +901,26 @@ export default function VehicleDocumentsPage() {
               </div>
 
               <div className="space-y-2">
-                <Label className="text-neutral-800 dark:text-neutral-200">Tags</Label>
+                <Label className="">Tags</Label>
                 <TagInput value={formTags} onChange={setFormTags}/>
               </div>
             </div>
 
             <div className="space-y-3">
               <div className="space-y-2">
-                <Label className="text-neutral-800 dark:text-neutral-200">Upload</Label>
+                <Label className="">Upload</Label>
                 <DropZone/>
               </div>
 
               <div className="space-y-2">
-                <Label className="text-neutral-800 dark:text-neutral-200">Notes (optional)</Label>
-                <Textarea value={formNotes} onChange={(e)=> setFormNotes(e.target.value)} placeholder="Any context for admins…" className="min-h-[88px] rounded-xl border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100 dark:bg-neutral-800 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus-visible:ring-neutral-900 dark:focus-visible:ring-neutral-100"/>
+                <Label className="">Notes (optional)</Label>
+                <Textarea value={formNotes} onChange={(e)=> setFormNotes(e.target.value)} placeholder="Any context for admins…" className="min-h-[88px] rounded-xl border-neutral-300 dark:border-neutral-600  dark:bg-neutral-800 placeholder:text-muted dark:placeholder:text-muted focus-visible:ring-neutral-900 dark:focus-visible:ring-neutral-100"/>
               </div>
             </div>
           </div>
 
           <DialogFooter className="mt-2">
-            <Button variant="outline" onClick={()=> { setOpenDialog(false); resetForm(); }} className="rounded-xl border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100 hover:bg-white dark:hover:bg-neutral-700">Cancel</Button>
+            <Button variant="outline" onClick={()=> { setOpenDialog(false); resetForm(); }} className="rounded-xl border-neutral-300 dark:border-neutral-600  hover:bg-white dark:hover:bg-neutral-700">Cancel</Button>
             <Button onClick={saveDoc} >{editingDocId ? "Save changes" : "Add document"}</Button>
           </DialogFooter>
         </DialogContent>
@@ -930,12 +930,12 @@ export default function VehicleDocumentsPage() {
       <Dialog open={openViewer} onOpenChange={setOpenViewer}>
         <DialogContent className="sm:max-w-4xl">
           <DialogHeader>
-            <DialogTitle className="text-neutral-900 dark:text-neutral-100 flex items-center justify-between">
+            <DialogTitle className=" flex items-center justify-between">
               <span>{viewerDoc?.name ?? "Preview"}</span>
               {viewerDoc?.url && (
                 <Button
                   variant="outline"
-                  className="rounded-lg border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100 hover:bg-white dark:hover:bg-neutral-700"
+                  className="rounded-lg border-neutral-300 dark:border-neutral-600  hover:bg-white dark:hover:bg-neutral-700"
                   onClick={() => {
                     const a = document.createElement('a');
                     a.href = viewerDoc.url!;
@@ -947,7 +947,7 @@ export default function VehicleDocumentsPage() {
                 </Button>
               )}
             </DialogTitle>
-            <DialogDescription className="text-neutral-500 dark:text-neutral-400">Quick preview</DialogDescription>
+            <DialogDescription className="text-muted ">Quick preview</DialogDescription>
           </DialogHeader>
 
           <div className="h-[70vh] w-full overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900">
@@ -959,7 +959,7 @@ export default function VehicleDocumentsPage() {
                 <iframe src={viewerDoc.url} className="h-full w-full" title="document preview"/>
               )
             ) : (
-              <div className="flex h-full items-center justify-center text-sm text-neutral-500 dark:text-neutral-400">No preview available</div>
+              <div className="flex h-full items-center justify-center typo-p-muted">No preview available</div>
             )}
           </div>
         </DialogContent>
@@ -994,10 +994,10 @@ function TagInput({ value, onChange }: { value: string[]; onChange: (v: string[]
   return (
     <div className="flex min-h-[44px] w-full flex-wrap items-center gap-2 rounded-xl border border-neutral-300 dark:border-neutral-600 dark:bg-neutral-800 px-3 py-2">
       {value.map((t) => (
-        <span key={t} className="inline-flex items-center gap-1 rounded-full border border-neutral-300 dark:border-neutral-600 px-2 py-1 text-xs text-neutral-800 dark:text-neutral-300">
+        <span key={t} className="inline-flex items-center gap-1 rounded-full border border-neutral-300 dark:border-neutral-600 px-2 py-1 typo-p12n  ">
           <TagIcon fontSize="small"/>
           {t}
-          <button onClick={() => remove(t)} className="ml-1 rounded-full px-1 text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-700">×</button>
+          <button onClick={() => remove(t)} className="ml-1 rounded-full px-1 text-muted  hover:bg-neutral-100 dark:hover:bg-neutral-700">×</button>
         </span>
       ))}
       <input
@@ -1005,7 +1005,7 @@ function TagInput({ value, onChange }: { value: string[]; onChange: (v: string[]
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={onKeyDown}
         placeholder={value.length ? "Add tag and press Enter" : "e.g., compliance"}
-        className="flex-1 bg-transparent text-sm text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:outline-none"
+        className="flex-1 bg-transparent typo-p placeholder:text-muted dark:placeholder:text-muted focus:outline-none"
       />
     </div>
   );

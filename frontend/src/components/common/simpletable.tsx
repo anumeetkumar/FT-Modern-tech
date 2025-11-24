@@ -252,7 +252,7 @@ function DateRangeField({
   const prefersReduced = useReducedMotion();
   return (
     <div className="space-y-2">
-      <div className="text-xs text-slate-500 dark:text-slate-400">
+      <div className="typo-subtitle">
         {value?.from || value?.to
           ? `${
               value?.from ? format(new Date(value.from), "dd-MMM-yyyy") : "…"
@@ -452,7 +452,7 @@ export function SmartAutoTable<T extends Record<string, any>>(
             <div className="flex flex-1 items-stretch gap-3">
               <div className="relative flex-1 lg:max-w-sm">
                 <SearchIcon
-                  className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500"
+                  className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:"
                   fontSize="small"
                 />
                 <input
@@ -462,14 +462,14 @@ export function SmartAutoTable<T extends Record<string, any>>(
                     setPage(1);
                   }}
                   placeholder="Search"
-                  className="h-10 w-full rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 pl-10 pr-4 text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400 outline-none ring-0 transition focus:border-slate-400 dark:focus:border-slate-400 focus:bg-white dark:focus:bg-slate-600 focus:shadow-sm"
+                  className="h-10 w-full rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 pl-10 pr-4 typo-p  placeholder: dark:placeholder:text-slate-400 outline-none ring-0 transition focus:border-slate-400 dark:focus:border-slate-400 focus:bg-white dark:focus:bg-slate-600 focus:shadow-sm"
                 />
               </div>
             </div>
 
             {/* Right: records per page */}
             <div className="flex flex-wrap items-center gap-2">
-              <div className="flex items-center gap-2 text-sm">
+              <div className="flex items-center gap-2 typo-p">
                 <span className="text-slate-600 dark:text-slate-400 font-medium whitespace-nowrap">
                   Records per page:
                 </span>
@@ -479,7 +479,7 @@ export function SmartAutoTable<T extends Record<string, any>>(
                     setPageSize(Number(e.target.value));
                     setPage(1);
                   }}
-                  className="h-10 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 px-3 text-sm font-medium outline-none"
+                  className="h-10 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700  px-3 typo-p500 outline-none"
                 >
                   {[10, 20, 30, 50, 100].map((n) => (
                     <option key={n} value={n}>
@@ -495,7 +495,7 @@ export function SmartAutoTable<T extends Record<string, any>>(
         {/* Table */}
         <div className="w-full overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-700 bg-gradient-to-b from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 shadow-sm hover:shadow-md transition-shadow duration-300">
           <div id="smart-table-print">
-            <table className="w-full min-w-[800px] text-sm">
+            <table className="w-full min-w-[800px] typo-p">
               <thead>
                 <tr className="bg-white dark:bg-slate-800 text-left">
                   {visibleCols.map((i) => {
@@ -516,7 +516,7 @@ export function SmartAutoTable<T extends Record<string, any>>(
                               setSortDir("asc");
                             }
                           }}
-                          className="inline-flex items-center gap-2 font-bold text-sm text-slate-900 dark:text-slate-100 hover:text-slate-700 dark:hover:text-slate-300 transition-colors uppercase tracking-wide"
+                          className="inline-flex items-center gap-2 font-bold typo-p  hover:text-slate-700 dark:hover:text-slate-300 transition-colors uppercase tracking-wide"
                           title="Sort"
                         >
                           {displayOptions[i]?.title?.()}
@@ -547,7 +547,7 @@ export function SmartAutoTable<T extends Record<string, any>>(
                     >
                       <td
                         colSpan={visibleCols.length}
-                        className="px-6 py-10 text-center text-slate-500 dark:text-slate-400"
+                        className="px-6 py-10 text-center  dark:text-slate-400"
                       >
                         No results match your filters.
                       </td>
@@ -594,7 +594,7 @@ export function SmartAutoTable<T extends Record<string, any>>(
                                     </TooltipTrigger>
                                     <TooltipContent
                                       side="top"
-                                      className={`max-w-xs rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 shadow-xl ${Z_TIP}`}
+                                      className={`max-w-xs rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800  shadow-xl ${Z_TIP}`}
                                     >
                                       {tooltipNode}
                                     </TooltipContent>
@@ -617,13 +617,13 @@ export function SmartAutoTable<T extends Record<string, any>>(
           {/* Pagination */}
           <div className="border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 sm:px-6 py-4">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-              <div className="text-sm text-slate-600 dark:text-slate-400 text-center lg:text-left lg:flex-1">
+              <div className="typo-p-muted dark:text-slate-400 text-center lg:text-left lg:flex-1">
                 Showing{" "}
-                <span className="font-medium text-slate-900 dark:text-slate-100">
+                <span className="typo-h4">
                   {pageRows.length}
                 </span>{" "}
                 of{" "}
-                <span className="font-medium text-slate-900 dark:text-slate-100">
+                <span className="typo-h4">
                   {sorted.length}
                 </span>{" "}
                 results
@@ -631,14 +631,14 @@ export function SmartAutoTable<T extends Record<string, any>>(
 
               <div className="flex items-center justify-center gap-1 flex-wrap">
                 <button
-                  className="px-3 py-2 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-all duration-200 disabled:opacity-50"
+                  className="px-3 py-2 typo-p12n font-medium text-slate-700  hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-all duration-200 disabled:opacity-50"
                   onClick={() => setPage(1)}
                   disabled={page === 1}
                 >
                   First
                 </button>
                 <button
-                  className="px-3 py-2 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors disabled:opacity-50"
+                  className="px-3 py-2 typo-p12n font-medium text-slate-700  hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors disabled:opacity-50"
                   onClick={() => setPage((p) => Math.max(1, p - 1))}
                   disabled={page === 1}
                 >
@@ -654,10 +654,10 @@ export function SmartAutoTable<T extends Record<string, any>>(
                       out.push(
                         <button
                           key={i}
-                          className={`min-w-[36px] h-9 px-2 text-sm font-medium rounded-lg transition-colors ${
+                          className={`min-w-[36px] h-9 px-2 typo-p500 rounded-lg transition-colors ${
                             i === page
-                              ? "bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 shadow-sm"
-                              : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                              ? "bg-slate-900 dark:bg-slate-100 text-white  shadow-sm"
+                              : "text-slate-700  hover:bg-slate-100 dark:hover:bg-slate-700"
                           }`}
                           onClick={() => setPage(i)}
                         >
@@ -670,14 +670,14 @@ export function SmartAutoTable<T extends Record<string, any>>(
                 </div>
 
                 <button
-                  className="px-3 py-2 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors disabled:opacity-50"
+                  className="px-3 py-2 typo-p12n font-medium text-slate-700  hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors disabled:opacity-50"
                   onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                   disabled={page === totalPages}
                 >
                   Next
                 </button>
                 <button
-                  className="px-3 py-2 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors disabled:opacity-50"
+                  className="px-3 py-2 typo-p12n font-medium text-slate-700  hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors disabled:opacity-50"
                   onClick={() => setPage(totalPages)}
                   disabled={page === totalPages}
                 >
@@ -685,13 +685,13 @@ export function SmartAutoTable<T extends Record<string, any>>(
                 </button>
               </div>
 
-              <div className="text-sm text-slate-600 dark:text-slate-400 text-center lg:text-right lg:flex-1">
+              <div className="typo-p-muted dark:text-slate-400 text-center lg:text-right lg:flex-1">
                 Page{" "}
-                <span className="font-medium text-slate-900 dark:text-slate-100">
+                <span className="typo-h4">
                   {page}
                 </span>{" "}
                 of{" "}
-                <span className="font-medium text-slate-900 dark:text-slate-100">
+                <span className="typo-h4">
                   {totalPages}
                 </span>
               </div>

@@ -25,10 +25,10 @@ const TransactionDetailModal = ({
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="sm:max-w-lg max-h-[85vh] overflow-y-auto bg-background text-foreground">
         <DialogHeader>
-          <DialogTitle className="text-lg font-semibold">
+          <DialogTitle className="typo-h3">
             Transaction
           </DialogTitle>
-          <DialogDescription className="text-sm text-muted">
+          <DialogDescription className="typo-p-muted">
             Gateway payment information
           </DialogDescription>
         </DialogHeader>
@@ -46,11 +46,11 @@ const TransactionDetailModal = ({
             {/* Amount Section */}
             <Card className="border-border bg-background shadow-sm">
               <CardHeader className="pb-1">
-                <CardTitle className="text-sm font-medium text-foreground">
+                <CardTitle className="typo-p500">
                   Amount & Credits
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-2 text-sm">
+              <CardContent className="space-y-2 typo-p">
                 <Row
                   label="Amount"
                   value={fmtMoney(active.amount, active.currency)}
@@ -83,23 +83,23 @@ const TransactionDetailModal = ({
             {/* Gateway Section */}
             <Card className="border-border bg-background shadow-sm">
               <CardHeader className="pb-1">
-                <CardTitle className="text-sm font-medium text-foreground">
+                <CardTitle className="typo-p500">
                   Gateway
                 </CardTitle>
               </CardHeader>
-              <CardContent className="text-sm space-y-1">
+              <CardContent className="typo-p space-y-1">
                 <TextRow label="Reference" value={active.reference} mono />
                 <TextRow label="Invoice" value={active.invoiceNo} />
                 <TextRow label="Notes" value={active.notes} />
 
                 {active.meta && Object.keys(active.meta).length > 0 && (
                   <div className="pt-2 space-y-1">
-                    <div className="text-xs text-muted">Metadata</div>
+                    <div className="typo-subtitle">Metadata</div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {Object.entries(active.meta).map(([k, v]) => (
                         <div
                           key={k}
-                          className="flex items-center justify-between rounded border border-border px-2 py-1 text-xs"
+                          className="flex items-center justify-between rounded border border-border px-2 py-1 typo-p12n"
                         >
                           <span className="text-muted">{k}</span>
                           <span className="font-mono">{v}</span>
@@ -150,9 +150,9 @@ const InfoCard = ({
 }) => (
   <Card className="border-border bg-background shadow-sm">
     <CardContent className="px-3">
-      <div className="text-xs text-muted">{label}</div>
+      <div className="typo-subtitle">{label}</div>
       <div
-        className={`mt-1 text-sm ${mono ? "font-mono" : "font-medium"} ${
+        className={`mt-1 typo-p ${mono ? "font-mono" : "font-medium"} ${
           capitalize ? "capitalize" : ""
         }`}
       >
@@ -186,7 +186,7 @@ const TextRow = ({
   value: any;
   mono?: boolean;
 }) => (
-  <div className="flex gap-2 text-sm">
+  <div className="flex gap-2 typo-p">
     <span className="text-muted shrink-0">{label}:</span>
     <span className={mono ? "font-mono" : ""}>{value || "—"}</span>
   </div>

@@ -45,7 +45,7 @@ export function EditCompanyDialog({
 
         <div className="space-y-4 mt-4">
           <div>
-            <label className="text-sm font-medium">Company Name</label>
+            <label className="typo-p500">Company Name</label>
             <Input
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -54,7 +54,7 @@ export function EditCompanyDialog({
           </div>
 
           <div>
-            <label className="text-sm font-medium">Website</label>
+            <label className="typo-p500">Website</label>
             <Input
               value={formData.website}
               onChange={(e) => setFormData({ ...formData, website: e.target.value })}
@@ -63,7 +63,7 @@ export function EditCompanyDialog({
           </div>
 
           <div>
-            <label className="text-sm font-medium">Address</label>
+            <label className="typo-p500">Address</label>
             <Input
               value={formData.address}
               onChange={(e) => setFormData({ ...formData, address: e.target.value })}

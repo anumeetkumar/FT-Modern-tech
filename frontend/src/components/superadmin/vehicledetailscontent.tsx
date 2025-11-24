@@ -140,11 +140,11 @@ const KV = ({
   mono?: boolean;
 }) => (
   <div className="flex items-start justify-between gap-4 py-2">
-    <span className="text-xs text-neutral-500 dark:text-neutral-400">
+    <span className="typo-subtitle">
       {label}
     </span>
     <span
-      className={`text-sm dark:text-neutral-100 ${mono ? "font-mono" : ""}`}
+      className={`typo-p  ${mono ? "font-mono" : ""}`}
     >
       {value}
     </span>
@@ -168,7 +168,7 @@ const Pill = ({
       <div className="text-[10px] tracking-widest text-muted-foreground">
         {label}
       </div>
-      <div className="text-sm font-medium text-foreground">{value}</div>
+      <div className="typo-p500">{value}</div>
     </div>
   </div>
 );
@@ -184,13 +184,13 @@ const SectionTitle = ({
 }) => (
   <div className="mb-3 flex items-center justify-between">
     <div className="flex items-center gap-2">
-      <div className="grid h-7 w-7 place-items-center rounded-md border border-neutral-300 dark:border-neutral-600 dark:text-neutral-100">
+      <div className="grid h-7 w-7 place-items-center rounded-md border border-neutral-300 dark:border-neutral-600 ">
         {icon}
       </div>
-      <h3 className="text-sm font-semibold dark:text-neutral-100">{title}</h3>
+      <h3 className="typo-p600 ">{title}</h3>
     </div>
     {hint ? (
-      <span className="text-xs text-neutral-400 dark:text-neutral-500">
+      <span className="typo-subtitle">
         {hint}
       </span>
     ) : null}
@@ -206,7 +206,7 @@ const Avatar = ({
   alt: string;
   fallback: string;
 }) => (
-  <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border dark:border-neutral-600 bg-white dark:bg-neutral-700 text-sm font-semibold dark:text-neutral-100">
+  <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border dark:border-neutral-600 bg-white dark:bg-neutral-700 typo-p600 ">
     {/* eslint-disable-next-line @next/next/no-img-element */}
     {src ? (
       <img src={src} alt={alt} className="h-full w-full object-cover" />
@@ -252,7 +252,7 @@ export default function VehicleDetailsPreview({
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-semibold text-foreground">
+                  <span className="typo-p600 text-foreground">
                     {v.vehicleNo}
                   </span>
                   <StatusBadge status={v.status} />
@@ -263,7 +263,7 @@ export default function VehicleDetailsPreview({
                     {v.vehicleType.name}
                   </span>
                 </div>
-                <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+                <div className="mt-1 flex flex-wrap items-center gap-2 typo-subtitle">
                   <span>Last: {timeAgo(v.lastUpdate)}</span>
                   <span className="text-muted-foreground/50">•</span>
                   <span>
@@ -286,10 +286,10 @@ export default function VehicleDetailsPreview({
             </div>
             <div className="flex gap-2">
               <Button onClick={() => setOpen(true)}>Edit Vehicle</Button>
-              {/* <button className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 text-xs text-foreground">
+              {/* <button className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 typo-p12n">
               <DownloadOutlinedIcon style={{ fontSize: 16 }} /> Download
             </button>
-            <button className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 text-xs text-foreground">
+            <button className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 typo-p12n">
               <EmailOutlinedIcon style={{ fontSize: 16 }} /> Email
             </button> */}
             </div>
@@ -328,8 +328,8 @@ export default function VehicleDetailsPreview({
           />
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             <div className="rounded-lg border border-border p-3 dark:bg-background">
-              <div className="text-xs text-muted-foreground">VIN</div>
-              <div className="mt-1 flex items-center justify-between font-mono text-sm text-foreground">
+              <div className="typo-subtitle">VIN</div>
+              <div className="mt-1 flex items-center justify-between font-mono typo-p">
                 {v.vin}
                 <button
                   onClick={() => copy(v.vin)}
@@ -340,8 +340,8 @@ export default function VehicleDetailsPreview({
               </div>
             </div>
             <div className="rounded-lg border border-border p-3 dark:bg-background">
-              <div className="text-xs text-muted-foreground">IMEI</div>
-              <div className="mt-1 flex items-center justify-between font-mono text-sm text-foreground">
+              <div className="typo-subtitle">IMEI</div>
+              <div className="mt-1 flex items-center justify-between font-mono typo-p">
                 {v.imei}
                 <button
                   onClick={() => copy(v.imei)}
@@ -352,8 +352,8 @@ export default function VehicleDetailsPreview({
               </div>
             </div>
             <div className="rounded-lg border border-border p-3 dark:bg-background">
-              <div className="text-xs text-muted-foreground">Timezone</div>
-              <div className="mt-1 text-sm text-foreground">{v.gmt}</div>
+              <div className="typo-subtitle">Timezone</div>
+              <div className="mt-1 typo-p">{v.gmt}</div>
             </div>
           </div>
         </div>
@@ -393,10 +393,10 @@ export default function VehicleDetailsPreview({
                 key={i}
                 className="rounded-lg border border-border dark:bg-background p-3"
               >
-                <div className="text-xs text-muted-foreground mb-1">
+                <div className="typo-subtitle mb-1">
                   {item.label}
                 </div>
-                <div className="text-sm font-medium text-foreground uppercase">
+                <div className="typo-p500 text-foreground uppercase">
                   {item.value}
                 </div>
               </div>
@@ -492,7 +492,7 @@ export default function VehicleDetailsPreview({
               icon={<KeyIcon fontSize="small" />}
               title="Subscription"
             />
-            <div className="mb-2 flex items-center justify-between text-xs">
+            <div className="mb-2 flex items-center justify-between typo-p12n">
               <span className="text-muted-foreground">Primary</span>
               <span className="font-mono text-foreground">
                 {v.primaryExpiry}
@@ -506,10 +506,10 @@ export default function VehicleDetailsPreview({
                 transition={{ duration: 0.6 }}
               />
             </div>
-            <div className="mt-2 text-xs text-muted-foreground">
+            <div className="mt-2 typo-subtitle">
               {primaryDaysLeft} days remaining
             </div>
-            <div className="mt-4 mb-2 flex items-center justify-between text-xs">
+            <div className="mt-4 mb-2 flex items-center justify-between typo-p12n">
               <span className="text-muted-foreground">Secondary</span>
               <span className="font-mono text-foreground">
                 {v.secondaryExpiry}
@@ -523,7 +523,7 @@ export default function VehicleDetailsPreview({
                 transition={{ duration: 0.6, delay: 0.1 }}
               />
             </div>
-            <div className="mt-2 text-xs text-muted-foreground">
+            <div className="mt-2 typo-subtitle">
               {secondaryDaysLeft} days remaining
             </div>
           </div>
@@ -539,7 +539,7 @@ export default function VehicleDetailsPreview({
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {[v.primaryUser, v.addedBy].map((user, i) => (
                 <div key={i} className="rounded-xl border border-border p-3">
-                  <div className="mb-2 text-xs text-muted-foreground">
+                  <div className="mb-2 typo-subtitle">
                     {i === 0 ? "Primary User" : "Added By"}
                   </div>
                   <div className="flex items-center gap-3">
@@ -550,17 +550,17 @@ export default function VehicleDetailsPreview({
                     />
                     <div className="min-w-0">
                       <div className="flex items-center gap-1">
-                        <div className="truncate text-sm font-medium text-foreground">
+                        <div className="truncate typo-p500">
                           {user.name}
                         </div>
                         {user.isEmailVerified && (
                           <VerifiedIcon fontSize="small" />
                         )}
                       </div>
-                      <div className="truncate text-xs text-muted-foreground">
+                      <div className="truncate typo-subtitle">
                         {user.email}
                       </div>
-                      <div className="text-xs text-muted-foreground">
+                      <div className="typo-subtitle">
                         {user.mobilePrefix} {user.mobile} • @{user.username}
                       </div>
                     </div>
@@ -575,10 +575,10 @@ export default function VehicleDetailsPreview({
               icon={<ReceiptLongIcon fontSize="small" />}
               title="Recent Events"
             />
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 typo-p">
               <li className="flex items-center justify-between">
                 <span className="text-foreground">Location ping</span>
-                <span className="text-xs text-muted-foreground">
+                <span className="typo-subtitle">
                   {timeAgo(v.lastUpdate)}
                 </span>
               </li>
@@ -586,11 +586,11 @@ export default function VehicleDetailsPreview({
                 <span className="text-foreground">
                   Ignition {v.ignition ? "ON" : "OFF"}
                 </span>
-                <span className="text-xs text-muted-foreground">~</span>
+                <span className="typo-subtitle">~</span>
               </li>
               <li className="flex items-center justify-between">
                 <span className="text-foreground">Speed updated</span>
-                <span className="text-xs text-muted-foreground">~</span>
+                <span className="typo-subtitle">~</span>
               </li>
             </ul>
           </div>

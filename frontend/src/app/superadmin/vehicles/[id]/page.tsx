@@ -133,7 +133,7 @@ function DeleteAccountContent() {
   return (
     <div className="p-8 space-y-6 bg-background text-foreground">
       <div>
-        <h2 className="text-2xl font-bold tracking-tight mb-2 text-destructive">
+        <h2 className="typo-h1 mb-2 text-destructive">
           Delete Account
         </h2>
         <p className="text-muted-foreground">
@@ -145,7 +145,7 @@ function DeleteAccountContent() {
           <DeleteRoundedIcon className="text-destructive mt-0.5" />
           <div>
             <h3 className="font-semibold text-destructive mb-2">Danger Zone</h3>
-            <p className="text-destructive/90 text-sm mb-4">
+            <p className="text-destructive/90 typo-p mb-4">
               This action cannot be undone. This will permanently delete the user account and remove all associated data.
             </p>
             <Button variant="destructive" size="sm">

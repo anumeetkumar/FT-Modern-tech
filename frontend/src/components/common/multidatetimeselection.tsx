@@ -270,7 +270,7 @@ function TimePicker({
 
   return (
     <div className="space-y-2">
-      <label className="block text-xs font-medium text-neutral-600 dark:text-neutral-300">
+      <label className="block typo-h6 typo-base-muted">
         {label}
       </label>
       <div className="flex items-center gap-2">
@@ -300,10 +300,10 @@ function TimePicker({
               }
               handleHourChange(newHour);
             }}
-            className="w-full px-2 py-1.5 text-center border border-neutral-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100"
+            className="w-full px-2 py-1.5 text-center border border-neutral-300 rounded typo-p focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:border-neutral-600 dark:bg-neutral-800 "
           />
         </div>
-        <span className="text-neutral-600 font-medium dark:text-neutral-400">
+        <span className="typo-base-muted font-medium ">
           :
         </span>
         {/* Minute Input */}
@@ -319,14 +319,14 @@ function TimePicker({
               if (newMinute < 0) newMinute = 0;
               handleMinuteChange(newMinute);
             }}
-            className="w-full px-2 py-1.5 text-center border border-neutral-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100"
+            className="w-full px-2 py-1.5 text-center border border-neutral-300 rounded typo-p focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:border-neutral-600 dark:bg-neutral-800 "
           />
         </div>
         {/* AM/PM Toggle */}
         {!use24Hour && (
           <button
             onClick={handlePeriodToggle}
-            className="px-3 py-1.5 bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 rounded text-sm font-medium transition-colors dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:border-neutral-600 dark:text-neutral-200"
+            className="px-3 py-1.5 bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 rounded typo-p500 transition-colors dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:border-neutral-600 dark:text-neutral-200"
           >
             {period}
           </button>
@@ -467,14 +467,14 @@ export function MultiDateTimeRangePicker({
           variant="outline"
           disabled={disabled}
           className={cn(
-            "inline-flex w-full items-center justify-between rounded-lg border-neutral-300 px-3 py-2 text-left font-normal text-sm h-10 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100",
-            !draft?.from && "text-neutral-500 dark:text-neutral-400",
+            "inline-flex w-full items-center justify-between rounded-lg border-neutral-300 px-3 py-2 text-left font-normal typo-p h-10 dark:border-neutral-600 dark:bg-neutral-800 ",
+            !draft?.from && "text-muted ",
             className
           )}
         >
           <span className="inline-flex items-center gap-2 truncate">
             <AccessTimeIcon sx={{ fontSize: 18 }} />
-            <span className="truncate text-xs sm:text-sm">{label}</span>
+            <span className="truncate typo-p12n">{label}</span>
           </span>
           <KeyboardArrowDownIcon
             sx={{ fontSize: 18 }}
@@ -490,28 +490,28 @@ export function MultiDateTimeRangePicker({
         <div className="overflow-hidden rounded-lg border border-neutral-200 bg-white dark:border-neutral-700 dark:bg-neutral-900">
           {/* Header */}
           <div className="flex items-center justify-between border-b border-neutral-200 px-3 py-2.5 dark:border-neutral-700">
-            <div className="text-sm font-medium text-neutral-700 dark:text-neutral-200">
+            <div className="typo-p500 text-muted dark:text-neutral-200">
               {draft?.from && draft?.to ? (
                 <span className="flex items-center gap-2 flex-wrap">
                   {selectedPreset !== "custom" && (
-                    <span className="rounded bg-neutral-100 px-2 py-0.5 text-xs font-semibold text-neutral-700 dark:bg-neutral-800 dark:text-neutral-200">
+                    <span className="rounded bg-neutral-100 px-2 py-0.5 typo-h6 text-muted dark:bg-neutral-800 dark:text-neutral-200">
                       {presets.find((p) => p.key === selectedPreset)?.label}
                     </span>
                   )}
-                  <span className="text-xs">
+                  <span className="typo-p12n">
                     {formatDateTime(draft.from, use24HourFormat)} →{" "}
                     {formatDateTime(draft.to, use24HourFormat)}
                   </span>
                 </span>
               ) : (
-                <span className="text-neutral-500 dark:text-neutral-400">
+                <span className="text-muted ">
                   Choose a date-time range
                 </span>
               )}
             </div>
             <button
               onClick={() => setOpen(false)}
-              className="rounded p-1 text-neutral-500 hover:bg-neutral-100 hover:text-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-200"
+              className="rounded p-1 text-muted hover:bg-neutral-100 hover:  dark:hover:bg-neutral-800 "
               aria-label="Close"
             >
               <CloseIcon sx={{ fontSize: 18 }} />
@@ -527,10 +527,10 @@ export function MultiDateTimeRangePicker({
                     key={p.key}
                     onClick={() => applyPreset(p.key)}
                     className={cn(
-                      "flex w-full items-center justify-between rounded px-2.5 py-1.5 text-left text-sm transition-colors",
+                      "flex w-full items-center justify-between rounded px-2.5 py-1.5 text-left typo-p transition-colors",
                       selectedPreset === p.key
                         ? "bg-neutral-900 text-white dark:bg-white dark:text-black"
-                        : "text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800"
+                        : "text-muted hover:bg-neutral-100  dark:hover:bg-neutral-800"
                     )}
                   >
                     <span>{p.label}</span>
@@ -612,7 +612,7 @@ export function MultiDateTimeRangePicker({
               <div className="flex items-center justify-between pt-2 border-t border-neutral-200 dark:border-neutral-700">
                 <button
                   onClick={onClear}
-                  className="text-xs font-medium text-neutral-600 hover:text-neutral-900 underline-offset-2 hover:underline dark:text-neutral-400 dark:hover:text-neutral-200"
+                  className="typo-h6 typo-base-muted underline-offset-2 hover:underline  "
                 >
                   Clear
                 </button>
@@ -620,13 +620,13 @@ export function MultiDateTimeRangePicker({
                   <Button
                     variant="outline"
                     onClick={onCancel}
-                    className="h-8 rounded border-neutral-300 text-xs px-3 dark:border-neutral-600 dark:text-neutral-300 dark:hover:bg-neutral-800"
+                    className="h-8 rounded border-neutral-300 typo-subtitle dark:hover:bg-neutral-800"
                   >
                     Cancel
                   </Button>
                   <Button
                     onClick={onApply}
-                    className="h-8 rounded bg-neutral-900 text-white hover:bg-neutral-800 text-xs px-3 dark:bg-white dark:text-black dark:hover:bg-neutral-100"
+                    className="h-8 rounded bg-neutral-900 text-white hover:bg-neutral-800 typo-p12n px-3 dark:bg-white dark:text-black dark:hover:bg-neutral-100"
                     disabled={!draft?.from || !draft?.to}
                   >
                     Apply

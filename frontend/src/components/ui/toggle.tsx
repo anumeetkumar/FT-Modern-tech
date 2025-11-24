@@ -97,7 +97,7 @@ export function Toggle({
 
       {/* Optional Label */}
       {label && (
-        <span className="ml-2 text-sm font-medium text-foreground/80">{label}</span>
+        <span className="ml-2 typo-p500 text-foreground/80">{label}</span>
       )}
     </label>
   );

@@ -46,7 +46,7 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
               "--accent": "#cccccc",
               "--background": "#121212",
               "--foreground": "#f9f9f9",
-              "--muted": "#999999",
+              "--muted": "#ffffff",
               "--border": "#333333",
               "--success": "#22c55e",
               "--warning": "#f59e0b",

@@ -129,10 +129,10 @@ export default function SuperAdminSettings() {
           </motion.div>
 
           <div>
-            <h1 className="text-2xl font-semibold tracking-tight text-foreground">
+            <h1 className="typo-h1">
               Application Settings
             </h1>
-            <p className="text-sm text-muted-foreground">
+            <p className="typo-p-muted">
               Configure system-wide settings for your application.
             </p>
           </div>
@@ -152,10 +152,10 @@ export default function SuperAdminSettings() {
       <div className="mb-6">
         <div className="rounded-2xl border border-border bg-background p-5 transition-colors dark:bg-foreground/5">
           <div className="mb-3 flex items-center justify-between">
-            <div className="text-sm text-foreground/70">
+            <div className="typo-p/70">
               Current Configuration
             </div>
-            <div className="text-xs text-muted-foreground">
+            <div className="typo-subtitle">
               Demo: {settings.demoLoginEnabled ? "ON" : "OFF"} • Geocoding:{" "}
               {settings.reverseGeocodingDigits} Digits • Signup:{" "}
               {settings.signupAllowed ? "ALLOWED" : "DISABLED"}
@@ -166,17 +166,17 @@ export default function SuperAdminSettings() {
 
           <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
             <div>
-              <div className="text-xs text-muted-foreground">Demo Login</div>
-              <div className="text-lg font-medium text-foreground">
+              <div className="typo-subtitle">Demo Login</div>
+              <div className="typo-h3m">
                 {settings.demoLoginEnabled ? "Active" : "Inactive"}
               </div>
             </div>
 
             <div>
-              <div className="text-xs text-muted-foreground">
+              <div className="typo-subtitle">
                 Backup Retention
               </div>
-              <div className="text-sm font-medium text-foreground">
+              <div className="typo-p500">
                 {BACKUP_RETENTION_OPTIONS.find(
                   (opt) => opt.value === settings.databaseBackupRetention
                 )?.label || "N/A"}
@@ -184,10 +184,10 @@ export default function SuperAdminSettings() {
             </div>
 
             <div>
-              <div className="text-xs text-muted-foreground">
+              <div className="typo-subtitle">
                 Free Signup Credits
               </div>
-              <div className="text-lg font-medium text-foreground">
+              <div className="typo-h3m">
                 {settings.signupAllowed ? settings.signupFreeCredits : "N/A"}
               </div>
             </div>
@@ -201,10 +201,10 @@ export default function SuperAdminSettings() {
         <Card title="Demo Login" icon={<LoginIcon />}>
           <div className="flex items-center justify-between rounded-xl border border-border p-3">
             <div>
-              <span className="text-sm font-medium text-foreground">
+              <span className="typo-p500">
                 Enable Demo Login
               </span>
-              <div className="text-xs text-muted-foreground mt-0.5">
+              <div className="typo-subtitle mt-0.5">
                 {settings.demoLoginEnabled
                   ? "Users can access demo mode"
                   : "Demo login is disabled"}
@@ -228,14 +228,14 @@ export default function SuperAdminSettings() {
                 key={digit}
                 onClick={() => set("reverseGeocodingDigits", digit)}
                 className={classNames(
-                  "flex-1 rounded-xl border px-4 py-3 text-sm transition-all",
+                  "flex-1 rounded-xl border px-4 py-3 typo-p transition-all",
                   settings.reverseGeocodingDigits === digit
                     ? "border-primary bg-primary text-white"
                     : "border-border text-foreground hover:bg-foreground/5"
                 )}
               >
                 <div className="font-medium">{digit} Digits</div>
-                <div className="text-xs opacity-75 mt-1">
+                <div className="typo-p12n opacity-75 mt-1">
                   {digit === "2" ? "City/Region" : "Street Level"}
                 </div>
               </button>
@@ -261,7 +261,7 @@ export default function SuperAdminSettings() {
               ))}
             </SelectContent>
           </Select>
-          <div className="mt-2 text-xs text-muted-foreground">
+          <div className="mt-2 typo-subtitle">
             Backups will be retained for the selected period
           </div>
         </Card>
@@ -276,10 +276,10 @@ export default function SuperAdminSettings() {
             {/* Allow Signup Toggle */}
             <div className="flex items-center justify-between rounded-xl border border-border bg-foreground/5 p-4">
               <div>
-                <span className="text-sm font-medium text-foreground">
+                <span className="typo-p500">
                   Allow New Signups
                 </span>
-                <div className="text-xs text-muted-foreground mt-0.5">
+                <div className="typo-subtitle mt-0.5">
                   {settings.signupAllowed
                     ? "New users can register"
                     : "Signup is temporarily disabled"}
@@ -302,7 +302,7 @@ export default function SuperAdminSettings() {
               >
                 <div className="flex items-center gap-2 mb-3">
                   <AccountBalanceWalletIcon className="text-foreground h-5 w-5" />
-                  <Label className="text-sm font-medium text-foreground">
+                  <Label className="typo-p500">
                     Free Signup Credits
                   </Label>
                 </div>
@@ -317,7 +317,7 @@ export default function SuperAdminSettings() {
                   className="rounded-xl border-border bg-background text-foreground"
                   placeholder="100"
                 />
-                <div className="mt-2 text-xs text-muted-foreground">
+                <div className="mt-2 typo-subtitle">
                   Number of free credits awarded to new users upon signup
                 </div>
               </motion.div>
@@ -328,7 +328,7 @@ export default function SuperAdminSettings() {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="text-xs text-muted-foreground italic"
+                className="typo-subtitle italic"
               >
                 Enable signups to configure free credits for new users
               </motion.div>

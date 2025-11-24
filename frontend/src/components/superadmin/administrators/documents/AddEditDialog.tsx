@@ -145,11 +145,11 @@ const AddEditDialog = ({
             : "border-neutral-300 dark:border-neutral-600"
         )}
       >
-        <CloudUploadIcon className="h-7 w-7 text-neutral-900 dark:text-neutral-100" />
-        <div className="text-sm text-neutral-800 dark:text-neutral-200">
+        <CloudUploadIcon className="h-7 w-7 " />
+        <div className="typo-p ">
           Drag & drop your file here
         </div>
-        <div className="text-xs text-neutral-500 dark:text-neutral-400">
+        <div className="typo-subtitle">
           PDF, Images, DOCX — up to 50 MB
         </div>
 
@@ -171,10 +171,10 @@ const AddEditDialog = ({
                   <FileKindIcon kind={inferFileKind(formFile)} />
                 </div>
                 <div className="text-left">
-                  <div className="text-sm font-medium text-neutral-800 truncate max-w-[150px] dark:text-neutral-200">
+                  <div className="typo-p500  truncate max-w-[150px] dark:text-neutral-200">
                     {formFile.name}
                   </div>
-                  <div className="text-xs text-neutral-500 dark:text-neutral-400">
+                  <div className="typo-subtitle">
                     {formatBytes(formFile.size)}
                   </div>
                 </div>
@@ -182,7 +182,7 @@ const AddEditDialog = ({
               <button
                 type="button"
                 onClick={handleRemoveFile}
-                className="flex h-6 w-6 items-center justify-center rounded-full bg-neutral-100 text-neutral-500 hover:bg-red-100 hover:text-red-600 transition-colors dark:bg-neutral-700 dark:text-neutral-400 dark:hover:bg-red-900 dark:hover:text-red-400"
+                className="flex h-6 w-6 items-center justify-center rounded-full bg-neutral-100 text-muted hover:bg-red-100 hover:text-red-600 transition-colors dark:bg-neutral-700  dark:hover:bg-red-900 dark:hover:text-red-400"
               >
                 ×
               </button>

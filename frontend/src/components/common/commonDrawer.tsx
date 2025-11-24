@@ -27,7 +27,7 @@ const CommonDrawer: React.FC<CommonDrawerProps> = ({ isOpen, onClose, title, chi
         {/* Header */}
         <div className="flex items-center justify-between mb-4 px-7 py-4 border-b border-border">
           {title && (
-            <h2 className="text-lg font-semibold text-foreground">{title}</h2>
+            <h2 className="typo-h3">{title}</h2>
           )}
           <Button
             variant="ghost"

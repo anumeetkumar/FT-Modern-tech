@@ -17,13 +17,13 @@ function MobileAccordion({ label, icon, route, items }: {
       {isLeaf && route ? (
         <Link
           href={route}
-          className="flex w-full items-center gap-2 px-3 py-3 text-left text-sm font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
+          className="flex w-full items-center gap-2 px-3 py-3 text-left typo-p500 text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
         >
           <span className="flex items-center gap-2">{icon && getIcon(icon)}{label}</span>
         </Link>
       ) : (
         <button
-          className="flex w-full items-center justify-between gap-2 px-3 py-3 text-left text-sm font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
+          className="flex w-full items-center justify-between gap-2 px-3 py-3 text-left typo-p500 text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
           onClick={() => !isLeaf && setOpen((v) => !v)}
           aria-expanded={open}
         >
@@ -39,7 +39,7 @@ function MobileAccordion({ label, icon, route, items }: {
                 <Link
                   key={item.name}
                   href={item.route}
-                  className="flex items-center gap-2 px-10 py-2 text-sm text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                  className="flex items-center gap-2 px-10 py-2 typo-p-muted hover:bg-slate-50  dark:hover:bg-slate-800"
                 >
                   {item.icon && getIcon(item.icon)}
                   {item.name}
@@ -47,7 +47,7 @@ function MobileAccordion({ label, icon, route, items }: {
               ) : (
                 <span
                   key={item.name}
-                  className="flex items-center gap-2 px-10 py-2 text-sm text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                  className="flex items-center gap-2 px-10 py-2 typo-p-muted hover:bg-slate-50  dark:hover:bg-slate-800"
                 >
                   {item.icon && getIcon(item.icon)}
                   {item.name}

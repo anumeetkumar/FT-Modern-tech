@@ -6,12 +6,12 @@ const DocumentationLink = () => {
    <div className="rounded-2xl border border-border bg-card p-5 dark:bg-foreground/5">
   <div className="flex items-center gap-2 mb-3">
     <LinkRoundedIcon className="text-muted" fontSize="small" />
-    <div className="text-sm font-medium tracking-tight text-foreground">
+    <div className="typo-p500  text-foreground">
       Useful Documentation
     </div>
   </div>
 
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 typo-p12n">
     {[
       {
         title: "Firebase Setup",

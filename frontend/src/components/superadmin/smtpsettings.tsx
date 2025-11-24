@@ -90,10 +90,10 @@ const SuperAdminSMTPSettings = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
-            <h2 className="text-xl font-semibold text-foreground">
+            <h2 className="typo-h2">
               SMTP Configuration
             </h2>
-            <p className="text-sm text-muted mt-1">
+            <p className="typo-p-muted mt-1">
               Configure your email server settings
             </p>
           </div>
@@ -141,10 +141,10 @@ const SuperAdminSMTPSettings = () => {
         {/* Enable SMTP */}
         <div className="flex items-center justify-between p-4 bg-background border border-border rounded-xl">
           <div className="flex-1">
-            <div className="text-sm font-medium text-foreground">
+            <div className="typo-p500">
               Enable SMTP Service
             </div>
-            <div className="text-xs text-muted mt-0.5">
+            <div className="typo-subtitle mt-0.5">
               {smtpConfig.enabled
                 ? "SMTP service is active and will send emails"
                 : "SMTP service is disabled"}
@@ -158,7 +158,7 @@ const SuperAdminSMTPSettings = () => {
 
         <Alert className="border-border bg-background">
           <InfoRoundedIcon className="h-4 w-4 text-foreground" />
-          <AlertDescription className="text-xs text-muted">
+          <AlertDescription className="typo-subtitle">
             <div className="font-semibold mb-1">Configure Your SMTP Server</div>
             <div>
               Enter your custom SMTP server details below to send system emails
@@ -169,7 +169,7 @@ const SuperAdminSMTPSettings = () => {
 
         {/* SMTP Server Configuration */}
         <div className="space-y-4">
-          <div className="text-sm font-semibold text-foreground">
+          <div className="typo-p600 text-foreground">
             SMTP Server Configuration
           </div>
 
@@ -177,7 +177,7 @@ const SuperAdminSMTPSettings = () => {
             <div className="md:col-span-2">
               <Label
                 htmlFor="smtp-host"
-                className="text-sm font-medium text-foreground"
+                className="typo-p500"
               >
                 SMTP Host
               </Label>
@@ -189,7 +189,7 @@ const SuperAdminSMTPSettings = () => {
                 className="rounded-lg mt-1.5 border-border bg-background text-foreground placeholder:text-muted"
                 placeholder="smtp.example.com"
               />
-              <p className="text-xs text-muted mt-1.5">
+              <p className="typo-subtitle mt-1.5">
                 The hostname of your SMTP server
               </p>
             </div>
@@ -197,7 +197,7 @@ const SuperAdminSMTPSettings = () => {
             <div>
               <Label
                 htmlFor="smtp-port"
-                className="text-sm font-medium text-foreground"
+                className="typo-p500"
               >
                 Port
               </Label>
@@ -209,16 +209,16 @@ const SuperAdminSMTPSettings = () => {
                 className="rounded-lg mt-1.5 border-border bg-background text-foreground placeholder:text-muted"
                 placeholder="587"
               />
-              <p className="text-xs text-muted mt-1.5">Common: 587, 465, 25</p>
+              <p className="typo-subtitle mt-1.5">Common: 587, 465, 25</p>
             </div>
           </div>
 
           <div className="flex items-center justify-between p-4 bg-background border border-border rounded-xl">
             <div className="flex-1">
-              <div className="text-sm font-medium text-foreground">
+              <div className="typo-p500">
                 Use TLS/SSL Encryption
               </div>
-              <div className="text-xs text-muted mt-0.5">
+              <div className="typo-subtitle mt-0.5">
                 {smtpConfig.secure
                   ? "Secure connection enabled (Recommended for ports 465 and 587)"
                   : "Unencrypted connection (Not recommended for production)"}
@@ -233,7 +233,7 @@ const SuperAdminSMTPSettings = () => {
           <div>
             <Label
               htmlFor="smtp-username"
-              className="text-sm font-medium text-foreground"
+              className="typo-p500"
             >
               Username / Email
             </Label>
@@ -245,7 +245,7 @@ const SuperAdminSMTPSettings = () => {
               className="rounded-lg mt-1.5 border-border bg-background text-foreground placeholder:text-muted"
               placeholder="your-email@example.com"
             />
-            <p className="text-xs text-muted mt-1.5">
+            <p className="typo-subtitle mt-1.5">
               SMTP authentication username (usually your email address)
             </p>
           </div>
@@ -253,7 +253,7 @@ const SuperAdminSMTPSettings = () => {
           <div>
             <Label
               htmlFor="smtp-password"
-              className="text-sm font-medium text-foreground"
+              className="typo-p500"
             >
               Password / App Password
             </Label>
@@ -278,7 +278,7 @@ const SuperAdminSMTPSettings = () => {
                 )}
               </button>
             </div>
-            <p className="text-xs text-muted mt-1.5">
+            <p className="typo-subtitle mt-1.5">
               For Gmail/Google Workspace, use an{" "}
               <a
                 href="https://support.google.com/accounts/answer/185833"
@@ -296,14 +296,14 @@ const SuperAdminSMTPSettings = () => {
 
         {/* Sender Information */}
         <div className="space-y-4">
-          <div className="text-sm font-semibold text-foreground">
+          <div className="typo-p600 text-foreground">
             Sender Information
           </div>
 
           <div>
             <Label
               htmlFor="from-email"
-              className="text-sm font-medium text-foreground"
+              className="typo-p500"
             >
               From Email Address
             </Label>
@@ -315,7 +315,7 @@ const SuperAdminSMTPSettings = () => {
               className="rounded-lg mt-1.5 border-border bg-background text-foreground placeholder:text-muted"
               placeholder="noreply@yourdomain.com"
             />
-            <p className="text-xs text-muted mt-1.5">
+            <p className="typo-subtitle mt-1.5">
               This email address will appear as the sender for all system emails
             </p>
           </div>
@@ -323,7 +323,7 @@ const SuperAdminSMTPSettings = () => {
           <div>
             <Label
               htmlFor="from-name"
-              className="text-sm font-medium text-foreground"
+              className="typo-p500"
             >
               From Name
             </Label>
@@ -335,7 +335,7 @@ const SuperAdminSMTPSettings = () => {
               className="rounded-lg mt-1.5 border-border bg-background text-foreground placeholder:text-muted"
               placeholder="FleetStack"
             />
-            <p className="text-xs text-muted mt-1.5">
+            <p className="typo-subtitle mt-1.5">
               Display name that will appear alongside the email address
             </p>
           </div>
@@ -343,7 +343,7 @@ const SuperAdminSMTPSettings = () => {
           <div>
             <Label
               htmlFor="reply-to-email"
-              className="text-sm font-medium text-foreground"
+              className="typo-p500"
             >
               Reply-To Email (Optional)
             </Label>
@@ -355,7 +355,7 @@ const SuperAdminSMTPSettings = () => {
               className="rounded-lg mt-1.5 border-border bg-background text-foreground placeholder:text-muted"
               placeholder="support@yourdomain.com"
             />
-            <p className="text-xs text-muted mt-1.5">
+            <p className="typo-subtitle mt-1.5">
               Email address where replies should be sent (if different from
               sender)
             </p>

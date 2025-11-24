@@ -121,7 +121,7 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
   if (loading) {
     return (
       <div className="p-8">
-        <h2 className="text-2xl font-bold tracking-tight mb-2 dark:text-neutral-100">
+        <h2 className="typo-h1 mb-2 ">
           Loading...
         </h2>
       </div>
@@ -137,7 +137,7 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
             <div className="text-[11px] uppercase tracking-[0.2em] text-muted">
               Profile
             </div>
-            <CardTitle className="text-2xl tracking-tight text-foreground">
+            <CardTitle className="typo-h1  text-foreground">
               User Overview
             </CardTitle>
           </div>
@@ -192,7 +192,7 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
 
           <div className="min-w-[220px]">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xl font-semibold tracking-tight text-foreground">
+              <span className="typo-h2">
                 {user.name}
               </span>
               <Badge
@@ -215,7 +215,7 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
               )}
             </div>
 
-            <div className="text-sm text-muted-foreground">
+            <div className="typo-p-muted">
               @{user.username}
             </div>
           </div>
@@ -229,7 +229,7 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
           <KPITile
             label="Last Login"
             value={
-              <span className="text-sm font-medium text-foreground">
+              <span className="typo-p500">
                 15 Oct 2025, 8:35 pm
               </span>
             }
@@ -242,7 +242,7 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
           <KPITile
             label="Created"
             value={
-              <span className="text-sm font-medium text-foreground">
+              <span className="typo-p500">
                 12 Sept 2025, 2:00 pm
               </span>
             }
@@ -270,7 +270,7 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
               </button>
             )}
 
-            <div className="text-xs uppercase tracking-widest text-muted-foreground mb-2">
+            <div className="typo-subtitle-foreground mb-2">
               Company
             </div>
 
@@ -282,18 +282,18 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
                   className="w-32 h-16 object-contain p-1"
                 />
               ) : (
-                <div className="w-32 h-16 bg-muted rounded-lg flex items-center justify-center text-muted-foreground text-sm">
+                <div className="w-32 h-16 bg-muted rounded-lg flex items-center justify-center typo-p-muted">
                   No Logo
                 </div>
               )}
 
               <div>
-                <div className="font-semibold tracking-tight text-foreground">
+                <div className="font-semibold  text-foreground">
                   {user.company.name}
                 </div>
                 {user.company.website && (
                   <a
-                    className="text-sm text-muted-foreground underline-offset-4 hover:underline"
+                    className="typo-p-muted underline-offset-4 hover:underline"
                     href={user.company.website}
                     target="_blank"
                   >
@@ -305,7 +305,7 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
 
             {user.company.socials && (
               <div className="mt-4">
-                <div className="text-xs uppercase tracking-widest text-muted-foreground mb-2">
+                <div className="typo-subtitle-foreground mb-2">
                   Socials
                 </div>
                 <div className="flex flex-wrap gap-2">
@@ -324,7 +324,7 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
                         key={k}
                         href={v}
                         target="_blank"
-                        className="inline-flex items-center gap-1 text-sm rounded-lg border border-border px-3 py-1 hover:bg-muted text-muted-foreground hover:text-foreground transition-colors dark:bg-foreground/5"
+                        className="inline-flex items-center gap-1 typo-p rounded-lg border border-border px-3 py-1 hover:bg-muted text-muted-foreground hover:text-foreground transition-colors dark:bg-foreground/5"
                       >
                         <Icon fontSize="small" />
                         <span className="capitalize">{k}</span>
@@ -338,10 +338,10 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
 
           {/* Address block */}
           <div className="rounded-2xl border border-border p-5 bg-card dark:bg-foreground/5">
-            <div className="text-xs uppercase tracking-widest text-muted-foreground mb-2">
+            <div className="typo-subtitle-foreground mb-2">
               Address
             </div>
-            <div className="space-y-2 text-sm">
+            <div className="space-y-2 typo-p">
               <div>
                 <span className="text-muted-foreground">Line</span>{" "}
                 <span className="ml-2 font-medium text-foreground">
@@ -381,11 +381,11 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
 
         {/* Contact */}
         <div className="mt-6 rounded-2xl border border-border p-5 dark:bg-foreground/5">
-          <div className="text-xs uppercase tracking-widest text-muted-foreground mb-2">
+          <div className="typo-subtitle-foreground mb-2">
             Contact
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="space-y-2 text-sm text-muted-foreground">
+            <div className="space-y-2 typo-p-muted">
               <div className="flex items-center gap-3">
                 <EmailRoundedIcon fontSize="small" />
                 <a
@@ -420,21 +420,21 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
 
         {/* Activity */}
         <div className="mt-6 rounded-2xl border border-border bg-card overflow-hidden">
-          <div className="px-5 py-4 border-b border-border text-sm font-medium tracking-tight text-foreground bg-foreground/5">
+          <div className="px-5 py-4 border-b border-border typo-p500  text-foreground bg-foreground/5">
             Recent Activity
           </div>
           <ScrollArea className="h-56">
             <div className="p-5 space-y-4">
               {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <div className="h-8 w-8 rounded-lg border border-border grid place-items-center text-xs text-muted-foreground">
+                  <div className="h-8 w-8 rounded-lg border border-border grid place-items-center typo-subtitle">
                     {i}
                   </div>
                   <div>
-                    <div className="text-sm font-medium text-foreground">
+                    <div className="typo-p500">
                       Updated vehicle status
                     </div>
-                    <div className="text-xs text-muted-foreground">
+                    <div className="typo-subtitle">
                       2 hours ago · VIN 9BG116GW04C400001
                     </div>
                   </div>
@@ -492,10 +492,10 @@ function KPITile({
 }) {
   return (
     <div className="rounded-xl border border-border p-3 h-full bg-card dark:bg-foreground/5">
-      <div className="text-xs uppercase tracking-widest text-muted-foreground">
+      <div className="typo-subtitle-foreground">
         {label}
       </div>
-      <div className="mt-0.5 text-lg font-semibold leading-tight text-foreground">
+      <div className="mt-0.5 typo-h3 leading-tight text-foreground">
         {value}
       </div>
       {sub ? (

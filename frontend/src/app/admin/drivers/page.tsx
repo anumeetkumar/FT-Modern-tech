@@ -131,10 +131,10 @@ export default function DriversPage() {
   const displayOptions: DisplayMap<DriverRow> = {
     1: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <PersonIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-muted "
           />
           Driver Info
         </div>
@@ -142,14 +142,14 @@ export default function DriversPage() {
       content: (row) => (
         <div onClick={() => router.push(`/admin/drivers/${row.id}`)} className="group">
           <div className="flex gap-2 cursor-pointer py-1 rounded-md hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 flex-shrink-0">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-muted  flex-shrink-0">
               <PersonIcon style={{ fontSize: "16px" }} />
             </div>
             <div className="min-w-0">
-              <div className="font-medium text-neutral-900 dark:text-neutral-100 truncate">
+              <div className="typo-h4 truncate">
                 {row.name}
               </div>
-              <div className="text-xs text-neutral-500 dark:text-neutral-400">
+              <div className="typo-subtitle">
                 @{row.username}
               </div>
             </div>
@@ -159,24 +159,24 @@ export default function DriversPage() {
     },
     2: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <CallIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-muted "
           />
           Contact
         </div>
       ),
       content: (row) => (
         <div className="space-y-0.5">
-          <div className="flex items-center gap-1 text-sm text-neutral-700 dark:text-neutral-300">
+          <div className="flex items-center gap-1 typo-p-muted">
             <PhoneIcon
               style={{ fontSize: "12px" }}
               className="text-neutral-400"
             />
             {row.mobile_prefix} {row.mobile}
           </div>
-          <div className="flex items-center gap-1 text-xs text-neutral-500 dark:text-neutral-400">
+          <div className="flex items-center gap-1 typo-subtitle">
             <EmailIcon
               style={{ fontSize: "12px" }}
               className="text-neutral-400"
@@ -188,20 +188,20 @@ export default function DriversPage() {
     },
     3: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <LocationOnIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-muted "
           />
           Location
         </div>
       ),
       content: (row) => (
         <div className="space-y-0.5">
-          <div className="text-sm text-neutral-700 dark:text-neutral-300">
+          <div className="typo-p-muted">
             {row.city}, {row.stateCode}
           </div>
-          <div className="text-xs text-neutral-500 dark:text-neutral-400">
+          <div className="typo-subtitle">
             {row.countryCode}
           </div>
         </div>
@@ -209,10 +209,10 @@ export default function DriversPage() {
     },
     4: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <VerifiedIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-muted "
           />
           Status
         </div>
@@ -221,20 +221,20 @@ export default function DriversPage() {
     },
     5: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <DirectionsCarIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-muted "
           />
           Performance
         </div>
       ),
       content: (row) => (
         <div className="space-y-0.5">
-          <div className="text-sm text-neutral-700 dark:text-neutral-300">
+          <div className="typo-p-muted">
             {row.totalTrips} trips
           </div>
-          <div className="text-xs text-neutral-500 dark:text-neutral-400">
+          <div className="typo-subtitle">
             ⭐ {row.rating}/5
           </div>
         </div>
@@ -312,10 +312,10 @@ export default function DriversPage() {
         <div className="mx-auto max-w-7xl px-6 pb-14 pt-8">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
             <div>
-              <h1 className="text-2xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">
+              <h1 className="typo-h1">
                 Drivers
               </h1>
-              <p className="text-sm text-neutral-500 dark:text-neutral-400">
+              <p className="typo-p-muted">
                 Manage your fleet drivers efficiently
               </p>
             </div>
@@ -492,13 +492,13 @@ function AddDriverForm({
           {/* Error Banner */}
           {errors.form && (
             <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-center gap-3">
-              <div className="text-red-600 text-sm">{errors.form}</div>
+              <div className="text-red-600 typo-p">{errors.form}</div>
             </div>
           )}
 
           {/* Personal Information */}
           <div className="space-y-4">
-            <h3 className="text-lg font-medium text-neutral-900 dark:text-neutral-100">
+            <h3 className="typo-h3m">
               Personal Information
             </h3>
 
@@ -515,7 +515,7 @@ function AddDriverForm({
                   className={errors.name ? "border-red-500" : ""}
                 />
                 {errors.name && (
-                  <p className="text-xs text-red-500">{errors.name}</p>
+                  <p className="typo-destructive">{errors.name}</p>
                 )}
               </div>
 
@@ -532,7 +532,7 @@ function AddDriverForm({
                   className={errors.email ? "border-red-500" : ""}
                 />
                 {errors.email && (
-                  <p className="text-xs text-red-500">{errors.email}</p>
+                  <p className="typo-destructive">{errors.email}</p>
                 )}
               </div>
             </div>
@@ -574,7 +574,7 @@ function AddDriverForm({
                   className={errors.mobile ? "border-red-500" : ""}
                 />
                 {errors.mobile && (
-                  <p className="text-xs text-red-500">{errors.mobile}</p>
+                  <p className="typo-destructive">{errors.mobile}</p>
                 )}
               </div>
             </div>
@@ -582,7 +582,7 @@ function AddDriverForm({
 
           {/* Account Information */}
           <div className="space-y-4">
-            <h3 className="text-lg font-medium text-neutral-900 dark:text-neutral-100">
+            <h3 className="typo-h3m">
               Account Information
             </h3>
 
@@ -602,7 +602,7 @@ function AddDriverForm({
                   className={errors.username ? "border-red-500" : ""}
                 />
                 {errors.username && (
-                  <p className="text-xs text-red-500">{errors.username}</p>
+                  <p className="typo-destructive">{errors.username}</p>
                 )}
               </div>
 
@@ -622,7 +622,7 @@ function AddDriverForm({
                   className={errors.password ? "border-red-500" : ""}
                 />
                 {errors.password && (
-                  <p className="text-xs text-red-500">{errors.password}</p>
+                  <p className="typo-destructive">{errors.password}</p>
                 )}
               </div>
             </div>
@@ -630,7 +630,7 @@ function AddDriverForm({
 
           {/* Location Information */}
           <div className="space-y-4">
-            <h3 className="text-lg font-medium text-neutral-900 dark:text-neutral-100">
+            <h3 className="typo-h3m">
               Location Information
             </h3>
 
@@ -683,7 +683,7 @@ function AddDriverForm({
                   className={errors.city ? "border-red-500" : ""}
                 />
                 {errors.city && (
-                  <p className="text-xs text-red-500">{errors.city}</p>
+                  <p className="typo-destructive">{errors.city}</p>
                 )}
               </div>
             </div>
@@ -701,7 +701,7 @@ function AddDriverForm({
                 rows={3}
               />
               {errors.address && (
-                <p className="text-xs text-red-500">{errors.address}</p>
+                <p className="typo-destructive">{errors.address}</p>
               )}
             </div>
           </div>
@@ -841,7 +841,7 @@ Jane Smith,+91,9876543211,jane@example.com,janesmith,password456,IN`;
       {/* File Upload Section */}
       <div className="space-y-4">
         <div>
-          <h3 className="text-lg font-medium text-neutral-900 dark:text-neutral-100 mb-2">
+          <h3 className="typo-h3m mb-2">
             Upload CSV File
           </h3>
           <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 hover:border-blue-500 transition-colors">
@@ -866,12 +866,12 @@ Jane Smith,+91,9876543211,jane@example.com,janesmith,password456,IN`;
                   <FileUploadIcon fontSize="small" />
                   Choose CSV File
                 </Button>
-                <p className="text-sm text-gray-600 mt-2">
+                <p className="typo-p-muted mt-2">
                   Or drag and drop your CSV file here
                 </p>
               </div>
               {uploadFile && (
-                <p className="text-sm text-green-600">
+                <p className="typo-p text-green-600">
                   Selected: {uploadFile.name}
                 </p>
               )}
@@ -881,23 +881,23 @@ Jane Smith,+91,9876543211,jane@example.com,janesmith,password456,IN`;
 
         {/* Manual CSV Input */}
         <div>
-          <h3 className="text-lg font-medium text-neutral-900 dark:text-neutral-100 mb-2">
+          <h3 className="typo-h3m mb-2">
             Or Paste CSV Content
           </h3>
           <Textarea
             value={csvText}
             onChange={(e) => handleTextChange(e.target.value)}
             placeholder="Paste your CSV content here..."
-            className="h-40 bg-white font-mono text-sm"
+            className="h-40 bg-white font-mono typo-p"
           />
 
           {/* Sample CSV */}
           <div className="mt-2">
-            <details className="text-sm">
+            <details className="typo-p">
               <summary className="cursor-pointer text-blue-600 hover:text-blue-800">
                 View sample CSV format
               </summary>
-              <pre className="mt-2 p-3 bg-gray-50 rounded border text-xs overflow-x-auto">
+              <pre className="mt-2 p-3 bg-gray-50 rounded border typo-p12n overflow-x-auto">
                 {sampleCsv}
               </pre>
             </details>
@@ -909,7 +909,7 @@ Jane Smith,+91,9876543211,jane@example.com,janesmith,password456,IN`;
       {errors.length > 0 && (
         <div className="bg-red-50 border border-red-200 rounded-lg p-4">
           <h4 className="text-red-800 font-medium mb-2">Validation Errors:</h4>
-          <ul className="text-red-700 text-sm space-y-1">
+          <ul className="text-red-700 typo-p space-y-1">
             {errors.map((error, index) => (
               <li key={index}>• {error}</li>
             ))}
@@ -923,7 +923,7 @@ Jane Smith,+91,9876543211,jane@example.com,janesmith,password456,IN`;
           <h4 className="text-green-800 font-medium mb-2">
             ✅ Ready to import {parsedData.length} drivers
           </h4>
-          <div className="text-sm text-green-700">
+          <div className="typo-p text-green-700">
             <div className="grid grid-cols-2 gap-4 mt-2">
               <div>
                 <strong>Sample entries:</strong>

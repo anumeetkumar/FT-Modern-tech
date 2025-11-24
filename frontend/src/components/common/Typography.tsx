@@ -10,6 +10,12 @@ type TypographyVariant =
   | "h5"
   | "h6"
   | "p"
+  | "p500"
+  | "p600"
+  | "p12m"
+  | "p14m"
+  | "p10Muted"
+  | "p12Muted"
   | "body1"
   | "subtitle";
 
@@ -23,15 +29,25 @@ interface TypographyProps {
 }
 
 const variantClasses: Record<TypographyVariant, string> = {
-  h1: "text-5xl font-bold",
-  h2: "text-4xl font-semibold",
-  h3: "text-3xl font-semibold",
-  h4: "text-2xl font-medium",
-  h5: "text-xl font-medium",
-  h6: "text-lg font-medium",
-  p: "text-base font-normal leading-relaxed",
-  body1: "text-base font-normal",
-  subtitle: "text-sm font-normal",
+  h1: "typo-h1 font-semibold",
+  h2: "text-xl font-semibold",
+  h3: "typo-h3",
+  h4: "text-base font-medium",
+  h5: "typo-p500",
+  h6: "typo-h6",
+
+  p: "typo-p font-normal leading-relaxed",
+  p500: "typo-p500",
+  p600: "typo-p600",
+
+  body1: "typo-p font-normal",
+  subtitle: "typo-p12n font-normal text-muted",
+
+  // 👇 newly added
+  p12m: "text-[12px] font-medium",
+  p14m: "text-[14px] font-medium",
+  p10Muted: "text-[10px] text-muted",
+  p12Muted: "text-[12px] text-muted",
 };
 
 const colorClasses: Record<TypographyColor, string> = {
@@ -51,11 +67,7 @@ export const Typography: FC<TypographyProps> = ({
 
   return (
     <Component
-      className={clsx(
-        variantClasses[variant],
-        colorClasses[color],
-        className
-      )}
+      className={clsx(variantClasses[variant], colorClasses[color], className)}
     >
       {children}
     </Component>

@@ -40,7 +40,7 @@ export default function BulkUploadVehicleModal({
       <div className="relative w-full max-w-md max-h-[90vh] overflow-y-auto rounded-2xl border border-border bg-background text-foreground p-6 shadow-2xl animate-fade-in-up">
         {/* TITLE BAR */}
         <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-xl font-semibold">Bulk Upload</h2>
+          <h2 className="typo-h2">Bulk Upload</h2>
           <div
             onClick={() => setShow(false)}
             className="rounded-lg p-1 text-muted hover:bg-muted/20 hover:text-foreground transition"
@@ -53,7 +53,7 @@ export default function BulkUploadVehicleModal({
         <form onSubmit={handleBulkUploadSubmit} className="space-y-4">
           {/* PLAN */}
           <div>
-            <label className="block text-sm font-medium text-foreground mb-2">
+            <label className="block typo-p500 text-foreground mb-2">
               Select Plan
             </label>
             <select
@@ -62,7 +62,7 @@ export default function BulkUploadVehicleModal({
                 setBulkUploadForm((p) => ({ ...p, plan: e.target.value }))
               }
               required
-              className="w-full rounded-xl border border-border bg-muted px-3 py-2 text-sm outline-none focus:border-accent focus:bg-background"
+              className="w-full rounded-xl border border-border bg-muted px-3 py-2 typo-p outline-none focus:border-accent focus:bg-background"
             >
               <option value="">Select Plan</option>
               {plans.map((p) => (
@@ -75,7 +75,7 @@ export default function BulkUploadVehicleModal({
 
           {/* FILE UPLOAD */}
           <div>
-            <label className="block text-sm font-medium text-foreground mb-2">
+            <label className="block typo-p500 text-foreground mb-2">
               Upload CSV File
             </label>
             <div className="relative">
@@ -95,14 +95,14 @@ export default function BulkUploadVehicleModal({
 
               <label
                 htmlFor="bulk-upload-file"
-                className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl border-2 border-dashed border-border px-6 py-8 text-sm text-muted hover:border-accent hover:bg-background transition"
+                className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl border-2 border-dashed border-border px-6 py-8 typo-p-muted hover:border-accent hover:bg-background transition"
               >
                 <UploadFile fontSize="large" />
                 <div className="text-center">
                   <div className="font-medium">
                     {bulkUploadForm.file?.name || "Choose file or drag and drop"}
                   </div>
-                  <div className="text-xs mt-1 opacity-70">
+                  <div className="typo-p12n mt-1 opacity-70">
                     CSV, Excel files up to 10MB
                   </div>
                 </div>
@@ -111,7 +111,7 @@ export default function BulkUploadVehicleModal({
           </div>
 
           {/* CSV FORMAT INFO */}
-          <div className="rounded-xl bg-accent/10 p-4 text-sm">
+          <div className="rounded-xl bg-accent/10 p-4 typo-p">
             <div className="font-medium mb-2 text-accent">
               Required CSV Format:
             </div>
@@ -123,7 +123,7 @@ export default function BulkUploadVehicleModal({
               <div>
                 <strong>Example:</strong>
               </div>
-              <div className="font-mono text-xs bg-accent/20 p-2 rounded mt-2 break-words">
+              <div className="font-mono typo-p12n bg-accent/20 p-2 rounded mt-2 break-words">
                 Username,Vehicle No.,Vehicle Type,Device Type,IMEI,SIM<br />
                 John Doe,MH01AB1234,Car,Teltonika FMB920,123456789012345,9876543210
               </div>
@@ -135,13 +135,13 @@ export default function BulkUploadVehicleModal({
             <button
               type="button"
               onClick={() => setShow(false)}
-              className="flex-1 rounded-xl border border-border bg-background px-4 py-2 text-sm font-medium hover:bg-muted transition"
+              className="flex-1 rounded-xl border border-border bg-background px-4 py-2 typo-p500 hover:bg-muted transition"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="flex-1 rounded-xl bg-primary px-4 py-2 text-sm font-medium text-background hover:bg-secondary transition"
+              className="flex-1 rounded-xl bg-primary px-4 py-2 typo-p500 text-background hover:bg-secondary transition"
             >
               Upload Vehicles
             </button>

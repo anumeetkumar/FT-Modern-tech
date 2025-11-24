@@ -201,7 +201,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 
         {/* Desktop Nav Row */}
         <nav className="relative hidden border-t border-border bg-background shadow-lg md:block">
-          <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-2 text-sm font-medium text-muted-foreground">
+          <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-2 ypo-p500-muted">
             {navData.map((nav) => (
               <DesktopNavItem key={nav.label} label={nav.label} icon={nav.icon} route={nav.route} items={nav.items} />
             ))}
@@ -219,7 +219,7 @@ export default function Layout({ children }: { children: ReactNode }) {
               <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
               <Input
                 placeholder="Search orders, customers, devices…"
-                className="h-9 w-full rounded-xl border-input bg-background pl-9 pr-10 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:ring-4 focus-visible:ring-ring/60"
+                className="h-9 w-full rounded-xl border-input bg-background pl-9 pr-10 typo-p shadow-sm placeholder:text-muted-foreground focus-visible:ring-4 focus-visible:ring-ring/60"
               />
             </div>
 
@@ -236,7 +236,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         {children}
       </div>
       <footer className="border-t border-border bg-background">
-        <div className="py-3 flex justify-center text-center text-xs text-muted-foreground">
+        <div className="py-3 flex justify-center text-center typo-subtitle">
           © {new Date().getFullYear()} Fleet Stack. All rights reserved.
         </div>
       </footer>

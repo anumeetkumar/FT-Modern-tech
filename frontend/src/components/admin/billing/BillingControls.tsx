@@ -98,7 +98,7 @@ const BillingControls: React.FC<BillingControlsProps> = ({
       <div className="inline-flex rounded-xl border p-1 ">
         <button
           onClick={() => onChange("customers")}
-          className={`px-3 py-1.5 rounded-lg text-sm flex items-center gap-2 ${
+          className={`px-3 py-1.5 rounded-lg typo-p flex items-center gap-2 ${
             value === "customers" ? "bg-primary text-white" : ""
           }`}
         >
@@ -106,7 +106,7 @@ const BillingControls: React.FC<BillingControlsProps> = ({
         </button>
         <button
           onClick={() => onChange("devices")}
-          className={`px-3 py-1.5 rounded-lg text-sm flex items-center gap-2 ${
+          className={`px-3 py-1.5 rounded-lg typo-p flex items-center gap-2 ${
             value === "devices" ? "bg-primary text-white" : ""
           }`}
         >
@@ -170,7 +170,7 @@ const BillingControls: React.FC<BillingControlsProps> = ({
         </Select>
         <div className="flex items-center gap-2 rounded-xl border px-3 py-2">
           <Toggle checked={onlyAutoRenew} onChange={setOnlyAutoRenew} />
-          <Label htmlFor="autoRenew" className="text-sm">
+          <Label htmlFor="autoRenew" className="typo-p">
             Auto‑renew only
           </Label>
         </div>
@@ -220,7 +220,7 @@ const BillingControls: React.FC<BillingControlsProps> = ({
       {selected.length > 0 && (
         <Card className="mt-4 border-zinc-200">
           <CardContent className="p-4 flex items-center justify-between">
-            <div className="text-sm text-zinc-600">
+            <div className="typo-p-muted">
               <span className="font-medium text-zinc-900">
                 {selected.length}
               </span>{" "}

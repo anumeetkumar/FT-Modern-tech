@@ -74,7 +74,7 @@ const AdoptionAndVehicleSection = () => {
   const ToggleChip = ({ active, onClick, children }: any) => (
     <button
       onClick={onClick}
-      className={`rounded-xl border px-3 py-1 text-xs transition ${
+      className={`rounded-xl border px-3 py-1 typo-p12n transition ${
         active
           ? "border-primary bg-primary text-white"
           : "border-primary text-primary hover:bg-foreground/5"
@@ -116,7 +116,7 @@ const AdoptionAndVehicleSection = () => {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 8 }}
-          className={`fixed bottom-6 right-6 z-50 rounded-xl border px-3 py-2 text-xs shadow-sm ${
+          className={`fixed bottom-6 right-6 z-50 rounded-xl border px-3 py-2 typo-p12n shadow-sm ${
             tone === "success"
               ? "border-border bg-foreground text-background"
               : "border-border bg-background text-foreground"
@@ -136,9 +136,9 @@ const AdoptionAndVehicleSection = () => {
           <div className="mb-3 flex items-center justify-between gap-3">
             <div className="flex items-center gap-2">
               <TimelineOutlinedIcon className="h-5 w-5 text-foreground" />
-              <h3 className="text-sm font-semibold text-foreground">Adoption & Growth</h3>
+              <h3 className="typo-p600 text-foreground">Adoption & Growth</h3>
             </div>
-            <div className="flex items-center gap-2 text-xs">
+            <div className="flex items-center gap-2 typo-p12n">
               <ToggleChip active={tf === "12m"} onClick={() => setTf("12m")}>12M</ToggleChip>
               <ToggleChip active={tf === "6m"} onClick={() => setTf("6m")}>6M</ToggleChip>
               <ToggleChip active={tf === "3m"} onClick={() => setTf("3m")}>3M</ToggleChip>
@@ -169,14 +169,14 @@ const AdoptionAndVehicleSection = () => {
               adoptionSeries.length > 0 ? (
                 <ApexChart options={adoptionOptions} series={adoptionSeries} type="area" height={300} />
               ) : (
-                <div className="flex h-[300px] items-center justify-center rounded-xl border border-dashed border-border bg-muted text-xs text-muted">
+                <div className="flex h-[300px] items-center justify-center rounded-xl border border-dashed border-border bg-muted typo-subtitle">
                   Enable at least one series.
                 </div>
               )
             ) : (
               <div className="relative h-[300px] w-full overflow-hidden rounded-xl border border-border bg-muted">
                 <div className="absolute inset-0 animate-pulse bg-muted" />
-                <div className="relative z-10 m-4 text-center text-xs text-muted">
+                <div className="relative z-10 m-4 text-center typo-subtitle">
                   {chartError ? <p>{chartError}</p> : <span>Loading chart…</span>}
                 </div>
               </div>
@@ -188,12 +188,12 @@ const AdoptionAndVehicleSection = () => {
         <div className="rounded-2xl border border-border bg-background p-4 shadow-sm">
           <div className="mb-3 flex items-center gap-2">
             <DirectionsCarOutlinedIcon className="h-5 w-5 text-foreground" />
-            <h3 className="text-sm font-semibold text-foreground">Vehicle Status</h3>
+            <h3 className="typo-p600 text-foreground">Vehicle Status</h3>
           </div>
           <div className="space-y-4">
             {vehicleStatus.map((s) => (
               <motion.div key={s.label} whileHover={{ scale: 1.01 }}>
-                <div className="mb-1 flex items-center justify-between text-sm">
+                <div className="mb-1 flex items-center justify-between typo-p">
                   <span className="text-foreground">{s.label}</span>
                   <span className="font-medium text-foreground">
                     {Intl.NumberFormat().format(s.count)}{" "}
@@ -224,12 +224,12 @@ const AdoptionAndVehicleSection = () => {
               className="relative w-[min(90vw,720px)] rounded-2xl border border-border bg-background p-4 shadow-xl"
             >
               <div className="mb-2 flex items-center justify-between">
-                <h4 className="text-sm font-semibold text-foreground">Manual Copy</h4>
+                <h4 className="typo-p600 text-foreground">Manual Copy</h4>
                 <button className="rounded-lg p-1 text-muted hover:bg-muted" onClick={() => setCopyModalOpen(false)}>
                   <CloseRoundedIcon fontSize="small" />
                 </button>
               </div>
-              <p className="mb-2 text-xs text-muted">
+              <p className="mb-2 typo-subtitle">
                 Select all and press <strong>Ctrl/⌘ + C</strong>.
               </p>
               <textarea
@@ -240,7 +240,7 @@ const AdoptionAndVehicleSection = () => {
               />
               <div className="mt-3 flex justify-end">
                 <button
-                  className="rounded-xl border border-border px-3 py-1.5 text-xs text-foreground hover:bg-muted"
+                  className="rounded-xl border border-border px-3 py-1.5 typo-p12n hover:bg-muted"
                   onClick={() => setCopyModalOpen(false)}
                 >
                   Close

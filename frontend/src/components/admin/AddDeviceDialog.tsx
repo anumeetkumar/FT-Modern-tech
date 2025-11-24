@@ -222,7 +222,7 @@ export function AddDeviceDialog({ onSubmit, deviceTypes, sims, onAddNewSim }: Ad
                                 />
                                 <div>
                                   <div className="font-medium">{sim.number}</div>
-                                  <div className="text-sm text-gray-500">{sim.provider}</div>
+                                  <div className="typo-p-muted">{sim.provider}</div>
                                 </div>
                               </CommandItem>
                             ))}

@@ -110,7 +110,7 @@ const FormDescription = React.forwardRef<HTMLParagraphElement, React.HTMLAttribu
     const { formDescriptionId } = useFormField();
 
     return (
-      <p ref={ref} id={formDescriptionId} className={cn("text-sm text-muted-foreground", className)} {...props} />
+      <p ref={ref} id={formDescriptionId} className={cn("typo-p-muted", className)} {...props} />
     );
   }
 );
@@ -126,7 +126,7 @@ const FormMessage = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<
     }
 
     return (
-      <p ref={ref} id={formMessageId} className={cn("text-sm font-medium text-error", className)} {...props}>
+      <p ref={ref} id={formMessageId} className={cn("typo-p500 text-error", className)} {...props}>
         {body}
       </p>
     );

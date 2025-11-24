@@ -256,8 +256,8 @@ export function MultiDateRangePicker({
           variant="outline"
           disabled={disabled}
           className={cn(
-            "inline-flex w-full items-center justify-between rounded-lg border-neutral-300 px-3 py-2 text-left font-normal text-sm h-10 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100",
-            !draft?.from && "text-neutral-500 dark:text-neutral-400",
+            "inline-flex w-full items-center justify-between rounded-lg border-neutral-300 px-3 py-2 text-left font-normal typo-p h-10 dark:border-neutral-600 dark:bg-neutral-800 ",
+            !draft?.from && "text-muted ",
             className
           )}
         >
@@ -279,27 +279,27 @@ export function MultiDateRangePicker({
         <div className="overflow-hidden rounded-lg border border-neutral-200 bg-white dark:border-neutral-700 dark:bg-neutral-900">
           {/* Header */}
           <div className="flex items-center justify-between border-b border-neutral-200 px-3 py-2.5 dark:border-neutral-700">
-            <div className="text-sm font-medium text-neutral-700 dark:text-neutral-200">
+            <div className="typo-p500 text-muted dark:text-neutral-200">
               {draft?.from && draft?.to ? (
                 <span className="flex items-center gap-2">
                   {selectedPreset !== "custom" && (
-                    <span className="rounded bg-neutral-100 px-2 py-0.5 text-xs font-semibold text-neutral-700 dark:bg-neutral-800 dark:text-neutral-200">
+                    <span className="rounded bg-neutral-100 px-2 py-0.5 typo-h6 text-muted dark:bg-neutral-800 dark:text-neutral-200">
                       {presets.find((p) => p.key === selectedPreset)?.label}
                     </span>
                   )}
-                  <span className="text-xs sm:text-sm">
+                  <span className="typo-p12n">
                     {formatDate(draft.from)} → {formatDate(draft.to)}
                   </span>
                 </span>
               ) : (
-                <span className="text-neutral-500 dark:text-neutral-400">
+                <span className="text-muted ">
                   Choose a date range
                 </span>
               )}
             </div>
             <button
               onClick={() => setOpen(false)}
-              className="rounded p-1 text-neutral-500 hover:bg-neutral-100 hover:text-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-200"
+              className="rounded p-1 text-muted hover:bg-neutral-100 hover:  dark:hover:bg-neutral-800 "
               aria-label="Close"
             >
               <CloseIcon sx={{ fontSize: 18 }} />
@@ -315,10 +315,10 @@ export function MultiDateRangePicker({
                     key={p.key}
                     onClick={() => applyPreset(p.key)}
                     className={cn(
-                      "flex w-full items-center justify-between rounded px-2.5 py-1.5 text-left text-sm transition-colors",
+                      "flex w-full items-center justify-between rounded px-2.5 py-1.5 text-left typo-p transition-colors",
                       selectedPreset === p.key
                         ? "bg-neutral-900 text-white dark:bg-white dark:text-black"
-                        : "text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800"
+                        : "text-muted hover:bg-neutral-100  dark:hover:bg-neutral-800"
                     )}
                   >
                     <span>{p.label}</span>
@@ -336,31 +336,31 @@ export function MultiDateRangePicker({
             {/* Calendar & Actions */}
             <div className="grow p-3">
               {/* Date Inputs */}
-              <div className="mb-3 grid grid-cols-2 gap-2 text-xs">
+              <div className="mb-3 grid grid-cols-2 gap-2 typo-p12n">
                 <div>
-                  <div className="mb-1 font-medium text-neutral-500 dark:text-neutral-400">
+                  <div className="mb-1 font-medium text-muted ">
                     Start
                   </div>
                   <div className="flex items-center rounded border border-neutral-300 bg-white px-2 py-1.5 dark:border-neutral-600 dark:bg-neutral-800">
                     <CalendarMonthIcon
                       sx={{ fontSize: 16 }}
-                      className="mr-1.5 text-neutral-500 dark:text-neutral-400"
+                      className="mr-1.5 text-muted "
                     />
-                    <span className="truncate text-neutral-700 dark:text-neutral-200">
+                    <span className="truncate text-muted dark:text-neutral-200">
                       {draft?.from ? formatDate(draft.from) : "—"}
                     </span>
                   </div>
                 </div>
                 <div>
-                  <div className="mb-1 font-medium text-neutral-500 dark:text-neutral-400">
+                  <div className="mb-1 font-medium text-muted ">
                     End
                   </div>
                   <div className="flex items-center rounded border border-neutral-300 bg-white px-2 py-1.5 dark:border-neutral-600 dark:bg-neutral-800">
                     <CalendarMonthIcon
                       sx={{ fontSize: 16 }}
-                      className="mr-1.5 text-neutral-500 dark:text-neutral-400"
+                      className="mr-1.5 text-muted "
                     />
-                    <span className="truncate text-neutral-700 dark:text-neutral-200">
+                    <span className="truncate text-muted dark:text-neutral-200">
                       {draft?.to ? formatDate(draft.to) : "—"}
                     </span>
                   </div>
@@ -400,7 +400,7 @@ export function MultiDateRangePicker({
               <div className="flex items-center justify-between">
                 <button
                   onClick={onClear}
-                  className="text-xs font-medium text-neutral-600 hover:text-neutral-900 underline-offset-2 hover:underline dark:text-neutral-400 dark:hover:text-neutral-200"
+                  className="typo-h6 typo-base-muted underline-offset-2 hover:underline  "
                 >
                   Clear
                 </button>
@@ -408,13 +408,13 @@ export function MultiDateRangePicker({
                   <Button
                     variant="outline"
                     onClick={onCancel}
-                    className="h-8 rounded border-neutral-300 text-xs px-3 dark:border-neutral-600 dark:text-neutral-300 dark:hover:bg-neutral-800"
+                    className="h-8 rounded border-neutral-300 typo-subtitle dark:hover:bg-neutral-800"
                   >
                     Cancel
                   </Button>
                   <Button
                     onClick={onApply}
-                    className="h-8 rounded bg-neutral-900 text-white hover:bg-neutral-800 text-xs px-3 dark:bg-white dark:text-black dark:hover:bg-neutral-100"
+                    className="h-8 rounded bg-neutral-900 text-white hover:bg-neutral-800 typo-p12n px-3 dark:bg-white dark:text-black dark:hover:bg-neutral-100"
                     disabled={!draft?.from || !draft?.to}
                   >
                     Apply

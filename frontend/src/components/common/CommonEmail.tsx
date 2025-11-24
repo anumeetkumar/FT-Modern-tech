@@ -48,7 +48,7 @@ const TagInput: React.FC<{
       {value.map((tag, idx) => (
         <span
           key={idx}
-          className="flex items-center gap-1 rounded-md bg-primary/10 px-2 py-1 text-sm text-foreground"
+          className="flex items-center gap-1 rounded-md bg-primary/10 px-2 py-1 typo-p"
         >
           {tag}
           <button

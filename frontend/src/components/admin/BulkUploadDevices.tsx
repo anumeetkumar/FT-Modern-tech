@@ -249,7 +249,7 @@ export function BulkUploadDeviceDialog({
                     className="cursor-pointer"
                   />
                 </div>
-                <p className="text-sm text-gray-600 mt-1">
+                <p className="typo-p-muted mt-1">
                   CSV format: IMEI, DeviceType, SIM (optional), IMSI (optional),
                   ICCID (optional), SIMProvider (optional)
                 </p>
@@ -319,7 +319,7 @@ export function BulkUploadDeviceDialog({
                             <div className="font-medium">
                               Row {device.row}: {device.imei}
                             </div>
-                            <div className="text-sm text-gray-600">
+                            <div className="typo-p-muted">
                               Type: {device.deviceType}
                               {device.sim && ` | SIM: ${device.sim}`}
                               {device.simProvider &&
@@ -335,7 +335,7 @@ export function BulkUploadDeviceDialog({
                           </div>
                         </div>
                         {device.errors.length > 0 && (
-                          <div className="mt-2 text-sm text-red-600">
+                          <div className="mt-2 typo-p text-red-600">
                             {device.errors.map((error, errorIndex) => (
                               <div key={errorIndex}>• {error}</div>
                             ))}

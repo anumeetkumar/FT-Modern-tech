@@ -164,7 +164,7 @@ export default function RoleManager() {
             <div className="col-span-4 h-full min-h-0">
               <div className="rounded-2xl border border-border shadow-sm overflow-hidden flex flex-col h-full">
                 <div className="flex items-center justify-between  border-b border-border px-3 py-2 bg-foreground/5">
-                  <div className="font-medium text-sm flex items-center gap-2">
+                  <div className="font-medium typo-p flex items-center gap-2">
                     <AdminPanelSettingsIcon className="h-5 w-5" /> Roles
                   </div>
                   <Button
@@ -201,7 +201,7 @@ export default function RoleManager() {
                           />
                         </div>
                         {r.description ? (
-                          <div className="text-xs text-muted truncate mt-0.5">
+                          <div className="typo-subtitle truncate mt-0.5">
                             {r.description}
                           </div>
                         ) : null}
@@ -250,7 +250,7 @@ export default function RoleManager() {
                         Set a price for this role and choose the currency.
                       </TooltipContent>
                     </Tooltip>
-                    <div className="hidden md:flex items-center gap-2 text-xs text-muted">
+                    <div className="hidden md:flex items-center gap-2 typo-subtitle">
                       <InfoOutlinedIcon className="h-4 w-4" /> Levels: None /
                       View / Edit / Manage / Full
                     </div>
@@ -277,7 +277,7 @@ export default function RoleManager() {
 
                 {/* Presets */}
                 <div className="px-4 py-3 border-b border-border">
-                  <div className="text-xs uppercase tracking-wide text-muted mb-2">
+                  <div className="typo-subtitle uppercase tracking-wide mb-2">
                     Quick Presets
                   </div>
                   <div className="flex flex-wrap gap-2">
@@ -296,7 +296,7 @@ export default function RoleManager() {
                         <TooltipContent>{PRESET_HELP[p.key]}</TooltipContent>
                       </Tooltip>
                     ))}
-                    <div className="ml-auto flex items-center gap-2 text-xs">
+                    <div className="ml-auto flex items-center gap-2 typo-p12n">
                       <span>Set all:</span>
                       {(
                         ["none", "view", "edit", "manage", "full"] as Level[]
@@ -320,7 +320,7 @@ export default function RoleManager() {
 
                 {/* Permissions Grid */}
                 <div className="px-2 flex-1 min-h-0 flex flex-col">
-                  <div className="grid grid-cols-12  border-y border-border text-xs font-semibold uppercase tracking-wider">
+                  <div className="grid grid-cols-12  border-y border-border typo-h6 uppercase tracking-wider">
                     <div className="col-span-6 px-3 py-3">Module</div>
                     <div className="col-span-6 px-3 py-3">Access</div>
                   </div>
@@ -351,11 +351,11 @@ export default function RoleManager() {
 
                 {/* Audit */}
                 <div className="border-t border-border p-4 bg-background flex items-center justify-between">
-                  <div className="text-sm text-muted">
+                  <div className="typo-p-muted">
                     Updated {selected?.audit.updatedAt} by{" "}
                     {selected?.audit.updatedBy}
                   </div>
-                  <div className="text-xs text-muted">
+                  <div className="typo-subtitle">
                     Unsaved changes: {dirty ? "Yes" : "No"}
                   </div>
                 </div>

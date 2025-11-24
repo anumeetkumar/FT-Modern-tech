@@ -52,14 +52,14 @@ const Badge = ({
   tone?: "default" | "ok" | "warn" | "err";
 }) => {
   const tones: Record<string, string> = {
-    default: "border-neutral-200 bg-neutral-50 text-neutral-700",
+    default: "border-neutral-200 bg-neutral-50 text-muted",
     ok: "border-neutral-200 bg-neutral-900 text-white",
-    warn: "border-neutral-200 bg-neutral-100 text-neutral-800",
+    warn: "border-neutral-200 bg-neutral-100 ",
     err: "border-neutral-200 bg-neutral-200 text-neutral-900",
   };
   return (
     <span
-      className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs ${tones[tone]}`}
+      className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 typo-p12n ${tones[tone]}`}
     >
       {children}
     </span>
@@ -410,12 +410,12 @@ const MultiSelect = ({
         anchorRight={anchorRight}
       >
         <div className="mb-2 flex items-center gap-2 rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-2">
-          <Search className="h-4 w-4 text-neutral-500" />
+          <Search className="h-4 w-4 text-muted" />
           <input
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder={`Search ${label.toLowerCase()}`}
-            className="w-full bg-transparent text-sm outline-none placeholder:text-neutral-400"
+            className="w-full bg-transparent typo-p outline-none placeholder:text-muted"
           />
           {q && (
             <button
@@ -427,7 +427,7 @@ const MultiSelect = ({
           )}
         </div>
         <div className="mb-2 flex items-center justify-between">
-          <div className="text-xs text-neutral-500">
+          <div className="typo-subtitle">
             {filtered.length} match(es)
           </div>
           <div className="flex items-center gap-2">
@@ -462,11 +462,11 @@ const MultiSelect = ({
                 onChange={() => toggle(o.key)}
               />
               <div className="min-w-0">
-                <div className="truncate text-sm font-medium leading-none">
+                <div className="truncate typo-p500 leading-none">
                   {o.label}
                 </div>
                 {o.sub && (
-                  <div className="truncate text-xs text-neutral-500">
+                  <div className="truncate typo-subtitle">
                     {o.sub}
                   </div>
                 )}
@@ -652,7 +652,7 @@ export default function LogsPage() {
           setScope(t);
           setPage(1);
         }}
-        className={`inline-flex items-center gap-2 rounded-2xl border px-3 py-2 text-sm ${
+        className={`inline-flex items-center gap-2 rounded-2xl border px-3 py-2 typo-p ${
           active
             ? "border-primary bg-primary text-white"
             : "border-neutral-300 bg-white text-neutral-900 hover:bg-neutral-50"
@@ -677,7 +677,7 @@ export default function LogsPage() {
           })}
           <div className="flex flex-col leading-tight">
             <span className="font-medium">{r.entityLabel}</span>
-            <span className="text-xs text-muted">{r.entityId}</span>
+            <span className="typo-subtitle">{r.entityId}</span>
           </div>
         </div>
       ),
@@ -763,14 +763,14 @@ export default function LogsPage() {
       <div className="mx-auto max-w-7xl px-6 py-6">
         <div className="mb-5 flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-semibold tracking-tight">Logs</h1>
-            <p className="text-sm text-neutral-500">
+            <h1 className="typo-h1">Logs</h1>
+            <p className="typo-p-muted">
               Vehicles • Users • Drivers
             </p>
           </div>
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2 rounded-2xl border border-neutral-200 bg-white px-3 py-2">
-              <span className="text-xs text-neutral-600">Live Tail</span>
+              <span className="typo-subtitle">Live Tail</span>
               <Toggle checked={live} onChange={setLive} />
             </div>
             <Button variant="outline" onClick={() => setPaused((p) => !p)}>
@@ -836,7 +836,7 @@ export default function LogsPage() {
                       return n;
                     })
                   }
-                  className="flex items-center gap-2 rounded-2xl text-xs"
+                  className="flex items-center gap-2 rounded-2xl typo-p12n"
                 >
                   <Icon className="h-4 w-4" /> {s.toUpperCase()}
                 </Button>
@@ -883,19 +883,19 @@ export default function LogsPage() {
                 type="datetime-local"
                 value={fromTs}
                 onChange={(e) => setFromTs(e.target.value)}
-                className="rounded-xl border border-neutral-300 bg-white px-2 py-1 text-xs"
+                className="rounded-xl border border-neutral-300 bg-white px-2 py-1 typo-p12n"
               />
-              <span className="text-xs text-neutral-500">to</span>
+              <span className="typo-subtitle">to</span>
               <input
                 type="datetime-local"
                 value={toTs}
                 onChange={(e) => setToTs(e.target.value)}
-                className="rounded-xl border border-neutral-300 bg-white px-2 py-1 text-xs"
+                className="rounded-xl border border-neutral-300 bg-white px-2 py-1 typo-p12n"
               />
             </div> */}
 
             <div className="ml-auto flex items-center gap-2">
-              <div className="text-xs text-neutral-500">
+              <div className="typo-subtitle">
                 {filtered.length} result(s)
               </div>
               <Button variant="outline" onClick={clearAll}>

@@ -73,7 +73,7 @@ export default function AddressSelector({ value, onChange }: AddressSelectorProp
     <div className="grid grid-cols-3 gap-2">
       {/* Country */}
       <div className="flex flex-col gap-1">
-        <label className="text-sm text-muted-foreground font-medium">Country</label>
+        <label className="typo-p-muted font-medium">Country</label>
         <Select
           value={countryCode || ""}
           onValueChange={(val) => setCountryCode(val)}
@@ -93,7 +93,7 @@ export default function AddressSelector({ value, onChange }: AddressSelectorProp
 
       {/* State */}
       <div className="flex flex-col gap-1">
-        <label className="text-sm text-muted-foreground font-medium">State</label>
+        <label className="typo-p-muted font-medium">State</label>
         <Select
           value={stateCode || ""}
           onValueChange={(val) => setStateCode(val)}
@@ -114,7 +114,7 @@ export default function AddressSelector({ value, onChange }: AddressSelectorProp
 
       {/* City */}
       <div className="flex flex-col gap-1">
-        <label className="text-sm text-muted-foreground font-medium">City</label>
+        <label className="typo-p-muted font-medium">City</label>
         <Select
           value={cityName || ""}
           onValueChange={(val) => setCityName(val)}

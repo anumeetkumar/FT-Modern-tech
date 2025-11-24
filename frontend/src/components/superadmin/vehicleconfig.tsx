@@ -117,21 +117,21 @@ export default function VehicleConfig({ initial, loading, onSave, onReset, class
       {/* Title */}
       <div className="mb-4 flex items-center justify-between">
         <div>
-          <h2 className="text-base font-semibold tracking-tight">Vehicle Setting Configuration</h2>
+          <h2 className="text-base font-semibold ">Vehicle Setting Configuration</h2>
           <p className="text-[12px] text-muted-foreground">Condensed layout • 2 per row on desktop</p>
         </div>
         <div className="flex gap-2">
           <button
             onClick={handleReset}
             disabled={loading}
-            className="rounded-lg border border-border px-3 py-1.5 text-sm hover:bg-foreground/5"
+            className="rounded-lg border border-border px-3 py-1.5 typo-p hover:bg-foreground/5"
           >
             Reset
           </button>
           <button
             onClick={handleSave}
             disabled={!dirty || !!loading}
-            className={`rounded-lg px-3 py-1.5 text-sm text-primary-foreground ${
+            className={`rounded-lg px-3 py-1.5 typo-p text-primary-foreground ${
               dirty ? "bg-primary hover:bg-primary/90" : "bg-foreground/5 cursor-not-allowed"
             }`}
           >
@@ -196,10 +196,10 @@ export default function VehicleConfig({ initial, loading, onSave, onReset, class
 
         <div className="md:col-span-2 rounded-xl border border-border bg-card p-3 dark:bg-foreground/5">
           <div className="mb-2 ">
-            <div className="text-sm font-medium">Ignition Source</div>
+            <div className="typo-p500">Ignition Source</div>
             <div className="text-[12px] text-muted-foreground">Choose how engine ON/OFF is derived.</div>
           </div>
-          <div className="flex flex-wrap gap-6 text-sm">
+          <div className="flex flex-wrap gap-6 typo-p">
             <label className="inline-flex items-center gap-2">
               <input
                 type="radio"
@@ -234,7 +234,7 @@ function FieldCard({ title, hint, children }: { title: string; hint?: string; ch
   return (
     <div className="rounded-xl border border-border bg-card p-3 dark:bg-foreground/5">
       <div className="mb-2">
-        <div className="text-sm font-medium">{title}</div>
+        <div className="typo-p500">{title}</div>
         {hint ? <div className="text-[12px] text-muted-foreground">{hint}</div> : null}
       </div>
       {children}
@@ -254,12 +254,12 @@ function NumberField({ id, label, value, onChange, min, max, step, suffix }: {
 }) {
   return (
     <div className="space-y-1.5">
-      <label htmlFor={id} className="text-sm font-medium">{label}</label>
+      <label htmlFor={id} className="typo-p500">{label}</label>
       <div className="relative">
         <input
           id={id}
           type="number"
-          className="w-full rounded-lg border border-border bg-background px-3 py-2 pr-16 text-sm text-foreground outline-none focus:ring-0"
+          className="w-full rounded-lg border border-border bg-background px-3 py-2 pr-16 typo-p outline-none focus:ring-0"
           value={Number.isFinite(value) ? String(value) : ""}
           onChange={(e) => onChange(clamp(toNumberStrict(e.target.value), min ?? Number.MIN_SAFE_INTEGER, max ?? Number.MAX_SAFE_INTEGER))}
           min={min}

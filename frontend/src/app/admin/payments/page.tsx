@@ -291,16 +291,16 @@ export default function PaymentsAdminPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-zinc-950">
+    <div className="min-h-screen mx-auto max-w-7xl">
       {/* Header */}
-      <div className="sticky top-0 z-30 border-b bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+      <div className=" z-30 border-b">
         <div className="mx-auto max-w-7xl px-4 py-4 md:py-5">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">
+              <h1 className="typo-h1">
                 Payments
               </h1>
-              <p className="text-sm text-zinc-500 mt-1">
+              <p className="typo-p-muted mt-1">
                 List of all received payments & manual receipts for device
                 renewals.
               </p>
@@ -338,7 +338,7 @@ export default function PaymentsAdminPage() {
         {selected.length > 0 && (
           <Card className="mt-4 border-zinc-200">
             <CardContent className="p-4 flex items-center justify-between">
-              <div className="text-sm text-zinc-600">
+              <div className="typo-p-muted">
                 <span className="font-medium text-zinc-900">
                   {selected.length}
                 </span>{" "}
@@ -386,7 +386,7 @@ export default function PaymentsAdminPage() {
         onAdd={onAddPayment}
       />
 
-      <footer className="mx-auto max-w-7xl px-4 py-12 text-xs text-zinc-400">
+      <footer className="mx-auto max-w-7xl px-4 py-12 typo-subtitle">
         FleetStack • Payments UI — v1.0
       </footer>
     </div>

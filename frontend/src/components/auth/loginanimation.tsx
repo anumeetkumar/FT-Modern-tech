@@ -165,7 +165,7 @@ export default function LoginAnimation() {
               />
             </div>
             <div
-              className={`mt-2 text-sm font-medium text-neutral-800 whitespace-nowrap transition-all duration-300 ${
+              className={`mt-2 typo-p500  whitespace-nowrap transition-all duration-300 ${
                 isHovered
                   ? "text-primary font-semibold transform -translate-y-1 scale-105"
                   : "group-hover:text-primary/70"

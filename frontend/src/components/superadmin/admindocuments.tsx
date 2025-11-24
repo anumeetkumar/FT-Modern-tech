@@ -108,7 +108,7 @@ export default function AdminDocumentsPage() {
           >
             <button
               onClick={() => openView(row)}
-              className="flex items-center gap-2 w-full px-2 py-1.5 rounded-md text-sm hover:bg-accent"
+              className="flex items-center gap-2 w-full px-2 py-1.5 rounded-md typo-p hover:bg-accent"
             >
               <VisibilityIcon fontSize="small" />
               <span>View</span>
@@ -116,7 +116,7 @@ export default function AdminDocumentsPage() {
 
             <button
               onClick={() => openEditDialog(row)}
-              className="flex items-center gap-2 w-full px-2 py-1.5 rounded-md text-sm hover:bg-accent"
+              className="flex items-center gap-2 w-full px-2 py-1.5 rounded-md typo-p hover:bg-accent"
             >
               <EditIcon fontSize="small" />
               <span>Edit</span>
@@ -124,7 +124,7 @@ export default function AdminDocumentsPage() {
 
             <button
               onClick={() => row}
-              className="flex items-center gap-2 w-full px-2 py-1.5 rounded-md text-sm hover:bg-accent"
+              className="flex items-center gap-2 w-full px-2 py-1.5 rounded-md typo-p hover:bg-accent"
             >
               <DownloadIcon fontSize="small" />
               <span>Download</span>
@@ -132,7 +132,7 @@ export default function AdminDocumentsPage() {
 
             <button
               onClick={() => removeDoc(row.id)}
-              className="flex items-center gap-2 w-full px-2 py-1.5 rounded-md text-sm text-red-600 hover:bg-accent/70"
+              className="flex items-center gap-2 w-full px-2 py-1.5 rounded-md typo-p text-red-600 hover:bg-accent/70"
             >
               <DeleteOutlineIcon fontSize="small" />
               <span>Delete</span>
@@ -154,7 +154,7 @@ export default function AdminDocumentsPage() {
           <Badge variant="outline" className="ml-2">
             v{row.version}
           </Badge>
-          <div className="text-xs text-muted">{formatBytes(row.size)}</div>
+          <div className="typo-subtitle">{formatBytes(row.size)}</div>
         </div>
       ),
     },
@@ -169,7 +169,7 @@ export default function AdminDocumentsPage() {
           {row.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-neutral-300 px-2 py-0.5 text-xs text-neutral-700 dark:border-neutral-600 dark:text-neutral-300"
+              className="rounded-full border border-neutral-300 px-2 py-0.5 typo-p12n text-muted dark:border-neutral-600 "
             >
               {tag}
             </span>
@@ -194,7 +194,7 @@ export default function AdminDocumentsPage() {
           return (
             <span
               className={cn(
-                "inline-flex items-center gap-1 rounded-full border px-2 py-1 text-xs font-medium",
+                "inline-flex items-center gap-1 rounded-full border px-2 py-1 typo-h6",
                 "border-green-200 bg-green-50 text-green-800 dark:border-green-800 dark:bg-green-950 dark:text-green-400"
               )}
             >
@@ -207,7 +207,7 @@ export default function AdminDocumentsPage() {
           return (
             <span
               className={cn(
-                "inline-flex items-center gap-1 rounded-full border px-2 py-1 text-xs font-medium",
+                "inline-flex items-center gap-1 rounded-full border px-2 py-1 typo-h6",
                 "border-amber-200 bg-amber-50 text-amber-800 dark:border-orange-800 dark:bg-orange-950 dark:text-orange-400"
               )}
             >
@@ -219,7 +219,7 @@ export default function AdminDocumentsPage() {
         return (
           <span
             className={cn(
-              "inline-flex items-center gap-1 rounded-full border px-2 py-1 text-xs font-medium",
+              "inline-flex items-center gap-1 rounded-full border px-2 py-1 typo-h6",
               "border-red-200 bg-red-500 text-white dark:border-red-800 dark:bg-red-950 dark:text-red-400"
             )}
           >
@@ -618,7 +618,7 @@ export default function AdminDocumentsPage() {
   }) => {
     const left = daysUntil(expiry ?? undefined);
     const base =
-      "inline-flex items-center gap-1 rounded-full border px-2 py-1 text-xs font-medium tracking-wide";
+      "inline-flex items-center gap-1 rounded-full border px-2 py-1 typo-h6 tracking-wide";
     if (status === "valid") {
       return (
         <span
@@ -680,10 +680,10 @@ export default function AdminDocumentsPage() {
             <UploadFileIcon className="text-foreground" />
           </motion.div>
           <div>
-            <h1 className="text-2xl font-semibold tracking-tight text-foreground">
+            <h1 className="typo-h1">
               Admin Documents
             </h1>
-            <p className="text-sm text-muted">
+            <p className="typo-p-muted">
               Black & white. Pixel-perfect. View, add, track, and export admin
               documents.
             </p>
@@ -702,14 +702,14 @@ export default function AdminDocumentsPage() {
       {/* Quick Stats */}
       <div className="mb-6 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         <div className="rounded-2xl border border-border bg-card p-4 dark:bg-foreground/5">
-          <div className="text-sm text-muted">Total documents</div>
+          <div className="typo-p-muted">Total documents</div>
           <div className="mt-1 flex items-baseline gap-2">
-            <span className="text-2xl font-semibold text-foreground">
+            <span className="typo-h1 font-semibold text-foreground">
               {docs.length}
             </span>
             <Badge
               variant="outline"
-              className="rounded-full border-border text-xs text-foreground"
+              className="rounded-full border-border typo-p12n"
             >
               v{docs.reduce((a, b) => a + b.version, 0)}
             </Badge>
@@ -717,8 +717,8 @@ export default function AdminDocumentsPage() {
         </div>
 
         <div className="rounded-2xl border border-border bg-card p-4 dark:bg-foreground/5">
-          <div className="text-sm text-muted">Health Status</div>
-          <div className="mt-2 flex flex-wrap gap-2 text-xs sm:text-sm">
+          <div className="typo-p-muted">Health Status</div>
+          <div className="mt-2 flex flex-wrap gap-2 typo-p12n">
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -728,7 +728,7 @@ export default function AdminDocumentsPage() {
                   </span>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p className="text-sm">
+                  <p className="typo-p">
                     <strong>Valid Documents:</strong>{" "}
                     {docs.filter((d) => d.status === "valid").length} documents
                     <br />
@@ -747,7 +747,7 @@ export default function AdminDocumentsPage() {
                   </span>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p className="text-sm">
+                  <p className="typo-p">
                     <strong>Expiring Soon:</strong>{" "}
                     {docs.filter((d) => d.status === "expiring").length}{" "}
                     documents
@@ -767,7 +767,7 @@ export default function AdminDocumentsPage() {
                   </span>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p className="text-sm">
+                  <p className="typo-p">
                     <strong>Expired:</strong>{" "}
                     {docs.filter((d) => d.status === "expired").length}{" "}
                     documents
@@ -781,14 +781,14 @@ export default function AdminDocumentsPage() {
         </div>
 
         <div className="rounded-2xl border border-border bg-card p-4 sm:col-span-2 lg:col-span-1 dark:bg-foreground/5">
-          <div className="flex items-center justify-between text-sm text-muted">
+          <div className="flex items-center justify-between typo-p-muted">
             <span>Storage used</span>
             <span className="font-medium">
               {formatBytes(storageUsed)} / {formatBytes(storageQuota)}
             </span>
           </div>
           <Progress value={storagePct} className="mt-3 h-2 bg-foreground/5" />
-          <div className="mt-2 text-xs text-muted">
+          <div className="mt-2 typo-subtitle">
             {storagePct.toFixed(1)}% used
           </div>
         </div>
@@ -801,20 +801,20 @@ export default function AdminDocumentsPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            className="mb-3 flex items-center justify-between rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-2 text-sm text-neutral-900 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
+            className="mb-3 flex items-center justify-between rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-2 typo-p text-neutral-900 dark:border-neutral-700 dark:bg-neutral-800 "
           >
             <span>{selectedIds.size} selected</span>
             <div className="flex items-center gap-2">
               <Button
                 variant="outline"
-                className="rounded-lg border-neutral-300 text-neutral-900 hover:bg-white dark:border-neutral-600 dark:text-neutral-100 dark:hover:bg-neutral-700"
+                className="rounded-lg border-neutral-300 text-neutral-900 hover:bg-white dark:border-neutral-600  dark:hover:bg-neutral-700"
                 onClick={exportSelectedAsCSV}
               >
                 <DownloadIcon className="mr-2" /> Export
               </Button>
               <Button
                 variant="outline"
-                className="rounded-lg border-neutral-300 text-neutral-900 hover:bg-white dark:border-neutral-600 dark:text-neutral-100 dark:hover:bg-neutral-700"
+                className="rounded-lg border-neutral-300 text-neutral-900 hover:bg-white dark:border-neutral-600  dark:hover:bg-neutral-700"
                 onClick={() => selectedIds.forEach((id) => removeDoc(id))}
               >
                 <DeleteOutlineIcon className="mr-2" /> Delete
@@ -880,12 +880,12 @@ export default function AdminDocumentsPage() {
       <Dialog open={openViewer} onOpenChange={setOpenViewer}>
         <DialogContent className="sm:max-w-4xl dark:bg-neutral-900 dark:border-neutral-700">
           <DialogHeader>
-            <DialogTitle className="text-neutral-900 flex items-center justify-between dark:text-neutral-100">
+            <DialogTitle className="text-neutral-900 flex items-center justify-between ">
               <span>{viewerDoc?.name ?? "Preview"}</span>
               {viewerDoc?.url && (
                 <Button
                   variant="outline"
-                  className="rounded-lg border-neutral-300 text-neutral-900 hover:bg-white dark:border-neutral-600 dark:text-neutral-100 dark:hover:bg-neutral-700"
+                  className="rounded-lg border-neutral-300 text-neutral-900 hover:bg-white dark:border-neutral-600  dark:hover:bg-neutral-700"
                   onClick={() => {
                     const a = document.createElement("a");
                     a.href = viewerDoc.url!;
@@ -897,7 +897,7 @@ export default function AdminDocumentsPage() {
                 </Button>
               )}
             </DialogTitle>
-            <DialogDescription className="text-neutral-500 dark:text-neutral-400">
+            <DialogDescription className="text-muted ">
               Quick preview
             </DialogDescription>
           </DialogHeader>
@@ -919,7 +919,7 @@ export default function AdminDocumentsPage() {
                 />
               )
             ) : (
-              <div className="flex h-full items-center justify-center text-sm text-neutral-500 dark:text-neutral-400">
+              <div className="flex h-full items-center justify-center typo-p-muted">
                 No preview available
               </div>
             )}

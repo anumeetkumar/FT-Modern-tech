@@ -249,12 +249,12 @@ export default function SupportSplitView() {
           <div className="grid gap-4 py-2">
             {/* Customer combobox */}
             <div className="grid gap-2">
-              <label className="text-sm font-medium text-foreground">Customer</label>
+              <label className="typo-p500">Customer</label>
               <CustomerCombobox value={newCustomer} onChange={setNewCustomer} />
             </div>
 
             <div className="grid gap-2">
-              <label className="text-sm font-medium text-foreground">Title</label>
+              <label className="typo-p500">Title</label>
               <Input
                 value={newTitle}
                 onChange={e => setNewTitle(e.target.value)}
@@ -264,7 +264,7 @@ export default function SupportSplitView() {
             </div>
 
             <div className="grid gap-2">
-              <label className="text-sm font-medium text-foreground">Description</label>
+              <label className="typo-p500">Description</label>
               <Textarea
                 value={newDesc}
                 onChange={e => setNewDesc(e.target.value)}
@@ -304,8 +304,8 @@ export default function SupportSplitView() {
     className="rounded-2xl pb-3 border border-border shadow-sm overflow-hidden dark:bg-foreground/5"
   >
     <div className="flex items-center justify-between px-4 py-3 bg-background border-b border-border bg-foreground/10">
-      <div className="text-sm font-medium uppercase tracking-wider text-foreground">Inbox</div>
-      <div className="text-xs text-muted">{filtered.length} tickets</div>
+      <div className="typo-p500 uppercase tracking-wider text-foreground">Inbox</div>
+      <div className="typo-subtitle">{filtered.length} tickets</div>
     </div>
 
     <div className="h-[calc(100%-92px">
@@ -327,7 +327,7 @@ export default function SupportSplitView() {
                 >
                   <div className="flex flex-col gap-1 min-w-0">
                     <div className="truncate font-medium leading-tight text-foreground">{t.title}</div>
-                    <div className="flex items-center justify-between gap-2 text-sm">
+                    <div className="flex items-center justify-between gap-2 typo-p">
                       <div className="min-w-0 truncate text-muted">
                         {t.id} • {t.name}
                       </div>
@@ -337,7 +337,7 @@ export default function SupportSplitView() {
                       </div>
                     </div>
                     {t.preview && (
-                      <div className="text-sm text-muted line-clamp-1">{t.preview}</div>
+                      <div className="typo-p-muted line-clamp-1">{t.preview}</div>
                     )}
                   </div>
                 </button>
@@ -349,7 +349,7 @@ export default function SupportSplitView() {
     </div>
 
     {/* Pagination */}
-    <div className="px-4 py-3 border-t border-border bg-background flex items-center justify-between text-sm text-foreground">
+    <div className="px-4 py-3 border-t border-border bg-background flex items-center justify-between typo-p">
       <div>Page {clampedPage} / {totalPages}</div>
       <div className="flex items-center gap-2">
         <Button
@@ -388,9 +388,9 @@ export default function SupportSplitView() {
         <div className="px-5 py-4 bg-background border-b border-border">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <div className="text-sm uppercase tracking-wider text-muted">{active.id}</div>
-              <h2 className="mt-1 text-xl font-semibold leading-snug text-foreground">{active.title}</h2>
-              <div className="mt-1 flex items-center flex-wrap gap-2 text-sm text-foreground">
+              <div className="typo-p uppercase tracking-wider text-muted">{active.id}</div>
+              <h2 className="mt-1 typo-h2">{active.title}</h2>
+              <div className="mt-1 flex items-center flex-wrap gap-2 typo-p">
                 <PersonOutlineIcon fontSize="small" />
                 <span>{active.name}</span>
                 <span className="text-border">•</span>
@@ -420,7 +420,7 @@ export default function SupportSplitView() {
         </div>
 
         {/* Details Bar */}
-        <div className="px-5 py-3 bg-background border-b border-border flex flex-wrap items-center gap-2 text-sm">
+        <div className="px-5 py-3 bg-background border-b border-border flex flex-wrap items-center gap-2 typo-p">
           <span className="text-muted">Status:</span>
           <StatusBadge status={active.status} />
           <span className="text-border">•</span>
@@ -455,7 +455,7 @@ export default function SupportSplitView() {
                   <div className="px-5 py-5 space-y-4">
                     {threadPublic.map((msg) => (
                       <div key={msg.id} className="group">
-                        <div className="text-xs text-muted mb-1">
+                        <div className="typo-subtitle mb-1">
                           {msg.name} • {msg.createdAt}
                         </div>
                         <div
@@ -487,7 +487,7 @@ export default function SupportSplitView() {
                       className="min-h-[112px] resize-y border-border focus-visible:ring-0 focus-visible:ring-offset-0"
                     />
                     <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-                      <div className="text-xs text-muted">Public reply</div>
+                      <div className="typo-subtitle">Public reply</div>
                       <div className="flex items-center gap-2">
                         <Tooltip>
                           <TooltipTrigger asChild>
@@ -517,11 +517,11 @@ export default function SupportSplitView() {
                 <ScrollArea className="h-full">
                   <div className="px-5 py-5 space-y-4">
                     {threadInternal.length === 0 && (
-                      <div className="text-sm text-muted">No internal notes yet.</div>
+                      <div className="typo-p-muted">No internal notes yet.</div>
                     )}
                     {threadInternal.map((msg) => (
                       <div key={msg.id} className="group">
-                        <div className="text-xs text-muted mb-1">
+                        <div className="typo-subtitle mb-1">
                           {msg.name} • {msg.createdAt} (internal)
                         </div>
                         <div className="rounded-xl border border-border px-4 py-3 bg-background">
@@ -567,8 +567,8 @@ export default function SupportSplitView() {
     ) : (
       <div className="h-full grid place-items-center text-muted border border-dashed border-border rounded-2xl p-12">
         <div className="max-w-sm text-center">
-          <div className="text-lg font-medium text-foreground">Select a ticket</div>
-          <p className="mt-1 text-sm text-muted">Choose an item from the left list to view details.</p>
+          <div className="typo-h3m">Select a ticket</div>
+          <p className="mt-1 typo-p-muted">Choose an item from the left list to view details.</p>
         </div>
       </div>
     )}
@@ -626,7 +626,7 @@ function CustomerCombobox({
               >
                 <div className="flex flex-col">
                   <span className="font-medium text-foreground">{c.name}</span>
-                  <span className="text-xs text-muted">{c.email}</span>
+                  <span className="typo-subtitle">{c.email}</span>
                 </div>
               </CommandItem>
             ))}

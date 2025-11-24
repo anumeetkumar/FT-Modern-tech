@@ -408,10 +408,10 @@ export default function PaymentGatewayConfig() {
             <PaymentIcon className="text-foreground" />
           </motion.div>
           <div>
-            <h1 className="text-2xl font-semibold tracking-tight text-foreground">
+            <h1 className="typo-h1">
               Payment Gateway Configuration
             </h1>
-            <p className="text-sm text-muted-foreground">
+            <p className="typo-p-muted">
               Configure and manage your payment processors
             </p>
           </div>
@@ -435,10 +435,10 @@ export default function PaymentGatewayConfig() {
       <div className="mb-6">
         <div className="rounded-2xl border border-border bg-background p-5 dark:bg-foreground/5">
           <div className="mb-3 flex items-center justify-between">
-            <div className="text-sm font-medium text-foreground">
+            <div className="typo-p500">
               Active Configuration
             </div>
-            <div className="text-xs text-muted-foreground">
+            <div className="typo-subtitle">
               {enabledCount} gateway{enabledCount !== 1 ? "s" : ""} enabled
             </div>
           </div>
@@ -447,26 +447,26 @@ export default function PaymentGatewayConfig() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <div className="text-xs text-muted-foreground mb-1">
+              <div className="typo-subtitle mb-1">
                 Enabled Gateways
               </div>
-              <div className="text-2xl font-semibold text-foreground">
+              <div className="typo-h1 font-semibold text-foreground">
                 {enabledCount}
               </div>
             </div>
             <div>
-              <div className="text-xs text-muted-foreground mb-1">
+              <div className="typo-subtitle mb-1">
                 Primary Gateway
               </div>
-              <div className="text-lg font-medium text-foreground">
+              <div className="typo-h3m">
                 {primaryGateway ? primaryGateway.name : "Not Set"}
               </div>
             </div>
             <div>
-              <div className="text-xs text-muted-foreground mb-1">
+              <div className="typo-subtitle mb-1">
                 Total Available
               </div>
-              <div className="text-2xl font-semibold text-foreground">
+              <div className="typo-h1 font-semibold text-foreground">
                 {PAYMENT_GATEWAYS.length}
               </div>
             </div>
@@ -520,7 +520,7 @@ export default function PaymentGatewayConfig() {
                         <div className="font-semibold text-foreground">
                           {gateway.name}
                         </div>
-                        <div className="text-xs text-muted">
+                        <div className="typo-subtitle">
                           {gateway.regions.join(", ")}
                         </div>
                       </div>
@@ -535,7 +535,7 @@ export default function PaymentGatewayConfig() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-xs text-muted-foreground mb-3">
+                  <p className="typo-subtitle mb-3">
                     {gateway.description}
                   </p>
 
@@ -544,7 +544,7 @@ export default function PaymentGatewayConfig() {
                     {config.enabled && (
                       <Badge
                         variant="outline"
-                        className="bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 border-green-300 dark:border-green-700 text-xs"
+                        className="bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 border-green-300 dark:border-green-700 typo-p12n"
                       >
                         <CheckCircleIcon className="w-3 h-3 mr-1" />
                         Enabled
@@ -553,7 +553,7 @@ export default function PaymentGatewayConfig() {
                     {config.isPrimary && (
                       <Badge
                         variant="outline"
-                        className="bg-primary/10 text-primary border-primary/30 text-xs"
+                        className="bg-primary/10 text-primary border-primary/30 typo-p12n"
                       >
                         <VerifiedUserIcon className="w-3 h-3 mr-1" />
                         Primary
@@ -562,7 +562,7 @@ export default function PaymentGatewayConfig() {
                     {isConfigured && (
                       <Badge
                         variant="outline"
-                        className="bg-foreground/5 text-muted-foreground border-border text-xs"
+                        className="bg-foreground/5 text-muted-foreground border-border typo-p12n"
                       >
                         Configured
                       </Badge>
@@ -577,10 +577,10 @@ export default function PaymentGatewayConfig() {
                   <div className="flex items-center gap-3 mb-2">
                     <div className="text-4xl">{gateway.logo}</div>
                     <div>
-                      <DialogTitle className="text-xl font-semibold text-foreground">
+                      <DialogTitle className="typo-h2">
                         {gateway.name}
                       </DialogTitle>
-                      <DialogDescription className="text-sm text-muted-foreground">
+                      <DialogDescription className="typo-p-muted">
                         {gateway.description}
                       </DialogDescription>
                     </div>
@@ -613,7 +613,7 @@ export default function PaymentGatewayConfig() {
                   <TabsContent value="credentials" className="space-y-4">
                     {/* Environment Selection */}
                     <div>
-                      <Label className="mb-2 block text-sm font-medium text-foreground">
+                      <Label className="mb-2 block typo-p500">
                         Environment
                       </Label>
                       <div className="flex gap-2">
@@ -625,7 +625,7 @@ export default function PaymentGatewayConfig() {
                                 updateConfig(gateway.id, { environment: env })
                               }
                               className={classNames(
-                                "flex-1 rounded-xl border border-border px-4 py-2.5 text-sm transition-all",
+                                "flex-1 rounded-xl border border-border px-4 py-2.5 typo-p transition-all",
                                 config.environment === env
                                   ? "bg-primary text-white border-primary"
                                   : "text-foreground hover:bg-foreground/5"
@@ -645,7 +645,7 @@ export default function PaymentGatewayConfig() {
                     {/* Credential Fields */}
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
-                        <Label className="text-sm font-medium text-foreground">
+                        <Label className="typo-p500">
                           API Credentials
                         </Label>
                         <div className="flex items-center gap-2">
@@ -654,7 +654,7 @@ export default function PaymentGatewayConfig() {
                               <Button
                                 variant="ghost"
                                 size="sm"
-                                className="text-xs text-muted-foreground hover:bg-foreground/5"
+                                className="typo-subtitle hover:bg-foreground/5"
                               >
                                 <InfoIcon className="w-4 h-4 mr-1" /> Security
                                 Info
@@ -668,10 +668,10 @@ export default function PaymentGatewayConfig() {
                                 </DialogTitle>
                                 <DialogDescription className="space-y-3 pt-4 text-muted-foreground">
                                   <div>
-                                    <h4 className="font-semibold text-sm text-foreground mb-1">
+                                    <h4 className="font-semibold typo-p mb-1">
                                       🔐 Development Environment
                                     </h4>
-                                    <p className="text-xs">
+                                    <p className="typo-p12n">
                                       Credentials are currently stored locally
                                       in your browser's localStorage for
                                       development and testing purposes only.
@@ -679,17 +679,17 @@ export default function PaymentGatewayConfig() {
                                   </div>
                                   <Separator className="bg-border" />
                                   <div>
-                                    <h4 className="font-semibold text-sm text-foreground mb-1">
+                                    <h4 className="font-semibold typo-p mb-1">
                                       ⚠️ Production Warning
                                     </h4>
-                                    <p className="text-xs">
+                                    <p className="typo-p12n">
                                       <strong>
                                         Never store sensitive credentials in
                                         localStorage in production.
                                       </strong>{" "}
                                       Use secure backend storage with:
                                     </p>
-                                    <ul className="text-xs mt-2 space-y-1 list-disc list-inside ml-2">
+                                    <ul className="typo-p12n mt-2 space-y-1 list-disc list-inside ml-2">
                                       <li>
                                         Environment variables (.env files)
                                       </li>
@@ -703,14 +703,14 @@ export default function PaymentGatewayConfig() {
                                   </div>
                                   <Separator className="bg-border" />
                                   <div>
-                                    <h4 className="font-semibold text-sm text-foreground mb-1">
+                                    <h4 className="font-semibold typo-p mb-1">
                                       ✅ Recommended Approach
                                     </h4>
-                                    <p className="text-xs">
+                                    <p className="typo-p12n">
                                       Configure payment gateways through a
                                       secure admin API endpoint that:
                                     </p>
-                                    <ul className="text-xs mt-2 space-y-1 list-disc list-inside ml-2">
+                                    <ul className="typo-p12n mt-2 space-y-1 list-disc list-inside ml-2">
                                       <li>
                                         Requires authentication and
                                         authorization
@@ -736,7 +736,7 @@ export default function PaymentGatewayConfig() {
                                 [gateway.id]: !prev[gateway.id],
                               }))
                             }
-                            className="text-xs text-muted-foreground hover:bg-foreground/5"
+                            className="typo-subtitle hover:bg-foreground/5"
                           >
                             {showSecrets[gateway.id] ? (
                               <>
@@ -756,7 +756,7 @@ export default function PaymentGatewayConfig() {
                         <div key={field}>
                           <Label
                             htmlFor={`${gateway.id}-${field}`}
-                            className="mb-1.5 block text-sm text-foreground"
+                            className="mb-1.5 block typo-p"
                           >
                             {getFieldLabel(field)}
                           </Label>
@@ -776,7 +776,7 @@ export default function PaymentGatewayConfig() {
                               )
                             }
                             placeholder={`Enter ${getFieldLabel(field)}`}
-                            className="rounded-xl border-border bg-background text-foreground placeholder:text-muted-foreground font-mono text-sm"
+                            className="rounded-xl border-border bg-background text-foreground placeholder:text-muted-foreground font-mono typo-p"
                           />
                         </div>
                       ))}
@@ -788,10 +788,10 @@ export default function PaymentGatewayConfig() {
                     {/* Primary Gateway */}
                     <div className="flex items-center justify-between rounded-xl border border-border bg-card p-4">
                       <div>
-                        <div className="text-sm font-medium text-foreground">
+                        <div className="typo-p500">
                           Set as Primary Gateway
                         </div>
-                        <div className="text-xs text-muted-foreground mt-0.5">
+                        <div className="typo-subtitle mt-0.5">
                           {config.isPrimary
                             ? "This is your default payment processor"
                             : "Make this the default payment processor"}
@@ -808,7 +808,7 @@ export default function PaymentGatewayConfig() {
 
                     {/* Supported Currencies */}
                     <div>
-                      <Label className="mb-2 block text-sm font-medium text-foreground">
+                      <Label className="mb-2 block typo-p500">
                         Supported Currencies
                       </Label>
                       <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2">
@@ -817,7 +817,7 @@ export default function PaymentGatewayConfig() {
                             key={currency}
                             onClick={() => toggleCurrency(gateway.id, currency)}
                             className={classNames(
-                              "rounded-lg border px-2 py-1.5 text-xs font-medium transition-all",
+                              "rounded-lg border px-2 py-1.5 typo-h6 transition-all",
                               config.supportedCurrencies.includes(currency)
                                 ? "border-primary bg-primary text-white"
                                 : "border-border text-foreground/80 hover:bg-foreground/5"
@@ -827,7 +827,7 @@ export default function PaymentGatewayConfig() {
                           </button>
                         ))}
                       </div>
-                      <div className="mt-2 text-xs text-muted-foreground">
+                      <div className="mt-2 typo-subtitle">
                         Selected: {config.supportedCurrencies.length}{" "}
                         {config.supportedCurrencies.length === 1
                           ? "currency"
@@ -840,7 +840,7 @@ export default function PaymentGatewayConfig() {
                   <TabsContent value="features" className="space-y-4">
                     <div>
                       <div className="flex items-center justify-between mb-3">
-                        <Label className="text-sm font-medium text-foreground">
+                        <Label className="typo-p500">
                           Supported Features
                         </Label>
                         <Dialog>
@@ -848,7 +848,7 @@ export default function PaymentGatewayConfig() {
                             <Button
                               variant="ghost"
                               size="sm"
-                              className="text-xs text-muted-foreground hover:bg-foreground/5"
+                              className="typo-subtitle hover:bg-foreground/5"
                             >
                               <InfoIcon className="w-4 h-4 mr-1" /> Feature Info
                             </Button>
@@ -864,15 +864,15 @@ export default function PaymentGatewayConfig() {
                               <DialogDescription className="space-y-3 pt-4">
                                 {/* Feature Availability */}
                                 <div>
-                                  <h4 className="font-semibold text-sm text-foreground mb-1">
+                                  <h4 className="font-semibold typo-p mb-1">
                                     📋 Feature Availability
                                   </h4>
-                                  <p className="text-xs text-muted-foreground">
+                                  <p className="typo-subtitle">
                                     The features listed are the core
                                     capabilities of {gateway.name}. Availability
                                     may vary based on:
                                   </p>
-                                  <ul className="text-xs text-muted-foreground mt-2 space-y-1 list-disc list-inside ml-2">
+                                  <ul className="typo-subtitle mt-2 space-y-1 list-disc list-inside ml-2">
                                     <li>
                                       Your geographic region and business
                                       location
@@ -894,10 +894,10 @@ export default function PaymentGatewayConfig() {
 
                                 {/* Regional Differences */}
                                 <div>
-                                  <h4 className="font-semibold text-sm text-foreground mb-1">
+                                  <h4 className="font-semibold typo-p mb-1">
                                     🌍 Regional Differences
                                   </h4>
-                                  <p className="text-xs text-muted-foreground">
+                                  <p className="typo-subtitle">
                                     Payment methods and features can differ
                                     significantly by region. Some local payment
                                     methods are only available in specific
@@ -909,13 +909,13 @@ export default function PaymentGatewayConfig() {
 
                                 {/* Getting Started */}
                                 <div>
-                                  <h4 className="font-semibold text-sm text-foreground mb-1">
+                                  <h4 className="font-semibold typo-p mb-1">
                                     💡 Getting Started
                                   </h4>
-                                  <p className="text-xs text-muted-foreground">
+                                  <p className="typo-subtitle">
                                     Contact {gateway.name} support to:
                                   </p>
-                                  <ul className="text-xs text-muted-foreground mt-2 space-y-1 list-disc list-inside ml-2">
+                                  <ul className="typo-subtitle mt-2 space-y-1 list-disc list-inside ml-2">
                                     <li>
                                       Verify which features are available for
                                       your account
@@ -947,7 +947,7 @@ export default function PaymentGatewayConfig() {
                             className="flex items-center gap-2 rounded-xl border border-border bg-foreground/5/50 p-3"
                           >
                             <CheckCircleIcon className="w-5 h-5 text-green-600 dark:text-green-400" />
-                            <span className="text-sm text-foreground">
+                            <span className="typo-p">
                               {feature}
                             </span>
                           </div>
@@ -959,7 +959,7 @@ export default function PaymentGatewayConfig() {
 
                     {/* Regional Coverage */}
                     <div>
-                      <Label className="mb-3 block text-sm font-medium text-foreground">
+                      <Label className="mb-3 block typo-p500">
                         Regional Coverage
                       </Label>
                       <div className="flex flex-wrap gap-2">

@@ -45,7 +45,7 @@ export default function RoleContent() {
       <div className="mx-auto max-w-4xl px-4 py-6 flex flex-col gap-6">
         {/* Role Selector */}
         <div className="w-full border border-border rounded-2xl p-4 bg-card">
-          <h2 className="text-lg font-semibold mb-3 text-foreground">
+          <h2 className="typo-h3 mb-3 text-foreground">
             Select Role
           </h2>
           <Select value={selectedId} onValueChange={(v) => setSelectedId(v)}>
@@ -67,16 +67,16 @@ export default function RoleContent() {
           {draft ? (
             <>
               <div className="border-b border-border pb-3 mb-4">
-                <h2 className="text-2xl font-bold text-foreground">
+                <h2 className="typo-h1 font-bold text-foreground">
                   {draft.title}
                 </h2>
-                <p className="text-sm text-muted-foreground">
+                <p className="typo-p-muted">
                   Permissions overview for this role
                 </p>
               </div>
 
               <div className="flex-1 flex flex-col">
-                <div className="grid grid-cols-12 border-y border-border text-xs font-semibold uppercase tracking-wider">
+                <div className="grid grid-cols-12 border-y border-border typo-h6 uppercase tracking-wider">
                   <div className="col-span-6 px-3 py-3">Module</div>
                   <div className="col-span-6 px-3 py-3">Access</div>
                 </div>
@@ -108,7 +108,7 @@ export default function RoleContent() {
           ) : (
             <div className="flex flex-col items-center justify-center py-12 text-muted-foreground">
               <SecurityRoundedIcon fontSize="large" />
-              <p className="mt-2 text-sm">
+              <p className="mt-2 typo-p">
                 Select a role to preview its permissions.
               </p>
             </div>

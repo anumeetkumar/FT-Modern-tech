@@ -117,7 +117,7 @@ function LoginForm() {
 
       <Card className="w-full lg:max-w-md bg-background text-foreground border border-border shadow-md rounded-xl">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold text-center text-foreground">
+          <CardTitle className="typo-h1 font-bold text-center text-foreground">
             Sign In
           </CardTitle>
           <CardDescription className="text-center text-muted">
@@ -192,7 +192,7 @@ function LoginForm() {
               <div className="flex items-center justify-between">
                 <Link
                   href="/forgot-password"
-                  className="text-sm text-primary hover:text-primary/80"
+                  className="typo-p text-primary hover:text-primary/80"
                 >
                   Forgot password?
                 </Link>
@@ -220,7 +220,7 @@ function LoginForm() {
 
           {/* Divider */}
           <div className="flex items-center my-4 before:flex-1 before:border-t before:border-border after:flex-1 after:border-t after:border-border">
-            <span className="relative bg-background px-3 text-xs text-muted leading-none">OR</span>
+            <span className="relative bg-background px-3 typo-subtitle leading-none">OR</span>
           </div>
 
           {/* Google Button */}
@@ -230,7 +230,7 @@ function LoginForm() {
           </Button>
 
           {/* Footer Links */}
-          <div className="flex items-center justify-between pt-5 text-sm text-muted">
+          <div className="flex items-center justify-between pt-5 typo-p-muted">
             <a href="#" className="underline underline-offset-4 hover:text-primary">
               Driver Login
             </a>

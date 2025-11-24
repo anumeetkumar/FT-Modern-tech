@@ -177,8 +177,8 @@ function SimCardsPage() {
         {/* Top Bar */}
         <div className="mb-6 flex items-center justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-semibold tracking-tight">SIM Cards</h1>
-            <p className="text-sm text-neutral-500">
+            <h1 className="typo-h1">SIM Cards</h1>
+            <p className="typo-p-muted">
               Manage and monitor SIM cards in your fleet
             </p>
           </div>

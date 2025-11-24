@@ -191,10 +191,10 @@ export default function TeamsTable() {
   const teamDisplayOptions: DisplayMap<TeamRow> = {
     1: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <PersonIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-muted "
           />
           Member Info
         </div>
@@ -206,14 +206,14 @@ export default function TeamsTable() {
             className="group"
           >
             <div className="flex gap-2 cursor-pointer py-1 rounded-md hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 flex-shrink-0">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-muted  flex-shrink-0">
                 <PersonIcon style={{ fontSize: "16px" }} />
               </div>
               <div className="min-w-0">
-                <div className="font-medium text-neutral-900 dark:text-neutral-100 truncate">
+                <div className="typo-h4 truncate">
                   {row.name}
                 </div>
-                <div className="text-xs text-neutral-500 dark:text-neutral-400">
+                <div className="typo-subtitle">
                   @{row.username}
                 </div>
               </div>
@@ -225,24 +225,24 @@ export default function TeamsTable() {
 
     2: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <CallIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-muted "
           />
           Contact
         </div>
       ),
       content: (row) => (
         <div className="space-y-0.5">
-          <div className="flex items-center gap-1 text-sm text-neutral-700 dark:text-neutral-300">
+          <div className="flex items-center gap-1 typo-p-muted">
             <CallIcon
               style={{ fontSize: "12px" }}
               className="text-neutral-400"
             />
             {row.mobile}
           </div>
-          <div className="flex items-center gap-1 text-xs text-neutral-500 dark:text-neutral-400">
+          <div className="flex items-center gap-1 typo-subtitle">
             <EmailIcon
               style={{ fontSize: "12px" }}
               className="text-neutral-400"
@@ -255,16 +255,16 @@ export default function TeamsTable() {
 
     3: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <ShieldIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-muted "
           />
           Role
         </div>
       ),
       content: (row) => (
-        <div className="text-sm text-neutral-700 dark:text-neutral-300 capitalize">
+        <div className="typo-p-muted capitalize">
           {row.role}
         </div>
       ),
@@ -272,10 +272,10 @@ export default function TeamsTable() {
 
     4: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <VerifiedIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-muted "
           />
           Status
         </div>
@@ -285,23 +285,23 @@ export default function TeamsTable() {
 
     5: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <LockIcon
             style={{ fontSize: "14px" }}
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-muted "
           />
           Permissions
         </div>
       ),
       content: (row) => (
-        <div className="text-sm text-neutral-700 dark:text-neutral-300">
+        <div className="typo-p-muted">
           {row.permissions} assigned
         </div>
       ),
     },
     6: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           Actions
         </div>
       ),
@@ -346,8 +346,8 @@ export default function TeamsTable() {
         <div className="mx-auto max-w-7xl px-6 pb-14 pt-8">
           <div className="mb-6 flex items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-semibold tracking-tight">Teams</h1>
-              <p className="text-sm text-neutral-500">
+              <h1 className="typo-h1">Teams</h1>
+              <p className="typo-p-muted">
                 Manage teammates and their permissions. Add members via the
                 modal, fine‑tune via the drawer.
               </p>
@@ -388,7 +388,7 @@ export default function TeamsTable() {
           <Sheet open={permOpen} onOpenChange={setPermOpen}>
             <SheetContent className="w-full sm:max-w-2xl overflow-y-auto">
               <SheetHeader>
-                <SheetTitle className="text-xl flex items-center gap-2">
+                <SheetTitle className="typo-h2 flex items-center gap-2">
                   <ShieldIcon /> Permissions
                 </SheetTitle>
                 <SheetDescription>

@@ -27,17 +27,17 @@ const NotificationsAndActivitySection = () => {
       <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
         <div className="mb-3 flex items-center gap-2">
           <NotificationsNoneOutlinedIcon className="h-5 w-5 text-foreground" />
-          <h3 className="text-sm font-semibold text-foreground">Recent Notifications</h3>
+          <h3 className="typo-p600 text-foreground">Recent Notifications</h3>
         </div>
         <div className="h-80 overflow-y-auto pr-1">
           <ul className="divide-y divide-border">
             {notifications.map((n, idx) => (
               <li key={idx} className="flex items-center justify-between py-3">
                 <div className="min-w-0">
-                  <p className="truncate text-sm font-medium text-foreground">{n.title}</p>
-                  <p className="truncate text-xs text-muted">{n.detail}</p>
+                  <p className="truncate typo-p500">{n.title}</p>
+                  <p className="truncate typo-subtitle">{n.detail}</p>
                 </div>
-                <span className="shrink-0 text-xs text-muted">{n.time}</span>
+                <span className="shrink-0 typo-subtitle">{n.time}</span>
               </li>
             ))}
           </ul>
@@ -48,17 +48,17 @@ const NotificationsAndActivitySection = () => {
       <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
         <div className="mb-3 flex items-center gap-2">
           <TimelineOutlinedIcon className="h-5 w-5 text-foreground" />
-          <h3 className="text-sm font-semibold text-foreground">Recent User Activity</h3>
+          <h3 className="typo-p600 text-foreground">Recent User Activity</h3>
         </div>
         <div className="h-80 overflow-y-auto pr-1">
           <ul className="divide-y divide-border">
             {activities.map((a, idx) => (
               <li key={idx} className="flex items-center justify-between py-3">
                 <div className="min-w-0">
-                  <p className="truncate text-sm font-medium text-foreground">{a.who}</p>
-                  <p className="truncate text-xs text-muted">{a.what}</p>
+                  <p className="truncate typo-p500">{a.who}</p>
+                  <p className="truncate typo-subtitle">{a.what}</p>
                 </div>
-                <span className="shrink-0 text-xs text-muted">{a.when}</span>
+                <span className="shrink-0 typo-subtitle">{a.when}</span>
               </li>
             ))}
           </ul>

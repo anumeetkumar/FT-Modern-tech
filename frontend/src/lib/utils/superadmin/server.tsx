@@ -123,11 +123,11 @@ export function MiniCard({
 }) {
   return (
     <div className="rounded-2xl border border-border bg-background p-3 dark:bg-foreground/5">
-      <div className="mb-1 flex items-center gap-2 text-sm font-semibold text-foreground">
+      <div className="mb-1 flex items-center gap-2 typo-p600 text-foreground">
         {icon}
         {title}
       </div>
-      <div className="space-y-1 text-sm text-foreground">{children}</div>
+      <div className="space-y-1 typo-p">{children}</div>
     </div>
   );
 }
@@ -154,7 +154,7 @@ export function Metric({
 }) {
   return (
     <div className="rounded-2xl border border-border bg-background p-3">
-      <div className="mb-1 flex items-center justify-between text-sm">
+      <div className="mb-1 flex items-center justify-between typo-p">
         <span className="text-muted">{label}</span>
         <span className="inline-flex items-center gap-1 text-foreground">
           {icon}

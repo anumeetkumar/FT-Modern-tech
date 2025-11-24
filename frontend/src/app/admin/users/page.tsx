@@ -278,22 +278,21 @@ export default function Page() {
   const displayOptions: DisplayMap<UserRow> = {
     0: {
       title: () => (
-        <div className="flex items-center gap-1 font-semibold tracking-wide uppercase text-xs">
-          <HomeIcon fontSize="small" /> Name
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
+          <HomeIcon style={{ fontSize: "14px" }} />
+          Name
         </div>
       ),
       content: (row) => (
         <div
-          className="text-sm cursor-pointer"
+          className="typo-p cursor-pointer"
           onClick={(e) => {
             e.stopPropagation();
             router.push(`/admin/users/${row.id}`);
           }}
         >
-          <p className="font-semibold text-slate-900 dark:text-slate-100">
-            {row.name}
-          </p>
-          <p className=" text-xs text-slate-500 dark:text-slate-400">
+          <p className="typo-h4">{row.name}</p>
+          <p className=" typo-subtitle">
             {row.role} · {row.country}
           </p>
         </div>
@@ -301,7 +300,7 @@ export default function Page() {
       tooltip: (row) => (
         <div className="text-[12px] leading-snug">
           <div className="font-semibold">{row.name}</div>
-          <div className="text-slate-500">
+          <div className="">
             {row.role} · {row.department}
           </div>
           <div className="mt-1 text-slate-400">Last login: {row.lastLogin}</div>
@@ -309,7 +308,11 @@ export default function Page() {
       ),
     },
     1: {
-      title: () => <>Contact</>,
+      title: () => (
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
+          Contact
+        </div>
+      ),
       content: (row) => (
         <div className="flex flex-col">
           <a
@@ -333,10 +336,14 @@ export default function Page() {
     },
 
     2: {
-      title: () => <>Status</>,
+       title: () => (
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
+          Status
+        </div>
+      ),
       content: (row) => (
         <span
-          className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-semibold ${
+          className={`inline-flex items-center rounded-full px-2 py-0.5 typo-h6 ${
             row.active
               ? "bg-emerald-100 text-emerald-700"
               : "bg-amber-100 text-amber-700"
@@ -347,31 +354,51 @@ export default function Page() {
       ),
     },
     3: {
-      title: () => <>Last Login</>,
-      content: (row) => (
-        <span className="text-xs text-slate-600 dark:text-slate-400">
-          {row.lastLogin}
-        </span>
+       title: () => (
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
+          Last Login
+        </div>
       ),
+      content: (row) => <span className="typo-subtitle">{row.lastLogin}</span>,
     },
     4: {
-      title: () => <>Department</>,
-      content: (row) => <span className="text-sm">{row.department}</span>,
+       title: () => (
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
+          Department
+        </div>
+      ),
+      content: (row) => <span className="typo-p">{row.department}</span>,
     },
     5: {
-      title: () => <>ID</>,
-      content: (row) => <span className="text-sm">{row.id}</span>,
+       title: () => (
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
+          ID
+        </div>
+      ),
+      content: (row) => <span className="typo-p">{row.id}</span>,
     },
     6: {
-      title: () => <>Country</>,
-      content: (row) => <span className="text-sm">{row.country}</span>,
+       title: () => (
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
+          Country
+        </div>
+      ),
+      content: (row) => <span className="typo-p">{row.country}</span>,
     },
     7: {
-      title: () => <>Role</>,
-      content: (row) => <span className="text-sm">{row.role}</span>,
+       title: () => (
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
+          Role
+        </div>
+      ),
+      content: (row) => <span className="typo-p">{row.role}</span>,
     },
     8: {
-      title: () => <>Action</>,
+       title: () => (
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
+          Actions
+        </div>
+      ),
       content: () => (
         <div className="py-0.5">
           <Button
@@ -444,10 +471,8 @@ export default function Page() {
         <div className="mx-auto max-w-7xl px-6 pb-14 pt-8">
           <div className="mb-6 flex items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-semibold tracking-tight">
-                User Management
-              </h1>
-              {/* <p className="text-sm text-neutral-500">
+              <h1 className="typo-h1">User Management</h1>
+              {/* <p className="typo-p-muted">
                 Self‑hosted GPS Software • FleetStack
               </p> */}
             </div>

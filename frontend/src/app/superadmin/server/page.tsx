@@ -140,7 +140,7 @@ export default function ServerStatusPage() {
       {/* Top controls */}
       <div className="mb-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight text-foreground">
+          <h1 className="typo-h1">
             Server Status
           </h1>
           <p className="mt-1 text-[12px] text-muted">
@@ -230,7 +230,7 @@ export default function ServerStatusPage() {
       </div>
 
       {banner && (
-        <div className="mb-4 rounded-xl border border-neutral-300 bg-white p-3 text-sm dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-200">
+        <div className="mb-4 rounded-xl border border-neutral-300 bg-white p-3 typo-p dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-200">
           <InfoOutlinedIcon className="mr-2 align-[-2px]" />
           {banner}
         </div>
@@ -253,15 +253,15 @@ export default function ServerStatusPage() {
                   <ErrorOutlineIcon className="text-error" />
                 )}
                 <div>
-                  <div className="text-xs uppercase tracking-wider text-muted">
+                  <div className="typo-subtitle">
                     Overall
                   </div>
-                  <div className="text-xl font-semibold text-foreground">
+                  <div className="typo-h2">
                     {overall}
                   </div>
                 </div>
               </div>
-              <div className="text-right text-sm text-muted">
+              <div className="text-right typo-p-muted">
                 <div>Uptime {health ? humanTime(health.uptimeSec) : "—"}</div>
                 <div className="text-muted">
                   Started{" "}
@@ -293,7 +293,7 @@ export default function ServerStatusPage() {
               />
             </div>
 
-            <div className="mt-3 text-xs text-muted">
+            <div className="mt-3 typo-subtitle">
               Load avg: {metrics?.load1 ?? "—"} / {metrics?.load5 ?? "—"} /{" "}
               {metrics?.load15 ?? "—"}
             </div>
@@ -309,7 +309,7 @@ export default function ServerStatusPage() {
               <Badge variant="secondary">{pg?.dbName ?? "—"}</Badge>
             </div>
 
-            <div className="grid grid-cols-2 gap-2 text-sm text-foreground">
+            <div className="grid grid-cols-2 gap-2 typo-p">
               <KV label="Size" value={pg ? humanBytes(pg.sizeBytes) : "—"} />
               <KV label="Connections" value={pg?.connections ?? "—"} />
               {pg?.deadTuples !== undefined && (
@@ -402,7 +402,7 @@ export default function ServerStatusPage() {
                     </Badge>
                   </div>
 
-                  <div className="flex items-center justify-between text-xs text-muted">
+                  <div className="flex items-center justify-between typo-subtitle">
                     <div>since {new Date(s.sinceISO).toLocaleString()}</div>
                     <Button
                       variant="outline"
@@ -433,7 +433,7 @@ export default function ServerStatusPage() {
                 <MemoryIcon className="text-foreground" />
                 <div className="font-semibold text-foreground">Redis</div>
               </div>
-              <div className="grid grid-cols-2 gap-2 text-sm text-foreground">
+              <div className="grid grid-cols-2 gap-2 typo-p">
                 <KV
                   label="State"
                   value={redis?.connected ? "connected" : "down"}
@@ -474,7 +474,7 @@ export default function ServerStatusPage() {
                 <WifiIcon className="text-foreground" />
                 <div className="font-semibold text-foreground">Socket.io</div>
               </div>
-              <div className="grid grid-cols-3 gap-2 text-sm text-foreground">
+              <div className="grid grid-cols-3 gap-2 typo-p">
                 <KV
                   label="Clients"
                   value={socket ? socket.clients.toLocaleString() : "—"}
@@ -619,7 +619,7 @@ export default function ServerStatusPage() {
                   </AlertDialogContent>
                 </AlertDialog>
                 {deleting && (
-                  <div className="mt-2 text-xs text-muted">Deleting…</div>
+                  <div className="mt-2 typo-subtitle">Deleting…</div>
                 )}
               </MiniCard>
             </div>

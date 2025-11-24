@@ -329,10 +329,10 @@ export default function AdminSettingPage() {
         <SettingsIcon className="text-muted" />
       </motion.div>
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight text-foreground">
+        <h1 className="typo-h1">
           Admin Setting
         </h1>
-        <p className="text-sm text-muted">
+        <p className="typo-p-muted">
           Premium static settings for language, layout, formats, theme,
           timezone & units.
         </p>
@@ -366,8 +366,8 @@ export default function AdminSettingPage() {
       )}
     >
       <div className="mb-3 flex items-center justify-between">
-        <div className="text-sm text-muted">Live Preview</div>
-        <div className="text-xs text-muted">
+        <div className="typo-p-muted">Live Preview</div>
+        <div className="typo-subtitle">
           Theme: {settings.theme.toUpperCase()} • Dir:{" "}
           {settings.direction.toUpperCase()} • Units:{" "}
           {settings.units.toUpperCase()}
@@ -379,17 +379,17 @@ export default function AdminSettingPage() {
         className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2"
       >
         <div>
-          <div className="text-xs text-muted">Date</div>
-          <div className="text-lg font-medium text-foreground">
+          <div className="typo-subtitle">Date</div>
+          <div className="typo-h3m">
             {preview.dateStr}
           </div>
         </div>
         <div>
-          <div className="text-xs text-muted">Time</div>
-          <div className="text-lg font-medium text-foreground">
+          <div className="typo-subtitle">Time</div>
+          <div className="typo-h3m">
             {preview.timeStr}
           </div>
-          <div className="text-xs text-muted mt-1 font-mono">
+          <div className="typo-subtitle mt-1 font-mono">
             UTC {settings.timezone}
           </div>
         </div>
@@ -427,7 +427,7 @@ export default function AdminSettingPage() {
             key={dir}
             onClick={() => set("direction", dir)}
             className={classNames(
-              "rounded-xl border px-3 py-2 text-sm",
+              "rounded-xl border px-3 py-2 typo-p",
               settings.direction === dir
                 ? "border-primary bg-primary text-white"
                 : "border-border text-foreground hover:bg-muted"
@@ -469,7 +469,7 @@ export default function AdminSettingPage() {
     {/* Time Format */}
     <Card title="Time Format" icon={<AccessTimeIcon />}>
       <div className="flex items-center justify-between rounded-xl border border-border bg-foreground/5 p-3">
-        <span className="text-sm text-foreground">24-hour clock</span>
+        <span className="typo-p">24-hour clock</span>
         <Switch
           checked={settings.time24h}
           onCheckedChange={(v) => set("time24h", Boolean(v))}
@@ -485,7 +485,7 @@ export default function AdminSettingPage() {
             key={th}
             onClick={() => set("theme", th)}
             className={classNames(
-              "rounded-xl border px-3 py-2 text-sm",
+              "rounded-xl border px-3 py-2 typo-p",
               settings.theme === th
                 ? "border-primary bg-primary text-white"
                 : "border-border text-foreground hover:bg-muted"
@@ -509,7 +509,7 @@ export default function AdminSettingPage() {
       >
         <SelectTrigger className="rounded-xl border-border text-foreground bg-background focus-visible:ring-ring">
           <SelectValue>
-            <span className="font-mono font-semibold text-lg text-foreground">
+            <span className="typo-h3m">
               {settings.timezone}
             </span>
           </SelectValue>
@@ -534,7 +534,7 @@ export default function AdminSettingPage() {
             key={unit}
             onClick={() => set("units", unit)}
             className={classNames(
-              "rounded-xl border px-3 py-2 text-sm",
+              "rounded-xl border px-3 py-2 typo-p",
               settings.units === unit
                 ? "border-primary bg-primary text-white"
                 : "border-border text-foreground hover:bg-muted"

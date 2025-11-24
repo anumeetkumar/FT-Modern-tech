@@ -110,7 +110,13 @@ function timeAgo(iso?: string) {
   return `${d}d ago`;
 }
 
-function ProfileCard({ p, onLogin }: { p: Profile; onLogin: (u: string) => void }) {
+function ProfileCard({
+  p,
+  onLogin,
+}: {
+  p: Profile;
+  onLogin: (u: string) => void;
+}) {
   const VerifiedBadge = p.isEmailVerified ? (
     <Tooltip>
       <TooltipTrigger asChild>
@@ -119,7 +125,7 @@ function ProfileCard({ p, onLogin }: { p: Profile; onLogin: (u: string) => void 
         </span>
       </TooltipTrigger>
       <TooltipContent>
-        <p className="text-xs font-medium bg-foreground">Verified</p>
+        <p className="typo-h6 bg-foreground">Verified</p>
       </TooltipContent>
     </Tooltip>
   ) : (
@@ -130,7 +136,7 @@ function ProfileCard({ p, onLogin }: { p: Profile; onLogin: (u: string) => void 
         </span>
       </TooltipTrigger>
       <TooltipContent>
-        <p className="text-xs font-medium bg-foreground">Unverified</p>
+        <p className="typo-h6 bg-foreground">Unverified</p>
       </TooltipContent>
     </Tooltip>
   );
@@ -140,20 +146,28 @@ function ProfileCard({ p, onLogin }: { p: Profile; onLogin: (u: string) => void 
       <div className="flex items-center gap-3">
         <div className="relative h-12 w-12 overflow-hidden rounded-full border border-border">
           {p.profileUrl ? (
-            <img src={p.profileUrl} alt={p.name} className="h-full w-full object-cover" />
+            <img
+              src={p.profileUrl}
+              alt={p.name}
+              className="h-full w-full object-cover"
+            />
           ) : (
-            <div className="grid h-full w-full place-items-center text-sm font-semibold text-foreground">
+            <div className="grid h-full w-full place-items-center typo-p600 text-foreground">
               {initials(p.name)}
             </div>
           )}
         </div>
         <div className="min-w-0">
           <div className="flex items-center gap-2">
-            <div className="truncate text-sm font-semibold text-foreground">{p.name}</div>
+            <div className="truncate typo-p600 text-foreground">
+              {p.name}
+            </div>
             {VerifiedBadge}
           </div>
-          <div className="mt-0.5 flex flex-wrap items-center gap-2 text-xs text-muted">
-            <span className="inline-flex items-center gap-1">@{p.username}</span>
+          <div className="mt-0.5 flex flex-wrap items-center gap-2 typo-subtitle">
+            <span className="inline-flex items-center gap-1">
+              @{p.username}
+            </span>
             <span className="text-muted/50">•</span>
             <span className="inline-flex items-center gap-1">
               <AccessTimeIcon style={{ fontSize: 12 }} />
@@ -163,7 +177,7 @@ function ProfileCard({ p, onLogin }: { p: Profile; onLogin: (u: string) => void 
         </div>
       </div>
 
-      <div className="mt-3 grid gap-2 text-sm">
+      <div className="mt-3 grid gap-2 typo-p">
         <div className="flex items-center gap-2 text-foreground">
           <MailOutlineIcon fontSize="small" />
           <a className="truncate hover:underline" href={`mailto:${p.email}`}>
@@ -184,7 +198,7 @@ function ProfileCard({ p, onLogin }: { p: Profile; onLogin: (u: string) => void 
       <div className="mt-4 flex items-center justify-end">
         <button
           onClick={() => onLogin(p.username)}
-          className="inline-flex items-center gap-2 rounded-lg bg-primary text-white px-3 py-1.5 text-xs transition hover:bg-primary/90"
+          className="inline-flex items-center gap-2 rounded-lg bg-primary text-white px-3 py-1.5 typo-p12n transition hover:bg-primary/90"
         >
           <LoginIcon style={{ fontSize: 16 }} />
           <span>Login</span>
@@ -215,9 +229,16 @@ export default function VehicleUsersListItem() {
 
   if (typeof window !== "undefined") {
     try {
-      console.assert(Array.isArray(PROFILES) && PROFILES.length >= 3, "Need at least 3 profiles for 3-up grid");
+      console.assert(
+        Array.isArray(PROFILES) && PROFILES.length >= 3,
+        "Need at least 3 profiles for 3-up grid"
+      );
       for (const p of PROFILES) {
-        console.assert(!!p.name && !!p.email && !!p.username, "Profile missing key fields", p);
+        console.assert(
+          !!p.name && !!p.email && !!p.username,
+          "Profile missing key fields",
+          p
+        );
       }
     } catch {}
   }
@@ -227,21 +248,22 @@ export default function VehicleUsersListItem() {
       <div className="mx-auto max-w-6xl p-4 md:p-6">
         <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h1 className="text-xl font-semibold tracking-tight text-foreground">
-              List of Users
-            </h1>
-            <p className="mt-1 text-xs text-muted">
+            <h1 className="typo-h1">List of Users</h1>
+            <p className="mt-1 typo-subtitle">
               Card-based directory (3 per row on desktop, clean black & white).
             </p>
           </div>
           <div className="flex w-full items-center gap-2 sm:w-80">
             <div className="flex w-full items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 dark:bg-foreground/5">
-              <SearchIcon style={{ fontSize: 16 }} className="text-muted-foreground" />
+              <SearchIcon
+                style={{ fontSize: 16 }}
+                className="text-muted-foreground"
+              />
               <input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search name, email, username, or mobile…"
-                className="h-6 w-full border-none bg-transparent text-sm outline-none text-foreground placeholder:text-muted "
+                className="h-6 w-full border-none bg-transparent typo-p outline-none placeholder:text-muted "
               />
             </div>
           </div>
@@ -252,7 +274,7 @@ export default function VehicleUsersListItem() {
             <ProfileCard key={p.username} p={p} onLogin={handleLogin} />
           ))}
           {filtered.length === 0 && (
-            <div className="col-span-full rounded-xl border border-border bg-card p-6 text-center text-sm text-muted dark:bg-foreground/5">
+            <div className="col-span-full rounded-xl border border-border bg-card p-6 text-center typo-p-muted dark:bg-foreground/5">
               No profiles match "{query}".
             </div>
           )}

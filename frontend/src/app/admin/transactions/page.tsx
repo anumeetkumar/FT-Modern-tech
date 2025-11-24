@@ -306,11 +306,11 @@ export default function TransactionsPage() {
 
   const transactionsDisplayOptions: DisplayMap<Txn> = {
     1: {
-      title: () => <span>Date</span>,
+      title: () => "Date",
       content: (row) => (
         <div>
           <div className="font-medium">{formatDate(row.date)}</div>
-          <div className="text-xs text-muted">
+          <div className="typo-subtitle">
             {row.invoiceNo ? `Invoice ${row.invoiceNo}` : row.reference || "—"}
           </div>
         </div>
@@ -321,8 +321,8 @@ export default function TransactionsPage() {
       title: () => <span>Txn</span>,
       content: (row) => (
         <div>
-          <div className="font-mono text-sm">{row.id}</div>
-          <div className="text-xs text-muted max-w-[26ch] truncate">
+          <div className="font-mono typo-p">{row.id}</div>
+          <div className="typo-subtitle max-w-[26ch] truncate">
             {row.notes || "—"}
           </div>
         </div>
@@ -331,7 +331,7 @@ export default function TransactionsPage() {
 
     3: {
       title: () => <span>Method</span>,
-      content: (row) => <span className="text-sm">{row.method}</span>,
+      content: (row) => <span className="typo-p">{row.method}</span>,
     },
 
     4: {
@@ -464,16 +464,16 @@ export default function TransactionsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-zinc-950">
+    <div className="min-h-screen mx-auto max-w-7xl">
       {/* Header */}
-      <div className="sticky top-0 z-30 border-b bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+      <div className="z-30 border-b ">
         <div className="mx-auto max-w-7xl px-4 py-4 md:py-5">
           <div className="flex items-center justify-between gap-3">
             <div>
-              <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">
+              <h1 className="typo-h1">
                 Transactions
               </h1>
-              <p className="text-sm text-zinc-500 mt-1">
+              <p className="typo-p-muted mt-1">
                 Online payments & credits from your gateway
                 (Stripe/UPI/Card/etc.).
               </p>
@@ -530,7 +530,7 @@ export default function TransactionsPage() {
       {/* View Details Modal (compact) */}
       <TransactionDetailModal open={open} setOpen={setOpen} active={active} />
 
-      <footer className="mx-auto max-w-7xl px-4 py-12 text-xs text-zinc-400">
+      <footer className="mx-auto max-w-7xl px-4 py-12 typo-subtitle">
         FleetStack • Transactions UI — v1.1.1 (online‑only)
       </footer>
     </div>

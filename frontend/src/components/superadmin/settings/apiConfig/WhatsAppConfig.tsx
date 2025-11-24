@@ -153,11 +153,11 @@ const WhatsAppConfigComponent = () => {
   <div className="flex items-center justify-between mb-4">
     <div className="flex items-center gap-2">
       <WhatsAppIcon className="text-muted" fontSize="small" />
-      <div className="text-sm font-medium tracking-tight text-foreground">
+      <div className="typo-p500  text-foreground">
         WhatsApp Messaging
       </div>
       {configs.whatsapp.enabled && (
-        <Badge className="bg-primary text-white text-xs">Active</Badge>
+        <Badge className="bg-primary typo-p12n text-white">Active</Badge>
       )}
     </div>
     <Switch
@@ -170,7 +170,7 @@ const WhatsAppConfigComponent = () => {
     <>
       <Alert className="mb-4 border-border dark:bg-background">
         <InfoRoundedIcon className="h-4 w-4 text-foreground" />
-        <AlertDescription className="text-xs text-muted">
+        <AlertDescription className="typo-subtitle">
           <div className="font-semibold mb-1">
             Configure Your WhatsApp Provider
           </div>
@@ -186,7 +186,7 @@ const WhatsAppConfigComponent = () => {
         <div>
           <Label
             htmlFor="whatsapp-provider"
-            className="text-sm font-medium text-foreground"
+            className="typo-p500"
           >
             Select Provider
           </Label>
@@ -204,7 +204,7 @@ const WhatsAppConfigComponent = () => {
               </SelectItem>
             </SelectContent>
           </Select>
-          <p className="text-xs text-muted mt-1.5">
+          <p className="typo-subtitle mt-1.5">
             Selected:{" "}
             <strong className="text-foreground">
               {configs.whatsapp.provider === "twilio"
@@ -218,10 +218,10 @@ const WhatsAppConfigComponent = () => {
         <div className="p-4 dark:bg-background border border-border rounded-xl">
           <div className="flex items-center justify-between">
             <div className="flex-1">
-              <div className="text-sm font-medium text-foreground">
+              <div className="typo-p500">
                 Activate Provider
               </div>
-              <div className="text-xs text-muted mt-0.5">
+              <div className="typo-subtitle mt-0.5">
                 {configs.whatsapp.providerActive
                   ? `${
                       configs.whatsapp.provider === "twilio"
@@ -239,7 +239,7 @@ const WhatsAppConfigComponent = () => {
             />
           </div>
           {configs.whatsapp.providerActive && (
-            <div className="mt-3 flex items-center gap-2 text-xs">
+            <div className="mt-3 flex items-center gap-2 typo-p12n">
               <Badge className="bg-primary text-white">
                 ACTIVE
               </Badge>
@@ -252,10 +252,10 @@ const WhatsAppConfigComponent = () => {
 
         {/* Provider Setup Links */}
         <div className="p-3 dark:bg-background border border-border rounded-lg">
-          <div className="text-xs font-medium mb-2 text-foreground">
+          <div className="typo-h6 mb-2 text-foreground">
             Provider Documentation & Setup
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 typo-p12n">
             <a
               href="https://www.twilio.com/console"
               target="_blank"
@@ -285,7 +285,7 @@ const WhatsAppConfigComponent = () => {
             <div>
               <Label
                 htmlFor="whatsapp-accountSid"
-                className="text-sm text-foreground"
+                className="typo-p"
               >
                 Account SID
               </Label>
@@ -302,7 +302,7 @@ const WhatsAppConfigComponent = () => {
             <div>
               <Label
                 htmlFor="whatsapp-authToken"
-                className="text-sm text-foreground"
+                className="typo-p"
               >
                 Auth Token
               </Label>
@@ -336,7 +336,7 @@ const WhatsAppConfigComponent = () => {
             <div>
               <Label
                 htmlFor="whatsapp-phoneNumberId"
-                className="text-sm text-foreground"
+                className="typo-p"
               >
                 Phone Number ID
               </Label>
@@ -355,7 +355,7 @@ const WhatsAppConfigComponent = () => {
             <div>
               <Label
                 htmlFor="whatsapp-accessToken"
-                className="text-sm text-foreground"
+                className="typo-p"
               >
                 Access Token
               </Label>

@@ -166,7 +166,7 @@ export default function EventsCalendar({
             >
               <ChevronLeftIcon />
             </button>
-            <div className="min-w-[12rem] text-xl font-semibold tracking-tight text-foreground text-center">
+            <div className="min-w-[12rem] typo-h2 text-center">
               {fmtMonthLabel(cursor)}
             </div>
             <button
@@ -177,13 +177,13 @@ export default function EventsCalendar({
               <ChevronRightIcon />
             </button>
             <button
-              className="ml-2 inline-flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground"
+              className="ml-2 inline-flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 typo-p"
               onClick={goToday}
             >
               <TodayIcon style={{ fontSize: 16 }} /> Today
             </button>
           </div>
-          <p className="mt-1 text-xs text-muted">
+          <p className="mt-1 typo-subtitle">
             Monochrome calendar • Admin/User/Vehicle lifecycle events • Scales
             to 30+/day
           </p>
@@ -191,20 +191,20 @@ export default function EventsCalendar({
 
         <div className="flex items-center gap-2">
           {/* Search */}
-          <div className="flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 text-sm">
+          <div className="flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 typo-p">
             <SearchIcon style={{ fontSize: 16 }} className="text-foreground" />
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search events, notes, metadata…"
-              className="h-6 w-64 border-none bg-transparent text-sm outline-none text-foreground placeholder-muted"
+              className="h-6 w-64 border-none bg-transparent typo-p outline-none placeholder-muted"
             />
           </div>
         </div>
       </div>
 
       {/* Filters */}
-      <div className="mb-3 flex flex-wrap items-center gap-2 text-xs">
+      <div className="mb-3 flex flex-wrap items-center gap-2 typo-p12n">
         {(isSuperAdmin
           ? ["ADMIN_CREATED", "USER_CREATED", "VEHICLE_EXPIRY", "VEHICLE_ADDED"]
           : ["USER_CREATED", "VEHICLE_EXPIRY", "VEHICLE_ADDED"]
@@ -264,7 +264,7 @@ export default function EventsCalendar({
                     {/* Density strip */}
                     {/* <div className={`absolute inset-x-0 top-0 h-1 ${dens}`} /> */}
 
-                    <div className="flex items-center justify-between text-xs">
+                    <div className="flex items-center justify-between typo-p12n">
                       <span
                         className={`inline-flex h-6 w-6 items-center justify-center rounded-full ${
                           isToday ? "border border-primary" : ""
@@ -346,7 +346,7 @@ export default function EventsCalendar({
           <div className="sticky top-4 flex flex-col gap-4">
             {/* Day summary with counts */}
             <div className="rounded-2xl border border-border bg-background p-4">
-              <div className="mb-1 text-sm font-semibold text-foreground">
+              <div className="mb-1 typo-p600 text-foreground">
                 {focusDay
                   ? focusDay.toLocaleDateString(undefined, {
                       weekday: "long",
@@ -358,7 +358,7 @@ export default function EventsCalendar({
               </div>
 
               {focusEvents.length === 0 ? (
-                <div className="rounded-lg border border-border bg-background p-3 text-sm text-muted">
+                <div className="rounded-lg border border-border bg-background p-3 typo-p-muted">
                   No events for this day.
                 </div>
               ) : (
@@ -413,7 +413,7 @@ export default function EventsCalendar({
                     })()}
                   </div>
 
-                  <div className="mb-2 text-xs text-muted">
+                  <div className="mb-2 typo-subtitle">
                     {focusEvents.length} events • Latest first
                   </div>
 
@@ -441,7 +441,7 @@ export default function EventsCalendar({
                               } bg-background p-3 transition`}
                             >
                               <div className="flex items-center justify-between">
-                                <div className="flex items-center gap-2 text-sm">
+                                <div className="flex items-center gap-2 typo-p">
                                   <span
                                     className={`h-2 w-2 rounded-full ${dotClass(
                                       ev.kind
@@ -464,7 +464,7 @@ export default function EventsCalendar({
 
                               {ev.note && (
                                 <div
-                                  className="mt-1 text-xs text-muted truncate"
+                                  className="mt-1 typo-subtitle truncate"
                                   title={ev.note}
                                 >
                                   {ev.note}
@@ -475,7 +475,7 @@ export default function EventsCalendar({
                         </ul>
 
                         {focusEvents.length > PAGE_SIZE && (
-                          <div className="mt-2 flex items-center justify-between text-xs text-foreground">
+                          <div className="mt-2 flex items-center justify-between typo-p12n">
                             <button
                               disabled={safePage <= 1}
                               onClick={() =>
@@ -516,16 +516,16 @@ export default function EventsCalendar({
 
             {/* Event details */}
             <div className="rounded-2xl border border-neutral-200 bg-white p-4 dark:border-neutral-700 dark:bg-neutral-800">
-              <div className="mb-2 flex items-center gap-2 text-sm font-semibold dark:text-neutral-100">
+              <div className="mb-2 flex items-center gap-2 typo-p600 ">
                 <EventNoteIcon style={{ fontSize: 16 }} />
                 <span>Event Details</span>
               </div>
               {!selectedEvent ? (
-                <div className="rounded-lg border border-border bg-background p-3 text-sm text-muted">
+                <div className="rounded-lg border border-border bg-background p-3 typo-p-muted">
                   Select an event to view details.
                 </div>
               ) : (
-                <div className="grid gap-2 text-sm text-foreground">
+                <div className="grid gap-2 typo-p">
                   <div className="flex items-center justify-between">
                     <span>Type</span>
                     <span className="inline-flex items-center gap-2">
@@ -559,7 +559,7 @@ export default function EventsCalendar({
                   )}
 
                   {selectedEvent.meta && (
-                    <details className="text-xs text-muted">
+                    <details className="typo-subtitle">
                       <summary className="cursor-pointer select-none">
                         Metadata
                       </summary>

@@ -44,7 +44,7 @@ const RecentActivities = () => {
         <div className="mb-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <DirectionsCarOutlinedIcon className="h-5 w-5 text-foreground" />
-            <h3 className="text-sm font-semibold text-foreground">Recent Vehicles</h3>
+            <h3 className="typo-p600 text-foreground">Recent Vehicles</h3>
           </div>
         </div>
         <div className="h-80 overflow-y-auto pr-1">
@@ -56,13 +56,13 @@ const RecentActivities = () => {
                     <DirectionsCarOutlinedIcon className="h-4 w-4 text-foreground" />
                   </div>
                   <div className="min-w-0">
-                    <p className="truncate text-sm font-medium text-foreground">{v.name}</p>
-                    <p className="truncate text-xs text-muted">{v.model}</p>
+                    <p className="truncate typo-p500">{v.name}</p>
+                    <p className="truncate typo-subtitle">{v.model}</p>
                   </div>
                 </div>
                 <div className="shrink-0 text-right">
                   <StatusBadge status={v.status} />
-                  <p className="mt-1 text-xs text-muted">{v.added}</p>
+                  <p className="mt-1 typo-subtitle">{v.added}</p>
                 </div>
               </li>
             ))}
@@ -75,9 +75,9 @@ const RecentActivities = () => {
         <div className="mb-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <ReceiptLongOutlinedIcon className="h-5 w-5 text-foreground" />
-            <h3 className="text-sm font-semibold text-foreground">Recent Transactions</h3>
+            <h3 className="typo-p600 text-foreground">Recent Transactions</h3>
           </div>
-          <button className="flex items-center gap-1 rounded-lg px-2 py-1 text-xs text-muted hover:bg-foreground/5">
+          <button className="flex items-center gap-1 rounded-lg px-2 py-1 typo-subtitle hover:bg-foreground/5">
             <Link href="transactions">View All</Link>
             <ArrowForwardIcon className="h-3 w-3" />
           </button>
@@ -88,19 +88,19 @@ const RecentActivities = () => {
               <li key={idx} className="py-3">
                 <div className="flex items-start justify-between gap-2">
                   <div className="min-w-0 flex-1">
-                    <p className="truncate text-sm font-medium text-foreground">{t.id}</p>
-                    <p className="truncate text-xs text-muted">
+                    <p className="truncate typo-p500">{t.id}</p>
+                    <p className="truncate typo-subtitle">
                       {t.admin} • {t.type}
                     </p>
                   </div>
                   <div className="shrink-0 text-right">
-                    <p className="text-sm font-semibold text-foreground">
+                    <p className="typo-p600 text-foreground">
                       ₹{Intl.NumberFormat().format(t.amount)}
                     </p>
                      <StatusBadge status={t.status} />
                   </div>
                 </div>
-                <p className="mt-1 text-xs text-muted">{t.date}</p>
+                <p className="mt-1 typo-subtitle">{t.date}</p>
               </li>
             ))}
           </ul>
@@ -111,14 +111,14 @@ const RecentActivities = () => {
       <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
         <div className="mb-3 flex items-center gap-2">
           <PersonAddAltOutlinedIcon className="h-5 w-5 text-foreground" />
-          <h3 className="text-sm font-semibold text-foreground">Recent Users</h3>
+          <h3 className="typo-p600 text-foreground">Recent Users</h3>
         </div>
         <div className="h-80 overflow-y-auto pr-1">
           <ul className="divide-y divide-border">
             {recentUsers.map((u, idx) => (
               <li key={idx} className="flex items-center justify-between py-3">
                 <div className="flex min-w-0 items-center gap-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-xs font-medium text-foreground">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background typo-h6 text-foreground">
                     {u.name
                       .split(" ")
                       .map((n) => n[0])
@@ -126,11 +126,11 @@ const RecentActivities = () => {
                       .join("")}
                   </div>
                   <div className="min-w-0">
-                    <p className="truncate text-sm font-medium text-foreground">{u.name}</p>
-                    <p className="truncate text-xs text-muted">{u.email}</p>
+                    <p className="truncate typo-p500">{u.name}</p>
+                    <p className="truncate typo-subtitle">{u.email}</p>
                   </div>
                 </div>
-                <span className="shrink-0 text-xs text-muted">{u.time}</span>
+                <span className="shrink-0 typo-subtitle">{u.time}</span>
               </li>
             ))}
           </ul>

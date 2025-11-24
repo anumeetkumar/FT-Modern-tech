@@ -147,13 +147,13 @@ function SuperAdminBranding() {
       <CardHeader className="pb-4">
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div className="flex-1 min-w-0">
-            <div className="text-[11px] uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
+            <div className="text-[11px] uppercase tracking-[0.2em] text-muted ">
               Theme Customization
             </div>
-            <CardTitle className="text-2xl tracking-tight dark:text-neutral-100">
+            <CardTitle className="typo-h1  ">
               Branding & Colors
             </CardTitle>
-            <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1">
+            <p className="typo-p-muted mt-1">
               Customize the color scheme for your Fleet Stack platform. Configure separate themes for light and dark modes.
             </p>
           </div>
@@ -167,7 +167,7 @@ function SuperAdminBranding() {
               variant="outline"
               onClick={handleReset}
               disabled={!hasChanges || isSaving}
-              className="border-neutral-300 dark:border-neutral-600 dark:text-neutral-300"
+              className="border-neutral-300 dark:border-neutral-600 "
             >
               <RestartAltIcon fontSize="small" className="mr-2" />
               Reset
@@ -208,11 +208,11 @@ function SuperAdminBranding() {
         <div className="flex items-center justify-between p-4 rounded-xl border border-neutral-200 dark:border-neutral-700 dark:bg-neutral-800">
           <div className="flex items-center gap-3">
             <div className="h-10 w-10 rounded-lg bg-neutral-100 dark:bg-neutral-700 grid place-items-center">
-              <PaletteIcon className="text-neutral-600 dark:text-neutral-300" />
+              <PaletteIcon className="typo-base-muted" />
             </div>
             <div>
-              <div className="font-semibold text-sm dark:text-neutral-100">Active Preview</div>
-              <div className="text-xs text-neutral-500 dark:text-neutral-400">
+              <div className="font-semibold typo-p ">Active Preview</div>
+              <div className="typo-subtitle">
                 Switch between light and dark theme preview
               </div>
             </div>
@@ -225,7 +225,7 @@ function SuperAdminBranding() {
               className={
                 activeTheme === 'light'
                   ? 'bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black'
-                  : 'border-neutral-300 dark:border-neutral-600 dark:text-neutral-300'
+                  : 'border-neutral-300 dark:border-neutral-600 '
               }
             >
               <LightModeIcon fontSize="small" className="mr-2" />
@@ -238,7 +238,7 @@ function SuperAdminBranding() {
               className={
                 activeTheme === 'dark'
                   ? 'bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black'
-                  : 'border-neutral-300 dark:border-neutral-600 dark:text-neutral-300'
+                  : 'border-neutral-300 dark:border-neutral-600 '
               }
             >
               <DarkModeIcon fontSize="small" className="mr-2" />
@@ -249,8 +249,8 @@ function SuperAdminBranding() {
                 {/* Live Preview */}
         <div className="rounded-2xl border border-neutral-200 p-5 dark:border-neutral-700 dark:bg-neutral-800">
           <div className="flex items-center gap-2 mb-4">
-            <ColorLensIcon className="text-neutral-600 dark:text-neutral-300" fontSize="small" />
-            <h3 className="text-sm font-semibold uppercase tracking-widest text-neutral-900 dark:text-neutral-100">
+            <ColorLensIcon className="typo-base-muted" fontSize="small" />
+            <h3 className="typo-p600 uppercase tracking-widest ">
               Live Preview - {activeTheme === 'light' ? 'Light Mode' : 'Dark Mode'}
             </h3>
           </div>
@@ -266,14 +266,14 @@ function SuperAdminBranding() {
             {/* Preview Header */}
             <div className="flex items-center justify-between">
               <h4 
-                className="text-lg font-semibold" 
+                className="typo-h3" 
                 style={{ color: currentTheme.foreground }}
               >
                 Sample Dashboard
               </h4>
               <div className="flex gap-2">
                 <span 
-                  className="px-3 py-1 rounded-full text-xs font-medium"
+                  className="px-3 py-1 rounded-full typo-h6"
                   style={{ 
                     backgroundColor: currentTheme.primary,
                     color: activeTheme === 'light' ? '#ffffff' : '#000000'
@@ -282,7 +282,7 @@ function SuperAdminBranding() {
                   Primary
                 </span>
                 <span 
-                  className="px-3 py-1 rounded-full text-xs font-medium"
+                  className="px-3 py-1 rounded-full typo-h6"
                   style={{ 
                     backgroundColor: currentTheme.accent,
                     color: currentTheme.foreground
@@ -303,7 +303,7 @@ function SuperAdminBranding() {
                   borderWidth: '1px'
                 }}
               >
-                <div style={{ color: currentTheme.muted }} className="text-xs mb-1">
+                <div style={{ color: currentTheme.muted }} className="typo-p12n mb-1">
                   Sample Card
                 </div>
                 <div style={{ color: currentTheme.foreground }} className="font-semibold">
@@ -328,7 +328,7 @@ function SuperAdminBranding() {
                   borderWidth: '1px'
                 }}
               >
-                <div style={{ color: currentTheme.warning }} className="text-sm font-medium">
+                <div style={{ color: currentTheme.warning }} className="typo-p500">
                   Warning
                 </div>
               </div>
@@ -336,10 +336,10 @@ function SuperAdminBranding() {
 
             {/* Preview Text */}
             <div className="space-y-2">
-              <p style={{ color: currentTheme.foreground }} className="text-sm">
+              <p style={{ color: currentTheme.foreground }} className="typo-p">
                 This is a preview of how your theme will look with the selected colors.
               </p>
-              <p style={{ color: currentTheme.muted }} className="text-sm">
+              <p style={{ color: currentTheme.muted }} className="typo-p">
                 Muted text appears in secondary content areas.
               </p>
             </div>
@@ -347,7 +347,7 @@ function SuperAdminBranding() {
             {/* Preview Buttons */}
             <div className="flex gap-2 pt-2">
               <button
-                className="px-4 py-2 rounded-lg text-sm font-medium transition-all"
+                className="px-4 py-2 rounded-lg typo-p500 transition-all"
                 style={{
                   backgroundColor: currentTheme.primary,
                   color: activeTheme === 'light' ? '#ffffff' : '#000000',
@@ -356,7 +356,7 @@ function SuperAdminBranding() {
                 Primary Button
               </button>
               <button
-                className="px-4 py-2 rounded-lg text-sm font-medium transition-all"
+                className="px-4 py-2 rounded-lg typo-p500 transition-all"
                 style={{
                   backgroundColor: 'transparent',
                   color: currentTheme.foreground,
@@ -375,8 +375,8 @@ function SuperAdminBranding() {
           {/* Light Theme Colors */}
           <div className="rounded-2xl border border-neutral-200 p-5 dark:border-neutral-700 dark:bg-neutral-800">
             <div className="flex items-center gap-2 mb-4">
-              <LightModeIcon className="text-neutral-600 dark:text-neutral-300" fontSize="small" />
-              <h3 className="text-sm font-semibold uppercase tracking-widest text-neutral-900 dark:text-neutral-100">
+              <LightModeIcon className="typo-base-muted" fontSize="small" />
+              <h3 className="typo-p600 uppercase tracking-widest ">
                 Light Mode Colors
               </h3>
             </div>
@@ -426,7 +426,7 @@ function SuperAdminBranding() {
               
               <Separator className="dark:bg-neutral-700" />
               
-              <div className="text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
+              <div className="typo-subtitle uppercase ">
                 Status Colors
               </div>
               
@@ -454,8 +454,8 @@ function SuperAdminBranding() {
           {/* Dark Theme Colors */}
           <div className="rounded-2xl border border-neutral-200 p-5 dark:border-neutral-700 dark:bg-neutral-800">
             <div className="flex items-center gap-2 mb-4">
-              <DarkModeIcon className="text-neutral-600 dark:text-neutral-300" fontSize="small" />
-              <h3 className="text-sm font-semibold uppercase tracking-widest text-neutral-900 dark:text-neutral-100">
+              <DarkModeIcon className="typo-base-muted" fontSize="small" />
+              <h3 className="typo-p600 uppercase tracking-widest ">
                 Dark Mode Colors
               </h3>
             </div>
@@ -505,7 +505,7 @@ function SuperAdminBranding() {
               
               <Separator className="dark:bg-neutral-700" />
               
-              <div className="text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
+              <div className="typo-subtitle uppercase ">
                 Status Colors
               </div>
               
@@ -538,10 +538,10 @@ function SuperAdminBranding() {
           <div className="flex gap-3">
             <FormatPaintIcon className="text-blue-600 dark:text-blue-400 flex-shrink-0" fontSize="small" />
             <div className="space-y-1">
-              <div className="text-sm font-medium text-blue-900 dark:text-blue-100">
+              <div className="typo-p500 text-blue-900 dark:text-blue-100">
                 Theme Customization Tips
               </div>
-              <div className="text-xs text-blue-700 dark:text-blue-300 space-y-1">
+              <div className="typo-p12n text-blue-700 dark:text-blue-300 space-y-1">
                 <p>• Default Fleet Stack theme uses black/white for professional appearance</p>
                 <p>• Customize colors to match your brand identity</p>
                 <p>• Ensure sufficient contrast for accessibility</p>
@@ -591,9 +591,9 @@ function ColorInput({
   return (
     <div className="space-y-2">
       <div className="flex items-center justify-between">
-        <Label className="text-xs font-medium dark:text-neutral-300">{label}</Label>
+        <Label className="typo-h6 ">{label}</Label>
         {description && (
-          <span className="text-[10px] text-neutral-500 dark:text-neutral-400">{description}</span>
+          <span className="text-[10px] text-muted ">{description}</span>
         )}
       </div>
       <div className="flex gap-2">
@@ -603,7 +603,7 @@ function ColorInput({
             value={inputValue}
             onChange={(e) => handleInputChange(e.target.value)}
             placeholder="#000000"
-            className={`pr-12 font-mono text-sm dark:bg-neutral-700 dark:border-neutral-600 dark:text-neutral-100 ${
+            className={`pr-12 font-mono typo-p dark:bg-neutral-700 dark:border-neutral-600  ${
               !isValid ? 'border-red-500 dark:border-red-500' : ''
             }`}
           />

@@ -134,10 +134,10 @@ export default function SuperAdminLocalization() {
             <LanguageIcon className="text-foreground" />
           </motion.div>
           <div>
-            <h1 className="text-2xl font-semibold tracking-tight text-foreground">
+            <h1 className="typo-h1">
               Localization Settings
             </h1>
-            <p className="text-sm text-muted">
+            <p className="typo-p-muted">
               Configure language, timezone, date formats, and map focus for your
               application.
             </p>
@@ -157,8 +157,8 @@ export default function SuperAdminLocalization() {
       <div className="mb-6">
         <div className="rounded-2xl border border-border bg-background p-5 transition-colors">
           <div className="mb-3 flex items-center justify-between">
-            <div className="text-sm text-muted">Live Preview</div>
-            <div className="text-xs text-muted">
+            <div className="typo-p-muted">Live Preview</div>
+            <div className="typo-subtitle">
               Lang: {settings.language.toUpperCase()} • Dir:{" "}
               {settings.direction.toUpperCase()} • TZ: {settings.timezone}
             </div>
@@ -169,23 +169,23 @@ export default function SuperAdminLocalization() {
             className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3"
           >
             <div>
-              <div className="text-xs text-muted">Date</div>
-              <div className="text-lg font-medium text-foreground">
+              <div className="typo-subtitle">Date</div>
+              <div className="typo-h3m">
                 {preview.dateStr}
               </div>
             </div>
             <div>
-              <div className="text-xs text-muted">Time</div>
-              <div className="text-lg font-medium text-foreground">
+              <div className="typo-subtitle">Time</div>
+              <div className="typo-h3m">
                 {preview.timeStr}
               </div>
             </div>
             <div>
-              <div className="text-xs text-muted">Map Center</div>
-              <div className="text-sm font-medium font-mono text-foreground">
+              <div className="typo-subtitle">Map Center</div>
+              <div className="typo-p500 font-mono text-foreground">
                 {settings.mapLat.toFixed(4)}, {settings.mapLng.toFixed(4)}
               </div>
-              <div className="text-xs text-muted">Zoom: {settings.mapZoom}</div>
+              <div className="typo-subtitle">Zoom: {settings.mapZoom}</div>
             </div>
           </div>
         </div>
@@ -224,7 +224,7 @@ export default function SuperAdminLocalization() {
                 key={dir}
                 onClick={() => set("direction", dir)}
                 className={classNames(
-                  "flex-1 rounded-xl border px-3 py-2 text-sm transition-all",
+                  "flex-1 rounded-xl border px-3 py-2 typo-p transition-all",
                   settings.direction === dir
                     ? "border-primary bg-primary text-white"
                     : "border-border text-foreground hover:bg-foreground/5"
@@ -266,13 +266,13 @@ export default function SuperAdminLocalization() {
         {/* Time Format */}
         <ResuableCard title="Time Format" icon={<AccessTimeIcon />}>
           <div className="flex items-center justify-between rounded-xl border border-border bg-background p-3">
-            <span className="text-sm text-foreground">24-hour clock</span>
+            <span className="typo-p">24-hour clock</span>
             <Switch
               checked={settings.timeFormat === "24h"}
               onCheckedChange={(v) => set("timeFormat", v ? "24h" : "12h")}
             />
           </div>
-          <div className="mt-2 text-xs text-muted">
+          <div className="mt-2 typo-subtitle">
             Example: {settings.timeFormat === "24h" ? "14:30" : "02:30 PM"}
           </div>
         </ResuableCard>
@@ -307,7 +307,7 @@ export default function SuperAdminLocalization() {
             {(["km", "miles"] as Units[]).map((unit) => (
               <button
                 key={unit}
-                className="rounded-xl border border-border px-3 py-2 text-sm text-foreground hover:bg-foreground/5"
+                className="rounded-xl border border-border px-3 py-2 typo-p hover:bg-foreground/5"
               >
                 {unit.toUpperCase()}
               </button>
@@ -321,7 +321,7 @@ export default function SuperAdminLocalization() {
             {(["light", "dark", "system"] as Theme[]).map((th) => (
               <button
                 key={th}
-                className="rounded-xl border border-border px-3 py-2 text-sm text-foreground hover:bg-foreground/5"
+                className="rounded-xl border border-border px-3 py-2 typo-p hover:bg-foreground/5"
               >
                 {th === "light" && <LightModeIcon className="mr-1" />}
                 {th === "dark" && <DarkModeIcon className="mr-1" />}
@@ -351,7 +351,7 @@ export default function SuperAdminLocalization() {
                 className="rounded-xl border-border bg-background text-foreground"
                 placeholder="0.000000"
               />
-              <div className="mt-2 text-xs text-muted">Range: -90 to 90</div>
+              <div className="mt-2 typo-subtitle">Range: -90 to 90</div>
             </div>
             <div>
               <Label className="mb-2 block text-foreground">
@@ -365,7 +365,7 @@ export default function SuperAdminLocalization() {
                 className="rounded-xl border-border bg-background text-foreground"
                 placeholder="0.000000"
               />
-              <div className="mt-2 text-xs text-muted">Range: -180 to 180</div>
+              <div className="mt-2 typo-subtitle">Range: -180 to 180</div>
             </div>
             <div>
               <Label className="mb-2 block text-foreground">Zoom Level</Label>
@@ -378,7 +378,7 @@ export default function SuperAdminLocalization() {
                 className="rounded-xl border-border bg-background text-foreground"
                 placeholder="2"
               />
-              <div className="mt-2 text-xs text-muted">
+              <div className="mt-2 typo-subtitle">
                 Range: 1 (world) to 20 (street)
               </div>
             </div>
@@ -396,7 +396,7 @@ export default function SuperAdminLocalization() {
               <button
                 key={preset.name}
                 onClick={() => applyLocationPreset(preset)}
-                className="rounded-xl border border-border px-3 py-2 text-xs text-foreground transition-all hover:border-primary hover:bg-foreground/5"
+                className="rounded-xl border border-border px-3 py-2 typo-p12n transition-all hover:border-primary hover:bg-foreground/5"
               >
                 <div className="font-medium">{preset.name}</div>
                 <div className="text-[10px] text-muted mt-0.5">

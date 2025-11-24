@@ -147,7 +147,7 @@ function Table({ children }: { children: React.ReactNode }) {
   return (
     <div className="w-full overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
       <div className="w-full overflow-x-auto">
-        <table className="w-full text-left text-sm">{children}</table>
+        <table className="w-full text-left typo-p">{children}</table>
       </div>
     </div>
   );
@@ -155,7 +155,7 @@ function Table({ children }: { children: React.ReactNode }) {
 function THead({ children }: { children: React.ReactNode }) {
   return (
     <thead className="bg-neutral-50/80 dark:bg-neutral-800/80">
-      <tr className="text-[12px] uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
+      <tr className="text-[12px] uppercase tracking-[0.16em] text-muted ">
         {children}
       </tr>
     </thead>
@@ -393,7 +393,7 @@ export default function CreditHistoryPage() {
                 <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
                   Billing
                 </div>
-                <h1 className="text-2xl font-semibold tracking-tight text-foreground">
+                <h1 className="typo-h1">
                   Credit History
                 </h1>
               </div>
@@ -425,7 +425,7 @@ export default function CreditHistoryPage() {
                     >
                       <div className="flex">
                         <div className="p-3">
-                          <div className="text-sm font-medium mb-2 text-foreground">
+                          <div className="typo-p500 mb-2 text-foreground">
                             Select Date Range
                           </div>
                           <Calendar
@@ -438,7 +438,7 @@ export default function CreditHistoryPage() {
                           />
                         </div>
                         {/* <div className="p-3 border-l border-border">
-                          <div className="text-sm font-medium mb-2 text-foreground">
+                          <div className="typo-p500 mb-2 text-foreground">
                             To Date
                           </div>
                           <Calendar
@@ -513,13 +513,13 @@ export default function CreditHistoryPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Bill To */}
                   <div>
-                    <div className="text-sm font-semibold text-foreground">
+                    <div className="typo-p600 text-foreground">
                       Bill To:
                     </div>
                     <div className="mt-2 font-semibold text-foreground">
                       {BILL_TO.name}
                     </div>
-                    <div className="mt-1 text-sm text-muted-foreground">
+                    <div className="mt-1 typo-p-muted">
                       {BILL_TO.addressLines.map((l, i) => (
                         <div key={i}>{l}</div>
                       ))}
@@ -528,11 +528,11 @@ export default function CreditHistoryPage() {
                   {/* Credit Summary */}
                   <div className="md:pl-10">
                     <div className="flex items-center justify-between">
-                      <div className="text-xl font-semibold text-foreground">
+                      <div className="typo-h2">
                         Today ( {today} )
                       </div>
                     </div>
-                    <div className="mt-2 divide-y divide-border text-sm">
+                    <div className="mt-2 divide-y divide-border typo-p">
                       <div className="flex items-center justify-between py-2 text-muted-foreground">
                         <span>Assign Credit :</span>
                         <span>{summary.assign}</span>
@@ -570,7 +570,7 @@ export default function CreditHistoryPage() {
                       value={query}
                       onChange={(e) => setQuery(e.target.value)}
                       placeholder="Search description, id, device…"
-                      className="bg-transparent outline-none text-sm w-[260px] text-foreground placeholder:text-muted-foreground"
+                      className="bg-transparent outline-none typo-p w-[260px] text-foreground placeholder:text-muted-foreground"
                     />
                     <Separator
                       orientation="vertical"
@@ -601,7 +601,7 @@ export default function CreditHistoryPage() {
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <CardTitle className="text-base tracking-tight text-foreground">
+                  <CardTitle className="text-base  text-foreground">
                     History
                   </CardTitle>
                   <div className="flex items-center gap-2">
@@ -641,14 +641,14 @@ export default function CreditHistoryPage() {
                             {t.description}
                           </div>
                           {t.deviceRef && (
-                            <div className="text-xs text-muted-foreground">
+                            <div className="typo-subtitle">
                               Device: {t.deviceRef}
                             </div>
                           )}
                         </Td>
                         <Td className="text-right">
                           <span
-                            className={`inline-flex items-center rounded-full border px-2 py-[2px] text-xs ${
+                            className={`inline-flex items-center rounded-full border px-2 py-[2px] typo-p12n ${
                               t.creditsChange > 0
                                 ? "border-border bg-foreground/10"
                                 : "border-border bg-foreground/5"

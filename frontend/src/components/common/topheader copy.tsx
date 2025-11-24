@@ -86,10 +86,7 @@ function TopHeader({ mobileOpen, setMobileOpen, role }: TopHeaderProps) {
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 mt-3 px-3 py-3 [padding-top:env(safe-area-inset-top)]">
                 {/* Left: Logo */}
                 <div className="flex min-w-0 items-center gap-2">
-                    {/* <div className="grid h-8 w-8 place-content-center rounded-lg bg-slate-900 text-white dark:bg-white dark:text-slate-900">
-                        <span className="text-[13px] font-extrabold tracking-tight">FS</span>
-                    </div>
-                    <span className="truncate font-semibold text-slate-800 dark:text-slate-100">Fleet Stack</span> */}
+                    <span className="truncate font-semibold text-slate-800 dark:text-slate-100">Fleet Stack</span> 
                     <img src={theme === 'dark' ? "/images/logo-dark.png" : "/images/logo-light.png"} alt="Fleet Stack" className="h-8 w-auto"/>
                 </div>
 
@@ -99,7 +96,7 @@ function TopHeader({ mobileOpen, setMobileOpen, role }: TopHeaderProps) {
                         <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
                         <Input
                             placeholder="Search orders, customers, devices…"
-                            className="h-9 w-full rounded-xl border-slate-200 bg-white pl-9 pr-10 text-sm shadow-sm placeholder:text-slate-400 focus-visible:ring-4 focus-visible:ring-slate-200/60 dark:border-slate-800 dark:bg-slate-900 dark:placeholder:text-slate-500 dark:focus-visible:ring-slate-900/40"
+                            className="h-9 w-full rounded-xl border-slate-200 bg-white pl-9 pr-10 typo-p shadow-sm placeholder:text-slate-400 focus-visible:ring-4 focus-visible:ring-slate-200/60 dark:border-slate-800 dark:bg-slate-900 dark:placeholder: dark:focus-visible:ring-slate-900/40"
                         />
                     </div>
                 </div>
@@ -164,8 +161,8 @@ function TopHeader({ mobileOpen, setMobileOpen, role }: TopHeaderProps) {
                                     <AvatarFallback>{user?.name?.charAt(0)}</AvatarFallback>
                                 </Avatar>
                                 <div className="hidden text-left leading-tight sm:block">
-                                    <div className="text-sm font-semibold text-slate-800 dark:text-slate-100">{user?.name || 'Loading...'}</div>
-                                    <div className="text-[11px] text-slate-500">{user?.role || 'Loading...'}</div>
+                                    <div className="typo-p600 text-slate-800 dark:text-slate-100">{user?.name || 'Loading...'}</div>
+                                    <div className="text-[11px] ">{user?.role || 'Loading...'}</div>
                                 </div>
                             </button>
                         </DropdownMenuTrigger>

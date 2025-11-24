@@ -882,14 +882,14 @@ function page() {
       <div className="p-2 max-w-xs">
         {/* Header */}
         <div className="flex items-center gap-2 mb-2">
-          <div className="w-7 h-7 rounded-md bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 flex items-center justify-center text-neutral-700 dark:text-neutral-300 font-medium text-[10px]">
+          <div className="w-7 h-7 rounded-md bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 flex items-center justify-center text-muted  font-medium text-[10px]">
             {row.vehicleNo.slice(0, 2).toUpperCase()}
           </div>
           <div>
-            <div className="font-semibold text-[12px] text-neutral-900 dark:text-neutral-100">
+            <div className="font-semibold text-[12px] ">
               {row.vehicleNo}
             </div>
-            <div className="text-[9px] text-neutral-500 dark:text-neutral-400">
+            <div className="text-[9px] text-muted ">
               {row.vehicleType.name} • {row.status}
             </div>
           </div>
@@ -900,7 +900,7 @@ function page() {
           <div className="flex items-center gap-1.5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-2.5 w-2.5 text-neutral-400 dark:text-neutral-500 flex-shrink-0"
+              className="h-2.5 w-2.5 text-neutral-400  flex-shrink-0"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -912,14 +912,14 @@ function page() {
                 d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
               />
             </svg>
-            <span className="text-neutral-700 dark:text-neutral-300 font-mono">
+            <span className="text-muted  font-mono">
               {row.imei}
             </span>
           </div>
           <div className="flex items-center gap-1.5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-2.5 w-2.5 text-neutral-400 dark:text-neutral-500 flex-shrink-0"
+              className="h-2.5 w-2.5 text-neutral-400  flex-shrink-0"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -931,14 +931,14 @@ function page() {
                 d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
               />
             </svg>
-            <span className="text-neutral-700 dark:text-neutral-300 font-mono">
+            <span className="text-muted  font-mono">
               {row.vin}
             </span>
           </div>
           <div className="flex items-center gap-1.5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-2.5 w-2.5 text-neutral-400 dark:text-neutral-500 flex-shrink-0"
+              className="h-2.5 w-2.5 text-neutral-400  flex-shrink-0"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -950,7 +950,7 @@ function page() {
                 d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
               />
             </svg>
-            <span className="text-neutral-700 dark:text-neutral-300">
+            <span className="text-muted ">
               {row.deviceType.name}
             </span>
           </div>
@@ -959,18 +959,18 @@ function page() {
         {/* Engine & Odometer */}
         <div className="mt-2 pt-2 border-t border-neutral-200 dark:border-neutral-700">
           <div className="flex justify-between text-[10px]">
-            <span className="text-neutral-500 dark:text-neutral-400">
+            <span className="text-muted ">
               Engine Hours:
             </span>
-            <span className="font-medium text-neutral-900 dark:text-neutral-100">
+            <span className="typo-h4">
               {row.engineHour.toFixed(1)} hrs
             </span>
           </div>
           <div className="flex justify-between text-[10px] mt-1">
-            <span className="text-neutral-500 dark:text-neutral-400">
+            <span className="text-muted ">
               Odometer:
             </span>
-            <span className="font-medium text-neutral-900 dark:text-neutral-100">
+            <span className="typo-h4">
               {row.odometer.toLocaleString()} km
             </span>
           </div>
@@ -978,7 +978,7 @@ function page() {
 
         {/* Last Update */}
         <div className="mt-2 pt-2 border-t border-neutral-200 dark:border-neutral-700">
-          <div className="flex items-center gap-1 text-[10px] text-neutral-500 dark:text-neutral-400">
+          <div className="flex items-center gap-1 text-[10px] text-muted ">
             <AccessTimeIcon style={{ fontSize: "9px" }} />
             <span>
               Last: {date} at {time}
@@ -996,7 +996,7 @@ function page() {
         <div className="flex items-center gap-2 mb-2">
           <Avatar className="w-8 h-8">
             <AvatarImage src={user.profileUrl} alt={user.name} />
-            <AvatarFallback className="bw-gradient-primary bw-text-primary-fg text-xs font-semibold">
+            <AvatarFallback className="bw-gradient-primary bw-text-primary-fg typo-h6">
               {user.name
                 .split(" ")
                 .map((n) => n[0])
@@ -1006,7 +1006,7 @@ function page() {
           </Avatar>
           <div>
             <div className="font-semibold bw-text-primary">{user.name}</div>
-            <div className="text-xs bw-text-muted">@{user.username}</div>
+            <div className="typo-subtitle">@{user.username}</div>
           </div>
         </div>
 
@@ -1014,9 +1014,9 @@ function page() {
           <div className="flex items-center gap-1.5">
             <EmailIcon
               style={{ fontSize: "11px" }}
-              className="text-neutral-400 dark:text-neutral-500"
+              className="text-neutral-400 "
             />
-            <span className="text-neutral-700 dark:text-neutral-300 truncate">
+            <span className="text-muted  truncate">
               {user.email}
             </span>
             {user.isEmailVerified && (
@@ -1029,9 +1029,9 @@ function page() {
           <div className="flex items-center gap-1.5">
             <PhoneIcon
               style={{ fontSize: "11px" }}
-              className="text-neutral-400 dark:text-neutral-500"
+              className="text-neutral-400 "
             />
-            <span className="text-neutral-700 dark:text-neutral-300 font-mono">
+            <span className="text-muted  font-mono">
               {user.mobilePrefix} {user.mobile}
             </span>
           </div>
@@ -1068,14 +1068,14 @@ function page() {
               <span
                 className={
                   value
-                    ? "capitalize text-neutral-900 dark:text-neutral-100"
-                    : "text-neutral-500 dark:text-neutral-400"
+                    ? "capitalize "
+                    : "text-muted "
                 }
               >
                 {value ? value : "(Any Status)"}
               </span>
               <svg
-                className="w-3 h-3 text-neutral-400 dark:text-neutral-500"
+                className="w-3 h-3 text-neutral-400 "
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -1097,7 +1097,7 @@ function page() {
                     placeholder="Search status..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full h-8 pl-8 pr-3 rounded-md border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-sm outline-none"
+                    className="w-full h-8 pl-8 pr-3 rounded-md border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 typo-p outline-none"
                     autoFocus
                   />
                   <svg
@@ -1116,18 +1116,18 @@ function page() {
                 </div>
                 <div className="max-h-52 overflow-y-auto">
                   <div
-                    className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm"
+                    className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer typo-p"
                     onClick={() => {
                       setValue(undefined);
                       setIsOpen(false);
                     }}
                   >
-                    <span className="text-slate-500">(Any Status)</span>
+                    <span className="">(Any Status)</span>
                   </div>
                   {filteredStatuses.map((s) => (
                     <div
                       key={s}
-                      className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm capitalize"
+                      className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer typo-p capitalize"
                       onClick={() => {
                         setValue(s);
                         setIsOpen(false);
@@ -1172,9 +1172,9 @@ function page() {
                 setIsOpen(!isOpen);
                 setSearchQuery("");
               }}
-              className="w-full h-9 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 text-sm outline-none flex items-center justify-between text-left"
+              className="w-full h-9 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 typo-p outline-none flex items-center justify-between text-left"
             >
-              <span className={value ? "" : "text-slate-500"}>
+              <span className={value ? "" : ""}>
                 {value || "(Any Type)"}
               </span>
               <svg
@@ -1200,7 +1200,7 @@ function page() {
                     placeholder="Search vehicle types..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full h-8 pl-8 pr-3 rounded-md border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-sm outline-none"
+                    className="w-full h-8 pl-8 pr-3 rounded-md border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 typo-p outline-none"
                     autoFocus
                   />
                   <svg
@@ -1219,18 +1219,18 @@ function page() {
                 </div>
                 <div className="max-h-52 overflow-y-auto">
                   <div
-                    className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm"
+                    className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer typo-p"
                     onClick={() => {
                       setValue(undefined);
                       setIsOpen(false);
                     }}
                   >
-                    <span className="text-slate-500">(Any Type)</span>
+                    <span className="">(Any Type)</span>
                   </div>
                   {filteredTypes.map((t) => (
                     <div
                       key={t}
-                      className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm"
+                      className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer typo-p"
                       onClick={() => {
                         setValue(t);
                         setIsOpen(false);
@@ -1275,9 +1275,9 @@ function page() {
                 setIsOpen(!isOpen);
                 setSearchQuery("");
               }}
-              className="w-full h-9 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 text-sm outline-none flex items-center justify-between text-left"
+              className="w-full h-9 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 typo-p outline-none flex items-center justify-between text-left"
             >
-              <span className={value ? "" : "text-slate-500"}>
+              <span className={value ? "" : ""}>
                 {value || "(Any Device)"}
               </span>
               <svg
@@ -1303,7 +1303,7 @@ function page() {
                     placeholder="Search device types..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full h-8 pl-8 pr-3 rounded-md border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-sm outline-none"
+                    className="w-full h-8 pl-8 pr-3 rounded-md border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 typo-p outline-none"
                     autoFocus
                   />
                   <svg
@@ -1322,18 +1322,18 @@ function page() {
                 </div>
                 <div className="max-h-52 overflow-y-auto">
                   <div
-                    className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm"
+                    className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer typo-p"
                     onClick={() => {
                       setValue(undefined);
                       setIsOpen(false);
                     }}
                   >
-                    <span className="text-slate-500">(Any Device)</span>
+                    <span className="">(Any Device)</span>
                   </div>
                   {filteredDevices.map((d) => (
                     <div
                       key={d}
-                      className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm"
+                      className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer typo-p"
                       onClick={() => {
                         setValue(d);
                         setIsOpen(false);
@@ -1378,9 +1378,9 @@ function page() {
                 setIsOpen(!isOpen);
                 setSearchQuery("");
               }}
-              className="w-full h-9 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 text-sm outline-none flex items-center justify-between text-left"
+              className="w-full h-9 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 typo-p outline-none flex items-center justify-between text-left"
             >
-              <span className={value ? "truncate" : "text-slate-500"}>
+              <span className={value ? "truncate" : ""}>
                 {value || "(Any User)"}
               </span>
               <svg
@@ -1406,7 +1406,7 @@ function page() {
                     placeholder="Search users..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full h-8 pl-8 pr-3 rounded-md border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-sm outline-none"
+                    className="w-full h-8 pl-8 pr-3 rounded-md border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 typo-p outline-none"
                     autoFocus
                   />
                   <svg
@@ -1425,18 +1425,18 @@ function page() {
                 </div>
                 <div className="max-h-52 overflow-y-auto">
                   <div
-                    className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm"
+                    className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer typo-p"
                     onClick={() => {
                       setValue(undefined);
                       setIsOpen(false);
                     }}
                   >
-                    <span className="text-slate-500">(Any User)</span>
+                    <span className="">(Any User)</span>
                   </div>
                   {filteredUsers.map((u) => (
                     <div
                       key={u}
-                      className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-sm truncate"
+                      className="px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer typo-p-muted truncate"
                       onClick={() => {
                         setValue(u);
                         setIsOpen(false);
@@ -1557,7 +1557,7 @@ function page() {
     // Column 0: Vehicle Information with icon
     0: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <DirectionsCarIcon style={{ fontSize: "14px" }} />
           Vehicle
         </div>
@@ -1571,16 +1571,16 @@ function page() {
           }}
         >
           {/* Icon Badge */}
-          <div className="flex-shrink-0 h-8 w-8 rounded-lg flex items-center justify-center bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300">
+          <div className="flex-shrink-0 h-8 w-8 rounded-lg flex items-center justify-center bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-muted ">
             <DirectionsCarIcon style={{ fontSize: "16px" }} />
           </div>
 
           {/* Vehicle Details */}
           <div className="flex-1 min-w-0">
-            <div className="font-medium text-[13px] text-neutral-900 dark:text-neutral-100 truncate">
+            <div className="font-medium text-[13px]  truncate">
               {row.vehicleNo}
             </div>
-            <div className="flex items-center gap-1 text-[10px] text-neutral-500 dark:text-neutral-400 mt-0.5">
+            <div className="flex items-center gap-1 text-[10px] text-muted  mt-0.5">
               <span>{row.vehicleType.name}</span>
               <span>•</span>
               <span className="font-mono truncate">{row.imei}</span>
@@ -1594,7 +1594,7 @@ function page() {
     // Column 1: Status & Speed
     1: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <SpeedIcon style={{ fontSize: "14px" }} />
           Status
         </div>
@@ -1621,12 +1621,12 @@ function page() {
             <div className="flex items-center gap-1">
               <SpeedIcon
                 style={{ fontSize: "12px" }}
-                className="text-neutral-400 dark:text-neutral-500"
+                className="text-neutral-400 "
               />
-              <span className="text-[21px] font-semibold text-neutral-900 dark:text-neutral-100 leading-none">
+              <span className="text-[21px] font-semibold  leading-none">
                 {row.speed}
               </span>
-              <span className="text-[8px] text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
+              <span className="text-[8px] text-muted  uppercase tracking-wide">
                 km/h
               </span>
             </div>
@@ -1639,7 +1639,7 @@ function page() {
                     : "text-red-600 dark:text-red-400"
                 }
               />
-              <span className="text-[9px] text-neutral-500 dark:text-neutral-400 font-medium">
+              <span className="text-[9px] text-muted  font-medium">
                 {row.ignition ? "ON" : "OFF"}
               </span>
             </div>
@@ -1651,7 +1651,7 @@ function page() {
     // Column 2: Primary User
     2: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           Primary User
         </div>
       ),
@@ -1662,7 +1662,7 @@ function page() {
               src={row.primaryUser.profileUrl}
               alt={row.primaryUser.name}
             />
-            <AvatarFallback className="bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 text-[10px] font-medium">
+            <AvatarFallback className="bg-neutral-100 dark:bg-neutral-800 text-muted  text-[10px] font-medium">
               {row.primaryUser.name
                 .split(" ")
                 .map((n) => n[0])
@@ -1671,10 +1671,10 @@ function page() {
             </AvatarFallback>
           </Avatar>
           <div className="flex-1 min-w-0">
-            <div className="font-medium text-[12px] text-neutral-900 dark:text-neutral-100 truncate">
+            <div className="font-medium text-[12px]  truncate">
               {row.primaryUser.name}
             </div>
-            <div className="text-[10px] text-neutral-500 dark:text-neutral-400 truncate">
+            <div className="text-[10px] text-muted  truncate">
               @{row.primaryUser.username}
             </div>
           </div>
@@ -1686,7 +1686,7 @@ function page() {
     // Column 3: Added By
     3: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           Added By
         </div>
       ),
@@ -1694,7 +1694,7 @@ function page() {
         <div className="flex items-center gap-1.5 min-w-[140px]">
           <Avatar className="w-7 h-7 rounded-lg border border-neutral-200 dark:border-neutral-700">
             <AvatarImage src={row.addedBy.profileUrl} alt={row.addedBy.name} />
-            <AvatarFallback className="bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 text-[10px] font-medium">
+            <AvatarFallback className="bg-neutral-100 dark:bg-neutral-800 text-muted  text-[10px] font-medium">
               {row.addedBy.name
                 .split(" ")
                 .map((n) => n[0])
@@ -1703,10 +1703,10 @@ function page() {
             </AvatarFallback>
           </Avatar>
           <div className="flex-1 min-w-0">
-            <div className="font-medium text-[12px] text-neutral-900 dark:text-neutral-100 truncate">
+            <div className="font-medium text-[12px]  truncate">
               {row.addedBy.name}
             </div>
-            <div className="text-[10px] text-neutral-500 dark:text-neutral-400 truncate">
+            <div className="text-[10px] text-muted  truncate">
               @{row.addedBy.username}
             </div>
           </div>
@@ -1718,7 +1718,7 @@ function page() {
     // Column 4: Last Activity
     4: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           <AccessTimeIcon style={{ fontSize: "14px" }} />
           Last Activity
         </div>
@@ -1730,13 +1730,13 @@ function page() {
             <div className="flex items-center gap-1">
               <AccessTimeIcon
                 style={{ fontSize: "12px" }}
-                className="text-neutral-400 dark:text-neutral-500"
+                className="text-neutral-400 "
               />
-              <span className="text-[12px] font-medium text-neutral-900 dark:text-neutral-100">
+              <span className="text-[12px] typo-h4">
                 {date}
               </span>
             </div>
-            <div className="text-[10px] text-neutral-500 dark:text-neutral-400 mt-0.5">
+            <div className="text-[10px] text-muted  mt-0.5">
               {time}
             </div>
           </div>
@@ -1747,7 +1747,7 @@ function page() {
     // Column 5: License Status
     5: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           License
         </div>
       ),
@@ -1769,14 +1769,14 @@ function page() {
             {/* Primary */}
             <div className="flex items-center justify-between px-1.5 py-0.5 rounded bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
               <div className="flex items-center gap-1.5">
-                <span className="text-[9px] text-neutral-500 dark:text-neutral-400">
+                <span className="text-[9px] text-muted ">
                   Pri
                 </span>
-                <span className="text-[10px] font-mono text-neutral-900 dark:text-neutral-100">
+                <span className="text-[10px] font-mono ">
                   {row.primaryExpiry}
                 </span>
               </div>
-              <span className="text-[10px] text-neutral-700 dark:text-neutral-300">
+              <span className="text-[10px] text-muted ">
                 {getStatusIcon(primary)}
               </span>
             </div>
@@ -1784,14 +1784,14 @@ function page() {
             {/* Secondary */}
             <div className="flex items-center justify-between px-1.5 py-0.5 rounded bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
               <div className="flex items-center gap-1.5">
-                <span className="text-[9px] text-neutral-500 dark:text-neutral-400">
+                <span className="text-[9px] text-muted ">
                   Sec
                 </span>
-                <span className="text-[10px] font-mono text-neutral-900 dark:text-neutral-100">
+                <span className="text-[10px] font-mono ">
                   {row.secondaryExpiry}
                 </span>
               </div>
-              <span className="text-[10px] text-neutral-700 dark:text-neutral-300">
+              <span className="text-[10px] text-muted ">
                 {getStatusIcon(secondary)}
               </span>
             </div>
@@ -1803,7 +1803,7 @@ function page() {
     // Column 6: Created At
     6: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           Created At
         </div>
       ),
@@ -1811,10 +1811,10 @@ function page() {
         const { date, time } = formatDateTime(row.createdAt);
         return (
           <div className="min-w-[110px]">
-            <div className="text-[12px] font-medium text-neutral-900 dark:text-neutral-100">
+            <div className="text-[12px] typo-h4">
               {date}
             </div>
-            <div className="text-[10px] text-neutral-500 dark:text-neutral-400 mt-0.5">
+            <div className="text-[10px] text-muted  mt-0.5">
               {time}
             </div>
           </div>
@@ -1825,7 +1825,7 @@ function page() {
     // Column 7: Active Status with Toggle
     7: {
       title: () => (
-        <div className="flex items-center gap-1.5 font-medium text-[10px] uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
           Account
         </div>
       ),
@@ -1843,7 +1843,7 @@ function page() {
                 // Handle toggle logic here
               }}
             />
-            <span className="text-[11px] text-neutral-900 dark:text-neutral-100 font-medium">
+            <span className="text-[11px]  font-medium">
               {row.isActive ? "Active" : "Inactive"}
             </span>
           </div>

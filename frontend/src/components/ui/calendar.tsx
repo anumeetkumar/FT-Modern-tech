@@ -97,7 +97,7 @@ function Calendar({
         defaultClassNames.month_caption
       ),
       dropdowns: cn(
-        "w-full flex items-center justify-center h-(--cell-size) gap-1.5 text-sm font-medium",
+        "w-full flex items-center justify-center h-(--cell-size) gap-1.5 typo-p500",
         defaultClassNames.dropdowns
       ),
       dropdown_root: cn(
@@ -111,8 +111,8 @@ function Calendar({
       caption_label: cn(
         "select-none font-medium text-foreground",
         captionLayout === "label"
-          ? "text-sm"
-          : "rounded-md pl-2 pr-1 flex items-center gap-1 text-sm h-8 [&>svg]:text-muted-foreground [&>svg]:size-3.5",
+          ? "typo-p"
+          : "rounded-md pl-2 pr-1 flex items-center gap-1 typo-p h-8 [&>svg]:text-muted-foreground [&>svg]:size-3.5",
         defaultClassNames.caption_label
       ),
       table: "w-full border-collapse",
@@ -289,7 +289,7 @@ function CalendarDayButton({
         data-[range-start=true]:bg-primary data-[range-start=true]:text-white
         data-[range-end=true]:bg-primary data-[range-end=true]:text-white
         hover:bg-foreground/5 hover:text-foreground
-        [&>span]:text-xs [&>span]:opacity-70 outline-none
+        [&>span]:typo-p12n [&>span]:opacity-70 outline-none
       `,
         defaultClassNames.day,
         className

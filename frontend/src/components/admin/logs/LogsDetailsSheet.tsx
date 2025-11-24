@@ -60,7 +60,7 @@ export default function DetailSheet({
             )}
             <div className="text-left">
               <div className="font-semibold">{title}</div>
-              {subTitle && <div className="text-xs text-muted">{subTitle}</div>}
+              {subTitle && <div className="typo-subtitle">{subTitle}</div>}
             </div>
           </SheetTitle>
           <SheetDescription />
@@ -75,11 +75,11 @@ export default function DetailSheet({
                 sec.fullWidth ? "md:col-span-2" : ""
               }`}
             >
-              <div className="mb-2 text-xs text-muted">{sec.title}</div>
+              <div className="mb-2 typo-subtitle">{sec.title}</div>
 
               {/* Key-value rows */}
               {sec.items && sec.items.length > 0 && (
-                <div className="space-y-2 text-sm">
+                <div className="space-y-2 typo-p">
                   {sec.items.map((item) => (
                     <div
                       key={item.label}
@@ -94,7 +94,7 @@ export default function DetailSheet({
 
               {/* Free content block */}
               {sec.content && (
-                <div className="text-sm leading-relaxed">{sec.content}</div>
+                <div className="typo-p leading-relaxed">{sec.content}</div>
               )}
             </div>
           ))}
@@ -102,7 +102,7 @@ export default function DetailSheet({
           {/* JSON SECTION */}
           {rawJSON && (
             <div className="md:col-span-2 rounded-lg border bg-background p-4">
-              <div className="mb-2 flex items-center justify-between text-xs text-muted">
+              <div className="mb-2 flex items-center justify-between typo-subtitle">
                 <span>Raw JSON</span>
                 {onCopyJSON && (
                   <Button
@@ -115,7 +115,7 @@ export default function DetailSheet({
                   </Button>
                 )}
               </div>
-              <pre className="max-h-[45vh] overflow-auto rounded-md border bg-muted p-3 text-xs leading-relaxed">
+              <pre className="max-h-[45vh] overflow-auto rounded-md border bg-muted p-3 typo-p12n leading-relaxed">
                 {JSON.stringify(rawJSON, null, 2)}
               </pre>
             </div>

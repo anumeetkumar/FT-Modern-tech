@@ -220,8 +220,8 @@ export function BulkUploadSimCardsDialog({ onSubmit, providers }: BulkUploadSimC
           {/* Template Download */}
           <Card>
             <CardHeader className="pb-3">
-              <CardTitle className="text-sm">CSV Format</CardTitle>
-              <CardDescription className="text-xs">
+              <CardTitle className="typo-p">CSV Format</CardTitle>
+              <CardDescription className="typo-p12n">
                 Format: simno, provider, imsi (optional), iccid (optional)
               </CardDescription>
             </CardHeader>
@@ -254,7 +254,7 @@ export function BulkUploadSimCardsDialog({ onSubmit, providers }: BulkUploadSimC
                 />
               </div>
               {file && (
-                <div className="text-sm text-gray-600">
+                <div className="typo-p-muted">
                   Selected: {file.name} ({Math.round(file.size / 1024)} KB)
                 </div>
               )}
@@ -272,7 +272,7 @@ export function BulkUploadSimCardsDialog({ onSubmit, providers }: BulkUploadSimC
                   value={manualData}
                   onChange={(e) => setManualData(e.target.value)}
                   rows={6}
-                  className="mt-1 font-mono text-sm"
+                  className="mt-1 font-mono typo-p"
                 />
               </div>
               <Button
@@ -291,7 +291,7 @@ export function BulkUploadSimCardsDialog({ onSubmit, providers }: BulkUploadSimC
             <Card>
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
-                  <CardTitle className="text-sm">Parsing Results</CardTitle>
+                  <CardTitle className="typo-p">Parsing Results</CardTitle>
                   <div className="flex space-x-2">
                     {validCount > 0 && (
                       <Badge className="bg-green-100 text-green-800 border-0">
@@ -314,7 +314,7 @@ export function BulkUploadSimCardsDialog({ onSubmit, providers }: BulkUploadSimC
                     {parsedSimCards.map((simCard, index) => (
                       <div key={index} className="border rounded p-2">
                         <div className="flex items-center justify-between">
-                          <div className="text-sm">
+                          <div className="typo-p">
                             <strong>Row {simCard.row}:</strong> {simCard.simno} ({simCard.provider})
                           </div>
                           {simCard.errors.length === 0 ? (
@@ -324,7 +324,7 @@ export function BulkUploadSimCardsDialog({ onSubmit, providers }: BulkUploadSimC
                           )}
                         </div>
                         {simCard.errors.length > 0 && (
-                          <div className="text-xs text-red-600 mt-1">
+                          <div className="typo-p12n text-red-600 mt-1">
                             {simCard.errors.join(', ')}
                           </div>
                         )}

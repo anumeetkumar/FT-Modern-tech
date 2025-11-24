@@ -143,24 +143,24 @@ function TransactionDetailsDrawer({ transaction, open, onClose }: TransactionDet
         <div className="p-7">
           {/* Header */}
           <div className="flex items-center justify-between mb-4 pb-3 border-b border-neutral-200 dark:border-neutral-700">
-            <h2 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100">Transaction Details</h2>
+            <h2 className="typo-h3 ">Transaction Details</h2>
             <Button variant="ghost" size="sm" onClick={onClose} className="h-8 w-8 p-0 dark:hover:bg-neutral-800">
-              <CloseIcon fontSize="small" className="dark:text-neutral-100" />
+              <CloseIcon fontSize="small" className="" />
             </Button>
           </div>
 
           {/* Transaction ID & Status */}
           <div className="mb-6">
             <div className="flex items-center gap-3 mb-3">
-              <ReceiptIcon className="text-neutral-400 dark:text-neutral-500" />
+              <ReceiptIcon className="text-neutral-400 " />
               <div className="flex-1">
-                <p className="text-xs text-neutral-500 dark:text-neutral-400">Transaction ID</p>
-                <p className="text-sm font-semibold font-mono text-neutral-900 dark:text-neutral-100">{transaction.transactionId}</p>
+                <p className="typo-subtitle">Transaction ID</p>
+                <p className="typo-p600 font-mono ">{transaction.transactionId}</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
               <span 
-                className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold
+                className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-md typo-h6
                   ${transaction.status === 'success' 
                     ? 'bg-black text-white dark:bg-green-500/10 dark:text-green-500 dark:border dark:border-green-500' 
                     : transaction.status === 'failed'
@@ -176,53 +176,53 @@ function TransactionDetailsDrawer({ transaction, open, onClose }: TransactionDet
 
           {/* Customer Information */}
           <div className="mb-6">
-            <h4 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-3">Customer Information</h4>
+            <h4 className="typo-p600  mb-3">Customer Information</h4>
             
             {/* Customer Avatar & Name */}
             <div className="flex items-center gap-3 mb-4">
               <Avatar className="h-14 w-14 border border-neutral-200 dark:border-neutral-700">
-                <AvatarFallback className="bg-neutral-800 dark:bg-neutral-200 text-neutral-100 dark:text-neutral-800 text-base font-semibold">
+                <AvatarFallback className="bg-neutral-800 dark:bg-neutral-200 text-neutral-100 dark: text-base font-semibold">
                   {getInitials(transaction.customer.name)}
                 </AvatarFallback>
               </Avatar>
               <div className="flex-1 min-w-0">
                 <Link 
                   href={`/superadmin/administrators/${transaction.customer.id}`}
-                  className="text-base font-semibold text-neutral-900 dark:text-neutral-100 hover:underline"
+                  className="text-base font-semibold  hover:underline"
                 >
                   {transaction.customer.name}
                 </Link>
-                <p className="text-xs text-neutral-500 dark:text-neutral-400">ID: {transaction.customer.id}</p>
+                <p className="typo-subtitle">ID: {transaction.customer.id}</p>
               </div>
             </div>
 
             {/* Contact Details */}
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <CallIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
-                <span className="text-sm text-neutral-700 dark:text-neutral-300">
+                <CallIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
+                <span className="typo-p-muted">
                   {transaction.customer.mobilePrefix} {transaction.customer.mobile}
                 </span>
               </div>
               <div className="flex items-center gap-3">
-                <EmailIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
-                <span className="text-sm text-neutral-700 dark:text-neutral-300">{transaction.customer.email}</span>
+                <EmailIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
+                <span className="typo-p-muted">{transaction.customer.email}</span>
                 {transaction.customer.isVerifiedEmail && (
-                  <VerifiedIcon fontSize="small" className="text-neutral-400 dark:text-neutral-400 w-4 h-4" />
+                  <VerifiedIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                 )}
               </div>
               <div className="flex items-start gap-3">
-                <LocationOnIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4 mt-1 flex-shrink-0" />
+                <LocationOnIcon fontSize="small" className="text-neutral-400  w-4 h-4 mt-1 flex-shrink-0" />
                 <div className="flex-1 min-w-0 space-y-1">
                   <div className="flex items-start gap-2">
-                    <span className="text-xs text-neutral-500 dark:text-neutral-400 min-w-[60px]">Address</span>
-                    <span className="text-sm text-neutral-700 dark:text-neutral-300 break-words flex-1">
+                    <span className="typo-subtitle min-w-[60px]">Address</span>
+                    <span className="typo-p-muted break-words flex-1">
                       {transaction.customer.address.address}
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs text-neutral-500 dark:text-neutral-400 min-w-[60px]">Country</span>
-                    <span className="text-sm text-neutral-700 dark:text-neutral-300 flex items-center gap-1.5">
+                    <span className="typo-subtitle min-w-[60px]">Country</span>
+                    <span className="typo-p-muted flex items-center gap-1.5">
                       <span className={`fi fi-${transaction.customer.address.countryCode.toLowerCase()}`} style={{ fontSize: "14px" }} />
                       {transaction.customer.address.countryCode}
                     </span>
@@ -235,21 +235,21 @@ function TransactionDetailsDrawer({ transaction, open, onClose }: TransactionDet
           {/* Company Information */}
           {transaction.customer.company && (
             <div className="mb-6">
-              <h4 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-3">Company</h4>
+              <h4 className="typo-p600  mb-3">Company</h4>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <BusinessIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
-                  <span className="text-sm font-medium text-neutral-900 dark:text-neutral-100">{transaction.customer.company.name}</span>
+                  <BusinessIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
+                  <span className="typo-p500 ">{transaction.customer.company.name}</span>
                 </div>
                 
                 {transaction.customer.company.website && (
                   <div className="flex items-center gap-3">
-                    <LanguageIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
+                    <LanguageIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
                     <a 
                       href={transaction.customer.company.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-100 underline"
+                      className="typo-p-muted hover:text-neutral-900 dark:hover:text-neutral-100 underline"
                     >
                       {transaction.customer.company.website.replace('https://', '')}
                     </a>
@@ -259,14 +259,14 @@ function TransactionDetailsDrawer({ transaction, open, onClose }: TransactionDet
                 {/* Social Links */}
                 {transaction.customer.company.attributes && Object.keys(transaction.customer.company.attributes).filter(k => ['linkedin', 'facebook', 'twitter'].includes(k)).length > 0 && (
                   <div>
-                    <p className="text-xs text-neutral-500 dark:text-neutral-400 mb-2">Social Links</p>
+                    <p className="typo-subtitle mb-2">Social Links</p>
                     <div className="flex flex-wrap gap-2">
                       {transaction.customer.company.attributes.linkedin && (
                         <a
                           href={transaction.customer.company.attributes.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-2 rounded-lg border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200"
+                          className="p-2 rounded-lg border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors typo-p-muted hover: "
                         >
                           <LinkedInIcon fontSize="small" />
                         </a>
@@ -276,7 +276,7 @@ function TransactionDetailsDrawer({ transaction, open, onClose }: TransactionDet
                           href={transaction.customer.company.attributes.facebook}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-2 rounded-lg border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200"
+                          className="p-2 rounded-lg border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors typo-p-muted hover: "
                         >
                           <FacebookIcon fontSize="small" />
                         </a>
@@ -286,7 +286,7 @@ function TransactionDetailsDrawer({ transaction, open, onClose }: TransactionDet
                           href={transaction.customer.company.attributes.twitter}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-2 rounded-lg border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200"
+                          className="p-2 rounded-lg border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors typo-p-muted hover: "
                         >
                           <TwitterIcon fontSize="small" />
                         </a>
@@ -300,44 +300,44 @@ function TransactionDetailsDrawer({ transaction, open, onClose }: TransactionDet
 
           {/* Payment Details */}
           <div className="mb-6">
-            <h4 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-3">Payment Details</h4>
+            <h4 className="typo-p600  mb-3">Payment Details</h4>
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <PaymentIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
-                  <span className="text-sm text-neutral-600 dark:text-neutral-400">Amount</span>
+                  <PaymentIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
+                  <span className="typo-p-muted ">Amount</span>
                 </div>
-                <span className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
+                <span className="typo-p font-bold ">
                   {transaction.currency} {transaction.amount.toLocaleString()}
                 </span>
               </div>
 
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <CreditCardIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
-                  <span className="text-sm text-neutral-600 dark:text-neutral-400">Credits</span>
+                  <CreditCardIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
+                  <span className="typo-p-muted ">Credits</span>
                 </div>
-                <span className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                <span className="typo-p500 ">
                   {transaction.credits.toLocaleString()}
                 </span>
               </div>
 
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <AccountBalanceIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
-                  <span className="text-sm text-neutral-600 dark:text-neutral-400">Gateway</span>
+                  <AccountBalanceIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
+                  <span className="typo-p-muted ">Gateway</span>
                 </div>
-                <Badge variant="outline" className="text-xs border-neutral-300 dark:border-neutral-600">
+                <Badge variant="outline" className="typo-p12n border-neutral-300 dark:border-neutral-600">
                   {transaction.gateway}
                 </Badge>
               </div>
 
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <CalendarTodayIcon fontSize="small" className="text-neutral-400 dark:text-neutral-500 w-4 h-4" />
-                  <span className="text-sm text-neutral-600 dark:text-neutral-400">Date & Time</span>
+                  <CalendarTodayIcon fontSize="small" className="text-neutral-400  w-4 h-4" />
+                  <span className="typo-p-muted ">Date & Time</span>
                 </div>
-                <span className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                <span className="typo-p500 ">
                   {formatDate(transaction.datetime)}
                 </span>
               </div>

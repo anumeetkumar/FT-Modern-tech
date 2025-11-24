@@ -17,7 +17,7 @@ export function DevicesTable({ devices, onRefresh, onDeviceAction }: DevicesTabl
     0: {
       title: () => <div className="font-semibold">IMEI</div>,
       content: (row: DeviceRow) => (
-        <div className="font-mono text-sm">
+        <div className="font-mono typo-p">
           {row.IMEI}
         </div>
       ),
@@ -35,7 +35,7 @@ export function DevicesTable({ devices, onRefresh, onDeviceAction }: DevicesTabl
       content: (row: DeviceRow) => (
         <div>
           {row.SIM ? (
-            <div className="font-mono text-sm">
+            <div className="font-mono typo-p">
               {row.SIM}
             </div>
           ) : (
@@ -49,7 +49,7 @@ export function DevicesTable({ devices, onRefresh, onDeviceAction }: DevicesTabl
       content: (row: DeviceRow) => (
         <div>
           {row.SIMProvider ? (
-            <span className="text-sm">{row.SIMProvider}</span>
+            <span className="typo-p">{row.SIMProvider}</span>
           ) : (
             <span className="text-gray-400 italic">-</span>
           )}
@@ -78,7 +78,7 @@ export function DevicesTable({ devices, onRefresh, onDeviceAction }: DevicesTabl
     5: {
       title: () => <div className="font-semibold">Created</div>,
       content: (row: DeviceRow) => (
-        <div className="text-sm text-gray-600">
+        <div className="typo-p-muted">
           {new Date(row.CreatedAt).toLocaleDateString()}
         </div>
       ),

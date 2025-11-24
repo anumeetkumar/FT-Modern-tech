@@ -78,7 +78,7 @@ export default function RenewSheet({ open, onOpenChange, selection }: any) {
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent className="w-full sm:max-w-xl overflow-y-auto p-2">
         <SheetHeader>
-          <SheetTitle className="text-xl">
+          <SheetTitle className="typo-h2">
             Renew{" "}
             {count > 1
               ? `${count} devices`
@@ -132,7 +132,7 @@ export default function RenewSheet({ open, onOpenChange, selection }: any) {
                 </SelectContent>
               </Select>
               <div className="flex items-center gap-3">
-                <Label className="text-sm">Tenure (months)</Label>
+                <Label className="typo-p">Tenure (months)</Label>
                 <Input
                   type="number"
                   min={1}
@@ -151,24 +151,24 @@ export default function RenewSheet({ open, onOpenChange, selection }: any) {
               Align expiries to a single date (co‑term)
             </Label>
           </div>
-          <p className="text-xs text-zinc-500">
+          <p className="typo-destructive">
             Co‑term will prorate shorter/longer cycles so all selected devices
             share one renewal date.
           </p>
 
           <div className="rounded-xl border p-4">
             <div className="flex items-center justify-between">
-              <div className="text-sm text-zinc-600">Amount</div>
+              <div className="typo-p-muted">Amount</div>
               <div className="font-medium">{formatINR(totals.base)}</div>
             </div>
             <div className="flex items-center justify-between mt-1">
-              <div className="text-sm text-zinc-600">GST (18%)</div>
+              <div className="typo-p-muted">GST (18%)</div>
               <div className="font-medium">{formatINR(totals.tax)}</div>
             </div>
             <SelectSeparator className="my-3" />
             <div className="flex items-center justify-between">
-              <div className="text-sm text-zinc-800 font-medium">Total</div>
-              <div className="text-lg font-semibold">
+              <div className="typo-p500">Total</div>
+              <div className="typo-h3">
                 {formatINR(totals.total)}
               </div>
             </div>
@@ -193,7 +193,7 @@ export default function RenewSheet({ open, onOpenChange, selection }: any) {
 
             {method === "online" ? (
               <div className="rounded-xl border p-4">
-                <div className="text-sm text-zinc-600">Payment link</div>
+                <div className="typo-p-muted">Payment link</div>
                 <div className="mt-1 font-medium break-all flex items-center gap-2">
                   <LinkIcon sx={{ fontSize: 16 }} />
                   <a
@@ -212,7 +212,7 @@ export default function RenewSheet({ open, onOpenChange, selection }: any) {
                       setSendVia((s) => ({ ...s, email: !!c }))
                     }
                   />
-                  <Label htmlFor="email" className="text-sm">
+                  <Label htmlFor="email" className="typo-p">
                     Email
                   </Label>
                   <Checkbox
@@ -222,7 +222,7 @@ export default function RenewSheet({ open, onOpenChange, selection }: any) {
                       setSendVia((s) => ({ ...s, sms: !!c }))
                     }
                   />
-                  <Label htmlFor="sms" className="text-sm">
+                  <Label htmlFor="sms" className="typo-p">
                     SMS
                   </Label>
                   <Checkbox
@@ -232,7 +232,7 @@ export default function RenewSheet({ open, onOpenChange, selection }: any) {
                       setSendVia((s) => ({ ...s, whatsapp: !!c }))
                     }
                   />
-                  <Label htmlFor="wa" className="text-sm">
+                  <Label htmlFor="wa" className="typo-p">
                     WhatsApp
                   </Label>
                 </div>
@@ -273,7 +273,7 @@ export default function RenewSheet({ open, onOpenChange, selection }: any) {
           <div className="rounded-xl border p-4 bg-zinc-50">
             <div className="flex items-start gap-2">
               <Info sx={{ fontSize: 16 }} className="mt-0.5" />
-              <p className="text-xs text-zinc-600">
+              <p className="typo-subtitle">
                 In production, this creates invoices per device (or one
                 consolidated invoice), updates each device's term, and
                 reconciles payment.

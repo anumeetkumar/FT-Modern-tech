@@ -198,7 +198,7 @@ function SuperAdminAPIConfig() {
   if (loading) {
     return (
       <div className="p-8">
-        <h2 className="text-2xl font-bold tracking-tight mb-2 dark:text-neutral-100">Saving...</h2>
+        <h2 className="typo-h1 mb-2 ">Saving...</h2>
       </div>
     );
   }
@@ -211,7 +211,7 @@ function SuperAdminAPIConfig() {
       <div className="text-[11px] uppercase tracking-[0.2em] text-muted">
         API Configuration
       </div>
-      <CardTitle className="text-2xl tracking-tight text-foreground">
+      <CardTitle className="typo-h1  text-foreground">
         Third-Party Integrations
       </CardTitle>
     </div>
@@ -257,11 +257,11 @@ function SuperAdminAPIConfig() {
         <DocumentationLink/>
 
         {/* Last Updated Info */}
-        <div className="flex items-center justify-between text-xs text-muted  p-3  dark:bg-foreground/5 rounded-lg border border-border">
+        <div className="flex items-center justify-between typo-subtitle  p-3  dark:bg-foreground/5 rounded-lg border border-border">
           <div>
             <span className="font-medium">Last Updated:</span> {new Date(configs.updatedAt).toLocaleString()}
           </div>
-          <Badge variant="outline" className="text-xs border border-border text-white">
+          <Badge variant="outline" className="typo-p12n border border-border text-white">
             <CheckCircleRoundedIcon fontSize="small" className="mr-1" />
             Configurations stored securely
           </Badge>
