@@ -86,7 +86,7 @@ function TopHeader({ mobileOpen, setMobileOpen, role }: TopHeaderProps) {
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 mt-3 px-3 py-3 [padding-top:env(safe-area-inset-top)]">
                 {/* Left: Logo */}
                 <div className="flex min-w-0 items-center gap-2">
-                    <span className="truncate font-semibold text-slate-800 dark:text-slate-100">Fleet Stack</span> */}
+                    <span className="truncate font-semibold text-slate-800 dark:text-slate-100">Fleet Stack</span> 
                     <img src={theme === 'dark' ? "/images/logo-dark.png" : "/images/logo-light.png"} alt="Fleet Stack" className="h-8 w-auto"/>
                 </div>
 
