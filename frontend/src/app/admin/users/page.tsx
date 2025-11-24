@@ -278,8 +278,9 @@ export default function Page() {
   const displayOptions: DisplayMap<UserRow> = {
     0: {
       title: () => (
-        <div className="flex items-center gap-1 typo-h6">
-          <HomeIcon fontSize="small" /> Name
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
+          <HomeIcon style={{ fontSize: "14px" }} />
+          Name
         </div>
       ),
       content: (row) => (
@@ -290,9 +291,7 @@ export default function Page() {
             router.push(`/admin/users/${row.id}`);
           }}
         >
-          <p className="typo-h4">
-            {row.name}
-          </p>
+          <p className="typo-h4">{row.name}</p>
           <p className=" typo-subtitle">
             {row.role} · {row.country}
           </p>
@@ -309,7 +308,11 @@ export default function Page() {
       ),
     },
     1: {
-      title: () => <>Contact</>,
+      title: () => (
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
+          Contact
+        </div>
+      ),
       content: (row) => (
         <div className="flex flex-col">
           <a
@@ -333,7 +336,11 @@ export default function Page() {
     },
 
     2: {
-      title: () => <>Status</>,
+       title: () => (
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
+          Status
+        </div>
+      ),
       content: (row) => (
         <span
           className={`inline-flex items-center rounded-full px-2 py-0.5 typo-h6 ${
@@ -347,31 +354,51 @@ export default function Page() {
       ),
     },
     3: {
-      title: () => <>Last Login</>,
-      content: (row) => (
-        <span className="typo-subtitle">
-          {row.lastLogin}
-        </span>
+       title: () => (
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
+          Last Login
+        </div>
       ),
+      content: (row) => <span className="typo-subtitle">{row.lastLogin}</span>,
     },
     4: {
-      title: () => <>Department</>,
+       title: () => (
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
+          Department
+        </div>
+      ),
       content: (row) => <span className="typo-p">{row.department}</span>,
     },
     5: {
-      title: () => <>ID</>,
+       title: () => (
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
+          ID
+        </div>
+      ),
       content: (row) => <span className="typo-p">{row.id}</span>,
     },
     6: {
-      title: () => <>Country</>,
+       title: () => (
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
+          Country
+        </div>
+      ),
       content: (row) => <span className="typo-p">{row.country}</span>,
     },
     7: {
-      title: () => <>Role</>,
+       title: () => (
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
+          Role
+        </div>
+      ),
       content: (row) => <span className="typo-p">{row.role}</span>,
     },
     8: {
-      title: () => <>Action</>,
+       title: () => (
+        <div className="flex items-center gap-1.5 font-medium typo-p10Muted uppercase">
+          Actions
+        </div>
+      ),
       content: () => (
         <div className="py-0.5">
           <Button
@@ -444,9 +471,7 @@ export default function Page() {
         <div className="mx-auto max-w-7xl px-6 pb-14 pt-8">
           <div className="mb-6 flex items-center justify-between gap-4">
             <div>
-              <h1 className="typo-h1">
-                User Management
-              </h1>
+              <h1 className="typo-h1">User Management</h1>
               {/* <p className="typo-p-muted">
                 Self‑hosted GPS Software • FleetStack
               </p> */}
