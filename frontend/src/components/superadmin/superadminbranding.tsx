@@ -241,8 +241,7 @@ function SuperAdminBranding() {
           {/* Swatch Presets */}
           <div className="flex flex-wrap gap-3">
             {Object.entries(themePresets).map(([title, preset]) => {
-              const previewColor =
-                preset.light["--primary"] || preset.light.primary;
+              const previewColor = preset.light["--primary"] || preset.light["--primary"];
               const isActive = JSON.stringify(colors) === JSON.stringify(preset);
 
               return (
@@ -361,7 +360,7 @@ function ColorConfiguration({ colors, handleColorChange }: any) {
                 key={key}
                 label={key.replace("--", "")}
                 value={colors[mode][key]}
-                onChange={(v) => handleColorChange(mode, key, v)}
+                onChange={(v: string) => handleColorChange(mode, key, v)}
               />
             ))}
           </div>
