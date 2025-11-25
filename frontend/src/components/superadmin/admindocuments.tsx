@@ -692,7 +692,7 @@ export default function AdminDocumentsPage() {
         <div className="flex items-center gap-2">
           <Button
             onClick={openAddDialog}
-            className="rounded-xl bg-primary text-white"
+            className="rounded-xl bg-primary text-background"
           >
             <UploadFileIcon className="mr-2 h-5 w-5" /> New Document
           </Button>

@@ -654,7 +654,7 @@ export default function LogsPage() {
         }}
         className={`inline-flex items-center gap-2 rounded-2xl border px-3 py-2 typo-p ${
           active
-            ? "border-primary bg-primary text-white"
+            ? "border-primary bg-primary text-background"
             : "border-neutral-300 bg-white text-neutral-900 hover:bg-neutral-50"
         }`}
       >

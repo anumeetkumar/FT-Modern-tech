@@ -348,7 +348,7 @@ export default function AdminSettingPage() {
       </Button>
       <Button
         onClick={onSave}
-        className="rounded-xl bg-primary text-white hover:bg-primary/90"
+        className="rounded-xl bg-primary text-background hover:bg-primary/90"
       >
         <SaveIcon className="mr-2" /> Save
       </Button>
@@ -429,7 +429,7 @@ export default function AdminSettingPage() {
             className={classNames(
               "rounded-xl border px-3 py-2 typo-p",
               settings.direction === dir
-                ? "border-primary bg-primary text-white"
+                ? "border-primary bg-primary text-background"
                 : "border-border text-foreground hover:bg-muted"
             )}
           >
@@ -487,7 +487,7 @@ export default function AdminSettingPage() {
             className={classNames(
               "rounded-xl border px-3 py-2 typo-p",
               settings.theme === th
-                ? "border-primary bg-primary text-white"
+                ? "border-primary bg-primary text-background"
                 : "border-border text-foreground hover:bg-muted"
             )}
           >
@@ -536,7 +536,7 @@ export default function AdminSettingPage() {
             className={classNames(
               "rounded-xl border px-3 py-2 typo-p",
               settings.units === unit
-                ? "border-primary bg-primary text-white"
+                ? "border-primary bg-primary text-background"
                 : "border-border text-foreground hover:bg-muted"
             )}
           >

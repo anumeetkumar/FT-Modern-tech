@@ -222,7 +222,7 @@ function CreditDialog({
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="rounded-xl bg-primary text-white hover:bg-primary/90">
+        <Button className="rounded-xl bg-primary text-background hover:bg-primary/90">
           <AddCardRoundedIcon className="mr-2" fontSize="small" />
           Add/Deduct Credits
         </Button>
@@ -479,7 +479,7 @@ export default function CreditHistoryPage() {
                         </div>
                         <Button
                           size="sm"
-                          className="bg-primary text-white hover:bg-primary/90"
+                          className="bg-primary text-background hover:bg-primary/90"
                           onClick={() => setDatePopoverOpen(false)}
                         >
                           OK

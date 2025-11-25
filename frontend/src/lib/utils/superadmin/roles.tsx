@@ -91,7 +91,7 @@ export function LevelToggle({
               onClick={() => onChange(opt)}
               className={`px-3 h-8 typo-p transition-colors ${
                 value === opt
-                  ? "bg-primary text-white"
+                  ? "bg-primary text-background"
                   : "bg-background text-foreground hover:bg-foreground/5"
               } ${opt !== "none" ? "border-l border-border" : ""}`}
             >

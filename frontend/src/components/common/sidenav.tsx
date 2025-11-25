@@ -68,7 +68,7 @@ function MenuItem({
           ? "border-border/60 text-destructive"
           : `border-transparent ${!active ? "hover:bg-foreground/10" :  ""} `,
         active
-          ? "bg-primary text-white "
+          ? "bg-primary text-background "
           : "bg-card text-foreground hover:bg-error/10",
       ].join(" ")}
     >

@@ -125,7 +125,7 @@ export default function LoginAnimation() {
         onMouseLeave={() => setCenterHovered(false)}
       >
         <div
-          className={`relative rounded-full bg-primary text-white grid place-items-center shadow-[0_22px_60px_-10px_rgba(0,0,0,0.55)] transition-all duration-500 ${
+          className={`relative rounded-full bg-primary text-background grid place-items-center shadow-[0_22px_60px_-10px_rgba(0,0,0,0.55)] transition-all duration-500 ${
             centerHovered
               ? "size-[140px] shadow-[0_30px_80px_-10px_rgba(0,0,0,0.7)] bg-primary"
               : "size-[120px]"
@@ -155,7 +155,7 @@ export default function LoginAnimation() {
             <div
               className={`rounded-full bg-background flex items-center justify-center mx-auto shadow-md   transition-all duration-500 ${
                 isHovered
-                  ? "w-20 h-20 bg-primary text-white shadow-xl  ring-neutral-400 scale-110 -translate-y-2"
+                  ? "w-20 h-20 bg-primary text-background shadow-xl  ring-neutral-400 scale-110 -translate-y-2"
                   : "w-16 h-16 text-primary hover:bg-primary hover:text-white hover:scale-105 hover:shadow-lg ring-1 ring-black/10"
               }`}
             >

@@ -5,28 +5,28 @@
 
 export type BrandingColors = {
   light: {
-    primary: string;
-    secondary: string;
-    accent: string;
-    background: string;
-    foreground: string;
-    muted: string;
-    border: string;
-    success: string;
-    warning: string;
-    error: string;
+    "--primary": string;
+    "--secondary": string;
+    "--accent": string;
+    "--background": string;
+    "--foreground": string;
+    "--muted": string;
+    "--border": string;
+    "--success": string;
+    "--warning": string;
+    "--error": string;
   };
   dark: {
-    primary: string;
-    secondary: string;
-    accent: string;
-    background: string;
-    foreground: string;
-    muted: string;
-    border: string;
-    success: string;
-    warning: string;
-    error: string;
+    "--primary": string;
+    "--secondary": string;
+    "--accent": string;
+    "--background": string;
+    "--foreground": string;
+    "--muted": string;
+    "--border": string;
+    "--success": string;
+    "--warning": string;
+    "--error": string;
   };
 };
 

@@ -179,7 +179,7 @@ function SuperAdminProfile({ superAdminId }: { superAdminId?: string }) {
           <LockResetRoundedIcon className="mr-2" fontSize="small" /> Update Password
         </Button>
 
-        <Button className="rounded-xl bg-primary text-white hover:bg-primary/90" onClick={handleEdit}>
+        <Button className="rounded-xl bg-primary text-background hover:bg-primary/90" onClick={handleEdit}>
           <EditRoundedIcon className="mr-2" fontSize="small" /> Edit
         </Button>
       </div>
@@ -201,7 +201,7 @@ function SuperAdminProfile({ superAdminId }: { superAdminId?: string }) {
       <div className="min-w-[220px]">
         <div className="flex flex-wrap items-center gap-2">
           <span className="typo-h2">{superAdmin.name}</span>
-          <Badge className="rounded-full bg-primary text-white">Super Admin</Badge>
+          <Badge className="rounded-full bg-primary text-background">Super Admin</Badge>
           <StatusBadge status={superAdmin.status} />
           {superAdmin.isEmailVerified && (
             <Badge variant="outline" className="rounded-full border-border text-muted">

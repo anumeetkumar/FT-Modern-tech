@@ -269,7 +269,7 @@ const ReverseCoding = () => {
               </div>
               {configs.reverseGeocoding.providerActive && (
                 <div className="mt-3 flex items-center gap-2 typo-p12n">
-                  <Badge className="bg-primary text-white">ACTIVE</Badge>
+                  <Badge className="bg-primary text-background">ACTIVE</Badge>
                   <span className="text-muted">
                     This provider is now handling all reverse geocoding requests
                   </span>

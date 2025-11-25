@@ -195,7 +195,7 @@ const BulkUploadWizard = <T,>({
                 className={cn(
                   "w-8 h-8 rounded-full flex items-center justify-center font-semibold text-sm",
                   step === "config"
-                    ? "bg-primary text-white"
+                    ? "bg-primary text-background"
                     : "bg-foreground/5 text-foreground"
                 )}
               >
@@ -229,7 +229,7 @@ const BulkUploadWizard = <T,>({
                 className={cn(
                   "w-8 h-8 rounded-full flex items-center justify-center font-semibold text-sm",
                   step === "upload"
-                    ? "bg-primary text-white"
+                    ? "bg-primary text-background"
                     : step === "review"
                     ? "bg-success text-white"
                     : "bg-foreground/5 text-foreground"
@@ -263,7 +263,7 @@ const BulkUploadWizard = <T,>({
                 className={cn(
                   "w-8 h-8 rounded-full flex items-center justify-center font-semibold text-sm",
                   step === "review"
-                    ? "bg-primary text-white"
+                    ? "bg-primary text-background"
                     : "bg-foreground/5 text-foreground"
                 )}
               >

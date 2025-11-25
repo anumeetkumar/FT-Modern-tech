@@ -108,7 +108,7 @@ function copy(val: string) {
 // ---- Atoms ----
 const StatusBadge = ({ status }: { status: Vehicledatatype["status"] }) => {
   const map = {
-    running: { label: "RUNNING", style: "bg-primary text-white" },
+    running: { label: "RUNNING", style: "bg-primary text-background" },
     idle: { label: "IDLE", style: "bg-warning text-white" },
     stop: { label: "STOP", style: "bg-error text-white" },
   } as const;
