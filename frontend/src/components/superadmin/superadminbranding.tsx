@@ -300,10 +300,10 @@ function SuperAdminBranding() {
             </div>
           </div>
           <div className="flex gap-2">
-            <Button size="sm" variant={activeTheme === "light" ? "default" : "outline"} onClick={() => setActiveTheme("light")}>
+            <Button size="sm" variant={activeTheme === "light" ? "default" : "outline"} onClick={() => { setActiveTheme("light"); updateTheme({ mode: "light", colors: colors.light }); }}>
               <LightModeIcon fontSize="small" className="mr-2" /> Light
             </Button>
-            <Button size="sm" variant={activeTheme === "dark" ? "default" : "outline"} onClick={() => setActiveTheme("dark")}>
+            <Button size="sm" variant={activeTheme === "dark" ? "default" : "outline"} onClick={() => { setActiveTheme("dark"); updateTheme({ mode: "dark", colors: colors.dark }); }}>
               <DarkModeIcon fontSize="small" className="mr-2" /> Dark
             </Button>
           </div>

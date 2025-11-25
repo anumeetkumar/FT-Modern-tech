@@ -99,7 +99,7 @@ const BillingControls: React.FC<BillingControlsProps> = ({
         <button
           onClick={() => onChange("customers")}
           className={`px-3 py-1.5 rounded-lg typo-p flex items-center gap-2 ${
-            value === "customers" ? "bg-primary text-background" : ""
+            value === "customers" ? "bg-primary text-background!" : ""
           }`}
         >
           <Users sx={{ fontSize: 16 }} /> Customers
@@ -107,7 +107,7 @@ const BillingControls: React.FC<BillingControlsProps> = ({
         <button
           onClick={() => onChange("devices")}
           className={`px-3 py-1.5 rounded-lg typo-p flex items-center gap-2 ${
-            value === "devices" ? "bg-primary text-background" : ""
+            value === "devices" ? "bg-primary text-background!" : ""
           }`}
         >
           <MonitorSmartphone sx={{ fontSize: 16 }} /> Devices
