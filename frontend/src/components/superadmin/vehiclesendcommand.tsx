@@ -150,7 +150,7 @@ export default function VehicleSendCommand() {
             {/* 3. Send */}
             <div className="mt-4 flex items-center justify-between">
               <label className="flex items-center gap-2 typo-p12n"><input type="checkbox" className="h-4 w-4" checked={confirm} onChange={e => setConfirm(e.target.checked)} /> Confirm before send</label>
-              <button onClick={send} disabled={validate().length > 0} className={`inline-flex items-center gap-2 rounded-lg px-3 py-2 typo-p12n ${validate().length ? "cursor-not-allowed border border-border text-muted" : "bg-primary text-white hover:opacity-90"}`}>
+              <button onClick={send} disabled={validate().length > 0} className={`inline-flex items-center gap-2 rounded-lg px-3 py-2 typo-p12n ${validate().length ? "cursor-not-allowed border border-border text-muted" : "bg-primary text-background hover:opacity-90"}`}>
                 <SendIcon style={{ fontSize: 16 }} />
                 <span>Send</span>
               </button>
@@ -170,7 +170,7 @@ export default function VehicleSendCommand() {
                       <div className="flex flex-wrap items-center gap-2">
                         <span className="rounded-sm border border-border px-1.5 py-0.5 text-[10px] text-foreground">{h.transport}</span>
                         <span className="text-foreground">{COMMANDS.find(c => c.key === h.command)?.label}</span>
-                        <span className={`rounded-sm px-1.5 py-0.5 text-[10px] ${h.status === "success" ? "bg-primary text-white" : "border border-border text-destructive"}`}>{h.status.toUpperCase()}</span>
+                        <span className={`rounded-sm px-1.5 py-0.5 text-[10px] ${h.status === "success" ? "bg-primary text-background" : "border border-border text-destructive"}`}>{h.status.toUpperCase()}</span>
                       </div>
                       <div className="mt-1 truncate font-mono typo-subtitle">{h.payload}</div>
                     </div>
@@ -190,7 +190,7 @@ export default function VehicleSendCommand() {
               <div className="rounded-lg border border-border  p-3 typo-p-muted dark:bg-background">No response yet.</div>
             ) : (
               <div className="grid gap-2 typo-p">
-                <div className="flex items-center justify-between"><span>Status</span><span className={`rounded-sm px-1.5 py-0.5 text-[10px] ${response.ok ? "bg-primary text-white" : "border border-border text-destructive"}`}>{response.ok ? "SUCCESS" : "FAILED"}</span></div>
+                <div className="flex items-center justify-between"><span>Status</span><span className={`rounded-sm px-1.5 py-0.5 text-[10px] ${response.ok ? "bg-primary text-background" : "border border-border text-destructive"}`}>{response.ok ? "SUCCESS" : "FAILED"}</span></div>
                 <div className="flex items-center justify-between"><span>HTTP Code</span><span className="font-mono">{response.code}</span></div>
                 <div className="flex items-center justify-between"><span>Message</span><span>{response.message}</span></div>
                 <details className="typo-subtitle">

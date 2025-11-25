@@ -199,7 +199,7 @@ function AdminProfileContent({ adminId }: { adminId: string }) {
                 className={`rounded-full ${
                   inactive
                     ? "bg-background text-foreground border border-border"
-                    : "bg-primary text-white"
+                    : "bg-primary text-background"
                 }`}
               >
                 {inactive ? "Inactive" : "Active"}

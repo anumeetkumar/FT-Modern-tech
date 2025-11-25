@@ -61,7 +61,7 @@ const StatusBadge: React.FC<StatusBadgeProps> = ({ status, showIcon = false,more
       case "active":
       case "completed":
       case "answered":
-        return "bg-primary text-white";
+        return "bg-primary text-background";
 
       case "inactive":
       case "pending":

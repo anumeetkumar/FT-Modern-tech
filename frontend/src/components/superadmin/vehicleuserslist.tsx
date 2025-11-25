@@ -120,7 +120,7 @@ function ProfileCard({
   const VerifiedBadge = p.isEmailVerified ? (
     <Tooltip>
       <TooltipTrigger asChild>
-        <span className="grid h-6 w-6 place-items-center rounded-full bg-primary text-white cursor-help">
+        <span className="grid h-6 w-6 place-items-center rounded-full bg-primary text-background cursor-help">
           <VerifiedIcon style={{ fontSize: 14 }} />
         </span>
       </TooltipTrigger>
@@ -198,7 +198,7 @@ function ProfileCard({
       <div className="mt-4 flex items-center justify-end">
         <button
           onClick={() => onLogin(p.username)}
-          className="inline-flex items-center gap-2 rounded-lg bg-primary text-white px-3 py-1.5 typo-p12n transition hover:bg-primary/90"
+          className="inline-flex items-center gap-2 rounded-lg bg-primary text-background px-3 py-1.5 typo-p12n transition hover:bg-primary/90"
         >
           <LoginIcon style={{ fontSize: 16 }} />
           <span>Login</span>

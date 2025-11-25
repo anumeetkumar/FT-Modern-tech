@@ -230,7 +230,7 @@ export default function SuperAdminSettings() {
                 className={classNames(
                   "flex-1 rounded-xl border px-4 py-3 typo-p transition-all",
                   settings.reverseGeocodingDigits === digit
-                    ? "border-primary bg-primary text-white"
+                    ? "border-primary bg-primary text-background"
                     : "border-border text-foreground hover:bg-foreground/5"
                 )}
               >

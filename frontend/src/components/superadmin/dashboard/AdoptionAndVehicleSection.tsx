@@ -76,7 +76,7 @@ const AdoptionAndVehicleSection = () => {
       onClick={onClick}
       className={`rounded-xl border px-3 py-1 typo-p12n transition ${
         active
-          ? "border-primary bg-primary text-white"
+          ? "border-primary bg-primary text-background"
           : "border-primary text-primary hover:bg-foreground/5"
       }`}
     >

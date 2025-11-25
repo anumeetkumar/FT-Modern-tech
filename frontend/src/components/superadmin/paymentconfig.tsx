@@ -627,7 +627,7 @@ export default function PaymentGatewayConfig() {
                               className={classNames(
                                 "flex-1 rounded-xl border border-border px-4 py-2.5 typo-p transition-all",
                                 config.environment === env
-                                  ? "bg-primary text-white border-primary"
+                                  ? "bg-primary text-background border-primary"
                                   : "text-foreground hover:bg-foreground/5"
                               )}
                             >
@@ -819,7 +819,7 @@ export default function PaymentGatewayConfig() {
                             className={classNames(
                               "rounded-lg border px-2 py-1.5 typo-h6 transition-all",
                               config.supportedCurrencies.includes(currency)
-                                ? "border-primary bg-primary text-white"
+                                ? "border-primary bg-primary text-background"
                                 : "border-border text-foreground/80 hover:bg-foreground/5"
                             )}
                           >

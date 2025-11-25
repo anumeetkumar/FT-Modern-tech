@@ -1,144 +1,230 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { 
-  applyBrandingColors, 
-  saveBrandingColors, 
-  clearBrandingColors,
-  type BrandingColors 
-} from '@/lib/themeUtils';
 
-// Material Design Icons
+import {
+  applyBrandingColors,
+  saveBrandingColors,
+  clearBrandingColors,
+  type BrandingColors,
+} from "@/lib/themeUtils";
+import { useDynamicTheme } from "@/lib/hooks/useDynamicTheme";
+
 import PaletteIcon from "@mui/icons-material/Palette";
 import SaveIcon from "@mui/icons-material/Save";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import ColorLensIcon from "@mui/icons-material/ColorLens";
-import FormatPaintIcon from "@mui/icons-material/FormatPaint";
 import CheckIcon from "@mui/icons-material/Check";
 
-// Default Fleet Stack black/white theme
-const defaultColors: BrandingColors = {
+/* ---------------- THEMES ---------------- */
+export const defaultColors: BrandingColors = {
   light: {
-    primary: '#000000',
-    secondary: '#ffffff',
-    accent: '#333333',
-    background: '#ffffff',
-    foreground: '#000000',
-    muted: '#666666',
-    border: '#e5e5e5',
-    success: '#22c55e',
-    warning: '#f59e0b',
-    error: '#ef4444',
+    "--primary": "#000000",
+    "--secondary": "#ffffff",
+    "--accent": "#333333",
+    "--background": "#ffffff",
+    "--foreground": "#000000",
+    "--muted": "#666666",
+    "--border": "#e5e5e5",
+    "--success": "#22c55e",
+    "--warning": "#f59e0b",
+    "--error": "#ef4444",
   },
   dark: {
-    primary: '#ffffff',
-    secondary: '#000000',
-    accent: '#d4d4d4',
-    background: '#0a0a0a',
-    foreground: '#ffffff',
-    muted: '#a3a3a3',
-    border: '#262626',
-    success: '#22c55e',
-    warning: '#f59e0b',
-    error: '#ef4444',
+    "--primary": "#ffffff",
+    "--secondary": "#000000",
+    "--accent": "#d4d4d4",
+    "--background": "#0a0a0a",
+    "--foreground": "#ffffff",
+    "--muted": "#a3a3a3",
+    "--border": "#262626",
+    "--success": "#22c55e",
+    "--warning": "#f59e0b",
+    "--error": "#ef4444",
   },
 };
 
+export const corporateBlue: BrandingColors = {
+  light: {
+    "--primary": "#0B63E5",
+    "--secondary": "#F2F6FC",
+    "--accent": "#14406B",
+    "--background": "#FFFFFF",
+    "--foreground": "#0F172A",
+    "--muted": "#6C7A91",
+    "--border": "#D8E0EC",
+    "--success": "#1BAA61",
+    "--warning": "#E6A700",
+    "--error": "#D92D20",
+  },
+  dark: {
+    "--primary": "#4D9CFF",
+    "--secondary": "#1B2536",
+    "--accent": "#A7C8FF",
+    "--background": "#0D1117",
+    "--foreground": "#F8FAFC",
+    "--muted": "#A7B4C7",
+    "--border": "#2C3A52",
+    "--success": "#21C97B",
+    "--warning": "#F2C94C",
+    "--error": "#F06464",
+  },
+};
+
+export const modernPurple: BrandingColors = {
+  light: {
+    "--primary": "#7A38F6",
+    "--secondary": "#F7F3FF",
+    "--accent": "#4B1B84",
+    "--background": "#FFFFFF",
+    "--foreground": "#18181B",
+    "--muted": "#6F6C8D",
+    "--border": "#E3D7FF",
+    "--success": "#11AF7A",
+    "--warning": "#F5B935",
+    "--error": "#E64545",
+  },
+  dark: {
+    "--primary": "#C49AFF",
+    "--secondary": "#191028",
+    "--accent": "#E4D4FF",
+    "--background": "#110B1F",
+    "--foreground": "#FAF7FF",
+    "--muted": "#BC9CFF",
+    "--border": "#443061",
+    "--success": "#27D19A",
+    "--warning": "#F8D247",
+    "--error": "#FF6F6F",
+  },
+};
+
+export const luxuryGold: BrandingColors = {
+  light: {
+    "--primary": "#C8A349",
+    "--secondary": "#141414",
+    "--accent": "#5A4B25",
+    "--background": "#FFFFFF",
+    "--foreground": "#121212",
+    "--muted": "#7A7A7A",
+    "--border": "#D9C799",
+    "--success": "#178A4D",
+    "--warning": "#DFAE15",
+    "--error": "#C33131",
+  },
+  dark: {
+    "--primary": "#E5C979",
+    "--secondary": "#000000",
+    "--accent": "#8F7238",
+    "--background": "#0A0A0A",
+    "--foreground": "#F5F5F5",
+    "--muted": "#B7B7B7",
+    "--border": "#3B351F",
+    "--success": "#1CC469",
+    "--warning": "#E3C33A",
+    "--error": "#F26A5A",
+  },
+};
+
+export const futuristicNeon: BrandingColors = {
+  light: {
+    "--primary": "#00D6F7",
+    "--secondary": "#11151B",
+    "--accent": "#00F7A7",
+    "--background": "#FFFFFF",
+    "--foreground": "#0D0D0D",
+    "--muted": "#70808A",
+    "--border": "#DCE7EA",
+    "--success": "#00C694",
+    "--warning": "#FFB340",
+    "--error": "#FF5252",
+  },
+  dark: {
+    "--primary": "#00C0E8",
+    "--secondary": "#0A0E13",
+    "--accent": "#00F2A8",
+    "--background": "#04080B",
+    "--foreground": "#E9FFFF",
+    "--muted": "#6C9A9E",
+    "--border": "#1D3A48",
+    "--success": "#01E0A3",
+    "--warning": "#FFC764",
+    "--error": "#FF7070",
+  },
+};
+
+const themePresets = {
+  Default: defaultColors,
+  Corporate: corporateBlue,
+  Modern: modernPurple,
+  Luxury: luxuryGold,
+  Futuristic: futuristicNeon,
+};
+
+/* ---------------- MAIN COMPONENT ---------------- */
 function SuperAdminBranding() {
+  const { updateTheme } = useDynamicTheme();
+
   const [colors, setColors] = useState<BrandingColors>(defaultColors);
-  const [activeTheme, setActiveTheme] = useState<'light' | 'dark'>('light');
+  const [activeTheme, setActiveTheme] = useState<"light" | "dark">("light");
   const [hasChanges, setHasChanges] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
-  // Handle color change
-  const handleColorChange = (theme: 'light' | 'dark', key: keyof BrandingColors['light'], value: string) => {
-    // Validate hex color format
-    const hexColorRegex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
-    if (hexColorRegex.test(value)) {
-      setColors(prev => ({
-        ...prev,
-        [theme]: {
-          ...prev[theme],
-          [key]: value
-        }
-      }));
-      setHasChanges(true);
-      setShowSuccessMessage(false);
+  useEffect(() => {
+    const saved = localStorage.getItem("fleetstack_branding_colors");
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      setColors(parsed);
+      applyBrandingColors(parsed);
     }
+  }, []);
+
+  /* Live update on typing */
+  const handleColorChange = (theme: "light" | "dark", key: keyof BrandingColors["light"], val: string) => {
+    const regex = /^#([A-Fa-f0-9]{3}|[A-Fa-f0-9]{6})$/;
+    if (!regex.test(val)) return;
+
+    const updated = { ...colors, [theme]: { ...colors[theme], [key]: val } };
+    setColors(updated);
+    setHasChanges(true);
+
+    applyBrandingColors(updated);
+    updateTheme({ mode: theme, colors: updated[theme] });
   };
 
-  // Reset to defaults
+  const handlePresetApply = (preset: BrandingColors) => {
+    setColors(preset);
+    setHasChanges(true);
+
+    applyBrandingColors(preset);
+    updateTheme({ mode: activeTheme, colors: preset[activeTheme] });
+  };
+
   const handleReset = () => {
     setColors(defaultColors);
     setHasChanges(false);
-    setShowSuccessMessage(false);
-    
-    // Apply default colors and clear storage
     applyBrandingColors(defaultColors);
     clearBrandingColors();
-    
-    // Show temporary success message
     setShowSuccessMessage(true);
     setTimeout(() => setShowSuccessMessage(false), 3000);
   };
 
-  // Save changes
   const handleSave = async () => {
     setIsSaving(true);
-    setShowSuccessMessage(false);
-    
-    try {
-      // TODO: Replace with actual API call
-      // const response = await fetch('/api/superadmin/branding', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(colors)
-      // });
-      // 
-      // if (!response.ok) throw new Error('Failed to save');
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Save and apply colors
-      saveBrandingColors(colors);
-      
-      setHasChanges(false);
-      setShowSuccessMessage(true);
-      
-      // Hide success message after 3 seconds
-      setTimeout(() => setShowSuccessMessage(false), 3000);
-    } catch (error) {
-      console.error('Error saving branding colors:', error);
-      alert('Failed to save changes. Please try again.');
-    } finally {
-      setIsSaving(false);
-    }
+    await new Promise((r) => setTimeout(r, 1000));
+    saveBrandingColors(colors);
+    setHasChanges(false);
+    setShowSuccessMessage(true);
+    setTimeout(() => setShowSuccessMessage(false), 3000);
+    setIsSaving(false);
   };
-
-  // Load saved colors on mount
-  React.useEffect(() => {
-    const savedColors = localStorage.getItem('fleetstack_branding_colors');
-    if (savedColors) {
-      try {
-        const parsed = JSON.parse(savedColors);
-        setColors(parsed);
-      } catch (error) {
-        console.error('Error loading saved colors:', error);
-      }
-    }
-  }, []);
 
   const currentTheme = colors[activeTheme];
 
@@ -146,480 +232,171 @@ function SuperAdminBranding() {
     <Card className="border-0 shadow-none">
       <CardHeader className="pb-4">
         <div className="flex items-start justify-between gap-4 flex-wrap">
-          <div className="flex-1 min-w-0">
-            <div className="text-[11px] uppercase tracking-[0.2em] text-muted ">
-              Theme Customization
-            </div>
-            <CardTitle className="typo-h1  ">
-              Branding & Colors
-            </CardTitle>
-            <p className="typo-p-muted mt-1">
-              Customize the color scheme for your Fleet Stack platform. Configure separate themes for light and dark modes.
-            </p>
+          <div className="flex-1">
+            <div className="text-[11px] uppercase tracking-[0.2em] text-muted">Theme Customization</div>
+            <CardTitle className="typo-h1">Branding & Colors</CardTitle>
+            <p className="typo-p-muted mt-1">Customize color schemes and instantly preview UI.</p>
           </div>
+
+          {/* Swatch Presets */}
+          <div className="flex flex-wrap gap-3">
+            {Object.entries(themePresets).map(([title, preset]) => {
+              const previewColor = preset.light["--primary"] || preset.light["--primary"];
+              const isActive = JSON.stringify(colors) === JSON.stringify(preset);
+
+              return (
+                <div
+                  key={title}
+                  className="flex flex-col items-center cursor-pointer gap-1"
+                  onClick={() => handlePresetApply(preset)}
+                >
+                  <div
+                    className="h-10 w-10 rounded-xl"
+                    style={{
+                      backgroundColor: previewColor,
+                      border: isActive ? "3px solid var(--foreground)" : "2px solid transparent",
+                    }}
+                  />
+                  <span className="text-[11px] opacity-70">{title}</span>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Buttons */}
           <div className="flex flex-wrap items-center gap-2">
             {hasChanges && (
-              <Badge variant="outline" className="rounded-full border-amber-500 text-amber-600 dark:border-amber-400 dark:text-amber-400">
+              <Badge variant="outline" className="rounded-full border-amber-500 text-amber-600">
                 Unsaved Changes
               </Badge>
             )}
-            <Button
-              variant="outline"
-              onClick={handleReset}
-              disabled={!hasChanges || isSaving}
-              className="border-neutral-300 dark:border-neutral-600 "
-            >
-              <RestartAltIcon fontSize="small" className="mr-2" />
-              Reset
+            <Button variant="outline" disabled={!hasChanges || isSaving} onClick={handleReset}>
+              <RestartAltIcon fontSize="small" className="mr-2" /> Reset
             </Button>
-            <Button
-              onClick={handleSave}
-              disabled={!hasChanges || isSaving}
-              className="bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-neutral-100"
-            >
-              {isSaving ? (
-                <>
-                  <span className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
-                  Saving...
-                </>
-              ) : (
-                <>
-                  <SaveIcon fontSize="small" className="mr-2" />
-                  Save Changes
-                </>
-              )}
+            <Button disabled={!hasChanges || isSaving} onClick={handleSave}>
+              {isSaving ? "Saving..." : <><SaveIcon fontSize="small" className="mr-2" /> Save</>}
             </Button>
           </div>
         </div>
       </CardHeader>
 
       <CardContent className="space-y-6">
-        {/* Success Message */}
+
         {showSuccessMessage && (
           <Alert className="border-green-200 bg-green-50 dark:border-green-900 dark:bg-green-950">
             <CheckIcon className="h-4 w-4 text-green-600 dark:text-green-400" />
-            <AlertDescription className="text-green-900 dark:text-green-100">
-              {hasChanges === false ? 'Your branding colors have been saved successfully!' : 'All colors have been reset to default Fleet Stack theme.'}
-            </AlertDescription>
+            <AlertDescription>Theme saved successfully.</AlertDescription>
           </Alert>
         )}
 
-        {/* Theme Toggle */}
-        <div className="flex items-center justify-between p-4 rounded-xl border border-neutral-200 dark:border-neutral-700 dark:bg-neutral-800">
+        {/* Preview Mode Toggle */}
+        <div className="flex items-center justify-between p-4 rounded-xl border dark:border-neutral-700">
           <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-lg bg-neutral-100 dark:bg-neutral-700 grid place-items-center">
-              <PaletteIcon className="typo-base-muted" />
-            </div>
+            <PaletteIcon />
             <div>
-              <div className="font-semibold typo-p ">Active Preview</div>
-              <div className="typo-subtitle">
-                Switch between light and dark theme preview
-              </div>
+              <div className="font-semibold">Active Preview</div>
+              <div className="text-sm opacity-60">Switch between light & dark</div>
             </div>
           </div>
           <div className="flex gap-2">
-            <Button
-              variant={activeTheme === 'light' ? 'default' : 'outline'}
-              size="sm"
-              onClick={() => setActiveTheme('light')}
-              className={
-                activeTheme === 'light'
-                  ? 'bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black'
-                  : 'border-neutral-300 dark:border-neutral-600 '
-              }
-            >
-              <LightModeIcon fontSize="small" className="mr-2" />
-              Light Mode
+            <Button size="sm" variant={activeTheme === "light" ? "default" : "outline"} onClick={() => { setActiveTheme("light"); updateTheme({ mode: "light", colors: colors.light }); }}>
+              <LightModeIcon fontSize="small" className="mr-2" /> Light
             </Button>
-            <Button
-              variant={activeTheme === 'dark' ? 'default' : 'outline'}
-              size="sm"
-              onClick={() => setActiveTheme('dark')}
-              className={
-                activeTheme === 'dark'
-                  ? 'bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black'
-                  : 'border-neutral-300 dark:border-neutral-600 '
-              }
-            >
-              <DarkModeIcon fontSize="small" className="mr-2" />
-              Dark Mode
+            <Button size="sm" variant={activeTheme === "dark" ? "default" : "outline"} onClick={() => { setActiveTheme("dark"); updateTheme({ mode: "dark", colors: colors.dark }); }}>
+              <DarkModeIcon fontSize="small" className="mr-2" /> Dark
             </Button>
           </div>
         </div>
-                {/* Live Preview */}
-        <div className="rounded-2xl border border-neutral-200 p-5 dark:border-neutral-700 dark:bg-neutral-800">
-          <div className="flex items-center gap-2 mb-4">
-            <ColorLensIcon className="typo-base-muted" fontSize="small" />
-            <h3 className="typo-p600 uppercase tracking-widest ">
-              Live Preview - {activeTheme === 'light' ? 'Light Mode' : 'Dark Mode'}
-            </h3>
-          </div>
-          
-          <div 
-            className="rounded-xl p-6 space-y-4"
-            style={{
-              backgroundColor: currentTheme.background,
-              borderColor: currentTheme.border,
-              borderWidth: '1px',
-            }}
-          >
-            {/* Preview Header */}
-            <div className="flex items-center justify-between">
-              <h4 
-                className="typo-h3" 
-                style={{ color: currentTheme.foreground }}
-              >
-                Sample Dashboard
-              </h4>
-              <div className="flex gap-2">
-                <span 
-                  className="px-3 py-1 rounded-full typo-h6"
-                  style={{ 
-                    backgroundColor: currentTheme.primary,
-                    color: activeTheme === 'light' ? '#ffffff' : '#000000'
-                  }}
-                >
-                  Primary
-                </span>
-                <span 
-                  className="px-3 py-1 rounded-full typo-h6"
-                  style={{ 
-                    backgroundColor: currentTheme.accent,
-                    color: currentTheme.foreground
-                  }}
-                >
-                  Accent
-                </span>
-              </div>
-            </div>
 
-            {/* Preview Content */}
-            <div className="grid grid-cols-3 gap-3">
-              <div 
-                className="p-4 rounded-lg"
-                style={{ 
-                  backgroundColor: activeTheme === 'light' ? '#f5f5f5' : '#1a1a1a',
-                  borderColor: currentTheme.border,
-                  borderWidth: '1px'
-                }}
-              >
-                <div style={{ color: currentTheme.muted }} className="typo-p12n mb-1">
-                  Sample Card
-                </div>
-                <div style={{ color: currentTheme.foreground }} className="font-semibold">
-                  Content
-                </div>
-              </div>
-              <div 
-                className="p-4 rounded-lg flex items-center justify-center"
-                style={{ 
-                  backgroundColor: currentTheme.success + '20',
-                  borderColor: currentTheme.success,
-                  borderWidth: '1px'
-                }}
-              >
-                <CheckCircleIcon style={{ color: currentTheme.success }} />
-              </div>
-              <div 
-                className="p-4 rounded-lg"
-                style={{ 
-                  backgroundColor: currentTheme.warning + '20',
-                  borderColor: currentTheme.warning,
-                  borderWidth: '1px'
-                }}
-              >
-                <div style={{ color: currentTheme.warning }} className="typo-p500">
-                  Warning
-                </div>
-              </div>
-            </div>
+        {/* Live Preview */}
+        <LivePreview currentTheme={currentTheme} activeTheme={activeTheme} />
 
-            {/* Preview Text */}
-            <div className="space-y-2">
-              <p style={{ color: currentTheme.foreground }} className="typo-p">
-                This is a preview of how your theme will look with the selected colors.
-              </p>
-              <p style={{ color: currentTheme.muted }} className="typo-p">
-                Muted text appears in secondary content areas.
-              </p>
-            </div>
-
-            {/* Preview Buttons */}
-            <div className="flex gap-2 pt-2">
-              <button
-                className="px-4 py-2 rounded-lg typo-p500 transition-all"
-                style={{
-                  backgroundColor: currentTheme.primary,
-                  color: activeTheme === 'light' ? '#ffffff' : '#000000',
-                }}
-              >
-                Primary Button
-              </button>
-              <button
-                className="px-4 py-2 rounded-lg typo-p500 transition-all"
-                style={{
-                  backgroundColor: 'transparent',
-                  color: currentTheme.foreground,
-                  borderColor: currentTheme.border,
-                  borderWidth: '1px',
-                }}
-              >
-                Secondary Button
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Color Configuration */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Light Theme Colors */}
-          <div className="rounded-2xl border border-neutral-200 p-5 dark:border-neutral-700 dark:bg-neutral-800">
-            <div className="flex items-center gap-2 mb-4">
-              <LightModeIcon className="typo-base-muted" fontSize="small" />
-              <h3 className="typo-p600 uppercase tracking-widest ">
-                Light Mode Colors
-              </h3>
-            </div>
-            <div className="space-y-4">
-              <ColorInput
-                label="Primary Color"
-                value={colors.light.primary}
-                onChange={(value) => handleColorChange('light', 'primary', value)}
-                description="Main brand color"
-              />
-              <ColorInput
-                label="Secondary Color"
-                value={colors.light.secondary}
-                onChange={(value) => handleColorChange('light', 'secondary', value)}
-                description="Secondary brand color"
-              />
-              <ColorInput
-                label="Accent Color"
-                value={colors.light.accent}
-                onChange={(value) => handleColorChange('light', 'accent', value)}
-                description="Accent highlights"
-              />
-              <ColorInput
-                label="Background"
-                value={colors.light.background}
-                onChange={(value) => handleColorChange('light', 'background', value)}
-                description="Main background color"
-              />
-              <ColorInput
-                label="Foreground"
-                value={colors.light.foreground}
-                onChange={(value) => handleColorChange('light', 'foreground', value)}
-                description="Main text color"
-              />
-              <ColorInput
-                label="Muted"
-                value={colors.light.muted}
-                onChange={(value) => handleColorChange('light', 'muted', value)}
-                description="Muted text and elements"
-              />
-              <ColorInput
-                label="Border"
-                value={colors.light.border}
-                onChange={(value) => handleColorChange('light', 'border', value)}
-                description="Border colors"
-              />
-              
-              <Separator className="dark:bg-neutral-700" />
-              
-              <div className="typo-subtitle uppercase ">
-                Status Colors
-              </div>
-              
-              <ColorInput
-                label="Success"
-                value={colors.light.success}
-                onChange={(value) => handleColorChange('light', 'success', value)}
-                description="Success states"
-              />
-              <ColorInput
-                label="Warning"
-                value={colors.light.warning}
-                onChange={(value) => handleColorChange('light', 'warning', value)}
-                description="Warning states"
-              />
-              <ColorInput
-                label="Error"
-                value={colors.light.error}
-                onChange={(value) => handleColorChange('light', 'error', value)}
-                description="Error states"
-              />
-            </div>
-          </div>
-
-          {/* Dark Theme Colors */}
-          <div className="rounded-2xl border border-neutral-200 p-5 dark:border-neutral-700 dark:bg-neutral-800">
-            <div className="flex items-center gap-2 mb-4">
-              <DarkModeIcon className="typo-base-muted" fontSize="small" />
-              <h3 className="typo-p600 uppercase tracking-widest ">
-                Dark Mode Colors
-              </h3>
-            </div>
-            <div className="space-y-4">
-              <ColorInput
-                label="Primary Color"
-                value={colors.dark.primary}
-                onChange={(value) => handleColorChange('dark', 'primary', value)}
-                description="Main brand color"
-              />
-              <ColorInput
-                label="Secondary Color"
-                value={colors.dark.secondary}
-                onChange={(value) => handleColorChange('dark', 'secondary', value)}
-                description="Secondary brand color"
-              />
-              <ColorInput
-                label="Accent Color"
-                value={colors.dark.accent}
-                onChange={(value) => handleColorChange('dark', 'accent', value)}
-                description="Accent highlights"
-              />
-              <ColorInput
-                label="Background"
-                value={colors.dark.background}
-                onChange={(value) => handleColorChange('dark', 'background', value)}
-                description="Main background color"
-              />
-              <ColorInput
-                label="Foreground"
-                value={colors.dark.foreground}
-                onChange={(value) => handleColorChange('dark', 'foreground', value)}
-                description="Main text color"
-              />
-              <ColorInput
-                label="Muted"
-                value={colors.dark.muted}
-                onChange={(value) => handleColorChange('dark', 'muted', value)}
-                description="Muted text and elements"
-              />
-              <ColorInput
-                label="Border"
-                value={colors.dark.border}
-                onChange={(value) => handleColorChange('dark', 'border', value)}
-                description="Border colors"
-              />
-              
-              <Separator className="dark:bg-neutral-700" />
-              
-              <div className="typo-subtitle uppercase ">
-                Status Colors
-              </div>
-              
-              <ColorInput
-                label="Success"
-                value={colors.dark.success}
-                onChange={(value) => handleColorChange('dark', 'success', value)}
-                description="Success states"
-              />
-              <ColorInput
-                label="Warning"
-                value={colors.dark.warning}
-                onChange={(value) => handleColorChange('dark', 'warning', value)}
-                description="Warning states"
-              />
-              <ColorInput
-                label="Error"
-                value={colors.dark.error}
-                onChange={(value) => handleColorChange('dark', 'error', value)}
-                description="Error states"
-              />
-            </div>
-          </div>
-        </div>
-
-
-
-        {/* Info Box */}
-        <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 dark:border-blue-900 dark:bg-blue-950">
-          <div className="flex gap-3">
-            <FormatPaintIcon className="text-blue-600 dark:text-blue-400 flex-shrink-0" fontSize="small" />
-            <div className="space-y-1">
-              <div className="typo-p500 text-blue-900 dark:text-blue-100">
-                Theme Customization Tips
-              </div>
-              <div className="typo-p12n text-blue-700 dark:text-blue-300 space-y-1">
-                <p>• Default Fleet Stack theme uses black/white for professional appearance</p>
-                <p>• Customize colors to match your brand identity</p>
-                <p>• Ensure sufficient contrast for accessibility</p>
-                <p>• Preview changes before saving</p>
-                <p>• Changes apply system-wide for all users</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* Color Form */}
+        <ColorConfiguration colors={colors} handleColorChange={handleColorChange} />
       </CardContent>
     </Card>
   );
 }
 
-// Reusable Color Input Component
-function ColorInput({ 
-  label, 
-  value, 
-  onChange, 
-  description 
-}: { 
-  label: string; 
-  value: string; 
-  onChange: (value: string) => void;
-  description?: string;
-}) {
-  const [inputValue, setInputValue] = useState(value);
-  const [isValid, setIsValid] = useState(true);
+/* ---------------- SUB COMPONENTS ---------------- */
 
-  React.useEffect(() => {
-    setInputValue(value);
-  }, [value]);
+function ColorInput({ label, value, onChange }: any) {
+  const [val, setVal] = useState(value);
+  const [valid, setValid] = useState(true);
 
-  const handleInputChange = (newValue: string) => {
-    setInputValue(newValue);
-    
-    // Validate hex color
-    const hexColorRegex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
-    const isValidColor = hexColorRegex.test(newValue);
-    setIsValid(isValidColor);
-    
-    if (isValidColor) {
-      onChange(newValue);
-    }
+  useEffect(() => setVal(value), [value]);
+
+  const update = (v: string) => {
+    setVal(v);
+    const ok = /^#([A-Fa-f0-9]{3}|[A-Fa-f0-9]{6})$/.test(v);
+    setValid(ok);
+    if (ok) onChange(v);
   };
 
   return (
-    <div className="space-y-2">
-      <div className="flex items-center justify-between">
-        <Label className="typo-h6 ">{label}</Label>
-        {description && (
-          <span className="text-[10px] text-muted ">{description}</span>
-        )}
+    <div className="space-y-1">
+      <Label className="font-medium">{label}</Label>
+      <div className="relative">
+        <Input value={val} onChange={(e) => update(e.target.value)} className={`pr-12 font-mono ${!valid && "border-red-500"}`} />
+        <input type="color" value={valid ? val : value} onChange={(e) => update(e.target.value)}
+          className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 cursor-pointer border rounded" />
       </div>
-      <div className="flex gap-2">
-        <div className="relative flex-1">
-          <Input
-            type="text"
-            value={inputValue}
-            onChange={(e) => handleInputChange(e.target.value)}
-            placeholder="#000000"
-            className={`pr-12 font-mono typo-p dark:bg-neutral-700 dark:border-neutral-600  ${
-              !isValid ? 'border-red-500 dark:border-red-500' : ''
-            }`}
-          />
-          <input
-            type="color"
-            value={isValid ? inputValue : value}
-            onChange={(e) => handleInputChange(e.target.value)}
-            className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 rounded cursor-pointer border border-neutral-200 dark:border-neutral-600"
-          />
+      {!valid && <span className="text-[10px] text-red-500">Enter valid hex (#000000)</span>}
+    </div>
+  );
+}
+
+function ColorConfiguration({ colors, handleColorChange }: any) {
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {(["light", "dark"] as const).map((mode) => (
+        <div key={mode} className="rounded-2xl border p-5 dark:border-neutral-700 dark:bg-neutral-800">
+          <h3 className="font-semibold uppercase text-sm mb-4 flex items-center gap-2">
+            {mode === "light" ? <LightModeIcon /> : <DarkModeIcon />} {mode.toUpperCase()} MODE
+          </h3>
+          <div className="space-y-4">
+            {Object.keys(colors[mode]).map((key) => (
+              <ColorInput
+                key={key}
+                label={key.replace("--", "")}
+                value={colors[mode][key]}
+                onChange={(v: string) => handleColorChange(mode, key, v)}
+              />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function LivePreview({ currentTheme, activeTheme }: any) {
+  return (
+    <div className="rounded-2xl border p-5 dark:border-neutral-700 dark:bg-neutral-800">
+      <div
+        className="rounded-xl p-6 space-y-4"
+        style={{
+          backgroundColor: currentTheme["--background"],
+          borderColor: currentTheme["--border"],
+          borderWidth: 1,
+        }}
+      >
+        <h4 style={{ color: currentTheme["--foreground"] }} className="font-bold text-xl">Sample Dashboard</h4>
+
+        <p style={{ color: currentTheme["--foreground"] }}>This is how your UI will look.</p>
+        <p style={{ color: currentTheme["--muted"] }}>Muted text example</p>
+
+        <div className="flex gap-2 pt-2">
+          <button className="px-4 py-2 rounded-lg font-semibold"
+            style={{ backgroundColor: currentTheme["--primary"], color: activeTheme === "light" ? "#fff" : "#000" }}>
+            Primary Button
+          </button>
+          <button className="px-4 py-2 rounded-lg font-semibold"
+            style={{ borderColor: currentTheme["--border"], borderWidth: 1, color: currentTheme["--foreground"] }}>
+            Secondary Button
+          </button>
         </div>
       </div>
-      {!isValid && (
-        <p className="text-[10px] text-red-500 dark:text-red-400">
-          Please enter a valid hex color (e.g., #000000)
-        </p>
-      )}
     </div>
   );
 }

@@ -217,7 +217,7 @@ function SuperAdminAPIConfig() {
     </div>
     <div className="flex flex-wrap items-center gap-2">
       <Button
-        className="rounded-xl bg-primary text-white "
+        className="rounded-xl bg-primary text-background "
         onClick={handleSave}
         disabled={loading}
       >

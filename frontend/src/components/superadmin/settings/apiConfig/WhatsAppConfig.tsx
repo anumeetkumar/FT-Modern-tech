@@ -240,7 +240,7 @@ const WhatsAppConfigComponent = () => {
           </div>
           {configs.whatsapp.providerActive && (
             <div className="mt-3 flex items-center gap-2 typo-p12n">
-              <Badge className="bg-primary text-white">
+              <Badge className="bg-primary text-background">
                 ACTIVE
               </Badge>
               <span className="text-muted">
