@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { Button } from '@/components/ui/button'
-import React from 'react'
+import { Button } from "@/components/ui/button";
+import React from "react";
 import {
   AlertDialog,
   AlertDialogTrigger,
@@ -12,11 +12,11 @@ import {
   AlertDialogDescription,
   AlertDialogCancel,
   AlertDialogAction,
-} from "@/components/ui/alert-dialog"
-import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
-import StatusBadge from '@/components/common/StatusBadge'
+} from "@/components/ui/alert-dialog";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import StatusBadge from "@/components/common/StatusBadge";
 import {
   Card,
   CardHeader,
@@ -25,9 +25,9 @@ import {
   CardAction,
   CardContent,
   CardFooter,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 
-import { Checkbox } from "@/components/ui/checkbox"  
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   CommandDialog,
   CommandInput,
@@ -36,7 +36,7 @@ import {
   CommandGroup,
   CommandItem,
   CommandSeparator,
-} from "@/components/ui/command"
+} from "@/components/ui/command";
 
 import {
   Dialog,
@@ -46,7 +46,7 @@ import {
   DialogTitle,
   DialogDescription,
   DialogFooter,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
 
 import {
   DropdownMenu,
@@ -61,16 +61,16 @@ import {
   DropdownMenuSub,
   DropdownMenuSubTrigger,
   DropdownMenuSubContent,
-} from "@/components/ui/dropdown-menu"
-import { Input } from "@/components/ui/input"
+} from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
 import {
   Popover,
   PopoverTrigger,
   PopoverContent,
-} from "@/components/ui/popover"
-import { Progress } from "@/components/ui/progress"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { ScrollArea } from "@/components/ui/scroll-area"
+} from "@/components/ui/popover";
+import { Progress } from "@/components/ui/progress";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Select,
   SelectTrigger,
@@ -79,51 +79,114 @@ import {
   SelectItem,
   SelectLabel,
   SelectValue,
-  SelectSeparator
-} from "@/components/ui/select"
-import { Separator } from "@/components/ui/separator"
+  SelectSeparator,
+} from "@/components/ui/select";
+import { Separator } from "@/components/ui/separator";
+import { Textarea } from "@/components/ui/textarea";
+import { Toggle } from "@/components/ui/toggle";
+import { Calendar } from "@/components/ui/calendar";
+import { PhoneInput } from "@/components/common/CommonPhoneInput";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { Download } from "@mui/icons-material";
+import Link from "next/link";
 
 const Components = () => {
-    const [open, setOpen] = React.useState(false)
-      const [checked, setChecked] = React.useState(true)
-  const [radioValue, setRadioValue] = React.useState("option1")
-    const [value, setValue] = React.useState(40)
-    const [radioChoice, setRadioChoice] = React.useState("option1")
-    const [selectedOption, setSelectedOption] = React.useState("apple")
- 
+  const [open, setOpen] = React.useState(false);
+  const [checked, setChecked] = React.useState(true);
+  const [radioValue, setRadioValue] = React.useState("option1");
+  const [value, setValue] = React.useState(40);
+  const [radioChoice, setRadioChoice] = React.useState("option1");
+  const [selectedOption, setSelectedOption] = React.useState("apple");
+  const [toggleChecked, setToggleChecked] = React.useState(true);
+
+  const ontogglechange = () => {
+    setToggleChecked(!toggleChecked);
+  };
 
   return (
-    <div className='p-10'>
-      <h1 className='typo-h1'>Components</h1>
+    <div className="p-10">
+      <h1 className="typo-h1">Components</h1>
 
-     
-      {/* ---------- BUTTONS ---------- */}
-      <div className='mt-5'>
-        <h2 className="typo-h2">Button</h2>
-        <div className='flex gap-5'>
+      {/* ---------- TYPOGRAPHY COMPONENT ---------- */}
+      <div className="mt-8">
+        <h2 className="typo-h2 mb-4">Typography</h2>
 
-        <Button variant="default" size="default">
-          Default Button
-        </Button>
+        <div className="space-y-3 bg-background border border-border rounded-lg p-5">
+          <h1 className="typo-h1">Heading 1 — .typo-h1</h1>
+          <h2 className="typo-h2">Heading 2 — .typo-h2</h2>
+          <h3 className="typo-h3">Heading 3 — .typo-h3</h3>
+          <h4 className="typo-h4">Heading 4 — .typo-h4</h4>
+          <h5 className="typo-h5">Heading 5 — .typo-h5</h5>
+          <h6 className="typo-h6">Heading 6 — .typo-h6</h6>
 
-        <Button variant="destructive" size="sm">
-          Delete
-        </Button>
+          <p className="typo-p">Paragraph — .typo-p</p>
+          <p className="typo-p500">Paragraph Medium — .typo-p500</p>
+          <p className="typo-p600">Paragraph Semibold — .typo-p600</p>
 
-        <Button variant="outline" size="lg">
-          Outline Button
-        </Button>
+          <p className="typo-body1">Body 1 — .typo-body1</p>
+          <p className="typo-subtitle">Subtitle — .typo-subtitle</p>
 
-        <Button variant="ghost" size="icon">
-         Ghost
-        </Button>
+          {/* Muted / small text */}
+          <p className="typo-p12n">Small Text — .typo-p12n</p>
+          <p className="typo-p14m">Medium 14px Text — .typo-p14m</p>
+          <p className="typo-p10Muted">Muted 10px — .typo-p10Muted</p>
+          <p className="typo-p12Muted">Muted 12px — .typo-p12Muted</p>
         </div>
-
-
       </div>
 
-       {/* ---------- ALERT DIALOG ---------- */}
-     <div className="mt-8">
+      {/* ---------- BUTTONS ---------- */}
+      <div className="mt-5">
+        <h2 className="typo-h2">Button</h2>
+        <div className="flex gap-5">
+          <Button variant="default" size="default">
+            Default Button
+          </Button>
+
+          <Button variant="destructive" size="sm">
+            Delete
+          </Button>
+
+          <Button variant="outline" size="lg">
+            Outline Button
+          </Button>
+
+          <Button variant="ghost" size="icon">
+            Ghost
+          </Button>
+        </div>
+      </div>
+
+      <div className="mt-5">
+          <h2 className="typo-h2">Icons</h2>
+          <div className="flex gap-5">
+            <Download className="size-6 text-primary" />
+            <Download className="size-6 text-muted" />
+            <Download className="size-6 text-foreground" />
+            </div>
+      </div>
+
+        <div className="mt-5">
+          <h2 className="typo-h2">Link</h2>
+          <div className="flex gap-5">
+            <Link href="#" className="text-primary underline">Example Link</Link>
+            </div>
+      </div>
+
+      {/* ---------- ALERT DIALOG ---------- */}
+      <div className="mt-8">
         <h2 className="typo-h2">Alert Dialog</h2>
 
         <AlertDialog>
@@ -135,7 +198,8 @@ const Components = () => {
             <AlertDialogHeader>
               <AlertDialogTitle>Are you sure?</AlertDialogTitle>
               <AlertDialogDescription>
-                This action cannot be undone. This will permanently delete the item.
+                This action cannot be undone. This will permanently delete the
+                item.
               </AlertDialogDescription>
             </AlertDialogHeader>
 
@@ -147,7 +211,7 @@ const Components = () => {
         </AlertDialog>
       </div>
 
-         {/* ---------- ALERT COMPONENT ---------- */}
+      {/* ---------- ALERT COMPONENT ---------- */}
       <div className="mt-8">
         <h2 className="typo-h2">Alert</h2>
 
@@ -168,13 +232,11 @@ const Components = () => {
         </Alert>
       </div>
 
-
       {/* ---------- AVATAR ---------- */}
       <div className="mt-8">
         <h2 className="typo-h2">Avatar</h2>
 
         <div className="flex gap-4 items-center">
-
           <Avatar>
             <AvatarImage src="https://github.com/shadcn.png" alt="@user" />
             <AvatarFallback>HM</AvatarFallback>
@@ -188,16 +250,14 @@ const Components = () => {
             <AvatarImage src="https://i.pravatar.cc/150" />
             <AvatarFallback>US</AvatarFallback>
           </Avatar>
-
         </div>
       </div>
 
-           {/* ---------- STATUS BADGE ---------- */}
+      {/* ---------- STATUS BADGE ---------- */}
       <div className="mt-8">
         <h2 className="typo-h2">Status Badge</h2>
 
         <div className="flex gap-3 flex-wrap">
-
           <StatusBadge status="active" showIcon />
           <StatusBadge status="completed" showIcon />
           <StatusBadge status="pending" showIcon />
@@ -207,23 +267,19 @@ const Components = () => {
           <StatusBadge status="expiring soon" showIcon />
           <StatusBadge status="closed" showIcon />
           <StatusBadge status="answered" showIcon />
-
         </div>
       </div>
 
-       {/* ---------- CARD ---------- */}
+      {/* ---------- CARD ---------- */}
       <div className="mt-8">
         <h2 className="typo-h2">Card</h2>
 
         <div className="grid gap-6 max-w-lg">
-
           {/* Simple Card */}
           <Card>
             <CardHeader>
               <CardTitle>Simple Card</CardTitle>
-              <CardDescription>
-                This is a basic card layout.
-              </CardDescription>
+              <CardDescription>This is a basic card layout.</CardDescription>
             </CardHeader>
 
             <CardContent>
@@ -242,7 +298,9 @@ const Components = () => {
               <CardDescription>Includes a header action.</CardDescription>
 
               <CardAction>
-                <Button size="sm" variant="outline">Edit</Button>
+                <Button size="sm" variant="outline">
+                  Edit
+                </Button>
               </CardAction>
             </CardHeader>
 
@@ -250,16 +308,14 @@ const Components = () => {
               <p className="text-sm">You can add actions inside the header.</p>
             </CardContent>
           </Card>
-
         </div>
       </div>
 
-  {/* ---------- CHECKBOX ---------- */}
+      {/* ---------- CHECKBOX ---------- */}
       <div className="mt-8">
         <h2 className="typo-h2">Checkbox</h2>
 
         <div className="flex flex-col gap-4">
-
           <label className="flex items-center gap-2">
             <Checkbox />
             <span>Default</span>
@@ -274,12 +330,10 @@ const Components = () => {
             <Checkbox disabled />
             <span>Disabled</span>
           </label>
-
         </div>
       </div>
 
-
-    {/* ---------- COMMAND ---------- */}
+      {/* ---------- COMMAND ---------- */}
       <div className="mt-8">
         <h2 className="typo-h2">Command Palette</h2>
 
@@ -305,7 +359,7 @@ const Components = () => {
         </CommandDialog>
       </div>
 
-        {/* ---------- DIALOG ---------- */}
+      {/* ---------- DIALOG ---------- */}
       <div className="mt-8">
         <h2 className="typo-h2">Dialog</h2>
 
@@ -334,7 +388,7 @@ const Components = () => {
         </Dialog>
       </div>
 
- {/* ---------- DROPDOWN MENU ---------- */}
+      {/* ---------- DROPDOWN MENU ---------- */}
       <div className="mt-8">
         <h2 className="typo-h2">Dropdown Menu</h2>
 
@@ -344,7 +398,6 @@ const Components = () => {
           </DropdownMenuTrigger>
 
           <DropdownMenuContent className="w-48">
-
             <DropdownMenuLabel>Options</DropdownMenuLabel>
 
             <DropdownMenuItem>Profile</DropdownMenuItem>
@@ -365,8 +418,12 @@ const Components = () => {
               value={radioValue}
               onValueChange={setRadioValue}
             >
-              <DropdownMenuRadioItem value="option1">Option 1</DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value="option2">Option 2</DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="option1">
+                Option 1
+              </DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="option2">
+                Option 2
+              </DropdownMenuRadioItem>
             </DropdownMenuRadioGroup>
 
             <DropdownMenuSeparator />
@@ -378,15 +435,13 @@ const Components = () => {
                 <DropdownMenuItem>Sub Action 2</DropdownMenuItem>
               </DropdownMenuSubContent>
             </DropdownMenuSub>
-
           </DropdownMenuContent>
         </DropdownMenu>
-
       </div>
 
-         {/* ---------- INPUT ---------- */}
+      {/* ---------- INPUT ---------- */}
       <div className="mt-8">
-        <h2 className="typo-h2">Input</h2>
+        <h2 className="typo-h2">Input Element</h2>
 
         <div className="max-w-sm flex flex-col gap-4">
           <Input placeholder="Enter your name" />
@@ -394,13 +449,55 @@ const Components = () => {
           <Input type="email" placeholder="Email address" />
 
           <Input type="password" placeholder="Password" />
+          <Input type="number" placeholder="Enter number" />
 
           <Input disabled placeholder="Disabled input" />
 
           <Input aria-invalid="true" placeholder="Error state" />
+
+          <Textarea placeholder="Enter text here" />
+
+          {/* ---------- SELECT ---------- */}
+          <div className="mt-8">
+            <h2 className="typo-h4">Select</h2>
+
+            <Select value={selectedOption} onValueChange={setSelectedOption}>
+              <SelectTrigger className="w-48">
+                <SelectValue placeholder="Choose one..." />
+              </SelectTrigger>
+
+              <SelectContent>
+                <SelectGroup>
+                  <SelectLabel>Fruits</SelectLabel>
+
+                  <SelectItem value="apple">Apple</SelectItem>
+                  <SelectItem value="banana">Banana</SelectItem>
+
+                  <SelectSeparator />
+
+                  <SelectItem value="orange">Orange</SelectItem>
+                  <SelectItem value="mango">Mango</SelectItem>
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+          </div>
+
+          <Toggle checked={toggleChecked} onChange={ontogglechange} />
+
+          <Calendar
+            mode="range"
+            numberOfMonths={2}
+            className="rounded-xl bg-white dark:bg-slate-800 p-2
+                           [&_.rdp-months]:flex [&_.rdp-months]:gap-4
+                           [&_.rdp-month]:bg-white dark:[&_.rdp-month]:bg-slate-800
+                           [&_.rdp-month]:rounded-lg [&_.rdp-month]:p-2"
+          />
+
+          <div>
+            <PhoneInput />
+          </div>
         </div>
       </div>
-
 
       {/* ---------- POPOVER ---------- */}
       <div className="mt-8">
@@ -419,29 +516,25 @@ const Components = () => {
         </Popover>
       </div>
 
-        {/* ---------- PROGRESS ---------- */}
+      {/* ---------- PROGRESS ---------- */}
       <div className="mt-8">
         <h2 className="typo-h2">Progress</h2>
 
         <div className="max-w-sm flex flex-col gap-4">
-
           <Progress value={value} />
 
-          <Button
-            size="sm"
-            onClick={() => setValue(Math.min(100, value + 10))}
-          >
+          <Button size="sm" onClick={() => setValue(Math.min(100, value + 10))}>
             Increase 10%
           </Button>
         </div>
       </div>
 
-     {/* ---------- RADIO GROUP ---------- */}
+      {/* ---------- RADIO GROUP ---------- */}
       <div className="mt-8">
         <h2 className="typo-h2">Radio Group</h2>
 
         <RadioGroup
-         value={radioChoice}
+          value={radioChoice}
           onValueChange={setRadioChoice}
           className="flex flex-col gap-4"
         >
@@ -462,7 +555,7 @@ const Components = () => {
         </RadioGroup>
       </div>
 
-       {/* ---------- SCROLL AREA ---------- */}
+      {/* ---------- SCROLL AREA ---------- */}
       <div className="mt-8">
         <h2 className="typo-h2">Scroll Area</h2>
 
@@ -477,37 +570,11 @@ const Components = () => {
         </ScrollArea>
       </div>
 
-  {/* ---------- SELECT ---------- */}
-      <div className="mt-8">
-        <h2 className="typo-h2">Select</h2>
-
-        <Select value={selectedOption} onValueChange={setSelectedOption}>
-          <SelectTrigger className="w-48">
-            <SelectValue placeholder="Choose one..." />
-          </SelectTrigger>
-
-          <SelectContent>
-            <SelectGroup>
-              <SelectLabel>Fruits</SelectLabel>
-
-              <SelectItem value="apple">Apple</SelectItem>
-              <SelectItem value="banana">Banana</SelectItem>
-
-              <SelectSeparator />
-
-              <SelectItem value="orange">Orange</SelectItem>
-              <SelectItem value="mango">Mango</SelectItem>
-            </SelectGroup>
-          </SelectContent>
-        </Select>
-      </div>
-
-            {/* ---------- SEPARATOR ---------- */}
+      {/* ---------- SEPARATOR ---------- */}
       <div className="mt-8">
         <h2 className="typo-h2">Separator</h2>
 
         <div className="max-w-sm space-y-4">
-
           <p>Above Separator</p>
           <Separator />
           <p>Below Separator</p>
@@ -517,13 +584,184 @@ const Components = () => {
             <Separator orientation="vertical" />
             <span>Right</span>
           </div>
+        </div>
+      </div>
 
+      {/* ---------- SHEET COMPONENT ---------- */}
+      <div className="mt-10">
+        <h2 className="typo-h2 mb-4">Sheet</h2>
+
+        <div className="flex gap-10">
+          {/* Sheet from Right */}
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="default">Open Right Sheet</Button>
+            </SheetTrigger>
+            <SheetContent
+              side="right"
+              className="w-full sm:max-w-md overflow-y-auto"
+            >
+              <SheetHeader>
+                <SheetTitle className="typo-h2 flex items-center gap-2">
+                  Right Sheet
+                </SheetTitle>
+                <SheetDescription>
+                  Opens from the right side of the screen.
+                </SheetDescription>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
+
+          {/* Sheet from Left */}
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline">Open Left Sheet</Button>
+            </SheetTrigger>
+            <SheetContent
+              side="left"
+              className="w-full sm:max-w-md overflow-y-auto"
+            >
+              <SheetHeader>
+                <SheetTitle className="typo-h2 flex items-center gap-2">
+                  Left Sheet
+                </SheetTitle>
+                <SheetDescription>
+                  Opens from the left side of the screen.
+                </SheetDescription>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
+
+          {/* Sheet from Bottom */}
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="secondary">Open Bottom Sheet</Button>
+            </SheetTrigger>
+            <SheetContent side="bottom" className="w-full overflow-y-auto">
+              <SheetHeader>
+                <SheetTitle className="typo-h2 flex items-center gap-2">
+                  Bottom Sheet
+                </SheetTitle>
+                <SheetDescription>
+                  Slides up from the bottom — great for mobile.
+                </SheetDescription>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
+
+      {/* ---------- TABS COMPONENT ---------- */}
+      <div className="mt-10">
+        <h2 className="typo-h2 mb-4">Tabs</h2>
+
+        <Tabs
+          defaultValue="conversation"
+          className="flex flex-col w-full max-w-3xl border border-border rounded-xl overflow-hidden"
+        >
+          <div className="px-5 pt-3 bg-background border-b border-border">
+            <TabsList className="bg-background border border-border rounded-xl">
+              <TabsTrigger
+                value="conversation"
+                className="data-[state=active]:bg-primary data-[state=active]:text-background rounded-lg px-4 py-2"
+              >
+                Conversation
+              </TabsTrigger>
+              <TabsTrigger
+                value="internal"
+                className="data-[state=active]:bg-primary data-[state=active]:text-background rounded-lg px-4 py-2"
+              >
+                Internal Notes
+              </TabsTrigger>
+            </TabsList>
+          </div>
+
+          {/* Conversation Tab */}
+          <TabsContent value="conversation" className="p-5 bg-background">
+            <div className="space-y-4">
+              <div className="typo-subtitle text-muted">
+                Agent • Nov 27, 2025
+              </div>
+              <div className="rounded-xl border border-border px-4 py-3 bg-background">
+                <p className="text-[15px] leading-relaxed text-foreground">
+                  Hello 👋 This is an example of a conversation tab message.
+                </p>
+              </div>
+              <Textarea
+                placeholder="Write a reply..."
+                className="min-h-[100px] resize-y border-border focus-visible:ring-0 focus-visible:ring-offset-0"
+              />
+              <div className="flex justify-end gap-2">
+                <Button
+                  variant="outline"
+                  className="border-border text-foreground"
+                >
+                  Clear
+                </Button>
+                <Button className="bg-primary text-background hover:bg-primary/90">
+                  Send
+                </Button>
+              </div>
+            </div>
+          </TabsContent>
+
+          {/* Internal Notes Tab */}
+          <TabsContent value="internal" className="p-5 bg-background">
+            <div className="space-y-4">
+              <div className="typo-subtitle text-muted">
+                No internal notes yet.
+              </div>
+              <Textarea
+                placeholder="Add a private internal note..."
+                className="min-h-[100px] resize-y border-border focus-visible:ring-0 focus-visible:ring-offset-0"
+              />
+              <div className="flex justify-end gap-2">
+                <Button
+                  variant="outline"
+                  className="border-border text-foreground"
+                >
+                  Clear
+                </Button>
+                <Button className="bg-primary text-background hover:bg-primary/90">
+                  Add Note
+                </Button>
+              </div>
+            </div>
+          </TabsContent>
+        </Tabs>
+
+        {/* ---------- TOOLTIP COMPONENT ---------- */}
+        <div className="mt-10">
+          <h2 className="typo-h2 mb-4">Tooltip</h2>
+
+          <div className="flex items-center gap-4">
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  variant="outline"
+                  className="border-border text-foreground"
+                >
+                  Hover me
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Prefills a suggested reply draft.</TooltipContent>
+            </Tooltip>
+
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button className="bg-primary text-background hover:bg-primary/90">
+                  Save
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Save your current changes.</TooltipContent>
+            </Tooltip>
+          </div>
         </div>
       </div>
 
 
     </div>
-  )
-}
+  );
+};
 
-export default Components
+export default Components;
